@@ -1,0 +1,41 @@
+
+version: "3"
+
+services:
+    front:
+        image: docker/frontend
+        build: ./frontend
+        container_name: frontend
+        depends_on: 
+            - api
+        ports: 
+            - 80:80
+        volumes:
+            - ./frontend/build:/usr/share/nginx/html
+        networks:
+            - front   
+    api:
+        image: docker/backend
+        build: ./backend
+        container_name: backend
+        depends_on: 
+            - db
+        environment: 
+            - PORT=4000
+            - DB_URL=db
+        networks:
+            - back    
+    db:
+        image: mongo
+        container_name: db
+        volumes:
+            - ./data:/data/db
+        ports:
+            - 27017:27017    
+        networks:
+            - back                   
+networks:
+  front:
+    driver: bridge
+  back:
+    driver: bridge  
