@@ -124,55 +124,53 @@ function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             prodbody = req.body;
-            console.log(req.files); //console.log(req.body)
-
+            console.log(req.body);
             _context3.prev = 2;
 
             if (!req.files) {
-              _context3.next = 12;
+              _context3.next = 11;
               break;
             }
 
             img = req.files.img;
-            console.log(req.files);
             filename = img.name;
             img.mv(_path["default"].join(req.pathurl, 'img', filename), function (err) {
               return console.log(err);
             });
-            _context3.next = 10;
+            _context3.next = 9;
             return _md_product["default"].create(_objectSpread({}, prodbody, {
               img: filename
             }));
 
-          case 10:
-            _context3.next = 14;
+          case 9:
+            _context3.next = 13;
             break;
 
-          case 12:
-            _context3.next = 14;
+          case 11:
+            _context3.next = 13;
             return _md_product["default"].create(_objectSpread({}, prodbody));
 
-          case 14:
+          case 13:
             res.status(200).send({
               error: false
             });
-            _context3.next = 21;
+            _context3.next = 20;
             break;
 
-          case 17:
-            _context3.prev = 17;
+          case 16:
+            _context3.prev = 16;
             _context3.t0 = _context3["catch"](2);
             console.log(_context3.t0);
             res.status(400).send({
               error: true
             });
 
-          case 21:
+          case 20:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[2, 17]]);
+    }, _callee3, null, [[2, 16]]);
   }));
 
   return function (_x5, _x6) {

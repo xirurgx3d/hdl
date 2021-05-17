@@ -1,14 +1,14 @@
 export interface ICate {
-  _id:String,
-  dethlvl: Number
-  name: String
+  _id:string,
+  dethlvl: number
+  name: string
 }
 export type IProd = {
-  _id:String,
+  _id:string,
   title: string,
   price: number,
   priceOld: number,
-  descript: String
+  descript: string
   recomend: Number,
   atributes: [],
   picture: any,

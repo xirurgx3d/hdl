@@ -24,6 +24,7 @@ const ProdShema = new mongoose.Schema({
     descript:String,
     recomend:Number,
     img:String,
+    data:String,
     atributes:[
         {
             name:String,

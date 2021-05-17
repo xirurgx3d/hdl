@@ -33,20 +33,17 @@ router.get('/list/:id', async (req,res)=>{
 })
 router.post('/add', async (req,res)=>{
     const prodbody = req.body
-    console.log(req.files)
-    //console.log(req.body)
+    console.log(req.body)
     
     try {
         if(req.files){
             const {img} = req.files
-            console.log(req.files)
             let filename = img.name
             img.mv(path.join(req.pathurl, 'img',filename), err => console.log(err))
             await Product.create({...prodbody,img:filename})
         }else{
             await Product.create({...prodbody})
         }
-      
         res.status(200).send({error:false})
           
     } catch (error) {

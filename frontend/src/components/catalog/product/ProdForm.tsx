@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ICate } from '../../../@types/CatalogType';
 import { I } from '../../../@types/Interface';
@@ -6,24 +6,28 @@ import { I } from '../../../@types/Interface';
 import Api from '../../../api/Api';
 import Attributes from './Attributes';
 
-type Inputs = {
+
+
+type Inputs<C> = {
   title: string,
   price: number,
   priceOld: number,
-  descript: String
+  descript: string
   recomend: Number,
   atributes: [],
   picture: any,
-  img:any
+  img: any,
+  category: C,
+  data:number
 }
 const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
-  const [stateCate, setCate] = useState<null | ICate>(null)
-  const [stateProd, setProd] = useState<null | Inputs>(null)
+  const [stateProd, setProd] = useState<null | Inputs<ICate>>(null)
   const [filee, setfile] = useState<any>(false)
-  const [category,setCategory] = useState<null | ICate>(null)
+  const [category,setCategory] = useState<null | ICate[]>(null)
 
-  const { register, handleSubmit} = useForm<Inputs>();
-  const {id} = match.params
+  const { register, handleSubmit} = useForm<Inputs<string> >();
+  const { id } = match.params
+  
   useEffect(() => {
     id && (async function anyNameFunction() {
       try {
@@ -46,17 +50,16 @@ const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
     (async () => {
       try {
         const { data } = await Api.categorylist<ICate>()
+        setCategory(data)
       } catch (error) {
         console.log(error);
+        setCategory(null)
       }
     })()
     
-  },[])
-
-
+  }, [])
   
-
-  const onSubmit: (data: Inputs) => void = async (data: Inputs) => {
+  const onSubmit: (data: Inputs<string>) => void = async (data: Inputs<string>) => {
     
     try {
       //const file = data.picture[0].name
@@ -66,10 +69,11 @@ const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
       formData.append('priceOld', String(data.priceOld))
       formData.append('descript', String(data.descript))
       formData.append('recomend', String(data.recomend))
+      formData.append('category', String(data.category))
+      formData.append('data', String(Date.now()))
       if (filee || stateProd?.img) {
         formData.append('img', filee || stateProd?.img)
       }
-      
       
       await Api.ProdHandle(formData,id)
     } catch (error) {
@@ -77,8 +81,8 @@ const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
     }
   }
 
-  //console.log(process.env.REACT_APP_API_URL)
   
+
 
   return (
     <div className="container">
@@ -113,9 +117,25 @@ const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
                 <input type="file" onChange={(e:any) => setfile(e.target.files[0])} />
               </div>
               <label className="form-label">Описание</label>
-              <textarea name="descript" ref={register}>
-
-              </textarea>
+              <textarea name="descript" ref={register}></textarea>
+              <select name="category" ref={register}>
+                {
+                  category && category.map((val:ICate,index) => {
+                    return (
+                      <option
+                        selected={
+                          stateProd && stateProd.category._id == val._id ? true : false
+                        }
+                        key={val._id}
+                        defaultValue={'ww'}
+                        value={val._id} >
+                          {val.name}
+                      </option>
+                    )
+                  })
+                }
+                
+              </select>
    
               
           </div>

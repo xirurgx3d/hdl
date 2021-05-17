@@ -43,6 +43,7 @@ var ProdShema = new _mongoose["default"].Schema({
   descript: String,
   recomend: Number,
   img: String,
+  data: String,
   atributes: [{
     name: String,
     value: String
