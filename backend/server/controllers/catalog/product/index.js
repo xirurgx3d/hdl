@@ -6,12 +6,15 @@ import Product from '../../../models/md_product';
 
 const router = express.Router()
 
-router.get('/list', async (req,res)=>{
+router.post('/list', async (req,res)=>{
+    //console.log(req.body)
+    const {sort} = req.body 
     try {
         const prodall = await Product.find({})
             .populate('category','-__v')
             .populate('users','-__v')
-            .lean()
+            .sort(sort)
+            .lean()  
         res.status(200).send(prodall) 
     } catch (error) {
         console.log(error)

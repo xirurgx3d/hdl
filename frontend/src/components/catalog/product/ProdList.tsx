@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { IProd } from '../../../@types/CatalogType';
 import Api from '../../../api/Api';
+import { initialStateProd, reducerProd } from '../../../reducers/reducerProduct/reducer';
+import SortProduct from '../toolsbar/SortProduct';
 import Loader from './../../loader';
 
 
 
 const ProdList: React.FC = (): JSX.Element => {
   const [state, setstate] = useState<null | Array<IProd>>(null)
+  const [stateProd, dispatch] = useReducer(reducerProd, initialStateProd)
   const math = useRouteMatch()
   const getProd = async function() {
     try {
-      const { data } = await Api.productlist()
+      const { data } = await Api.productlist(null,stateProd)
       setstate(data)
     } catch (error) {
       if (error.response) {
@@ -24,7 +27,7 @@ const ProdList: React.FC = (): JSX.Element => {
   }
   useEffect(() => {
     getProd()
-  }, [])
+  }, [stateProd.sort])
 
   const delProd = (id:String) => {
     Api.producDelet(id)
@@ -35,11 +38,17 @@ const ProdList: React.FC = (): JSX.Element => {
         alert('ошибка'+ err)
       })
   }
+
   
   
+
 
   return (
-
+    <>
+      <div className="dash-box">
+              <div className="dispay_chang">dispaly</div>
+              <SortProduct disph={dispatch} />
+            </div>
     <ul className="list-group">
       {
         !state ? <Loader /> :
@@ -47,7 +56,7 @@ const ProdList: React.FC = (): JSX.Element => {
             
             return (
             
-              <li key={index} className="list-group-item">
+              <li key={val._id} className="list-group-item">
                 {
                 val.img !== "undefined"
                   ? <img src={process.env.REACT_APP_API_URL + 'static/img/' + val.img} width="24" />
@@ -61,7 +70,7 @@ const ProdList: React.FC = (): JSX.Element => {
       }
       
       </ul>
-    
+    </>
   )
 }
 

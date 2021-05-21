@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import CateList from './../../components/catalog/category/CateList';
 import ProdList from '../../components/catalog/product/ProdList';
+import SortProduct from './../../components/catalog/toolsbar/SortProduct';
 
 const CatMain: React.FC<RouteComponentProps> = ({match}) => {
   
@@ -20,7 +21,8 @@ const CatMain: React.FC<RouteComponentProps> = ({match}) => {
         <div className="col-sm-9">
           <div className="p-3 border bg-light">
           <Link className="btn g-2 btn-success" to={match.path + 'product/add'}>Добавить товар</Link>
-            <br/>
+            <br />
+            
             <ProdList />
 
 

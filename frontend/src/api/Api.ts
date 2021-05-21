@@ -1,4 +1,5 @@
 import Axios, { AxiosInstance, AxiosPromise } from "axios";
+import { TinitialStateProd } from "../reducers/reducerProduct/reducer";
 import { CatalogFabr, Category, Product } from "./Fabrick";
 
 
@@ -27,7 +28,7 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
     auth: <T>(data: T) => AxiosPromise,
     categorylist: <T>(id?:T) => AxiosPromise,
     categoryHandle: <T, K>(data: T, id?: K) => AxiosPromise,
-    productlist: <T>(id?: T) => AxiosPromise,
+    productlist: <T>(id?: T,data?:TinitialStateProd) => AxiosPromise,
     ProdHandle: <T, K>(data: T, id?: K) => AxiosPromise,
     producDelet: <T>(id?:T) => AxiosPromise,
 }
@@ -69,9 +70,9 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
         cat.fabrick(Category)
         return cat.catalogHandle(data,id)
       },
-      productlist<T>(id?:T) {
+      productlist<T>(id?: T,data?:TinitialStateProd) {
         cat.fabrick(Product)
-        return cat.getList(id)
+        return cat.getList(id,data)
       },
       ProdHandle<T, K>(data: T, id?: K) {
         cat.fabrick(Product)
