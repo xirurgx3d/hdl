@@ -42,6 +42,29 @@ ProdShema.methods.addAttr = function (attr) {
     this.atributes = atributs
     this.save()
 }
+const PaginatePlugin = (schema, options) => {
+    options = options || {}
+    schema.query.paginate = async function(params) {
+      const pagination = {
+        limit: options.limit || 10,
+        page: 1,
+        count: 0
+      }
+      pagination.limit = parseInt(params.limit) || pagination.limit
+      const page = parseInt(params.page)
+      pagination.page = page > 0 ? page : pagination.page
+      const offset = (pagination.page - 1) * pagination.limit
+      const [data, count] = await Promise.all([
+        this.limit(pagination.limit).skip(offset),
+        this.model.countDocuments(this.getQuery())
+      ]);
+      
+      pagination.count = Math.ceil(count / pagination.limit)
+      return { data, pagination }
+    }
+  }
+
+ProdShema.plugin(PaginatePlugin, { limit: 10 })
 
 
 export default mongoose.model('product',ProdShema)

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import CateList from './../../components/catalog/category/CateList';
@@ -7,7 +7,6 @@ import ProdList from '../../components/catalog/product/ProdList';
 import SortProduct from './../../components/catalog/toolsbar/SortProduct';
 
 const CatMain: React.FC<RouteComponentProps> = ({match}) => {
-  
   return(
     <div className="container">
       <div className="row g-2">

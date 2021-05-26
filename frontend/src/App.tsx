@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import Loader from './components/loader';
 import {observer} from "mobx-react-lite";
 import UserStore from './store/UserStore';
+import ProdList from './components/catalog/product/ProdList';
 
 const App: React.FC = observer(() => {
     const [loading, setLoading] = useState(true)
@@ -24,7 +25,7 @@ const App: React.FC = observer(() => {
             .finally(() => setLoading(false))
     }, [UserStore._isAuth])
     
-    
+       
 
     return (
         <>
@@ -34,7 +35,9 @@ const App: React.FC = observer(() => {
             
           loading
             ? <Loader />
-            : <Main />  
+            : <Main>
+               <ProdList /> 
+            </Main>  
         }
         </>    
     )

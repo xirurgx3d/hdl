@@ -1,10 +1,13 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { memo, useEffect, useReducer, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { IProd } from '../../../@types/CatalogType';
 import Api from '../../../api/Api';
 import { initialStateProd, reducerProd } from '../../../reducers/reducerProduct/reducer';
 import SortProduct from '../toolsbar/SortProduct';
 import Loader from './../../loader';
+import Pagination from '../toolsbar/Pagination';
+import { PaginationProdList } from '../../../reducers/reducerProduct/action';
+import SerchProd from '../toolsbar/SerchProd';
 
 
 
@@ -14,8 +17,10 @@ const ProdList: React.FC = (): JSX.Element => {
   const math = useRouteMatch()
   const getProd = async function() {
     try {
-      const { data } = await Api.productlist(null,stateProd)
+      const {data:{data,pagination}} = await Api.productlist(null, stateProd)
+      
       setstate(data)
+      dispatch(PaginationProdList(pagination))
     } catch (error) {
       if (error.response) {
             console.log(error.response.data);
@@ -27,7 +32,7 @@ const ProdList: React.FC = (): JSX.Element => {
   }
   useEffect(() => {
     getProd()
-  }, [stateProd.sort])
+  },[stateProd.sort,stateProd.pagination.page])
 
   const delProd = (id:String) => {
     Api.producDelet(id)
@@ -38,18 +43,17 @@ const ProdList: React.FC = (): JSX.Element => {
         alert('ошибка'+ err)
       })
   }
-
   
   
-
-
   return (
     <>
       <div className="dash-box">
-              <div className="dispay_chang">dispaly</div>
+            <div className="dispay_chang">dispaly</div>
+              <SerchProd disph={dispatch} />
               <SortProduct disph={dispatch} />
             </div>
-    <ul className="list-group">
+      <ul className="list-group">
+       
       {
         !state ? <Loader /> :
           state.map((val: IProd, index: number) => {
@@ -70,8 +74,9 @@ const ProdList: React.FC = (): JSX.Element => {
       }
       
       </ul>
+      <Pagination disph={dispatch} state={stateProd} />
     </>
   )
 }
 
-export default ProdList
+export default memo(ProdList)

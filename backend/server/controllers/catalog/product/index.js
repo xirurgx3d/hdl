@@ -10,12 +10,15 @@ router.post('/list', async (req,res)=>{
     //console.log(req.body)
     const {sort} = req.body 
     try {
-        const prodall = await Product.find({})
+        /**/
+        const { data, pagination } = await Product.find({})
             .populate('category','-__v')
             .populate('users','-__v')
             .sort(sort)
-            .lean()  
-        res.status(200).send(prodall) 
+            .paginate(req.body.pagination)
+            
+        
+        res.status(200).send({data,pagination}) 
     } catch (error) {
         console.log(error)
         res.status(400).send({error:true}) 

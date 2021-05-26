@@ -5,7 +5,14 @@ import ActionConst from "./constants"
 export const initialStateProd = {
   sort: {
     data: -1
-  }
+  },
+  pagination: {
+    page: 1,
+    limit: 3,
+    count:0
+  },
+  serch:''
+
 }
 export type TinitialStateProd = typeof initialStateProd
 
@@ -21,8 +28,10 @@ const reducerProd = (state:TinitialStateProd = initialStateProd, action:TAction)
   switch (action.type) {
     case ActionConst.SORT_PRODUCT:
       return setSate('sort', action.payload) //setSate('sort', action.payload)
-    break
-    
+      break;
+    case ActionConst.PAGINATION_PRODUCT:
+      return setSate('pagination', action.payload)
+      break;
       default: return state
   }
 }

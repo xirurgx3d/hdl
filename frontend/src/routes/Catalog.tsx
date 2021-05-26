@@ -5,7 +5,9 @@ import Main from '../views/catalog/main'
 import CateForm from '../components/catalog/category/CateForm';
 import ProdForm from './../components/catalog/product/ProdForm';
 
-const Catalog:React.FC<RouteComponentProps> = ({match}) => (
+const Catalog: React.FC<RouteComponentProps> = (props) => {
+    const { match } = props
+    return (
         <>
             <Route exact path={match.path + '/'} component={Main} />
             <Route path={match.path + '/add'} component={CateForm} />
@@ -14,7 +16,8 @@ const Catalog:React.FC<RouteComponentProps> = ({match}) => (
             <Route path={match.path + '/product/add'} component={ProdForm} />
             <Route path={match.path + '/product/edit/:id'} component={ProdForm} />
         </>
-)
+    )
+}
 
 
 export default Catalog

@@ -35,7 +35,8 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(req, res) {
-    var sort, prodall;
+    var sort, _ref2, data, pagination;
+
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -44,28 +45,33 @@ function () {
             sort = req.body.sort;
             _context.prev = 1;
             _context.next = 4;
-            return _md_product["default"].find({}).populate('category', '-__v').populate('users', '-__v').sort(sort).lean();
+            return _md_product["default"].find({}).populate('category', '-__v').populate('users', '-__v').sort(sort).paginate(req.body.pagination);
 
           case 4:
-            prodall = _context.sent;
-            res.status(200).send(prodall);
-            _context.next = 12;
+            _ref2 = _context.sent;
+            data = _ref2.data;
+            pagination = _ref2.pagination;
+            res.status(200).send({
+              data: data,
+              pagination: pagination
+            });
+            _context.next = 14;
             break;
 
-          case 8:
-            _context.prev = 8;
+          case 10:
+            _context.prev = 10;
             _context.t0 = _context["catch"](1);
             console.log(_context.t0);
             res.status(400).send({
               error: true
             });
 
-          case 12:
+          case 14:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 8]]);
+    }, _callee, null, [[1, 10]]);
   }));
 
   return function (_x, _x2) {
@@ -75,7 +81,7 @@ function () {
 router.get('/list/:id',
 /*#__PURE__*/
 function () {
-  var _ref2 = _asyncToGenerator(
+  var _ref3 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee2(req, res) {
     var id, cate;
@@ -111,13 +117,13 @@ function () {
   }));
 
   return function (_x3, _x4) {
-    return _ref2.apply(this, arguments);
+    return _ref3.apply(this, arguments);
   };
 }());
 router.post('/add',
 /*#__PURE__*/
 function () {
-  var _ref3 = _asyncToGenerator(
+  var _ref4 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee3(req, res) {
     var prodbody, img, filename;
@@ -176,13 +182,13 @@ function () {
   }));
 
   return function (_x5, _x6) {
-    return _ref3.apply(this, arguments);
+    return _ref4.apply(this, arguments);
   };
 }());
 router.put('/edit/:id',
 /*#__PURE__*/
 function () {
-  var _ref4 = _asyncToGenerator(
+  var _ref5 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee4(req, res) {
     var prodbody, id, img, filename;
@@ -241,13 +247,13 @@ function () {
   }));
 
   return function (_x7, _x8) {
-    return _ref4.apply(this, arguments);
+    return _ref5.apply(this, arguments);
   };
 }());
 router["delete"]('/delet/:id',
 /*#__PURE__*/
 function () {
-  var _ref5 = _asyncToGenerator(
+  var _ref6 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee5(req, res) {
     var prodbody, id, prod;
@@ -295,7 +301,7 @@ function () {
   }));
 
   return function (_x9, _x10) {
-    return _ref5.apply(this, arguments);
+    return _ref6.apply(this, arguments);
   };
 }());
 /*
