@@ -3,20 +3,21 @@ import { async } from 'regenerator-runtime';
 import path from 'path';
 import fs from 'fs'
 import Product from '../../../models/md_product';
+import { ProductCreater } from './ProductCreater';
 
 const router = express.Router()
+const create = new ProductCreater(Product)
 
 router.post('/list', async (req,res)=>{
     //console.log(req.body)
     const {sort} = req.body 
+    
     try {
-        /**/
-        const { data, pagination } = await Product.find({})
+        const { data, pagination } = await create.init(req.body)
             .populate('category','-__v')
             .populate('users','-__v')
             .sort(sort)
             .paginate(req.body.pagination)
-            
         
         res.status(200).send({data,pagination}) 
     } catch (error) {

@@ -32,7 +32,11 @@ const ProdList: React.FC = (): JSX.Element => {
   }
   useEffect(() => {
     getProd()
-  },[stateProd.sort,stateProd.pagination.page])
+  }, [
+    stateProd.sort,
+    stateProd.pagination.page,
+    stateProd.serch
+  ])
 
   const delProd = (id:String) => {
     Api.producDelet(id)

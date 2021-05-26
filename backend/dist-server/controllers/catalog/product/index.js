@@ -15,6 +15,8 @@ var _fs = _interopRequireDefault(require("fs"));
 
 var _md_product = _interopRequireDefault(require("../../../models/md_product"));
 
+var _ProductCreater = require("./ProductCreater");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -29,6 +31,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var router = _express["default"].Router();
 
+var create = new _ProductCreater.ProductCreater(_md_product["default"]);
 router.post('/list',
 /*#__PURE__*/
 function () {
@@ -45,7 +48,7 @@ function () {
             sort = req.body.sort;
             _context.prev = 1;
             _context.next = 4;
-            return _md_product["default"].find({}).populate('category', '-__v').populate('users', '-__v').sort(sort).paginate(req.body.pagination);
+            return create.init(req.body).populate('category', '-__v').populate('users', '-__v').sort(sort).paginate(req.body.pagination);
 
           case 4:
             _ref2 = _context.sent;

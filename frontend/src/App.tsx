@@ -35,9 +35,8 @@ const App: React.FC = observer(() => {
             
           loading
             ? <Loader />
-            : <Main>
-               <ProdList /> 
-            </Main>  
+            : <Main />
+              
         }
         </>    
     )

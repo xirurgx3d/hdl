@@ -9,3 +9,7 @@ export const PaginationProdList = (params: object): ActionTypes.TPaginationProdu
   type:ActionConst.PAGINATION_PRODUCT,
   payload:params
 })
+export const SerchProdList = (params: string): ActionTypes.TSerchProduct => ({
+  type:ActionConst.SERCH_PRODUCT,
+  payload:params
+})

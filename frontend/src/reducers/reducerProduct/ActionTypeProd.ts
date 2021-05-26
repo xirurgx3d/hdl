@@ -10,6 +10,10 @@ export declare namespace ActionTypes {
     type: typeof constants.PAGINATION_PRODUCT
     payload:object
   }
+  type TSerchProduct = {
+    type: typeof constants.SERCH_PRODUCT
+    payload:string
+  }
   
   
 }
