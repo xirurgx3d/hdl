@@ -33,7 +33,12 @@ const reducerProd = (state:TinitialStateProd = initialStateProd, action:TAction)
       return setSate('pagination', action.payload)
       break;
     case ActionConst.SERCH_PRODUCT:
-      return setSate('serch', action.payload)
+      let pagination = Object.assign(state.pagination, { page: 1 })
+      return {
+        ...state,
+        pagination:{...pagination},
+        serch: action.payload
+      }
       default: return state
   }
 }

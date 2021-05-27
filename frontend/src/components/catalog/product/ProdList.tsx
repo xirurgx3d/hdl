@@ -47,6 +47,8 @@ const ProdList: React.FC = (): JSX.Element => {
         alert('ошибка'+ err)
       })
   }
+
+  console.log(stateProd);
   
   
   return (
