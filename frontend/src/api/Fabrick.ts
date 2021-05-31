@@ -61,17 +61,18 @@ class Product{
   constructor(request:AxiosInstance) {
     this.request = request
   }
-  getList<T>(id?: T,data?:any) {
-    return id
-      ? this.request({
-        method: 'get',
-        url: '/catalog/product/list/' + id,
-      })
-      : this.request({
-        method: 'post',
-        url: '/catalog/product/list',
-        data:data
-      })
+  getProduct<T>(id:T) {
+    return this.request({
+      method: 'get',
+      url: '/catalog/product/list/' + id,
+    })
+  }
+  getList<T>(data:T) {
+    return this.request({
+      method: 'post',
+      url: '/catalog/product/list',
+      data:data
+    })
   }
   catalogHandle<T, K>(data: T, id?: K) {
     return id

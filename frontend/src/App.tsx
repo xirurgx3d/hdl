@@ -3,14 +3,14 @@ import Main from './routes/Main';
 import { checkUser } from './api/Api_user';
 import { useHistory } from 'react-router-dom';
 import Loader from './components/loader';
-import {observer} from "mobx-react-lite";
+import {observer} from "mobx-react";
 import UserStore from './store/UserStore';
 import ProdList from './components/catalog/product/ProdList';
 
 const App: React.FC = observer(() => {
     const [loading, setLoading] = useState(true)
     const history = useHistory();
-    
+
     useEffect(() => {
         checkUser()
             .then(e => {

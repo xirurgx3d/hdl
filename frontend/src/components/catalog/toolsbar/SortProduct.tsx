@@ -4,7 +4,7 @@ import { SortProdList } from '../../../reducers/reducerProduct/action';
 
 
 
-const SortProduct: React.FC<{disph:any}> = ({disph}): JSX.Element => {
+const SortProduct: React.FC = (): JSX.Element => {
   
   const toValue = (obj: object) => {
     return JSON.stringify(obj)
@@ -12,7 +12,7 @@ const SortProduct: React.FC<{disph:any}> = ({disph}): JSX.Element => {
 
   const handlSection = (e:any) => {
     const target = e.target.value
-    disph(SortProdList(JSON.parse(target)))
+    //disph(SortProdList(JSON.parse(target)))
   }
 
  

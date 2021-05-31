@@ -8,61 +8,47 @@ import Loader from './../../loader';
 import Pagination from '../toolsbar/Pagination';
 import { PaginationProdList } from '../../../reducers/reducerProduct/action';
 import SerchProd from '../toolsbar/SerchProd';
+import { getProdListRequest } from '../../../redux/reducers/reducerProduct/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { Iredusers } from '../../../redux/reducers/rootReducer';
 
 
 
 const ProdList: React.FC = (): JSX.Element => {
-  const [state, setstate] = useState<null | Array<IProd>>(null)
-  const [stateProd, dispatch] = useReducer(reducerProd, initialStateProd)
   const math = useRouteMatch()
-  const getProd = async function() {
-    try {
-      const {data:{data,pagination}} = await Api.productlist(null, stateProd)
-      
-      setstate(data)
-      dispatch(PaginationProdList(pagination))
-    } catch (error) {
-      if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            //console.log(error.response.headers);
-      }
-      setstate(null)
-    }
-  }
+  const dispatch = useDispatch()
+  const {products,errors} = useSelector((state:Iredusers) => state)
+
   useEffect(() => {
-    getProd()
-  }, [
-    stateProd.sort,
-    stateProd.pagination.page,
-    stateProd.serch
-  ])
+    //getProd()
+    dispatch(getProdListRequest(products))
+    
+  }, [])
 
   const delProd = (id:String) => {
     Api.producDelet(id)
       .then(e => {
-        getProd()
+        //getProd()
       })
       .catch(err => {
         alert('ошибка'+ err)
       })
   }
 
-  console.log(stateProd);
-  
+  const loaders = (products.data.length === 0 && !errors.productlist.error)
   
   return (
     <>
       <div className="dash-box">
             <div className="dispay_chang">dispaly</div>
-              <SerchProd disph={dispatch} />
-              <SortProduct disph={dispatch} />
+              <SerchProd  />
+              <SortProduct />
             </div>
       <ul className="list-group">
        
       {
-        !state ? <Loader /> :
-          state.map((val: IProd, index: number) => {
+        loaders ? <Loader /> :
+        products.data.map((val: IProd, index: number) => {
             
             return (
             
@@ -80,9 +66,9 @@ const ProdList: React.FC = (): JSX.Element => {
       }
       
       </ul>
-      <Pagination disph={dispatch} state={stateProd} />
+      <Pagination/>
     </>
   )
 }
 
-export default memo(ProdList)
+export default ProdList

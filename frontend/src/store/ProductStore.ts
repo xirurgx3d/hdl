@@ -1,19 +1,24 @@
 
 import { makeAutoObservable } from "mobx";
-import { createContext } from "react";
+import { observable, computed, action } from 'mobx';
 
 class ProductStore {
-  _state: any = 'www'
+  @observable show:any = 2;
   constructor() {
-    makeAutoObservable(this);
+    makeAutoObservable(this)
   }
-  setState(state: any) {
-    
-    this._state = state
+  
+  @computed get isOpenLeftPanel() {
+    return this.show;
+    console.log('wwww')
   }
-  get getState() {
+  get Showses() {
+    return this.show;
+  }
+  
+  set toggleLeftPanel(val:any) {
     
-    return this._state
+    this.show = val
   }
 }
 
