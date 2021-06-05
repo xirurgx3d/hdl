@@ -7,3 +7,7 @@ export const debounse = () => {
     },time)
   }
 }
+
+export const stateMutait = <T, K extends keyof T,D extends T[K]>(state:T,key:K,data:D): T => {
+  return { ...state, [key]: data }
+}

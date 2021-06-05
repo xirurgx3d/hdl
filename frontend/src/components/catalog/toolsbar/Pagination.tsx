@@ -27,6 +27,7 @@ const Pagination: React.FC = (): JSX.Element => {
   )
 }
 
+
 export default memo(Pagination)
 
 /*

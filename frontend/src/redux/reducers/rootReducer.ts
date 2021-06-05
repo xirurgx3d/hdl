@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
-import { reducerProd, TinitialStateProd } from './reducerProduct/reducer'
+import { reducerProd, reducerProdListData, TinitialStateProd, TinitialStateProdListData } from './reducerProduct/reducer'
 import { reducerErrors, TinitialStateErrors } from './reducerErrors/reducer';
 
 export interface Iredusers {
-    products: TinitialStateProd,
+    productHandl: TinitialStateProd,
+    productData:TinitialStateProdListData,
     errors: TinitialStateErrors
 }
 
 export default combineReducers({
-    products: reducerProd,
+    productHandl: reducerProd,
+    productData:reducerProdListData,
     errors: reducerErrors
 })

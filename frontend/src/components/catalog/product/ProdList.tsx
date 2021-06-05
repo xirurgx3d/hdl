@@ -1,27 +1,30 @@
-import React, { memo, useEffect, useReducer, useState } from 'react';
+import React, { memo, useEffect} from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { IProd } from '../../../@types/CatalogType';
 import Api from '../../../api/Api';
-import { initialStateProd, reducerProd } from '../../../reducers/reducerProduct/reducer';
-import SortProduct from '../toolsbar/SortProduct';
-import Loader from './../../loader';
 import Pagination from '../toolsbar/Pagination';
-import { PaginationProdList } from '../../../reducers/reducerProduct/action';
-import SerchProd from '../toolsbar/SerchProd';
-import { getProdListRequest } from '../../../redux/reducers/reducerProduct/action';
-import { useDispatch, useSelector } from 'react-redux';
 import { Iredusers } from '../../../redux/reducers/rootReducer';
+import { createSelector } from 'reselect';
+import useProductStore from '../../../hooks/useProductStore';
+import { getProdListRequest } from '../../../redux/reducers/reducerProduct/action';
+import ProductListItems from './ProductListItems';
 
 
+const ProdData = (state:Iredusers)  => state.productData.data
+const isSpiners = (state: Iredusers) => state.productData.isFetching
+
+const selectore = createSelector(
+  [ProdData,isSpiners],
+  (state, spiner) => {
+    return {data:state,spiner}
+  }
+)
+type typeSelect  = ReturnType<typeof selectore>
 
 const ProdList: React.FC = (): JSX.Element => {
-  const math = useRouteMatch()
-  const dispatch = useDispatch()
-  const {products,errors} = useSelector((state:Iredusers) => state)
+  const { dispatch, state } = useProductStore<typeSelect>(selectore)
 
   useEffect(() => {
-    //getProd()
-    dispatch(getProdListRequest(products))
+    dispatch(getProdListRequest())
     
   }, [])
 
@@ -35,40 +38,24 @@ const ProdList: React.FC = (): JSX.Element => {
       })
   }
 
-  const loaders = (products.data.length === 0 && !errors.productlist.error)
+  //const loaders = (state.data.length === 0 && !errors.productlist.error)
+
+  console.log('prod rend',state);
   
   return (
     <>
-      <div className="dash-box">
-            <div className="dispay_chang">dispaly</div>
-              <SerchProd  />
-              <SortProduct />
-            </div>
-      <ul className="list-group">
-       
       {
-        loaders ? <Loader /> :
-        products.data.map((val: IProd, index: number) => {
-            
-            return (
-            
-              <li key={val._id} className="list-group-item">
-                {
-                val.img !== "undefined"
-                  ? <img src={process.env.REACT_APP_API_URL + 'static/img/' + val.img} width="24" />
-                  : ""
-                }
-                <span>{val.title}</span>
-              <Link className="badge bg-secondary" to={math.path + 'product/edit/' + val._id}>ред</Link>
-              <a className="badge bg-secondary" onClick={() => delProd(val._id)}>Удалить</a>
-            </li>)
-        })
+        state?.spiner
+          ? <h1>LOAD</h1>
+          :
+          <>
+          <ProductListItems data={state?.data} />
+          <Pagination/>
+          </>
       }
       
-      </ul>
-      <Pagination/>
     </>
   )
 }
 
-export default ProdList
+export default memo(ProdList)

@@ -4,7 +4,6 @@ import constants from "./constants";
 export declare namespace ActionTypes {
   type TgetProdListRequest = {
     type: typeof constants.GET_PRODUCT
-    payload:object
   }
   type TgetProdListResult = {
     type: typeof constants.RESULT_PRODUCT
@@ -20,6 +19,10 @@ export declare namespace ActionTypes {
   }
   type TSerchProduct = {
     type: typeof constants.SERCH_PRODUCT
+    payload:string
+  }
+  type TDeletProduct = {
+    type: typeof constants.DELET_PRODUCT
     payload:string
   }
 }

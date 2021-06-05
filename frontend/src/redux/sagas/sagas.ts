@@ -3,6 +3,9 @@ import { watchProdListRequestSaga } from "../reducers/reducerProduct/sagaProd";
 
 
 export default function* rootSaga() {
-    yield all([watchProdListRequestSaga()])
+    yield all([
+        watchProdListRequestSaga(),
+        
+    ])
     
 }
