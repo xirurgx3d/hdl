@@ -31,7 +31,7 @@ const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
   useEffect(() => {
     id && (async function anyNameFunction() {
       try {
-        const {data} = await Api.productlist(id)
+        const {data} = await Api.Product(id)
         setProd(data)
       } catch (error) {
         if (error.response) {

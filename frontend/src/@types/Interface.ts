@@ -5,7 +5,7 @@ export namespace I {
     },
     match: {
       params: {
-        id:String
+        id:string
       }
     }
     

@@ -9,7 +9,6 @@ const router = express.Router()
 const create = new ProductCreater(Product)
 
 router.post('/list', async (req,res)=>{
-    //console.log(req.body)
     const {sort} = req.body 
     
     try {

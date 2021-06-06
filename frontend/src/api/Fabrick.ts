@@ -18,6 +18,9 @@ export interface ICatalog{
   catalogHandle: <T,K>(data:T,id?:K) => AxiosPromise
 }
 class CatalogFabr extends Fabrick implements ICatalog {
+  getItem<T>(id:T) {
+    return this.component.getItem(id)
+  }
   getList<T>(id?: T,data?:any){
     return this.component.getList(id,data)
   }
@@ -61,7 +64,7 @@ class Product{
   constructor(request:AxiosInstance) {
     this.request = request
   }
-  getProduct<T>(id:T) {
+  getItem<T>(id:T) {
     return this.request({
       method: 'get',
       url: '/catalog/product/list/' + id,

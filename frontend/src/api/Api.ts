@@ -71,9 +71,10 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
         cat.fabrick(Category)
         return cat.catalogHandle(data,id)
       },
+
       Product(id: string) {
         cat.fabrick(Product)
-        return cat.getList<string>(id)
+        return cat.getItem<string>(id)
       },
       productlist(data: any) {
         cat.fabrick(Product)
