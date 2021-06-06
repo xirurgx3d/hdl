@@ -14,3 +14,5 @@ export type IProd = {
   picture: any,
   img:any
 }
+
+export type typeSelector<T extends (...args: any) => any>  = ReturnType<T>

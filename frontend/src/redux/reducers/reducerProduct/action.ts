@@ -23,11 +23,17 @@ export const SortProdList = (params: object): ActionTypes.TSortProduct => ({
   type:ActionConst.SORT_PRODUCT,
   payload:params
 })
+export const PaginationProdListRequest = (params: object): ActionTypes.TPaginationProductRequest => ({
+  type:ActionConst.PAGINATION_PRODUCT_REQUEST,
+  payload:params
+})
 export const PaginationProdList = (params: object): ActionTypes.TPaginationProduct => ({
   type:ActionConst.PAGINATION_PRODUCT,
   payload:params
 })
+
+
 export const DeletProdList = (params: string): ActionTypes.TDeletProduct => ({
-  type:ActionConst.SERCH_PRODUCT,
+  type:ActionConst.DELET_PRODUCT,
   payload:params
 })

@@ -7,6 +7,7 @@ import { createSelector } from 'reselect';
 import useProductStore from '../../../hooks/useProductStore';
 import { getProdListRequest } from '../../../redux/reducers/reducerProduct/action';
 import ProductListItems from './ProductListItems';
+import { typeSelector } from '../../../@types/CatalogType';
 
 
 const ProdData = (state:Iredusers)  => state.productData.data
@@ -18,27 +19,14 @@ const selectore = createSelector(
     return {data:state,spiner}
   }
 )
-type typeSelect  = ReturnType<typeof selectore>
 
 const ProdList: React.FC = (): JSX.Element => {
-  const { dispatch, state } = useProductStore<typeSelect>(selectore)
+  const { dispatch, state } = useProductStore<typeSelector<typeof selectore>>(selectore)
 
   useEffect(() => {
     dispatch(getProdListRequest())
     
   }, [])
-
-  const delProd = (id:String) => {
-    Api.producDelet(id)
-      .then(e => {
-        //getProd()
-      })
-      .catch(err => {
-        alert('ошибка'+ err)
-      })
-  }
-
-  //const loaders = (state.data.length === 0 && !errors.productlist.error)
 
   console.log('prod rend',state);
   

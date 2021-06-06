@@ -8,7 +8,7 @@ export declare namespace ActionTypes {
   }
   type TPaginationProduct = {
     type: typeof constants.PAGINATION_PRODUCT
-    payload:object
+    payload:number
   }
   type TSerchProduct = {
     type: typeof constants.SERCH_PRODUCT

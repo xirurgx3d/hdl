@@ -31,7 +31,7 @@ const reducerProd = (state:TinitialStateProd = initialStateProd, action:TAction)
    
     
     case ActionConst.SORT_PRODUCT:
-      return setSate('sort', action.payload) //setSate('sort', action.payload)
+      return setSate('sort', action.payload)
       break;
 
     case ActionConst.PAGINATION_PRODUCT:
