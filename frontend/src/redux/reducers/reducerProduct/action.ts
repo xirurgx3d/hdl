@@ -19,10 +19,7 @@ export const FetchStopProdLis = () => ({
 })
 
 
-export const SortProdList = (params: object): ActionTypes.TSortProduct => ({
-  type:ActionConst.SORT_PRODUCT,
-  payload:params
-})
+
 export const PaginationProdListRequest = (params: object): ActionTypes.TPaginationProductRequest => ({
   type:ActionConst.PAGINATION_PRODUCT_REQUEST,
   payload:params
@@ -31,7 +28,10 @@ export const PaginationProdList = (params: object): ActionTypes.TPaginationProdu
   type:ActionConst.PAGINATION_PRODUCT,
   payload:params
 })
-
+export const SerchProdList = (params: string): ActionTypes.TSerchProduct => ({
+  type:ActionConst.SERCH_PRODUCT,
+  payload:params
+})
 
 export const DeletProdList = (params: string): ActionTypes.TDeletProduct => ({
   type:ActionConst.DELET_PRODUCT,

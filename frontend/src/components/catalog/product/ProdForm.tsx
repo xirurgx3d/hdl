@@ -34,11 +34,7 @@ const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
         const {data} = await Api.Product(id)
         setProd(data)
       } catch (error) {
-        if (error.response) {
-              console.log(error.response.data);
-              console.log(error.response.status);
-              //console.log(error.response.headers);
-        }
+        
         setProd(null)
       }
       

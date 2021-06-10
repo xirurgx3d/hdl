@@ -1,5 +1,6 @@
 import Axios, { AxiosInstance, AxiosPromise } from "axios";
-import { TinitialStateProd } from "../reducers/reducerProduct/reducer";
+import { TinitialStateProd } from "../redux/reducers/reducerProduct/reducer";
+
 import { CatalogFabr, Category, Product } from "./Fabrick";
 
 

@@ -3,6 +3,12 @@ import React,{ useEffect,useState } from 'react';
 import jwt_decode from "jwt-decode";
 import { useHistory } from 'react-router-dom';
 import UserStore from './../store/UserStore';
+//
+import { AppBar, Avatar, Badge, Box, Container, CssBaseline, Divider, Drawer, Grid, IconButton, Link, List, ListItem, ListItemIcon, ListItemText, Paper, Toolbar, Typography } from '@material-ui/core';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import clsx from 'clsx';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { useStyles } from '../styled/material_styles';
 
 type Iuser = {
   email:string
@@ -11,7 +17,7 @@ type Iuser = {
 const Header: React.FC = () => {
   const [user, setUser] = useState<string>('')
   const history = useHistory();
-  
+  const classes = useStyles()
 
   useEffect(() => {
     if (UserStore._isAuth) {
@@ -32,13 +38,32 @@ const Header: React.FC = () => {
   }
 
   return (
-    <div className="container">
-        <div className="row g-2">
-          <span>добро пожаловать</span>
-          <span>{user}</span>
-          <a onClick={logOut}>выйти</a>
-        </div>
-        </div>
+    <AppBar position="absolute" className={clsx(classes.appBar, classes.appBarShift)}>
+        <Toolbar className={classes.toolbar}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            
+            className={clsx(classes.menuButton, classes.menuButtonHidden)}
+          >
+            
+          </IconButton>
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+            Dashboard
+          </Typography>
+          
+          <Avatar src="/broken-image.jpg" />
+          
+          <Typography className={classes.userTitle} color="inherit" noWrap>
+            Добро пожаловать, {user}
+        </Typography>
+          <IconButton color="inherit">
+            <ExitToAppIcon />
+          </IconButton>
+        </Toolbar>
+                </AppBar>
+    
     
     )
 }  

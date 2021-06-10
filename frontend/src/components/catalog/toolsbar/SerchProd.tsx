@@ -3,7 +3,8 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import { typeSelector } from '../../../@types/CatalogType';
 import useProductStore from '../../../hooks/useProductStore';
-import { SerchProdList } from '../../../reducers/reducerProduct/action';
+import { SerchProdList } from '../../../redux/reducers/reducerProduct/action';
+
 import { Iredusers } from '../../../redux/reducers/rootReducer';
 import { debounse } from '../../../utils/utilite';
 
