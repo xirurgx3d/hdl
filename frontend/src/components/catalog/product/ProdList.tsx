@@ -8,6 +8,7 @@ import useProductStore from '../../../hooks/useProductStore';
 import { getProdListRequest } from '../../../redux/reducers/reducerProduct/action';
 import ProductListItems from './ProductListItems';
 import { typeSelector } from '../../../@types/CatalogType';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 
 
 const ProdData = (state:Iredusers)  => state.productData.data
@@ -37,7 +38,21 @@ const ProdList: React.FC = (): JSX.Element => {
           ? <h1>LOAD</h1>
           :
           <>
-          <ProductListItems data={state?.data} />
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell>Date</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Ship To</TableCell>
+                <TableCell>Payment Method</TableCell>
+                <TableCell align="right">Sale Amount</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <ProductListItems data={state?.data} />
+            </TableBody>
+          </Table>  
+          
           <Pagination/>
           </>
       }

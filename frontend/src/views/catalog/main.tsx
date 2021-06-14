@@ -2,14 +2,11 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import CateList from './../../components/catalog/category/CateList';
 import ProdList from '../../components/catalog/product/ProdList';
-import ProductStore from '../../store/ProductStore';
-import SerchProd from '../../components/catalog/toolsbar/SerchProd';
-import SortProduct from '../../components/catalog/toolsbar/SortProduct';
-import { Container, Grid, Paper } from '@material-ui/core';
+import { Container, Grid, Paper, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { useStyles } from '../../styled/material_styles';
+import CateProdList from '../../components/catalog/category/CateProdList';
 
 const CatMain: React.FC<RouteComponentProps> = ({ match }) => {
   const classes = useStyles()
@@ -21,11 +18,17 @@ const CatMain: React.FC<RouteComponentProps> = ({ match }) => {
     <Grid container spacing={3}>
       <Grid item xs={12} md={4} lg={3}>
         <Paper className={fixedHeightPaper}>
-          <CateList />
+          <Typography component="h2" variant="h6" color="primary" gutterBottom>
+          Категории
+        </Typography>
+          <CateProdList />
         </Paper>
       </Grid>
       <Grid item xs={12} md={8} lg={9}>
         <Paper className={fixedHeightPaper}>
+          <Typography component="h2" variant="h6" color="primary" gutterBottom>
+            Товары
+        </Typography>
           <ProdList />
         </Paper>
       </Grid>

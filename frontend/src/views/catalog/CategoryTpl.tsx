@@ -26,8 +26,8 @@ const CategoryTpl: React.FC<I.Irote> = ({ history, match }) => {
         
            <Paper className={fixedHeightPaper}>
               <Typography component="h2" variant="h6" color="primary" gutterBottom>
-          Категории
-        </Typography>
+            Категории
+          </Typography>
          <Button variant="contained" color="primary"><Link to={pathname} >Добавить категорию</Link></Button>
              <Dialogs to={pathname}>
                <CateForm />
