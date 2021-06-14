@@ -1,3 +1,4 @@
+import './style.css'
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ICate } from '../../../@types/CatalogType';
@@ -36,9 +37,9 @@ const CateForm: React.FC<{id?:string}> = ({id}): JSX.Element => {
 
   return (
     
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-3">
-        <label className="form-label">Email address</label>
+    <form className="popBox" onSubmit={handleSubmit(onSubmit)}>
+      <div className="popBox_item">
+        <label className="form-label">Название</label>
         <input type="text" name="name"
           ref={register({ required: true, minLength: 2, maxLength: 15 })}
           placeholder={stateCate?.name as string}

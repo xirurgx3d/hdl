@@ -1,3 +1,5 @@
+import { Button, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 import React, { memo, useEffect, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { ICate } from '../../../@types/CatalogType';
@@ -33,21 +35,33 @@ const CateList: React.FC = (): JSX.Element => {
 
   
   return (
-
-    <ul className="list-group">
+    <>
+     <List >
+    
       {
         !state ? <Loader /> :
           state.map((val: ICate, index) => {
-            return (<li
-              key={index}
-              onClick={() => setCat(val._id)}
-              className="list-group-item">{val.name}
-              <Link className="badge bg-secondary" to={pathname + '?id=' + val._id}>ред</Link>
-            </li>)
+            return (
+             
+              <ListItem
+                key={index}
+                onClick={() => setCat(val._id)}>
+                  
+                    <ListItemText primary={val.name} />
+                    <Button color="primary">
+                      <Link className="badge bg-secondary" to={pathname + '?id=' + val._id}>ред</Link>
+                    </Button>
+                    <ListItemIcon>
+                        <DeleteIcon />
+                    </ListItemIcon>
+              </ListItem>  
+           
+            )
         })
       }
-      </ul>
-    
+      
+    </List>
+    </>
   )
 }
 
