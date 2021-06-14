@@ -16,6 +16,8 @@ const Catalog: React.FC = () => {
             
             <Route path={'/catalog/product/add'} component={ProdForm} />
             <Route path={'/catalog/product/edit/:id'} component={ProdForm} />
+
+            
         </>
     )
 }

@@ -9,12 +9,13 @@ interface Inputs{
   name:String
 }
 
-const CateForm: React.FC<{ id: ReactNode }> = ({ id }): JSX.Element => {
+const CateForm: React.FC<{id?:string}> = ({id}): JSX.Element => {
   const [stateCate, setCate] = useState<null | ICate>(null)
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
   
+  
   useEffect(() => {
-    (async function anyNameFunction() {
+    id && (async function anyNameFunction() {
       try {
         const { data } = await Api.categorylist<typeof id>(id)
         setCate(data)
@@ -32,7 +33,6 @@ const CateForm: React.FC<{ id: ReactNode }> = ({ id }): JSX.Element => {
       
     }
   }
-  
 
   return (
     

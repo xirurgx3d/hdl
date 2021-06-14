@@ -28,7 +28,7 @@ const ProdList: React.FC = (): JSX.Element => {
     
   }, [])
 
-  console.log('prod rend',state);
+  //console.log('prod rend',state);
   
   return (
     <>

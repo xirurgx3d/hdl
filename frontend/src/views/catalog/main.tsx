@@ -13,7 +13,7 @@ import { useStyles } from '../../styled/material_styles';
 
 const CatMain: React.FC<RouteComponentProps> = ({ match }) => {
   const classes = useStyles()
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight); 
   
   return(
     
