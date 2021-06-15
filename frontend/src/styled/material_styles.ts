@@ -81,5 +81,21 @@ export const useStyles = makeStyles((theme) => ({
     },
     fixedHeight: {
       height: 'auto',
+  },
+    formControl: {
+      margin: theme.spacing(2),
+      minWidth: 180,
     },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+  },
+  setingButt: {
+      frontSize:'14px'
+  },
+  toolbars: {
+    padding:'0 20px',
+    backgroundColor: '#cac9c93b',
+    marginBottom:20,
+    boxShadow:'0 0 5px rgba(0,0,0,.2)'
+  }
   }));

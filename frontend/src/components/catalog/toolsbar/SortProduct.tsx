@@ -1,13 +1,17 @@
 
-import React, { memo } from 'react';
+import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@material-ui/core';
+import React, { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useProductStore from '../../../hooks/useProductStore';
 import { SortProdList } from '../../../reducers/reducerProduct/action';
+import { Iredusers } from '../../../redux/reducers/rootReducer';
+import { useStyles } from '../../../styled/material_styles';
 
 
 
 const SortProduct: React.FC = (): JSX.Element => {
-  const {dispatch} =  useProductStore()
+  const {state, dispatch } = useProductStore((state: Iredusers) => state.productHandl.sort)
+  const classes = useStyles()
   
   const toValue = (obj: object) => {
     return JSON.stringify(obj)
@@ -18,17 +22,30 @@ const SortProduct: React.FC = (): JSX.Element => {
     const parse = JSON.parse(target)
     dispatch(SortProdList(parse))
   }
+  
 
   return (
-    <div className="sort_box">
-      <select onChange={handlSection}>
-        <option value={toValue({data:-1})}>Новые</option>
-        <option value={toValue({data:1})}>Старые</option>
-        <option value={toValue({ title: 1 })}>Алфовиту</option>
-        <option value={toValue({ price: -1 })}>Цена убывание</option>
-        <option value={toValue({price:1})}>Цена возростание</option>
-      </select> 
-    </div>
+   
+    <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">Новые</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={JSON.stringify(state)}
+          onChange={handlSection}
+          className={classes.selectEmpty}
+        >
+          
+          <MenuItem value={toValue({data:-1})}>Новые</MenuItem>
+          <MenuItem value={toValue({data:1})}>Старые</MenuItem>
+          <MenuItem value={toValue({ title: 1 })}>Алфовиту</MenuItem>
+          <MenuItem value={toValue({ price: -1 })}>Цена убывание</MenuItem>
+          <MenuItem value={toValue({price:1})}>Цена возростание</MenuItem>
+        </Select>
+        <FormHelperText>Сортировка товаров</FormHelperText>
+      </FormControl>
+    
+   
   )
 }
 

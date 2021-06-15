@@ -1,3 +1,4 @@
+import { TextField } from '@material-ui/core';
 import React, { memo } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
@@ -28,7 +29,8 @@ const SerchProd: React.FC = (): JSX.Element => {
   
   return (
     <div className="serch-box">
-      <input type="text" onChange={handlSerch} defaultValue={state as string} />
+      <TextField id="standard-basic" onChange={handlSerch} defaultValue={state as string} label="Поиск по каталогу" />
+      
     </div>
   )
 }

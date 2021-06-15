@@ -1,12 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import ProdList from '../../components/catalog/product/ProdList';
 import { Container, Grid, Paper, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { useStyles } from '../../styled/material_styles';
 import CateProdList from '../../components/catalog/category/CateProdList';
+import ToolbarTpl from './ToolbarTpl';
 
 const CatMain: React.FC<RouteComponentProps> = ({ match }) => {
   const classes = useStyles()
@@ -28,7 +27,8 @@ const CatMain: React.FC<RouteComponentProps> = ({ match }) => {
         <Paper className={fixedHeightPaper}>
           <Typography component="h2" variant="h6" color="primary" gutterBottom>
             Товары
-        </Typography>
+            </Typography>
+          <ToolbarTpl />  
           <ProdList />
         </Paper>
       </Grid>
