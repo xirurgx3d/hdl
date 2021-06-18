@@ -97,5 +97,18 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: '#cac9c93b',
     marginBottom:20,
     boxShadow:'0 0 5px rgba(0,0,0,.2)'
+  },
+  prodHandbutt: {
+    fontSize:8
+  },
+  prodTitle: {
+    fontSize:16
+  },
+  handleboxe: {
+    backgroundColor: '#cac9c93b',
+    
+  },
+  prodImgbox: {
+    width:26
   }
   }));

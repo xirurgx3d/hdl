@@ -38,14 +38,14 @@ const ProdList: React.FC = (): JSX.Element => {
           ? <h1>LOAD</h1>
           :
           <>
-          <Table size="small">
+          <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Date</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Ship To</TableCell>
-                <TableCell>Payment Method</TableCell>
-                <TableCell align="right">Sale Amount</TableCell>
+                <TableCell>Изображение</TableCell>
+                <TableCell>Название</TableCell>
+                <TableCell>Цена</TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

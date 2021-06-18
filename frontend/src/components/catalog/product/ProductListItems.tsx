@@ -1,10 +1,11 @@
-import { TableCell, TableRow } from '@material-ui/core';
+import { Button, TableCell, TableRow, Typography } from '@material-ui/core';
 import React, { memo } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 
 import { IProd } from '../../../@types/CatalogType';
 import useProductStore from '../../../hooks/useProductStore';
 import { DeletProdList } from '../../../redux/reducers/reducerProduct/action';
+import { useStyles } from '../../../styled/material_styles';
 
 type TProp = {
   data:any
@@ -12,6 +13,7 @@ type TProp = {
 
 const ProductListItems: React.FC<TProp> = ({ data }): JSX.Element => {
   const { dispatch } = useProductStore()
+  const classes = useStyles()
   const math = useRouteMatch()
 
   return (
@@ -20,18 +22,27 @@ const ProductListItems: React.FC<TProp> = ({ data }): JSX.Element => {
       {
         
         data.map((val: IProd, index: number) => {
-            
             return (
               <TableRow key={val._id}>
                 
-                <TableCell>{
-                val.img !== "undefined"
+                <TableCell className={classes.prodImgbox}>{
+                val.img
                   ? <img src={process.env.REACT_APP_API_URL + 'static/img/' + val.img} width="24" />
                   : ""
                 }</TableCell>
-                <TableCell>{val.title}</TableCell>
-                <TableCell><Link className="badge bg-secondary" to={math.path + 'product/edit/' + val._id}>ред</Link></TableCell>
-                <TableCell><a className="badge bg-secondary" onClick={() => dispatch(DeletProdList(val._id))}>Удалить</a></TableCell>
+                <TableCell>
+                  
+                  <Typography className={classes.prodTitle} variant="h6" component="h6">
+                    {val.title}
+                  </Typography>
+                  <div className={classes.handleboxe}>
+                  <Button className={classes.prodHandbutt} size="small" color="primary"><Link to={math.path + 'product/edit/' + val._id}>ред</Link></Button>
+                  <Button className={classes.prodHandbutt} onClick={() => dispatch(DeletProdList(val._id))} color="secondary">Удалить</Button>
+                  </div>
+                </TableCell>
+                <TableCell>{val.price}</TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
                 
               </TableRow>
               )
