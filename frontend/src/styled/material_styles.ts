@@ -110,5 +110,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   prodImgbox: {
     width:26
+  },
+  prodAddbutt: {
+    margin:'0 0 10px 25px'
   }
   }));

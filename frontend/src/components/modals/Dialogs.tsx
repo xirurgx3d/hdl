@@ -15,7 +15,7 @@ export const Dialogs: React.FC<TDialogs> = ({children,to}): JSX.Element => {
   const { back } = usePrepareLink()
   const childrenWithProps = usePoPUPchild(children)
   
-  
+  console.log('dial',to);
   return (
     <>
     <Route path={to}

@@ -9,13 +9,14 @@ export default ({to}:Props = {}) => {
   const match = useRouteMatch();
   const history:any = useHistory();
   
+  
   let pathname
   if (to) {
     pathname = match.url.concat('/', to)
   } else {
     pathname = location.pathname
   }
-
+  
   const back = history.goBack
   
   return {

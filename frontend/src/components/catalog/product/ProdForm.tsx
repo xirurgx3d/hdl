@@ -20,13 +20,12 @@ type Inputs<C> = {
   category: C,
   data:number
 }
-const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
+const ProdForm: React.FC<{id?:string}> = ({ id }): JSX.Element => {
   const [stateProd, setProd] = useState<null | Inputs<ICate>>(null)
   const [filee, setfile] = useState<any>(false)
   const [category,setCategory] = useState<null | ICate[]>(null)
 
   const { register, handleSubmit} = useForm<Inputs<string> >();
-  const { id } = match.params
   
   useEffect(() => {
     id && (async function anyNameFunction() {
@@ -85,7 +84,7 @@ const ProdForm: React.FC<I.Irote> = ({ history, match }): JSX.Element => {
       <div className="row g-2">
         <div className="col-sm-6">
           
-      <button onClick={() => history.goBack()}>Назад</button>
+      
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <div className="mb-3">
               <label className="form-label">Название</label>

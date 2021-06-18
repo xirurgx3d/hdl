@@ -6,6 +6,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 
 import { useStyles } from '../styled/material_styles';
 import clsx from 'clsx';
+import { RouteEnv } from '../constants/constRouter';
 
 const Drawers: React.FC = () => {
   const classes = useStyles()
@@ -25,7 +26,7 @@ const Drawers: React.FC = () => {
     </div>
     <Divider />
       <List>
-        <Link  to={'/catalog/'}>
+        <Link  to={RouteEnv.CATALOG_DASHBOARD}>
           <ListItem button>
             <ListItemIcon>
                 <DashboardIcon />
@@ -33,7 +34,7 @@ const Drawers: React.FC = () => {
             <ListItemText primary="Dashboard" />
           </ListItem>
         </Link>
-        <Link  to={'/catalog/category'}>
+        <Link  to={RouteEnv.CATALOG_CATAGORY}>
           <ListItem button>
             <ListItemIcon>
                 <DashboardIcon />
