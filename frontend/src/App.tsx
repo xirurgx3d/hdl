@@ -14,6 +14,7 @@ import clsx from 'clsx';
 import { useStyles } from './styled/material_styles';
 import { Copyright } from '@material-ui/icons';
 import Router from './routes/Router';
+import { RouteEnv } from './constants/constRouter';
 
 
 
@@ -30,7 +31,7 @@ const App: React.FC = observer(() => {
             .then(e => {
                 if (e) {
                     UserStore.setIsAuth(e)
-                    history.push("/catalog")
+                    history.push(RouteEnv.CATALOG_DASHBOARD)
                 } else {
                     UserStore.setIsAuth(e)
                     history.push("/auth/login")

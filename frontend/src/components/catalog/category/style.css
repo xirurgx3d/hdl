@@ -2,6 +2,9 @@
     min-width: 320px;
     padding: 20px;
 }
+.prodpopBox{
+    width: 460px;
+}
 .popBox_item{
     margin-bottom: 10px;
 }
