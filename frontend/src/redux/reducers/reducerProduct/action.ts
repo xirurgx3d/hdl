@@ -4,7 +4,7 @@ import ActionConst from './constants'
 export const getProdListRequest = (): ActionTypes.TgetProdListRequest => ({
   type: ActionConst.GET_PRODUCT
 })
-export const getProdListResult = (result:any): ActionTypes.TgetProdListResult => ({
+export const getProdListResult = (result:[]): ActionTypes.TgetProdListResult => ({
   type: ActionConst.RESULT_PRODUCT,
   payload:result
 })
