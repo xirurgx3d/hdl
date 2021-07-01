@@ -39,7 +39,7 @@ const ProdForm: React.FC<{id?:string}> = ({ id }): JSX.Element => {
   useEffect(() => {
     id && (async function anyNameFunction() {
       try {
-        const {data} = await Api.Product(id)
+        const { data } = await Api.Product(id)
         setProd(data)
       } catch (error) {
         
@@ -87,9 +87,9 @@ const ProdForm: React.FC<{id?:string}> = ({ id }): JSX.Element => {
         formData.append('img', filee || stateProd?.img)
       }
       
-      //await Api.ProdHandle(formData, id)
+      await Api.ProdHandle(formData, id)
       setMassege({
-        msg: 'Товар успешно добавлен',
+        msg: id ? 'Товар успешно изменен' : 'Товар успешно добавлен',
         error:false
       })
     } catch (error) {

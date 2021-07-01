@@ -28,7 +28,7 @@ const CateList: React.FC = (): JSX.Element => {
     })();
     
   }, [])
-
+  
   
 
   

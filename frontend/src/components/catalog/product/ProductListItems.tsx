@@ -3,6 +3,8 @@ import React, { memo } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 
 import { IProd } from '../../../@types/CatalogType';
+import { popRouteEnv } from '../../../constants/constRouter';
+import usePrepareLink from '../../../hooks/usePrepareLink';
 import useProductStore from '../../../hooks/useProductStore';
 import { DeletProdList } from '../../../redux/reducers/reducerProduct/action';
 import { useStyles } from '../../../styled/material_styles';
@@ -14,7 +16,9 @@ type TProp = {
 const ProductListItems: React.FC<TProp> = ({ data }): JSX.Element => {
   const { dispatch } = useProductStore()
   const classes = useStyles()
-  const math = useRouteMatch()
+  const {pathname} = usePrepareLink({
+    to:popRouteEnv.ADD_PRODUCT
+  })
 
   return (
     <>
@@ -36,7 +40,7 @@ const ProductListItems: React.FC<TProp> = ({ data }): JSX.Element => {
                     {val.title}
                   </Typography>
                   <div className={classes.handleboxe}>
-                  <Button className={classes.prodHandbutt} size="small" color="primary"><Link to={math.path + 'product/edit/' + val._id}>ред</Link></Button>
+                  <Button className={classes.prodHandbutt} size="small" color="primary"><Link to={pathname + '?id=' + val._id}>ред</Link></Button>
                   <Button className={classes.prodHandbutt} onClick={() => dispatch(DeletProdList(val._id))} color="secondary">Удалить</Button>
                   </div>
                 </TableCell>
