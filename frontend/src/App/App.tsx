@@ -21,7 +21,7 @@ import { RouteEnv } from '../constants/constRouter';
   
 
 
-const App: React.FC = observer(() => {
+const App: React.FC = () => {
     const [loading, setLoading] = useState(true)
     const history = useHistory();
     const classes = useStyles()
@@ -59,6 +59,7 @@ const App: React.FC = observer(() => {
         
         </>    
     )
-})
+}
 
-export default App;
+export {App}
+export default observer(App);
