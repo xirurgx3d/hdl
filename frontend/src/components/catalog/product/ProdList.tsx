@@ -13,11 +13,12 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/c
 
 const ProdData = (state:Iredusers)  => state.productData.data
 const isSpiners = (state: Iredusers) => state.productData.isFetching
+const coutns = (state: Iredusers) => state.productHandl.pagination.count
 
 const selectore = createSelector(
-  [ProdData,isSpiners],
-  (state, spiner) => {
-    return {data:state,spiner}
+  [ProdData,isSpiners,coutns],
+  (state, spiner,coutns) => {
+    return {data:state,spiner,coutns}
   }
 )
 
@@ -52,8 +53,10 @@ const ProdList: React.FC = (): JSX.Element => {
               <ProductListItems data={state?.data} />
             </TableBody>
           </Table>  
+          {
+              (state && state.coutns > 1)  && <Pagination/>
+          }
           
-          <Pagination/>
           </>
       }
       
