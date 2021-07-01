@@ -7,6 +7,8 @@ import { I } from '../../../@types/Interface';
 import Api from '../../../api/Api';
 import { debounse } from '../../../utils/utilite';
 import Attributes from './Attributes';
+import { useDispatch } from 'react-redux';
+import { getProdListRequest } from '../../../redux/reducers/reducerProduct/action';
 
 
 
@@ -32,7 +34,8 @@ const ProdForm: React.FC<{id?:string}> = ({ id }): JSX.Element => {
   const [stateProd, setProd] = useState<null | Inputs<ICate>>(null)
   const [filee, setfile] = useState<any>(false)
   const [category, setCategory] = useState<null | ICate[]>(null)
-  const [massege,setMassege] = useState<null | Tmassege>(null)
+  const [massege, setMassege] = useState<null | Tmassege>(null)
+  const dispatch = useDispatch()
 
   const { register, handleSubmit} = useForm<Inputs<string> >();
   
@@ -88,6 +91,7 @@ const ProdForm: React.FC<{id?:string}> = ({ id }): JSX.Element => {
       }
       
       await Api.ProdHandle(formData, id)
+      dispatch(getProdListRequest())
       setMassege({
         msg: id ? 'Товар успешно изменен' : 'Товар успешно добавлен',
         error:false
