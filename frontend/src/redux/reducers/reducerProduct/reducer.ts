@@ -18,7 +18,8 @@ export const initialStateProd = {
     limit: 3,
     count:0
   },
-  serch:''
+  serch: '',
+  category:''
 
 }
 export type TinitialStateProd = typeof initialStateProd
@@ -44,7 +45,9 @@ const reducerProd = (state:TinitialStateProd = initialStateProd, action:TAction)
         pagination:{...pagination},
         serch: action.payload
       }
-      
+    case ActionConst.CATEGORY_PRODUCT:
+      return setSate('category', action.payload)
+      break;
       default: return state
   }
 }

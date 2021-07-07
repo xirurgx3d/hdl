@@ -1,18 +1,16 @@
 import { Button, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import React, { memo, useEffect, useState } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
 import { ICate } from '../../../@types/CatalogType';
 import Api from '../../../api/Api';
-import { popRouteEnv } from '../../../constants/constRouter';
-import usePrepareLink from '../../../hooks/usePrepareLink';
+import useProductStore from '../../../hooks/useProductStore';
+import { CategoryProdList } from '../../../redux/reducers/reducerProduct/action';
 import Loader from './../../loader';
 
 
 const CateList: React.FC = (): JSX.Element => {
-  const [state, setstate] = useState<null | Array<ICate>>(null)
-  const [cat,setCat] = useState('')
-  
+  const [cateList, setCateList] = useState<null | Array<ICate>>(null)
+  const { dispatch, state } = useProductStore()
 
 
 
@@ -20,10 +18,10 @@ const CateList: React.FC = (): JSX.Element => {
     (async function anyNameFunction() {
       try {
         const {data} = await Api.categorylist()
-        setstate(data)
+        setCateList(data)
       } catch (error) {
         
-        setstate(null)
+        setCateList(null)
       }
     })();
     
@@ -37,13 +35,13 @@ const CateList: React.FC = (): JSX.Element => {
      <List >
     
       {
-        !state ? <Loader /> :
-          state.map((val: ICate, index) => {
+        !cateList ? <Loader /> :
+        cateList.map((val: ICate, index) => {
             return (
              
               <ListItem button
                 key={index}
-                onClick={() => setCat(val._id)}>
+                onClick={() => dispatch(CategoryProdList(val._id))}>
                   
                     <ListItemText primary={val.name} />
                     

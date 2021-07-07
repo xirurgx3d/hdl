@@ -1,8 +1,5 @@
 import constants from "./constants";
 
-const qq = {
-  type:'aaa'
-}
 export declare namespace ActionTypes{
   type TgetProdListRequest = {
     type: typeof constants.GET_PRODUCT
@@ -29,6 +26,10 @@ export declare namespace ActionTypes{
   }
   type TDeletProduct = {
     type: typeof constants.DELET_PRODUCT
+    payload:string
+  }
+  type TCategoryProduct = {
+    type: typeof constants.CATEGORY_PRODUCT
     payload:string
   }
   

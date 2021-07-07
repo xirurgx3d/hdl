@@ -9,7 +9,8 @@ export function* selects() {
 }
 // общая праклатка для хенделов
 function* ProdListHandlSaga<K extends string,T>(key:K,payload:T) {
-  const selectState = stateMutait(yield call(selects),key,payload)
+  const selectState = stateMutait(yield call(selects), key, payload)
+  console.log(selectState)
   const option = {
     fetcher:Api.productlist,
     fetcherBody: selectState,
@@ -29,4 +30,8 @@ export function* ProdListSerchSaga({ payload }: any) {
 // пагинация
 export function* ProdListPaginationSaga({ payload }: any) {
   yield ProdListHandlSaga('pagination',payload)
+}
+//категории
+export function* ProdListCategorySaga({ payload }: any) {
+  yield ProdListHandlSaga('category',payload)
 }

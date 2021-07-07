@@ -4,7 +4,7 @@ import { stateMutait } from "../../../utils/utilite";
 import { ProdListError } from "../reducerErrors/action";
 import { FetchStartProdLis, FetchStopProdLis, getProdListResult, PaginationProdList } from "./action";
 import ActionConst from './constants'
-import { ProdListPaginationSaga, ProdListSerchSaga, ProdListSortSaga, selects } from "./sagaHandlProd";
+import { ProdListCategorySaga, ProdListPaginationSaga, ProdListSerchSaga, ProdListSortSaga, selects } from "./sagaHandlProd";
 
 export function* ProdListFetch(option: any) {
   try {
@@ -62,6 +62,7 @@ function* watchProdListRequestHandlSaga() {
   yield takeEvery(ActionConst.SORT_PRODUCT, ProdListSortSaga)
   yield takeEvery(ActionConst.PAGINATION_PRODUCT_REQUEST, ProdListPaginationSaga)
   yield takeLatest(ActionConst.SERCH_PRODUCT, ProdListSerchSaga)
+  yield takeEvery(ActionConst.CATEGORY_PRODUCT, ProdListCategorySaga)
 }
 
 

@@ -37,3 +37,8 @@ export const DeletProdList = (params: string): ActionTypes.TDeletProduct => ({
   type:ActionConst.DELET_PRODUCT,
   payload:params
 })
+
+export const CategoryProdList = (params: string): ActionTypes.TCategoryProduct => ({
+  type:ActionConst.CATEGORY_PRODUCT,
+  payload:params
+})
