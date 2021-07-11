@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { async } from 'regenerator-runtime';
 
 const ProdShema = new mongoose.Schema({
     title: {
@@ -42,6 +43,24 @@ ProdShema.methods.addAttr = function (attr) {
     this.atributes = atributs
     this.save()
 }
+ProdShema.statics.getProdCats = async function(catrgoryName){
+    const cates = await this.find({})
+        .populate({
+            path: 'category',
+            match: {
+                name: catrgoryName
+            }
+        }).exec()
+    const ids = cates.reduce((acc,val)=>{
+        if(val.category){
+            acc.push(val._id)
+        }
+        return acc
+    },[])    
+    
+    return this.find({ _id: { "$in" : ids} })
+}
+
 const PaginatePlugin = (schema, options) => {
     options = options || {}
     schema.query.paginate = async function(params) {

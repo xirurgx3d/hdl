@@ -41,7 +41,7 @@ const CateList: React.FC = (): JSX.Element => {
              
               <ListItem button
                 key={index}
-                onClick={() => dispatch(CategoryProdList(val._id))}>
+                onClick={() => dispatch(CategoryProdList(val.name))}>
                   
                     <ListItemText primary={val.name} />
                     

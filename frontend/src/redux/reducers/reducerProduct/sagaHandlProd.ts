@@ -1,4 +1,5 @@
 import { call, select} from "redux-saga/effects";
+import { Toptione } from "../../../@types/CatalogType";
 import Api from "../../../api/Api";
 import { stateMutait } from "../../../utils/utilite";
 
@@ -8,11 +9,10 @@ export function* selects() {
   return yield select(state => state.productHandl)
 }
 // общая праклатка для хенделов
-function* ProdListHandlSaga<K extends string,T>(key:K,payload:T) {
+function* ProdListHandlSaga<K extends string,T>(key:K,payload:T,optione?:Toptione) {
   const selectState = stateMutait(yield call(selects), key, payload)
-  console.log(selectState)
   const option = {
-    fetcher:Api.productlist,
+    fetcher: optione ? optione.api : Api.productlist,
     fetcherBody: selectState,
   }
   yield ProdListFetch(option)
@@ -33,5 +33,9 @@ export function* ProdListPaginationSaga({ payload }: any) {
 }
 //категории
 export function* ProdListCategorySaga({ payload }: any) {
-  yield ProdListHandlSaga('category',payload)
+  
+  const optione:Toptione = {
+    api:Api.ProductCategoryList
+  }
+  yield ProdListHandlSaga('category',payload )
 }

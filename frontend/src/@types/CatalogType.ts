@@ -1,3 +1,5 @@
+import { AxiosPromise } from "axios"
+
 export interface ICate {
   _id:string,
   dethlvl: number
@@ -13,6 +15,10 @@ export type IProd = {
   atributes: [],
   picture: any,
   img:any
+}
+
+export type Toptione = {
+  api: (data:any) => AxiosPromise
 }
 
 export type typeSelector<T extends (...args: any) => any>  = ReturnType<T>

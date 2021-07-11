@@ -7,6 +7,8 @@ exports["default"] = void 0;
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
+var _regeneratorRuntime = require("regenerator-runtime");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -71,20 +73,67 @@ ProdShema.methods.addAttr = function (attr) {
   this.save();
 };
 
+ProdShema.statics.getProdCats =
+/*#__PURE__*/
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(catrgoryName) {
+    var cates, ids;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return this.find({}).populate({
+              path: 'category',
+              match: {
+                name: catrgoryName
+              }
+            }).exec();
+
+          case 2:
+            cates = _context.sent;
+            ids = cates.reduce(function (acc, val) {
+              if (val.category) {
+                acc.push(val._id);
+              }
+
+              return acc;
+            }, []);
+            return _context.abrupt("return", this.find({
+              _id: {
+                "$in": ids
+              }
+            }));
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+
+  return function (_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
 var PaginatePlugin = function PaginatePlugin(schema, options) {
   options = options || {};
 
   schema.query.paginate =
   /*#__PURE__*/
   function () {
-    var _ref = _asyncToGenerator(
+    var _ref2 = _asyncToGenerator(
     /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee(params) {
-      var pagination, page, offset, _ref2, _ref3, data, count;
+    regeneratorRuntime.mark(function _callee2(params) {
+      var pagination, page, offset, _ref3, _ref4, data, count;
 
-      return regeneratorRuntime.wrap(function _callee$(_context) {
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               pagination = {
                 limit: options.limit || 10,
@@ -95,30 +144,30 @@ var PaginatePlugin = function PaginatePlugin(schema, options) {
               page = parseInt(params.page);
               pagination.page = page > 0 ? page : pagination.page;
               offset = (pagination.page - 1) * pagination.limit;
-              _context.next = 7;
+              _context2.next = 7;
               return Promise.all([this.limit(pagination.limit).skip(offset), this.model.countDocuments(this.getQuery())]);
 
             case 7:
-              _ref2 = _context.sent;
-              _ref3 = _slicedToArray(_ref2, 2);
-              data = _ref3[0];
-              count = _ref3[1];
+              _ref3 = _context2.sent;
+              _ref4 = _slicedToArray(_ref3, 2);
+              data = _ref4[0];
+              count = _ref4[1];
               pagination.count = Math.ceil(count / pagination.limit);
-              return _context.abrupt("return", {
+              return _context2.abrupt("return", {
                 data: data,
                 pagination: pagination
               });
 
             case 13:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee, this);
+      }, _callee2, this);
     }));
 
-    return function (_x) {
-      return _ref.apply(this, arguments);
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
     };
   }();
 };
