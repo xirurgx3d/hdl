@@ -37,5 +37,5 @@ export function* ProdListCategorySaga({ payload }: any) {
   const optione:Toptione = {
     api:Api.ProductCategoryList
   }
-  yield ProdListHandlSaga('category',payload )
+  yield ProdListHandlSaga('category',payload,optione )
 }

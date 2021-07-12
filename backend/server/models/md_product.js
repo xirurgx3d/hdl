@@ -58,7 +58,7 @@ ProdShema.statics.getProdCats = async function(catrgoryName){
         return acc
     },[])    
     
-    return this.find({ _id: { "$in" : ids} })
+    return ids //this.find({ _id: { "$in" : ids} })
 }
 
 const PaginatePlugin = (schema, options) => {

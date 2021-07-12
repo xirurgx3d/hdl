@@ -87,38 +87,51 @@ function () {
   var _ref3 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee2(req, res) {
-    var sort, q;
+    var _req$body, sort, category, massCat, _ref4, data, pagination;
+
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            sort = req.body.sort; //console.log(req.body)
-
+            _req$body = req.body, sort = _req$body.sort, category = _req$body.category;
             _context2.prev = 1;
             _context2.next = 4;
-            return _md_product["default"].Cates();
+            return _md_product["default"].getProdCats(category);
 
           case 4:
-            q = _context2.sent;
-            //console.log(data)    
-            res.status(200).send([], {});
-            _context2.next = 12;
+            massCat = _context2.sent;
+            _context2.next = 7;
+            return _md_product["default"].find({
+              _id: {
+                "$in": massCat
+              }
+            }).sort(sort).paginate(req.body.pagination);
+
+          case 7:
+            _ref4 = _context2.sent;
+            data = _ref4.data;
+            pagination = _ref4.pagination;
+            res.status(200).send({
+              data: data,
+              pagination: pagination
+            });
+            _context2.next = 17;
             break;
 
-          case 8:
-            _context2.prev = 8;
+          case 13:
+            _context2.prev = 13;
             _context2.t0 = _context2["catch"](1);
             console.log(_context2.t0);
             res.status(400).send({
               error: true
             });
 
-          case 12:
+          case 17:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[1, 8]]);
+    }, _callee2, null, [[1, 13]]);
   }));
 
   return function (_x3, _x4) {
@@ -128,7 +141,7 @@ function () {
 router.get('/list/:id',
 /*#__PURE__*/
 function () {
-  var _ref4 = _asyncToGenerator(
+  var _ref5 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee3(req, res) {
     var id, cate;
@@ -164,13 +177,13 @@ function () {
   }));
 
   return function (_x5, _x6) {
-    return _ref4.apply(this, arguments);
+    return _ref5.apply(this, arguments);
   };
 }());
 router.post('/add',
 /*#__PURE__*/
 function () {
-  var _ref5 = _asyncToGenerator(
+  var _ref6 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee4(req, res) {
     var prodbody, img, filename;
@@ -229,13 +242,13 @@ function () {
   }));
 
   return function (_x7, _x8) {
-    return _ref5.apply(this, arguments);
+    return _ref6.apply(this, arguments);
   };
 }());
 router.put('/edit/:id',
 /*#__PURE__*/
 function () {
-  var _ref6 = _asyncToGenerator(
+  var _ref7 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee5(req, res) {
     var prodbody, id, img, filename;
@@ -294,13 +307,13 @@ function () {
   }));
 
   return function (_x9, _x10) {
-    return _ref6.apply(this, arguments);
+    return _ref7.apply(this, arguments);
   };
 }());
 router["delete"]('/delet/:id',
 /*#__PURE__*/
 function () {
-  var _ref7 = _asyncToGenerator(
+  var _ref8 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee6(req, res) {
     var prodbody, id, prod;
@@ -348,7 +361,7 @@ function () {
   }));
 
   return function (_x11, _x12) {
-    return _ref7.apply(this, arguments);
+    return _ref8.apply(this, arguments);
   };
 }());
 /*

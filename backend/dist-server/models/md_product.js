@@ -101,11 +101,7 @@ function () {
 
               return acc;
             }, []);
-            return _context.abrupt("return", this.find({
-              _id: {
-                "$in": ids
-              }
-            }));
+            return _context.abrupt("return", ids);
 
           case 5:
           case "end":

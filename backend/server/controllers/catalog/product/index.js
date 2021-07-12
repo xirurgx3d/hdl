@@ -27,28 +27,15 @@ router.post('/list', async (req,res)=>{
     }
 })
 router.post('/categoryList', async (req,res)=>{
-    const {sort} = req.body 
-    //console.log(req.body)
+    const {sort,category} = req.body 
     try {
-        
-        /*
-        const q = await Product.find({})
-        .populate({
-            path: 'category',
-            match: {
-                name: "cate3"
-            }
-        }).exec(function (err, story) {
-            //console.log(story)
-            return ['a']
-          });  
-        */    
-        const q = await Product.Cates()
-        
-
-        
-        //console.log(data)    
-        res.status(200).send([],{}) 
+         
+        const massCat = await Product.getProdCats(category)
+        const { data, pagination } = await Product.find({ _id: { "$in" : massCat} })
+            .sort(sort)
+            .paginate(req.body.pagination)
+               
+        res.status(200).send({data,pagination}) 
     } catch (error) {
         console.log(error)
         res.status(400).send({error:true}) 

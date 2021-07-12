@@ -18,26 +18,14 @@ function () {
     _classCallCheck(this, ProductCreater);
 
     this.Model = model;
+    this.catsId = [];
   }
 
   _createClass(ProductCreater, [{
     key: "init",
     value: function init(store) {
-      /*
-      Object.keys(store).forEach((val)=>{
-          
-        if(store[val] && this[val]){
-            console.log(this[val](store[val]))
-            return this[val](store[val])
-        }
-      })
-      */
       if (store.serch) {
-        console.log('serch');
         return this.SerchProd(store.serch);
-      } else if (store.category) {
-        console.log(store.category);
-        return this.Category(store.category);
       } else {
         return this.defaultProd();
       }
@@ -48,12 +36,6 @@ function () {
       return this.Model.find({
         title: new RegExp(serch, 'i')
       });
-    }
-  }, {
-    key: "Category",
-    value: function Category() {
-      console.log(object);
-      return this.Model.find({});
     }
   }, {
     key: "defaultProd",
