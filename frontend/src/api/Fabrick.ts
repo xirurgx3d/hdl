@@ -15,7 +15,8 @@ abstract class Fabrick{
 
 export interface ICatalog{
   getList: <T>(id?:T) => AxiosPromise,
-  catalogHandle: <T,K>(data:T,id?:K) => AxiosPromise
+  catalogHandle: <T, K>(data: T, id?: K) => AxiosPromise,
+  CatalogDelet: <T>(id:T) => AxiosPromise
 }
 class CatalogFabr extends Fabrick implements ICatalog {
   getItem<T>(id:T) {
@@ -26,6 +27,9 @@ class CatalogFabr extends Fabrick implements ICatalog {
   }
   catalogHandle<T,K>(data:T,id?:K) {
     return this.component.catalogHandle(data,id)
+  }
+  CatalogDelet<T>(id:T) {
+    return this.component.CatalogDelet(id)
   }
 }
 
@@ -57,6 +61,13 @@ class Category implements ICatalog {
         url: '/catalog/category/add',
         data: data
       })
+  }
+  CatalogDelet<T>(id: T) {
+    console.log(id)
+    return this.request({
+      method: 'delete',
+      url: '/catalog/category/delet/' + id,
+    })
   }
 }
 class Product{
@@ -90,10 +101,10 @@ class Product{
         data: data
       })
   }
-  deleteProd<T>(id: T) {
+  CatalogDelet<T>(id: T) {
     return this.request({
       method: 'delete',
-      url: '/catalog/category/delet/' + id,
+      url: '/catalog/product/delet/' + id,
     })
   }
 }

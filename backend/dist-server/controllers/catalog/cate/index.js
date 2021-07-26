@@ -195,5 +195,50 @@ function () {
     return _ref4.apply(this, arguments);
   };
 }());
+router["delete"]('/delet/:id',
+/*#__PURE__*/
+function () {
+  var _ref5 = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee5(req, res) {
+    var id, del;
+    return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            id = req.params.id;
+            _context5.prev = 1;
+            _context5.next = 4;
+            return _md_cate["default"].findOneAndDelete(id);
+
+          case 4:
+            del = _context5.sent;
+            console.log(del);
+            res.status(200).send({
+              error: false
+            });
+            _context5.next = 13;
+            break;
+
+          case 9:
+            _context5.prev = 9;
+            _context5.t0 = _context5["catch"](1);
+            console.log(_context5.t0);
+            res.status(400).send({
+              error: true
+            });
+
+          case 13:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5, null, [[1, 9]]);
+  }));
+
+  return function (_x9, _x10) {
+    return _ref5.apply(this, arguments);
+  };
+}());
 var _default = router;
 exports["default"] = _default;

@@ -1,5 +1,5 @@
 import './style.css'
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ICate } from '../../../@types/CatalogType';
 import { I } from '../../../@types/Interface';
@@ -9,8 +9,12 @@ import Api from '../../../api/Api';
 interface Inputs{
   name:String
 }
+interface IProps{
+  id?: string,
+  setRend:any
+}
 
-const CateForm: React.FC<{id?:string}> = ({id}): JSX.Element => {
+const CateForm: React.FC<IProps> = ({id,setRend}): JSX.Element => {
   const [stateCate, setCate] = useState<null | ICate>(null)
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
   
@@ -27,13 +31,14 @@ const CateForm: React.FC<{id?:string}> = ({id}): JSX.Element => {
     })();
   }, [id])
 
-  const onSubmit = async (data: Inputs) => {
+  const onSubmit = useCallback(async (data: Inputs) => {
     try {
       await Api.categoryHandle<Inputs, typeof id>(data, id)
+      setRend(true)
     } catch (error) {
-      
+      setCate(null)
     }
-  }
+  },[])
 
   return (
     

@@ -7,20 +7,21 @@ import usePrepareLink from '../../hooks/usePrepareLink';
 
 type TDialogs = {
   to:string
-  children:ReactNode
+  children: ReactNode,
+  setRend?:any
 }
 
 
-export const Dialogs: React.FC<TDialogs> = ({children,to}): JSX.Element => {
+export const Dialogs: React.FC<TDialogs> = ({children,to,setRend}): JSX.Element => {
   const { back } = usePrepareLink()
   const childrenWithProps = usePoPUPchild(children)
-  
 
   return (
     <>
     <Route path={to}
          render={
            ({ match }) => {
+            setRend && setRend(false)
              return (
               <Dialog onClose={back} open={Boolean(match)}>
                 {childrenWithProps?.map((val: any) => val)}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Link, useHistory } from "react-router-dom";
 import { Button, Container, Grid, Paper, Typography } from '@material-ui/core';
 import clsx from 'clsx';
@@ -11,6 +11,7 @@ import usePrepareLink from '../../hooks/usePrepareLink';
 import { popRouteEnv } from '../../constants/constRouter';
 
 const CategoryTpl: React.FC<I.Irote> = ({ history, match }) => {
+  const [render, setRender] = useState(false)
   const classes = useStyles()
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const {pathname} = usePrepareLink({
@@ -29,18 +30,14 @@ const CategoryTpl: React.FC<I.Irote> = ({ history, match }) => {
             Категории
           </Typography>
          <Button variant="contained" color="primary"><Link to={pathname} >Добавить категорию</Link></Button>
-             <Dialogs to={pathname}>
-               <CateForm />
+             <Dialogs setRend={setRender} to={pathname}>
+               <CateForm setRend={setRender} />
                
             </Dialogs>
-            <CateList />
+            <CateList rend={render} />
         </Paper>
       </Grid>
-      <Grid item xs={12} md={6} lg={6}>
-        <Paper className={fixedHeightPaper}>
-          <CateList />
-        </Paper>
-      </Grid>
+      
       
        </Grid>
        

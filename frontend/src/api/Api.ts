@@ -29,6 +29,7 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
     auth: <T>(data: T) => AxiosPromise,
     categorylist: <T>(id?:T) => AxiosPromise,
     categoryHandle: <T, K>(data: T, id?: K) => AxiosPromise,
+    categoryDelet: <T>(id: T) => AxiosPromise,
     Product: (id: string) => AxiosPromise,
     ProductCategoryList: (data: any) => AxiosPromise,
     productlist:(data:any) => AxiosPromise,
@@ -72,6 +73,10 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
       categoryHandle<T, K>(data: T, id?: K) {
         cat.fabrick(Category)
         return cat.catalogHandle(data,id)
+      },
+      categoryDelet<T>(id:T) {
+        cat.fabrick(Category)
+        return cat.CatalogDelet(id)
       },
 
       Product(id: string) {
