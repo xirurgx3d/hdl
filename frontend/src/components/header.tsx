@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             Добро пожаловать, {user}
         </Typography>
           <IconButton color="inherit">
-            <ExitToAppIcon />
+            <ExitToAppIcon onClick={logOut} />
           </IconButton>
         </Toolbar>
                 </AppBar>
