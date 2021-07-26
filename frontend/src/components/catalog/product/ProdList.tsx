@@ -9,6 +9,7 @@ import { getProdListRequest } from '../../../redux/reducers/reducerProduct/actio
 import ProductListItems from './ProductListItems';
 import { typeSelector } from '../../../@types/CatalogType';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
+import Loader from '../../loader';
 
 
 const ProdData = (state:Iredusers)  => state.productData.data
@@ -36,7 +37,7 @@ const ProdList: React.FC = (): JSX.Element => {
     <>
       {
         state?.spiner
-          ? <h1>LOAD</h1>
+          ? <Loader />
           :
           <>
           <Table>
