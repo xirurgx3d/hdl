@@ -10,6 +10,7 @@
 -	Express
 -	MongoDB
 -	TypeScript
+-	Material UI
 -	JWT
 -	Jest
 - docker-compouse
