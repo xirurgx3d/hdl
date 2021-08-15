@@ -38,7 +38,7 @@ app.use(
 //app.use(express.static(path.join(__dirname, '../public')));
 app.use(fileUpload({}))
 
-app.use('/static',express.static(path.join(__dirname, '../public')));
+app.use('/api/static',express.static(path.join(__dirname, '../public'))); 
  
 import './db'
 

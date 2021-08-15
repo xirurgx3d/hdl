@@ -7,7 +7,7 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
  //singleton
  class Api{
   static _instanse:null | object = null
-  private URL:string = 'http://localhost:4000/api'
+  private URL:string = 'http://192.168.99.100/api'
   api:AxiosInstance
 
    constructor(){

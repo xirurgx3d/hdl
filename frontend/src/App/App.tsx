@@ -15,6 +15,7 @@ import { useStyles } from '../styled/material_styles';
 import { Copyright } from '@material-ui/icons';
 import Router from '../routes/Router';
 import { RouteEnv } from '../constants/constRouter';
+import Api from '../api/Api';
 
 
 
@@ -25,6 +26,8 @@ const App: React.FC = () => {
     const [loading, setLoading] = useState(true)
     const history = useHistory();
     const classes = useStyles()
+
+    Api.categorylist().then(val => console.log(val))
 
     useEffect(() => {
         checkUser()

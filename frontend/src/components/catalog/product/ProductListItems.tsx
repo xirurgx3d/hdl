@@ -31,7 +31,7 @@ const ProductListItems: React.FC<TProp> = ({ data }): JSX.Element => {
                 
                 <TableCell className={classes.prodImgbox}>{
                 val.img
-                  ? <img src={process.env.REACT_APP_API_URL + 'static/img/' + val.img} width="24" />
+                  ? <img src={process.env.REACT_APP_API_URL + 'api/static/img/' + val.img} width="24" />
                   : ""
                 }</TableCell>
                 <TableCell>
