@@ -2,40 +2,27 @@
 version: "3"
 
 services:
-    front:
+    
+    admin:
         image: docker/frontend
         build: ./frontend
-        container_name: frontend
-        depends_on: 
-            - api
-        ports: 
+        container_name: admin
+        ports:
             - 80:80
         volumes:
             - ./frontend/build:/usr/share/nginx/html
+        links:
+            - api    
         networks:
-            - front   
+            - back   
     api:
         image: docker/backend
         build: ./backend
-        container_name: backend
-        depends_on: 
-            - db
+        container_name: api 
         environment: 
             - PORT=4000
-            - DB_URL=db
         networks:
-            - back    
-    db:
-        image: mongo
-        container_name: db
-        volumes:
-            - ./data:/data/db
-        ports:
-            - 27017:27017    
-        networks:
-            - back                   
+            - back                     
 networks:
-  front:
-    driver: bridge
   back:
     driver: bridge  

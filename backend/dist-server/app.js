@@ -62,7 +62,7 @@ app.use((0, _expressSession["default"])({
 })); //app.use(express.static(path.join(__dirname, '../public')));
 
 app.use((0, _expressFileupload["default"])({}));
-app.use('/static', _express["default"]["static"](_path["default"].join(__dirname, '../public')));
+app.use('/api/static', _express["default"]["static"](_path["default"].join(__dirname, '../public')));
 app.use(function (req, res, next) {
   // eslint-disable-next-line
   //console.log('auth -',req.session)
