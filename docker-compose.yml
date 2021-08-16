@@ -32,7 +32,18 @@ services:
         environment: 
             - PORT=4000
         networks:
-            - back                     
+            - back      
+    web-public:
+        image: docker/client
+        build: ./client
+        container_name: web-public
+        volumes:
+            - ./client:/usr/src/app
+        ports:
+            - 3000:3000
+        networks:
+            - back    
+                              
 networks:
   front:  
     driver: bridge  
