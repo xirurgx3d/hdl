@@ -8,9 +8,6 @@ scripts/flow/*/.flowconfig
 .grunt
 _SpecRunner.html
 __benchmarks__
-build
-build/
-build2/
 remote-repo/
 coverage/
 .module-cache
