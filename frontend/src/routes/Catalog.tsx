@@ -8,8 +8,6 @@ import CategoryTpl from '../views/catalog/CategoryTpl';
 import { RouteEnv } from '../constants/constRouter';
 
 const Catalog: React.FC = () => {
-    //const { path } = useRouteMatch()
-    console.log('catalog')
     return (
         <>
             <Route path={RouteEnv.CATALOG_DASHBOARD} component={Main} />

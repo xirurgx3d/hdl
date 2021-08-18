@@ -5,5 +5,7 @@ export const popRouteEnv = {
 
 export const RouteEnv = {
   CATALOG_DASHBOARD: '/catalog/dashboard',
-  CATALOG_CATAGORY:'/catalog/category'
+  CATALOG_CATAGORY: '/catalog/category',
+  SLIDERS_PAGE: '/sliders',
+  SLIDERS_HEADER:'/sliders/header'
 }

@@ -4,6 +4,8 @@ import Header from '../components/header';
 import Auth from './Auth';
 import Catalog from './Catalog';
 import Dashboard from '../components/Dashboard';
+import { RouteEnv } from '../constants/constRouter';
+import Sliders from './Sliders';
 
 
 
@@ -14,6 +16,11 @@ const Router:React.FC = () => (
             <Route path="/catalog">
                 <Dashboard>
                     <Catalog />
+                </Dashboard>
+            </Route>
+            <Route path={RouteEnv.SLIDERS_PAGE}>
+                <Dashboard>
+                    <Sliders />
                 </Dashboard>
             </Route>
         </Switch>

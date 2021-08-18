@@ -26,6 +26,14 @@ const Drawers: React.FC = () => {
     </div>
     <Divider />
       <List>
+        <Link  to={RouteEnv.SLIDERS_PAGE}>
+          <ListItem button>
+            <ListItemIcon>
+                <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Слайдеры" />
+          </ListItem>
+        </Link>
         <Link  to={RouteEnv.CATALOG_DASHBOARD}>
           <ListItem button>
             <ListItemIcon>
