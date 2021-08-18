@@ -27,8 +27,6 @@ const App: React.FC = () => {
     const history = useHistory();
     const classes = useStyles()
 
-    Api.categorylist().then(val => console.log(val))
-
     useEffect(() => {
         checkUser()
             .then(e => {
