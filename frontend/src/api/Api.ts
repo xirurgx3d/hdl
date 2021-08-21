@@ -38,11 +38,43 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
 }
  
 
+class initApi{
+  request:any
+  constructor(request?:any) {
+    this.request = request
+  }
+  fabrClass(arr: any) {
+    
+    arr.forEach((api:any) => {
+      api(this.request)
+    });
+  }
+
+}
+
+const AuthApi = () => (request: any) => {
+  console.log(request)
+  return {
+    register<T>(data:T) {
+      return request({
+        method: 'post',
+        url: '/auth/reg',
+        data: data
+      })
+    }
+  }
+}
 
 
+const apiarr = [
+  AuthApi()
+]
 
  function getApi({api}:any):Iback{
     const request: AxiosInstance = api
+   const initit = new initApi(request)
+   initit.fabrClass(apiarr)
+
     const cat = new CatalogFabr(request)
     return {
       register<T>(data:T) {
