@@ -56,7 +56,6 @@ router.get('/list/:id', async (req,res)=>{
 })
 router.post('/add', async (req,res)=>{
     const prodbody = req.body
-    console.log(req.body)
     
     try {
         if(req.files){

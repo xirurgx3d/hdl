@@ -37,4 +37,4 @@ setTimeout(function () {
     // eslint-disable-next-line
     console.log("DB ".concat(DB_NAME, " connectionError: ").concat(message));
   });
-}, 20 * 1000);
+}, 1000);
