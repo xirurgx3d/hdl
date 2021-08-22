@@ -12,7 +12,7 @@ Desktop.ini
 .directory
 *~
 
-
+dist-server
 # npm
 node_modules
 package-lock.json

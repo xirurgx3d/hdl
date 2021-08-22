@@ -1,8 +1,8 @@
 import express from 'express';
-import components from '../controllers/components/index'
+import headSlide from '../controllers/components/headSlide'
 
 var router = express.Router();
 
-console.log(components)
+router.use('/headeslide',headSlide)
 
 export default router;
