@@ -2,7 +2,7 @@ import { Alert } from '@material-ui/lab';
 import React, { memo, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ICate } from '../../../@types/CatalogType';
-import { I } from '../../../@types/Interface';
+import { I, Tfile } from '../../../@types/Interface';
 
 import Api from '../../../api/Api';
 import { debounse } from '../../../utils/utilite';
@@ -20,7 +20,7 @@ type Inputs<C> = {
   recomend: Number,
   atributes: [],
   picture: any,
-  img: any,
+  img: Tfile,
   category: C,
   data:number
 }
@@ -89,7 +89,7 @@ const ProdForm: React.FC<{id?:string}> = ({ id }): JSX.Element => {
       if (filee || stateProd?.img) {
         formData.append('img', filee || stateProd?.img)
       }
-      
+    
       await Api.ProdHandle(formData, id)
       dispatch(getProdListRequest())
       setMassege({

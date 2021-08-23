@@ -37,13 +37,52 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
     producDelet: <T>(id?:T) => AxiosPromise,
 }
  
+abstract class ApiSuper{
+  public request: AxiosInstance
+  constructor(request: AxiosInstance) {
+    this.request = request
+  }
+}
+class ApiFabr extends ApiSuper{
+  public store:object = {}
+  components(comp:any) {
+    comp.forEach((Component: any) => {
+      const c = new Component(this.request)
+      console.log(c)
+      this.store = {...this.store,...c}
+    })
+  }
+}
 
 
+class Auth extends ApiSuper{
+  register<T>(data:T) {
+    
+  }
+}
+class Cat extends ApiSuper{
+  login<T>(data:T) {
+    
+  }
+}
 
+
+function fackeApi({ api }: any) {
+  const request: AxiosInstance = api
+  const fabr = new ApiFabr(request)
+  fabr.components([
+    Auth,Cat
+  ])
+  return fabr.store
+}
+const fake = fackeApi(Api.getInstance)
+console.log(fake)
 
  function getApi({api}:any):Iback{
     const request: AxiosInstance = api
     const cat = new CatalogFabr(request)
+    
+
     return {
       register<T>(data:T) {
         return request({

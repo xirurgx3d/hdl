@@ -113,5 +113,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   prodAddbutt: {
     margin:'0 0 10px 25px'
+  },
+  add_buttons: {
+    width:260
   }
+
+
   }));

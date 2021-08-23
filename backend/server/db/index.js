@@ -38,4 +38,4 @@ setTimeout(()=>{
         // eslint-disable-next-line
         console.log(`DB ${DB_NAME} connectionError: ${message}`);
     });  
-}, 20 * 1000)
+}, 1000)
