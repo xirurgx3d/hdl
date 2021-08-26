@@ -2,7 +2,7 @@ import Axios, { AxiosInstance, AxiosPromise } from "axios";
 
 abstract class Fabrick{
   request: AxiosInstance
-  component:any
+  component: any
   constructor(request:AxiosInstance) {
     this.request = request
   }
@@ -14,10 +14,12 @@ abstract class Fabrick{
 
 
 export interface ICatalog{
-  getList: <T>(id?:T) => AxiosPromise,
-  catalogHandle: <T, K>(data: T, id?: K) => AxiosPromise,
-  CatalogDelet: <T>(id:T) => AxiosPromise
+  getItem?:<T>(id:T) => AxiosPromise,
+  getList?: <T>(id?:T) => AxiosPromise,
+  catalogHandle?: <T, K>(data: T, id?: K) => AxiosPromise,
+  CatalogDelet?: <T>(id:T) => AxiosPromise
 }
+
 class CatalogFabr extends Fabrick implements ICatalog {
   getItem<T>(id:T) {
     return this.component.getItem(id)
@@ -33,11 +35,7 @@ class CatalogFabr extends Fabrick implements ICatalog {
   }
 }
 
-class Category implements ICatalog {
-  request: AxiosInstance
-  constructor(request: AxiosInstance) {
-    this.request = request
-  }
+class Category extends Fabrick implements ICatalog {
   getList<T>(id?: T) {
     return id
       ? this.request({
@@ -70,11 +68,7 @@ class Category implements ICatalog {
     })
   }
 }
-class Product{
-  request: AxiosInstance
-  constructor(request:AxiosInstance) {
-    this.request = request
-  }
+class Product extends Fabrick implements ICatalog{
   getItem<T>(id:T) {
     return this.request({
       method: 'get',

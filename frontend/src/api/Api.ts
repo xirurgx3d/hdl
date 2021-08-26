@@ -2,7 +2,9 @@ import Axios, { AxiosInstance, AxiosPromise } from "axios";
 import { TinitialStateProd } from "../redux/reducers/reducerProduct/reducer";
 
 import { CatalogFabr, Category, Product } from "./Fabrick";
-import store from './../redux/store';
+import ReqAuth, { IAuthRequest } from "./requests/ReqAuth";
+import ReqCate from "./requests/ReqCate";
+import ReqProduct from "./requests/ReqProduct";
 
 
  //singleton
@@ -38,54 +40,40 @@ import store from './../redux/store';
     producDelet: <T>(id?:T) => AxiosPromise,
 }
  
-abstract class ApiSuper{
+export abstract class ApiSuper{
   protected readonly request: AxiosInstance
   constructor(request: AxiosInstance) {
     this.request = request
   }
 }
 
-
-class ApiFabr extends ApiSuper{
-  public store!: QP;
+interface IReqStore{
+  Auth:IAuthRequest
+}
+class ApiFabric extends ApiSuper{
+  public store!: IReqStore;
   
-  components<T>(arr: T[]):void {
-    arr.forEach((Component:any) => {
+  components<T>(arrReq: T[]):void {
+    arrReq.forEach((Component:any) => {
       this.store = {...this.store,[Component.name]: new Component(this.request)}
     })
-    
   }
 }
 
-interface IAuth{
-  register<T>(data:T):void
-}
 
-class Auth extends ApiSuper implements IAuth{
-  register<T>(data:T) {
-    
-  }
-}
-class Cat extends ApiSuper{
-  login<T>(data?:T) {
-    console.log('this cat',this)
-  }
-}
-type IAPI = typeof Auth | typeof Cat
 
-interface QP{
-  Auth:IAuth
-}
+type IAPI =
+  typeof ReqAuth |
+  typeof ReqCate |
+  typeof ReqProduct
 
-function fackeApi({ api }: any): QP {
-  const arr = [Auth,Cat ]
-  const fabr = new ApiFabr(api)
-  fabr.components<IAPI>(arr)
+function handApi({ api }: any): IReqStore {
+  const arrReq = [ReqAuth,ReqCate,ReqProduct]
+  const fabr = new ApiFabric(api)
+  fabr.components<IAPI>(arrReq)
   return fabr.store
-
 }
-const fake = fackeApi(Api.getInstance)
-console.log(fake.Auth.register)
+handApi(Api.getInstance)
 
  function getApi({api}:any):Iback{
     const request: AxiosInstance = api
