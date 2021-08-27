@@ -39,20 +39,18 @@ import ReqProduct from "./requests/ReqProduct";
     ProdHandle: <T, K>(data: T, id?: K) => AxiosPromise,
     producDelet: <T>(id?:T) => AxiosPromise,
 }
- 
+
+
 export abstract class ApiSuper{
   protected readonly request: AxiosInstance
+  public store!: IReqStore;
   constructor(request: AxiosInstance) {
     this.request = request
   }
 }
 
-interface IReqStore{
-  Auth:IAuthRequest
-}
-class ApiFabric extends ApiSuper{
-  public store!: IReqStore;
-  
+
+export class ApiFabric extends ApiSuper{
   components<T>(arrReq: T[]):void {
     arrReq.forEach((Component:any) => {
       this.store = {...this.store,[Component.name]: new Component(this.request)}
@@ -60,20 +58,24 @@ class ApiFabric extends ApiSuper{
   }
 }
 
-
+interface IReqStore{
+  Auth:IAuthRequest
+}
 
 type IAPI =
   typeof ReqAuth |
   typeof ReqCate |
   typeof ReqProduct
 
-function handApi({ api }: any): IReqStore {
-  const arrReq = [ReqAuth,ReqCate,ReqProduct]
+function handApi<T>({ api }: any,arrReq:T[]): IReqStore {
+  
   const fabr = new ApiFabric(api)
-  fabr.components<IAPI>(arrReq)
+  fabr.components<T>(arrReq)
   return fabr.store
 }
-handApi(Api.getInstance)
+handApi<IAPI>(Api.getInstance, [
+  ReqAuth
+])
 
  function getApi({api}:any):Iback{
     const request: AxiosInstance = api

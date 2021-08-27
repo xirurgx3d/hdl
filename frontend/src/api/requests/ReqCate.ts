@@ -1,5 +1,5 @@
 import { AxiosPromise } from "axios";
-import { ApiSuper } from "../Api";
+import { RequstAbstract } from ".";
 
 export interface ICateRequest{
   categorylist: <T>(id?:T) => AxiosPromise,
@@ -7,7 +7,7 @@ export interface ICateRequest{
   categoryDelet: <T>(id: T) => AxiosPromise,
 }
 
-export default class extends ApiSuper implements ICateRequest{
+export default class extends RequstAbstract implements ICateRequest{
   categorylist<T>(id?:T) {
     return id
       ? this.request({

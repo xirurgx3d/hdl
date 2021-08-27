@@ -1,5 +1,5 @@
 import { AxiosPromise } from "axios";
-import { ApiSuper } from "../Api";
+import { RequstAbstract } from ".";
 
 export interface IAuthRequest{
   register:<T>(data:T) => AxiosPromise,
@@ -7,7 +7,7 @@ export interface IAuthRequest{
   auth: <T>(data: T) => AxiosPromise,
 }
 
-export default class extends ApiSuper implements IAuthRequest{
+export default class extends RequstAbstract implements IAuthRequest{
   register<T>(data:T) {
     return this.request({
       method: 'post',

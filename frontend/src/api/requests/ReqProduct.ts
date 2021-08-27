@@ -1,5 +1,5 @@
 import { AxiosPromise } from "axios";
-import { ApiSuper } from "../Api";
+import { RequstAbstract } from ".";
 
 export interface IProductRequest{
     Product: (id: string) => AxiosPromise,
@@ -9,7 +9,7 @@ export interface IProductRequest{
     producDelet: <T>(id?:T) => AxiosPromise,
 }
 
-export default class extends ApiSuper implements IProductRequest{
+export default class extends RequstAbstract implements IProductRequest{
   Product(id: string) {
     return this.request({
       method: 'get',
