@@ -5,10 +5,10 @@ const HeadSlidehema = new mongoose.Schema({
         type:String,
         require:true
     },
-    test:{
+    descript:{
         type:String,
     },
-    images:{
+    img:{
         type:String,
         require:true
     },

@@ -5,6 +5,7 @@ import { CatalogFabr, Category, Product } from "./Fabrick";
 import ReqAuth, { IAuthRequest } from "./requests/ReqAuth";
 import ReqCate from "./requests/ReqCate";
 import ReqProduct from "./requests/ReqProduct";
+import ReqSliders, { ISlidersRequest } from "./requests/ReqSliders";
 
 
  //singleton
@@ -26,20 +27,6 @@ import ReqProduct from "./requests/ReqProduct";
     }
  }
 
- interface Iback {
-    register:<T>(data:T) => AxiosPromise,
-    login: <T>(data: T) => AxiosPromise,
-    auth: <T>(data: T) => AxiosPromise,
-    categorylist: <T>(id?:T) => AxiosPromise,
-    categoryHandle: <T, K>(data: T, id?: K) => AxiosPromise,
-    categoryDelet: <T>(id: T) => AxiosPromise,
-    Product: (id: string) => AxiosPromise,
-    ProductCategoryList: (data: any) => AxiosPromise,
-    productlist:(data:any) => AxiosPromise,
-    ProdHandle: <T, K>(data: T, id?: K) => AxiosPromise,
-    producDelet: <T>(id?:T) => AxiosPromise,
-}
-
 
 export abstract class ApiSuper{
   protected readonly request: AxiosInstance
@@ -53,19 +40,17 @@ export abstract class ApiSuper{
 export class ApiFabric extends ApiSuper{
   components<T>(arrReq: T[]):void {
     arrReq.forEach((Component:any) => {
-      this.store = {...this.store,[Component.name]: new Component(this.request)}
+      this.store = { ...this.store, [Component.name]: new Component(this.request) }
     })
   }
 }
 
 interface IReqStore{
-  Auth:IAuthRequest
+  Sliders:ISlidersRequest
 }
 
 type IAPI =
-  typeof ReqAuth |
-  typeof ReqCate |
-  typeof ReqProduct
+  typeof ReqSliders
 
 function handApi<T>({ api }: any,arrReq:T[]): IReqStore {
   
@@ -73,9 +58,25 @@ function handApi<T>({ api }: any,arrReq:T[]): IReqStore {
   fabr.components<T>(arrReq)
   return fabr.store
 }
-handApi<IAPI>(Api.getInstance, [
-  ReqAuth
+export const API = handApi<IAPI>(Api.getInstance, [
+  ReqSliders
 ])
+
+
+// old
+interface Iback {
+  register:<T>(data:T) => AxiosPromise,
+  login: <T>(data: T) => AxiosPromise,
+  auth: <T>(data: T) => AxiosPromise,
+  categorylist: <T>(id?:T) => AxiosPromise,
+  categoryHandle: <T, K>(data: T, id?: K) => AxiosPromise,
+  categoryDelet: <T>(id: T) => AxiosPromise,
+  Product: (id: string) => AxiosPromise,
+  ProductCategoryList: (data: any) => AxiosPromise,
+  productlist:(data:any) => AxiosPromise,
+  ProdHandle: <T, K>(data: T, id?: K) => AxiosPromise,
+  producDelet: <T>(id?:T) => AxiosPromise,
+}
 
  function getApi({api}:any):Iback{
     const request: AxiosInstance = api

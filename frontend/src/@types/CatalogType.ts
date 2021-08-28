@@ -5,6 +5,10 @@ export interface ICate {
   dethlvl: number
   name: string
 }
+
+
+
+
 export type IProd = {
   _id:string,
   title: string,

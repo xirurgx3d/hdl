@@ -10,11 +10,17 @@ const Sliders: React.FC = () => {
     return (
         <>
             
-            <Route path={RouteEnv.SLIDERS_HEADER}>
+            <Route exact path={RouteEnv.SLIDERS_HEADER}>
                 <SliderDashbordTpl>
                     <HeadSlideForm />
                 </SliderDashbordTpl>
             </Route>
+            <Route path={RouteEnv.SLIDERS_HEADER + '/:id'}>
+                <SliderDashbordTpl>
+                    <HeadSlideForm />
+                </SliderDashbordTpl>
+            </Route>
+            
             <Route exact path={RouteEnv.SLIDERS_PAGE}>
                 <SliderDashbordTpl>
                     <SlidersDashboard />

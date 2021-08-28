@@ -20,3 +20,10 @@ export type Tfile = {
   type: string
   webkitRelativePath: string
 }
+
+export interface ISliders {
+  _id:string,
+  title: string
+  descript?: string
+  img:Tfile
+}
