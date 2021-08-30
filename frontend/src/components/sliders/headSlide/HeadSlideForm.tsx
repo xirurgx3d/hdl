@@ -5,6 +5,7 @@ import { ISliders, Tfile } from '../../../@types/Interface';
 import { API } from '../../../api/Api';
 import { slidersRoute } from '../../../constants/constFetch';
 import { useParams } from 'react-router-dom';
+import useSlideForm from '../../../hooks/useSlideForm';
 
 
 
@@ -16,39 +17,21 @@ type Inputs = {
 }
 
 const HeadSlideForm: React.FC = (): JSX.Element => {
-  const [slideState, setSlide] = useState<null | ISliders>(null)
+  //const [slideState, setSlide] = useState<null | ISliders>(null)
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
   const [filee, setfile] = useState<any>(false)
-  const {id} = useParams<{id:string}>()
+  const { id } = useParams<{ id: string }>()
   
-  useEffect(() => {
-    id && (async function anyNameFunction() {
-      try {
-        const { data } =  await API.Sliders.slidelist(slidersRoute.headeslide, id)
-        setSlide(data)
-      } catch (error) {
-        setSlide(null)
-      }
-      
-    })();
-    
-  },[id])
+  const {slideState,onSubmit} = useSlideForm<ISliders,Inputs>({
+    list: API.Sliders.slidelist,
+    handler:API.Sliders.slideHandle
+  },
+    slidersRoute.headeslide,
+    filee)
+  
+  
 
-  const onSubmit = useCallback(async (data:Inputs) => {
-    try {
-      const formData = new FormData()
-      formData.append('title', String(data.title))
-      formData.append('descript', String(data.descript))
-      console.log(filee);
-      if (filee || slideState?.img) {
-        formData.append('img', filee || slideState?.img)
-      }
-      await API.Sliders.slideHandle(slidersRoute.headeslide,formData,id)
-
-    } catch (error) {
-      
-    }
-  }, [filee])
+  
  
   
   
