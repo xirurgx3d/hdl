@@ -22,10 +22,16 @@ const HeadSlideForm: React.FC = (): JSX.Element => {
   const [filee, setfile] = useState<any>(false)
   const { id } = useParams<{ id: string }>()
   
-  const {slideState,onSubmit} = useSlideForm<ISliders,Inputs>({
-    list: API.Sliders.slidelist,
-    handler:API.Sliders.slideHandle
-  },
+  const fomrdata = (formData:any,data:ISliders) => {
+      formData.append('title', String(data.title))
+      formData.append('descript', String(data.descript))
+      if (filee || slideState?.img) {
+        formData.append('img', filee || slideState?.img)
+    }
+  }
+
+  const { slideState, onSubmit } = useSlideForm<ISliders, Inputs>(
+    fomrdata,
     slidersRoute.headeslide,
     filee)
   

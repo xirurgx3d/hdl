@@ -3,20 +3,21 @@ import { DropzoneArea } from 'material-ui-dropzone';
 import { useForm } from 'react-hook-form';
 
 import { useParams } from 'react-router-dom';
+import { AxiosPromise } from 'axios';
+import { API } from '../api/Api';
+import { Tfile } from '../@types/Interface';
 
-interface Iapi{
-  list: (route: string, id: string) => void,
-  handler:(route: string, data:unknown,id: string) => void,
-}
+type Tfomrdata = <T>(fomrdata:any,data:any) => void
 
-export default <T,I>(api:Iapi,rout:string,filee:any) => {
-  const [slideState, setSlide] = useState<null | T>(null)
+export default <T,I>(fomrdata:Tfomrdata,rout:string,filee:Tfile) => {
+  const [slideState, setSlide] = useState<null | any>(null)
   const { id } = useParams<{ id: string }>()
+  
   
   useEffect(() => {
     id && (async function() {
       try {
-        const { data } =  await api.list(rout,id) //API.Sliders.slidelist(slidersRoute.headeslide, id)
+        const { data } =  await API.Sliders.slidelist(rout, id)
         setSlide(data)
       } catch (error) {
         setSlide(null)
@@ -26,16 +27,12 @@ export default <T,I>(api:Iapi,rout:string,filee:any) => {
     
   },[id])
 
-  const onSubmit = useCallback(async (data:I) => {
+  const onSubmit = useCallback(async (data:any) => {
     try {
       const formData = new FormData()
-      formData.append('title', String(data.title))
-      formData.append('descript', String(data.descript))
-      console.log(filee);
-      if (filee || slideState?.img) {
-        formData.append('img', filee || slideState?.img)
-      }
-      await api.handler(rout,formData,id) //API.Sliders.slideHandle(slidersRoute.headeslide,formData,id)
+      fomrdata(formData,data)
+      
+      await API.Sliders.slideHandle(rout, formData, id)
 
     } catch (error) {
       return

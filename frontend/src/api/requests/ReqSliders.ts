@@ -20,7 +20,6 @@ export default class Sliders extends RequstAbstract implements ISlidersRequest{
     })
   }
   slideHandle<T, K>(route: string, data: T, id?: K) {
-    //console.log(data)
     return id
       ? this.request({
         method: 'put',
