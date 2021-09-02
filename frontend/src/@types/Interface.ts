@@ -27,3 +27,10 @@ export interface ISliders {
   descript?: string
   img:Tfile
 }
+export interface ICarousel {
+  _id: string,
+  title: string
+  run?: number
+  car?: number
+  img:Tfile
+}

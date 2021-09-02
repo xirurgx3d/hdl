@@ -7,5 +7,6 @@ export const RouteEnv = {
   CATALOG_DASHBOARD: '/catalog/dashboard',
   CATALOG_CATAGORY: '/catalog/category',
   SLIDERS_PAGE: '/sliders',
-  SLIDERS_HEADER:'/sliders/header'
+  SLIDERS_HEADER: '/sliders/header',
+  SLIDERS_СAROUSEL:'/sliders/carousel'
 }

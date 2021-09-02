@@ -1,3 +1,4 @@
 export const slidersRoute = {
-  headeslide:'headeslide'
+  headeslide: 'headeslide',
+  carousel:'carousel'
 }
