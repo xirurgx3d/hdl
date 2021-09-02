@@ -19,7 +19,8 @@ package-lock.json
 *.log
 *.gz
 
-
+public
+dist-server
 # Coveralls
 coverage
 

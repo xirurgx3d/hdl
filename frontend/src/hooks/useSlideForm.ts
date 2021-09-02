@@ -1,17 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { DropzoneArea } from 'material-ui-dropzone';
-import { useForm } from 'react-hook-form';
+import { useParams, useHistory, RouteComponentProps } from 'react-router-dom';
 
-import { useParams } from 'react-router-dom';
-import { AxiosPromise } from 'axios';
 import { API } from '../api/Api';
-import { Tfile } from '../@types/Interface';
+import { Tfile,I } from '../@types/Interface';
 
-type Tfomrdata = <T>(fomrdata:any,data:any) => void
+type Tfomrdata = (fomrdata:any,data:any) => void
 
 export default <T,I>(fomrdata:Tfomrdata,rout:string,filee:Tfile) => {
   const [slideState, setSlide] = useState<null | any>(null)
   const { id } = useParams<{ id: string }>()
+  const history = useHistory<RouteComponentProps>()
   
   
   useEffect(() => {
@@ -33,7 +31,7 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee:Tfile) => {
       fomrdata(formData,data)
       
       await API.Sliders.slideHandle(rout, formData, id)
-
+      history.goBack()
     } catch (error) {
       return
     }
