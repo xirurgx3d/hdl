@@ -32,7 +32,7 @@ const App: React.FC = () => {
             .then(e => {
                 if (e) {
                     UserStore.setIsAuth(e)
-                    history.push(RouteEnv.CATALOG_DASHBOARD)
+                    history.push(RouteEnv.SLIDERS_PAGE)
                 } else {
                     UserStore.setIsAuth(e)
                     history.push("/auth/login")
