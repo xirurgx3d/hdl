@@ -25,7 +25,7 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee:Tfile) => {
     
   },[id])
 
-  const onSubmit = useCallback(async (data:any) => {
+  const onSubmit = async (data:any) => {
     try {
       const formData = new FormData()
       fomrdata(formData,data)
@@ -35,7 +35,7 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee:Tfile) => {
     } catch (error) {
       return
     }
-  }, [filee])
+  }
 
   return {
     slideState,

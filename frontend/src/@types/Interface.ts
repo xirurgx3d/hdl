@@ -34,3 +34,10 @@ export interface ICarousel {
   car?: number
   img:Tfile
 }
+export interface ISpecific {
+  _id: string,
+  title: string
+  run?: number
+  car?: number
+  img:Tfile
+}

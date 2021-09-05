@@ -15,7 +15,7 @@ const SpecificList: React.FC = (): JSX.Element => {
 
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(slidersRoute.carousel)
+      const {data} = await API.Sliders.slidelist(slidersRoute.specific)
       setstate(data)
     } catch (error) {
       setstate(null)
@@ -28,7 +28,7 @@ const SpecificList: React.FC = (): JSX.Element => {
 
   const deletHadle = useCallback(async (id: string) => {
     try {
-      await API.Sliders.slideDelet(slidersRoute.headeslide, id)
+      await API.Sliders.slideDelet(slidersRoute.specific, id)
       await fetchHeadSlideList()
     } catch (error) {
       console.log(error);
@@ -48,7 +48,7 @@ const SpecificList: React.FC = (): JSX.Element => {
             return ( 
              
               <ListItem key={index}>
-                    <Link className="badge bg-secondary" to={RouteEnv.SLIDERS_СAROUSEL + '/' + val._id}><ListItemText primary={val.title} /></Link>
+                    <Link className="badge bg-secondary" to={RouteEnv.SLIDERS_SPECIFIC + '/' + val._id}><ListItemText primary={val.title} /></Link>
                     <ListItemIcon>
                         <DeleteIcon onClick={()=> deletHadle(val._id)} />
                     </ListItemIcon>

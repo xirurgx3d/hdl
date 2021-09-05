@@ -16,7 +16,7 @@ const Specific: React.FC = (): JSX.Element => {
          <Grid item xs={12}>
            <Paper className={fixedHeightPaper}>
               <Typography component="h2" variant="h6" color="primary" gutterBottom>
-            Карусель Инфраструктуры
+            Характеристики
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
             <Link to={RouteEnv.SLIDERS_SPECIFIC} >Добавить Слайдер</Link>

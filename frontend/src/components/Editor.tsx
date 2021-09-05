@@ -1,4 +1,4 @@
-import { default as React, useEffect, useRef, useState } from 'react';
+import { default as React, memo, useEffect, useRef, useState } from 'react';
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header'; 
  
@@ -22,17 +22,19 @@ const EDITTOR_HOLDER_ID = 'editorjs';
  
 type IEditor = {
   setEditorData:any,
-  editorData:TeditorData | null
+  editorData: any //TeditorData | null
 }
 
-const Editor: React.FC<IEditor> = ({editorData = {},setEditorData}): JSX.Element =>  {
+const Editor: React.FC<IEditor> = ({editorData,setEditorData}): JSX.Element =>  {
   const ejInstance = useRef<any>();
- 
+  
  
   useEffect(() => {
+    
     if (!ejInstance.current) {
       initEditor();
     }
+
     return () => {
       ejInstance.current.destroy();
       ejInstance.current = null;
@@ -40,12 +42,15 @@ const Editor: React.FC<IEditor> = ({editorData = {},setEditorData}): JSX.Element
   }, []);
 
   
+  
+
+  
  
   const initEditor = () => {
     const editor = new EditorJS({
       holder: EDITTOR_HOLDER_ID,
       logLevel: "ERROR" as any,
-      data: editorData as TeditorData,
+      data:editorData,
       onReady: () => {
         ejInstance.current = editor;
       },
@@ -69,4 +74,4 @@ const Editor: React.FC<IEditor> = ({editorData = {},setEditorData}): JSX.Element
   );
 }
  
-export default Editor;
+export default memo(Editor);
