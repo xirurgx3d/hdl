@@ -13,6 +13,8 @@ var _arousel = _interopRequireDefault(require("../controllers/components/\u0421a
 
 var _Specific = _interopRequireDefault(require("../controllers/components/Specific"));
 
+var _StepBuild = _interopRequireDefault(require("../controllers/components/StepBuild"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var router = _express["default"].Router();
@@ -20,5 +22,6 @@ var router = _express["default"].Router();
 router.use('/headeslide', _headSlide["default"]);
 router.use('/carousel', _arousel["default"]);
 router.use('/specific', _Specific["default"]);
+router.use('/stepbuild', _StepBuild["default"]);
 var _default = router;
 exports["default"] = _default;

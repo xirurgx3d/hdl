@@ -3,3 +3,7 @@ export const slidersRoute = {
   carousel: 'carousel',
   specific:'specific'
 }
+export const stepBuildRoute = {
+  step: 'stepbuild/step',
+  build:'stepbuild/build'
+}

@@ -16,10 +16,10 @@ const Steps: React.FC = (): JSX.Element => {
          <Grid item xs={12}>
            <Paper className={fixedHeightPaper}>
               <Typography component="h2" variant="h6" color="primary" gutterBottom>
-            Ход строительства
+            Очередь
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
-            <Link to={RouteEnv.STEP_BUILD} >Добавить Слайдер</Link>
+            <Link to={RouteEnv.STEP_BUILD_STEPS} >Добавить очередь</Link>
           </Button>
           <СarouselList />   
             

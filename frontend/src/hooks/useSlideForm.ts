@@ -6,10 +6,10 @@ import { Tfile,I } from '../@types/Interface';
 
 type Tfomrdata = (fomrdata:any,data:any) => void
 
-export default <T,I>(fomrdata:Tfomrdata,rout:string,filee:Tfile) => {
+export default <T,I>(fomrdata:Tfomrdata,rout:string,filee?:Tfile) => {
   const [slideState, setSlide] = useState<null | any>(null)
   const { id } = useParams<{ id: string }>()
-  const history = useHistory<RouteComponentProps>()
+  const history:any = useHistory<RouteComponentProps>()
   
   
   useEffect(() => {
