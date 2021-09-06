@@ -6,7 +6,6 @@ import { useStyles } from '../../../styled/material_styles';
 import { RouteEnv } from '../../../constants/constRouter';
 import HeadSlideList from './HeadSlideList';
 
-
 const HeadSlide: React.FC = (): JSX.Element => {
   const classes = useStyles()
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -21,7 +20,7 @@ const HeadSlide: React.FC = (): JSX.Element => {
           <Button className={classes.add_buttons} variant="contained" color="primary">
             <Link to={RouteEnv.SLIDERS_HEADER} >Добавить Слайдер</Link>
           </Button>
-          <HeadSlideList />   
+          <HeadSlideList />  
             
         </Paper>
       </Grid>
