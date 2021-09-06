@@ -9,5 +9,8 @@ export const RouteEnv = {
   SLIDERS_PAGE: '/sliders',
   SLIDERS_HEADER: '/sliders/header',
   SLIDERS_СAROUSEL: '/sliders/carousel',
-  SLIDERS_SPECIFIC:'/sliders/specific'
+  SLIDERS_SPECIFIC: '/sliders/specific',
+  STEP_BUILD: '/step_build',
+  STEP_BUILD_BUILD: '/step_build/build',
+  STEP_BUILD_STEPS:'/step_build/steps'
 }

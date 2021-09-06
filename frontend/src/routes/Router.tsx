@@ -6,6 +6,7 @@ import Catalog from './Catalog';
 import Dashboard from '../components/Dashboard';
 import { RouteEnv } from '../constants/constRouter';
 import Sliders from './Sliders';
+import StepBuild from './StepBuild';
 
 
 
@@ -21,6 +22,11 @@ const Router:React.FC = () => (
             <Route path={RouteEnv.SLIDERS_PAGE}>
                 <Dashboard>
                     <Sliders />
+                </Dashboard>
+            </Route>
+            <Route path={RouteEnv.STEP_BUILD}>
+                <Dashboard>
+                    <StepBuild />
                 </Dashboard>
             </Route>
         </Switch>

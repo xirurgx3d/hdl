@@ -34,12 +34,12 @@ const Drawers: React.FC = () => {
             <ListItemText primary="Слайдеры" />
           </ListItem>
         </Link>
-        <Link  to={RouteEnv.CATALOG_DASHBOARD}>
+        <Link  to={RouteEnv.STEP_BUILD}>
           <ListItem button>
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary="Ход строительства" />
           </ListItem>
         </Link>
         <Link  to={RouteEnv.CATALOG_CATAGORY}>
@@ -47,7 +47,15 @@ const Drawers: React.FC = () => {
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Категории" />
+            <ListItemText primary="Новости" />
+          </ListItem>
+        </Link>
+        <Link  to={RouteEnv.CATALOG_CATAGORY}>
+          <ListItem button>
+            <ListItemIcon>
+                <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Настройки" />
           </ListItem>
         </Link>
     </List>

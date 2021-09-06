@@ -46,6 +46,9 @@ const Sliders: React.FC = () => {
                 </SliderDashbordTpl>
             </Route>
 
+           
+            
+
             
             <Route exact path={RouteEnv.SLIDERS_PAGE}>
                 <SliderDashbordTpl>
