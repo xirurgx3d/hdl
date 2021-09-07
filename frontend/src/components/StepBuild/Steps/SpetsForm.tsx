@@ -16,7 +16,6 @@ type Inputs = {
 
 const StepsForm: React.FC = (): JSX.Element => {
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
-  const { id } = useParams<{ id: string }>()
   
   const fomrdata = (formData:any,data:Inputs) => {
       formData.append('title', String(data.title))
