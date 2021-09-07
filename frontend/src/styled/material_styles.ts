@@ -116,6 +116,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   add_buttons: {
     width:260
+  },
+  add_video: {
+    marginTop:10
   }
 
 

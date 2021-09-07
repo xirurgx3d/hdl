@@ -49,7 +49,7 @@ const StepsList: React.FC = (): JSX.Element => {
         state.map((val: {title:string,_id:string}, index) => {
             return (
              
-              <ListItem button>
+              <ListItem key={index} button>
                   <Link className="badge bg-secondary" to={RouteEnv.STEP_BUILD_STEPS + '/' + val._id}><ListItemText primary={val.title} /></Link>
                   <ListItemIcon>
                     <DeleteIcon onClick={()=> deletHadle(val._id)} />

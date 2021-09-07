@@ -4,7 +4,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { ICarousel } from '../../../@types/Interface';
 import Api, { API } from '../../../api/Api';
-import { slidersRoute } from '../../../constants/constFetch';
+import { slidersRoute, stepBuildRoute } from '../../../constants/constFetch';
 import { popRouteEnv, RouteEnv } from '../../../constants/constRouter';
 import usePrepareLink from '../../../hooks/usePrepareLink';
 import Loader from '../../loader';
@@ -35,7 +35,7 @@ const BuildList: React.FC = (): JSX.Element => {
   
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(slidersRoute.carousel)
+      const {data} = await API.Sliders.slidelist(stepBuildRoute.build)
       setstate(data)
     } catch (error) {
       setstate(null)
