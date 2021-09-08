@@ -12,7 +12,7 @@ type Inputs = {
   title: string
   descript:object
   img: Tfile
-  sliders:[]
+  sliders: []
 }
 
 
@@ -21,7 +21,6 @@ const SpecificForm: React.FC = (): JSX.Element => {
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
   const [editorData, setEditorData] = useState<TeditorData | null>(null);
   const [filee, setfile] = useState<any>(false)
-  const [sliders, setSliders] = useState<any>(false)
   const { id } = useParams<{ id: string }>()
   
   const fomrdata = (formData:any,data:Inputs) => {
@@ -30,10 +29,6 @@ const SpecificForm: React.FC = (): JSX.Element => {
       if (filee || slideState?.img) {
         formData.append('img', filee || slideState?.img)
     }
-    if (sliders || slideState?.sliders) {
-        console.log(sliders);
-        formData.append('sliders', sliders || slideState?.sliders)
-      }
       if (editorData || slideState?.descript) {
         formData.append('descript', JSON.stringify(editorData) || slideState?.descript)
       }
@@ -45,7 +40,8 @@ const SpecificForm: React.FC = (): JSX.Element => {
     slidersRoute.specific,
     filee)
   
-  console.log(slideState);
+  
+  
   
   
  
@@ -71,15 +67,7 @@ const SpecificForm: React.FC = (): JSX.Element => {
             <label className="form-label">Текст</label>
             <Editor setEditorData={setEditorData} editorData={slideState ? slideState.descript : editorData} />
         </div>
-        <div className="popBox_item">
-            <label className="form-label">Изображения слайдера</label>
-            {
-              !slideState && <DropzoneArea onChange={e => setSliders(e)} />
-            }
-            {
-              id && slideState && <DropzoneArea onChange={e => setfile(e[0])} initialFiles={[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]} />
-            }
-        </div>
+        
         
             
       </div>

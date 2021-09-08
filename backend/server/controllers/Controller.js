@@ -46,9 +46,10 @@ export class ControllerBridge{
     }
     async add(req,res){
         const body = req.body
-        console.log(body,'qqq')
+        
         if(req.files){
             const {img} = req.files
+            
             let filename = img.name
             img.mv(path.join(req.pathurl, 'img',filename), err => console.log(err))
             await this.Shema.create({...body,img:filename})
