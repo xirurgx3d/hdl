@@ -21,7 +21,6 @@ const GallerySlideForm: React.FC = (): JSX.Element => {
   const { id } = useParams<{ id: string }>()
   
   const fomrdata = (formData: any, data: ISliders) => {
-    console.log(filee);
     if (filee) {
       console.log(filee);
       for (let i = 0; i < filee.length; i++) {
@@ -38,7 +37,12 @@ const GallerySlideForm: React.FC = (): JSX.Element => {
   
 
   
- 
+  const imagesArr = useCallback((mass:string[]) => {
+    return mass.map((val:string) => {
+      return process.env.REACT_APP_API_URL + '/api/static/img/' + val
+      //[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]
+    })
+  },[id])
   
   
   return (
@@ -48,7 +52,7 @@ const GallerySlideForm: React.FC = (): JSX.Element => {
           !slideState && <DropzoneArea onChange={e => setfile(e)} />
         }
         {
-          id && slideState && <DropzoneArea onChange={e => setfile(e)} initialFiles={[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]} />
+          id && slideState && <DropzoneArea onChange={e => setfile(e)} initialFiles={imagesArr(slideState?.img)} />
         }
           
         

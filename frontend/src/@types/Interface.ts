@@ -41,3 +41,7 @@ export interface ISpecific {
   car?: number
   img:Tfile
 }
+export interface IGallery {
+  _id: string,
+  img:string[]
+}

@@ -2,7 +2,7 @@ import { Button, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '
 import DeleteIcon from '@material-ui/icons/Delete';
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { ISliders } from '../../../@types/Interface';
+import { IGallery, ISliders } from '../../../@types/Interface';
 import Api, { API } from '../../../api/Api';
 import { slidersRoute } from '../../../constants/constFetch';
 import { popRouteEnv, RouteEnv } from '../../../constants/constRouter';
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 });
 
 const GallerySlideList: React.FC = (): JSX.Element => {
-  const [state, setstate] = useState<null | Array<ISliders>>(null)
+  const [state, setstate] = useState<null | Array<IGallery>>(null)
   const classes = useStyles();
   
   const {pathname} = usePrepareLink({
@@ -38,7 +38,7 @@ const GallerySlideList: React.FC = (): JSX.Element => {
 
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(slidersRoute.headeslide)
+      const {data} = await API.Sliders.slidelist(slidersRoute.galleryslide)
       setstate(data)
     } catch (error) {
       setstate(null)
@@ -51,7 +51,7 @@ const GallerySlideList: React.FC = (): JSX.Element => {
 
   const deletHadle = useCallback(async (id: string) => {
     try {
-      await API.Sliders.slideDelet(slidersRoute.headeslide, id)
+      await API.Sliders.slideDelet(slidersRoute.galleryslide, id)
       await fetchHeadSlideList()
     } catch (error) {
       console.log(error);
@@ -67,25 +67,22 @@ const GallerySlideList: React.FC = (): JSX.Element => {
      
       {
         !state ? <Loader /> :
-          state.map((val: ISliders, index) => {
+          state.map((val: IGallery, index) => {
             return (
              
               <Card key={index} className={classes.root} >
                 <CardActionArea className={styles.cartbox}>
                   <div className={styles.cartbox_icon}>
                         <DeleteIcon onClick={()=> deletHadle(val._id)} />
-                    </div>
+                  </div>
+                  <Link className="badge bg-secondary" to={RouteEnv.SLIDERS_GALLERY + '/' + val._id}>
                   <CardMedia
                     className={classes.media}
-                    image={process.env.REACT_APP_API_URL + '/api/static/img/' + String(val.img)}
+                    image={process.env.REACT_APP_API_URL + '/api/static/img/' + String(val.img[0])}
                     title="Contemplative Reptile"
                   />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      <Link className="badge bg-secondary" to={RouteEnv.SLIDERS_HEADER + '/' + val._id}><ListItemText primary={val.title} /></Link>
-                    </Typography>
-                    
-                  </CardContent>
+                  </Link>
+                  
                 </CardActionArea>
                 
               </Card>    
