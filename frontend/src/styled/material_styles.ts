@@ -119,6 +119,12 @@ export const useStyles = makeStyles((theme) => ({
   },
   add_video: {
     marginTop:10
+  },
+  youtubeList: {
+    maxWidth: 560,
+    padding: '15px 10px',
+    marginTop: 30,
+    border: '1px solid rgb(221, 221, 221)'
   }
 
 

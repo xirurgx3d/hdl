@@ -57,8 +57,15 @@ const BuildForm: React.FC = (): JSX.Element => {
     }, [setYearValue])
   
     const addUrl = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-      dispatch({type:'box',payload:state.urlVideo})
-    },[state.urlVideo])
+      dispatch({type:'addUrl',payload:state.urlVideo})
+    }, [state.urlVideo])
+  
+    
+    const DeleteUrl = useCallback((id:number) => {
+        dispatch({type:'deletUrl',payload:id})
+    }, [state.urlVideo])
+  
+  //console.log(state);
 
   
   
@@ -99,29 +106,32 @@ const BuildForm: React.FC = (): JSX.Element => {
           </Grid>
         </Grid>
 
-
-        <List>
-          {state.urlBox.length > 0 && state.urlBox.map((val:unknown, index: number) => {
-            return (
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar>
-                  <FolderIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={val as string}
+        {state.urlBox.length > 0 &&
+          <List className={classes.youtubeList}>
+            {state.urlBox.map((val: unknown, index: number) => {
+              return (
+                <ListItem key={index}>
+                  <ListItemAvatar>
+                    <Avatar>
+                      <FolderIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <a href={val as string}>
+                  <ListItemText
+                    primary={val as string}
                 
-              />
-              <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="delete">
-                  <DeleteIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
-          )})}
-        </List>
-        
+                  />
+                  </a>
+                  <ListItemSecondaryAction>
+                    <IconButton edge="end" aria-label="delete" onClick={e => DeleteUrl(index)}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </ListItemSecondaryAction>
+                </ListItem>
+              )
+            })}
+          </List>
+        }
         <br />
         <br/>
         

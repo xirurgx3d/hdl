@@ -78,7 +78,7 @@ export class ControllerBridge{
         const {id} = req.params
         const prod = await this.Shema.findById(id)
         if(prod.img){
-            fs.unlinkSync(path.join(req.pathurl, 'img',prod.img))
+            //fs.unlinkSync(path.join(req.pathurl, 'img',prod.img))
         }
         await this.Shema.findOneAndDelete(id)
         res.status(200).send({error:false})
