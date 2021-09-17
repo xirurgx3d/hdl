@@ -15,6 +15,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import SliderListTpl from '../../../views/sliders/SiderListTpl';
 
 const useStyles = makeStyles({
   root: {
@@ -70,22 +71,8 @@ const GallerySlideList: React.FC = (): JSX.Element => {
           state.map((val: IGallery, index) => {
             return (
              
-              <Card key={index} className={classes.root} >
-                <CardActionArea className={styles.cartbox}>
-                  <div className={styles.cartbox_icon}>
-                        <DeleteIcon onClick={()=> deletHadle(val._id)} />
-                  </div>
-                  <Link className="badge bg-secondary" to={RouteEnv.SLIDERS_GALLERY + '/' + val._id}>
-                  <CardMedia
-                    className={classes.media}
-                    image={process.env.REACT_APP_API_URL + '/api/static/img/' + String(val.img[0])}
-                    title="Contemplative Reptile"
-                  />
-                  </Link>
-                  
-                </CardActionArea>
-                
-              </Card>    
+              <SliderListTpl key={index} images={val.img[0]} delet={()=> deletHadle(val._id)} route={RouteEnv.SLIDERS_GALLERY} />
+              
                
            
             )

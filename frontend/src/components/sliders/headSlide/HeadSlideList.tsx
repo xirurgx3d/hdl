@@ -9,12 +9,8 @@ import { popRouteEnv, RouteEnv } from '../../../constants/constRouter';
 import usePrepareLink from '../../../hooks/usePrepareLink';
 import Loader from './../../loader';
 import styles from '../style.module.css'
-
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import SliderListTpl from '../../../views/sliders/SiderListTpl';
 
 const useStyles = makeStyles({
   root: {
@@ -69,28 +65,12 @@ const HeadSlideList: React.FC = (): JSX.Element => {
         !state ? <Loader /> :
           state.map((val: ISliders, index) => {
             return (
-             
-              <Card key={index} className={classes.root} >
-                <CardActionArea className={styles.cartbox}>
-                  <div className={styles.cartbox_icon}>
-                        <DeleteIcon onClick={()=> deletHadle(val._id)} />
-                    </div>
-                  <CardMedia
-                    className={classes.media}
-                    image={process.env.REACT_APP_API_URL + '/api/static/img/' + String(val.img)}
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+              <SliderListTpl key={index} images={val.img} delet={()=> deletHadle(val._id)} route={RouteEnv.SLIDERS_HEADER + '/' + val._id} >
+                <Typography gutterBottom variant="h5" component="h2">
                       <Link className="badge bg-secondary" to={RouteEnv.SLIDERS_HEADER + '/' + val._id}><ListItemText primary={val.title} /></Link>
                     </Typography>
-                    
-                  </CardContent>
-                </CardActionArea>
-                
-              </Card>    
-               
-           
+              </SliderListTpl>
+              
             )
         })
       }
