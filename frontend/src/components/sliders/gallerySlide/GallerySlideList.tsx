@@ -71,7 +71,7 @@ const GallerySlideList: React.FC = (): JSX.Element => {
           state.map((val: IGallery, index) => {
             return (
              
-              <SliderListTpl key={index} images={val.img[0]} delet={()=> deletHadle(val._id)} route={RouteEnv.SLIDERS_GALLERY} />
+              <SliderListTpl key={index} images={val.img[0]} delet={()=> deletHadle(val._id)} route={RouteEnv.SLIDERS_GALLERY + '/' + val._id} />
               
                
            
