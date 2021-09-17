@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
 import SlidersDashboard from '../components/sliders';
 import GallerySlideForm from '../components/sliders/gallerySlide/GallerySlideForm';
+import GalleryHeadForm from '../components/sliders/galleryHead/galleryHeadForm';
 import HeadSlideForm from '../components/sliders/headSlide/HeadSlideForm';
 import SpecificForm from '../components/sliders/Specific/SpecificForm';
 import СarouselForm from '../components/sliders/Сarousel/СarouselForm';
@@ -21,6 +22,17 @@ const Sliders: React.FC = () => {
             <Route path={RouteEnv.SLIDERS_GALLERY + '/:id'}>
                 <SliderDashbordTpl>
                     <GallerySlideForm />
+                </SliderDashbordTpl>
+            </Route>
+
+            <Route exact path={RouteEnv.SLIDERS_GALLERYHEAD}>
+                <SliderDashbordTpl>
+                    <GalleryHeadForm />
+                </SliderDashbordTpl>
+            </Route>
+            <Route path={RouteEnv.SLIDERS_GALLERYHEAD + '/:id'}>
+                <SliderDashbordTpl>
+                    <GalleryHeadForm />
                 </SliderDashbordTpl>
             </Route>
             

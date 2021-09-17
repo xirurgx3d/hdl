@@ -1,5 +1,6 @@
 export const slidersRoute = {
   galleryslide: 'galleryslide',
+  galleryhead: 'galleryhead',
   headeslide: 'headeslide',
   carousel: 'carousel',
   specific:'specific'

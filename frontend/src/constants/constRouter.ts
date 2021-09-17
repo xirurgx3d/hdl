@@ -8,6 +8,7 @@ export const RouteEnv = {
   CATALOG_CATAGORY: '/catalog/category',
   SLIDERS_PAGE: '/sliders',
   SLIDERS_GALLERY: '/sliders/gallery',
+  SLIDERS_GALLERYHEAD: '/sliders/galleryhead',
   SLIDERS_HEADER: '/sliders/header',
   SLIDERS_СAROUSEL: '/sliders/carousel',
   SLIDERS_SPECIFIC: '/sliders/specific',
