@@ -45,3 +45,8 @@ export interface IGallery {
   _id: string,
   img:string[]
 }
+export interface ISteps {
+  _id: string,
+  title: string[]
+  deadline?:string
+}

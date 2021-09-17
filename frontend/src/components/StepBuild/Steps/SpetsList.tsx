@@ -2,7 +2,7 @@ import { Button, CardActions, List, ListItem, ListItemIcon, ListItemText, makeSt
 import DeleteIcon from '@material-ui/icons/Delete';
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { ICarousel } from '../../../@types/Interface';
+import { ISteps } from '../../../@types/Interface';
 import Api, { API } from '../../../api/Api';
 import { slidersRoute, stepBuildRoute } from '../../../constants/constFetch';
 import { RouteEnv } from '../../../constants/constRouter';
@@ -12,7 +12,7 @@ import Loader from '../../loader';
 
 
 const StepsList: React.FC = (): JSX.Element => {
-  const [state, setstate] = useState<null | Array<ICarousel>>(null)
+  const [state, setstate] = useState<null | Array<ISteps>>(null)
   
   
   const fetchHeadSlideList = async () => {
@@ -46,7 +46,7 @@ const StepsList: React.FC = (): JSX.Element => {
     
       {
         !state ? <Loader /> :
-        state.map((val: {title:string,_id:string}, index) => {
+        state.map((val: ISteps, index) => {
             return (
              
               <ListItem key={index} button>

@@ -26,6 +26,12 @@ const StepBuild: React.FC = () => (
       </SliderDashbordTpl>
     </Route>
 
+    <Route exact path={RouteEnv.STEP_BUILD_BUILD + '/:id'}>
+      <SliderDashbordTpl>
+        <BuildForm />
+      </SliderDashbordTpl>
+    </Route>
+
     <Route exact path={RouteEnv.STEP_BUILD}>
       <SliderDashbordTpl>
         <StepBuildDashboard />

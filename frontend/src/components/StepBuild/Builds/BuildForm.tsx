@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { useForm } from 'react-hook-form';
-import { ICarousel, ISliders, Tfile } from '../../../@types/Interface'; 
+import { ICarousel, ISliders, ISteps, Tfile } from '../../../@types/Interface'; 
 import { API } from '../../../api/Api';
-import { slidersRoute } from '../../../constants/constFetch';
+import { slidersRoute,stepBuildRoute as stepBuildRoutes } from '../../../constants/constFetch';
 import { useParams } from 'react-router-dom';
 import useSlideForm from '../../../hooks/useSlideForm';
 import { useStyles } from '../../../styled/material_styles';
@@ -11,20 +11,13 @@ import { Fab, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, TextF
 import AddIcon from '@material-ui/icons/Add';
 import { initialStateBuild, reducerBuild } from '../../../reducers/reducerBuild';
 
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import FolderIcon from '@material-ui/icons/Folder';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 
 type Inputs = {
   title: string
-  run: number
-  car:number
+  year: string
+  url: string
+  steps:string
   img:Tfile
 }
 
@@ -34,28 +27,58 @@ const BuildForm: React.FC = (): JSX.Element => {
   const { id } = useParams<{ id: string }>()
   const [filee, setfile] = useState<any>(false)
   const [YearValue, setYearValue] = useState('')
-  const [state, dispatch] = useReducer(reducerBuild, initialStateBuild)
+
+  const [steps, setSteps] = useState<ISteps[] | null>()
+  const [StepsValue, setStepsValue] = useState('')
+  //const [state, dispatch] = useReducer(reducerBuild, initialStateBuild)
   
   
   const fomrdata = (formData:any,data:Inputs) => {
       formData.append('title', String(data.title))
-      formData.append('run', String(data.run))
-      formData.append('car', String(data.car))
+      
+      formData.append('url', String(data.url))
+      if (YearValue) {
+         formData.append('year', String(YearValue)) 
+      }
+      if (StepsValue) {
+        formData.append('steps', String(StepsValue)) 
+      }
       if (filee || slideState?.img) {
         formData.append('img', filee || slideState?.img)
     }
   }
+  
 
-    const { slideState, onSubmit } = useSlideForm<ICarousel, Inputs>(
+  useEffect(() => {
+   (async() => {
+    try {
+      const {data} = await API.Sliders.slidelist(stepBuildRoutes.step)
+      setSteps(data)
+    } catch (error) {
+      setSteps(null)
+    }
+  })()
+  },[])
+
+    const { slideState, onSubmit } = useSlideForm<Inputs, Inputs>(
       fomrdata,
-      slidersRoute.carousel,
+      stepBuildRoutes.build,
       filee)
+  
+      
   
     const YearChange = useCallback((event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
       const name = event.target.value as typeof YearValue;
       setYearValue(name);
     }, [setYearValue])
   
+    const StepsChange = useCallback((event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
+      const name = event.target.value as typeof StepsValue;
+      setStepsValue(name);
+    }, [setStepsValue])
+    
+  
+    /*
     const addUrl = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
       dispatch({type:'addUrl',payload:state.urlVideo})
     }, [state.urlVideo])
@@ -64,8 +87,8 @@ const BuildForm: React.FC = (): JSX.Element => {
     const DeleteUrl = useCallback((id:number) => {
         dispatch({type:'deletUrl',payload:id})
     }, [state.urlVideo])
+  */
   
-  //console.log(state);
 
   
   
@@ -74,66 +97,50 @@ const BuildForm: React.FC = (): JSX.Element => {
     <form className="popBox" onSubmit={handleSubmit(onSubmit)}>
       <div className="popBox_item">
         
-          
-        
         <div className="popBox_item"> 
             <label className="form-label">Заголовок</label>
             <input type="text" name="title" ref={register} defaultValue={slideState ? String(slideState.title) : ''} className="form-control" />
         </div>
+        <div className="popBox_item"> 
+            <label className="form-label">Заголовок</label>
+            <input type="text" name="url" ref={register} defaultValue={slideState ? String(slideState.url) : ''} className="form-control" />
+        </div>
         <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-label">Год</InputLabel>
+                <InputLabel id="year">Год</InputLabel>
                   <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={YearValue}
+                    labelId="year"
+                    id="year-select"
+                    value={slideState ? slideState.year : YearValue}
                     onChange={YearChange}
                   >
-                    <MenuItem value={10}>2021</MenuItem>
-                    <MenuItem value={20}>2022</MenuItem>
-                    <MenuItem value={30}>2023</MenuItem>
+                    <MenuItem value={2021}>2021</MenuItem>
+                    <MenuItem value={2022}>2022</MenuItem>
+                    <MenuItem value={2023}>2023</MenuItem>
+                  </Select>
+                </FormControl>
+            <FormControl className={classes.formControl}>
+                <InputLabel id="step">Очередь</InputLabel>
+                  <Select
+                    labelId="step"
+                    id="step-select"
+                    value={slideState ? slideState.steps : StepsValue}
+                    onChange={StepsChange}
+                    >
+                    {
+                        steps && steps.map((val: ISteps) => {
+                          return <MenuItem value={val._id}>{val.title}</MenuItem>
+                        })
+                    }
+                    
+                    
                   </Select>
                 </FormControl>
         
         
-        <Grid container spacing={3}>
-          <Grid item>
-            <TextField value={state.urlVideo} onChange={(e:React.ChangeEvent<HTMLInputElement>) => dispatch({type:'url',payload:e.target.value})} label="YouTube Url" />
-          </Grid>
-          <Grid item>
-            <Fab color="primary" size="small" aria-label="add" onClick={addUrl} className={classes.add_video}>
-              <AddIcon />
-            </Fab>
-          </Grid>
-        </Grid>
-
-        {state.urlBox.length > 0 &&
-          <List className={classes.youtubeList}>
-            {state.urlBox.map((val: unknown, index: number) => {
-              return (
-                <ListItem key={index}>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <FolderIcon />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <a href={val as string}>
-                  <ListItemText
-                    primary={val as string}
-                
-                  />
-                  </a>
-                  <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="delete" onClick={e => DeleteUrl(index)}>
-                      <DeleteIcon />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              )
-            })}
-          </List>
-        }
         <br />
-        <br/>
+        <br />
+        <label className="form-label">Превью видео</label>
+        <br />
         
         {
           !slideState && <DropzoneArea onChange={e => setfile(e[0])} />
@@ -150,3 +157,7 @@ const BuildForm: React.FC = (): JSX.Element => {
 }
 
 export default BuildForm
+
+function stepBuildRoute<T, U>(fomrdata: (formData: any, data: Inputs) => void, stepBuildRoute: any, filee: any): { slideState: any; onSubmit: any; } {
+  throw new Error('Function not implemented.');
+}
