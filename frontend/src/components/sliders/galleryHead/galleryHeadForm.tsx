@@ -14,7 +14,7 @@ type Inputs = {
   sliders:[]
 }
 
-const galleryHeadForm: React.FC = (): JSX.Element => {
+const GalleryHeadForm: React.FC = (): JSX.Element => {
   //const [slideState, setSlide] = useState<null | ISliders>(null)
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
   const [filee, setfile] = useState<any>(false)
@@ -22,7 +22,6 @@ const galleryHeadForm: React.FC = (): JSX.Element => {
   
   const fomrdata = (formData: any, data: ISliders) => {
     if (filee) {
-      console.log(filee);
       for (let i = 0; i < filee.length; i++) {
         formData.append('img', filee[i])
       }
@@ -32,7 +31,7 @@ const galleryHeadForm: React.FC = (): JSX.Element => {
 
   const { slideState, onSubmit } = useSlideForm<Inputs, Inputs>(
     fomrdata,
-    slidersRoute.galleryslide,
+    slidersRoute.galleryhead,
     filee)
   
 
@@ -66,4 +65,4 @@ const galleryHeadForm: React.FC = (): JSX.Element => {
   )
 }
 
-export default galleryHeadForm
+export default GalleryHeadForm

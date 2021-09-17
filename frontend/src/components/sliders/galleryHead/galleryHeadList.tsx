@@ -10,7 +10,11 @@ import usePrepareLink from '../../../hooks/usePrepareLink';
 import Loader from './../../loader';
 import styles from '../style.module.css'
 
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 import SliderListTpl from '../../../views/sliders/SiderListTpl';
 
 const useStyles = makeStyles({
@@ -25,7 +29,7 @@ const useStyles = makeStyles({
   },
 });
 
-const galleryHeadList: React.FC = (): JSX.Element => {
+const GalleryHeadList: React.FC = (): JSX.Element => {
   const [state, setstate] = useState<null | Array<IGallery>>(null)
   const classes = useStyles();
   
@@ -80,4 +84,4 @@ const galleryHeadList: React.FC = (): JSX.Element => {
   )
 }
 
-export default memo(galleryHeadList)
+export default memo(GalleryHeadList)
