@@ -30,7 +30,12 @@ const useStyles = makeStyles({
   },
 });
 
-const BuildList: React.FC = (): JSX.Element => {
+type Iprops = {
+  year: string
+  steps: string
+}
+
+const BuildList: React.FC<Iprops> = ({year,steps}): JSX.Element => {
   const [state, setstate] = useState<null | Array<ICarousel>>(null)
   const classes = useStyles();
   

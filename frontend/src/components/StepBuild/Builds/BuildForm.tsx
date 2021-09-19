@@ -30,7 +30,7 @@ const BuildForm: React.FC = (): JSX.Element => {
 
   const [steps, setSteps] = useState<ISteps[] | null>()
   const [StepsValue, setStepsValue] = useState('')
-  //const [state, dispatch] = useReducer(reducerBuild, initialStateBuild)
+  
   
   
   const fomrdata = (formData:any,data:Inputs) => {
@@ -157,7 +157,3 @@ const BuildForm: React.FC = (): JSX.Element => {
 }
 
 export default BuildForm
-
-function stepBuildRoute<T, U>(fomrdata: (formData: any, data: Inputs) => void, stepBuildRoute: any, filee: any): { slideState: any; onSubmit: any; } {
-  throw new Error('Function not implemented.');
-}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useCallback } from 'react';
+import React, { useEffect, useState,useCallback, useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, Grid, InputLabel, MenuItem, Paper, Select, Typography } from '@material-ui/core';
 import clsx from 'clsx';
@@ -8,6 +8,8 @@ import { RouteEnv } from '../../../constants/constRouter';
 import FormControl from '@material-ui/core/FormControl';
 import { API } from '../../../api/Api';
 import { stepBuildRoute } from '../../../constants/constFetch';
+import { initialStateBuild, reducerBuild } from '../../../reducers/reducerBuild';
+import BuildList from './BuildList';
 
 
 
@@ -21,6 +23,7 @@ const Build: React.FC = (): JSX.Element => {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const [steps, setStetps] = useState<Tsteps[] | null>()
   const [stepsValue, setStetpsValue] = useState('')
+  const [YearValue, setYearValue] = useState('')
 
   useEffect(() => {
     (async function() {
@@ -41,8 +44,8 @@ const Build: React.FC = (): JSX.Element => {
   
   const YearChange = useCallback((event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
     const name = event.target.value as typeof stepsValue;
-    setStetpsValue(name);
-  },[stepsValue])
+    setYearValue(name);
+  },[setYearValue])
 
   return (
     <Grid container spacing={3}>
@@ -93,7 +96,7 @@ const Build: React.FC = (): JSX.Element => {
                 </FormControl>
             </Grid>
           </Grid>
-          <СarouselList />   
+          <BuildList steps={stepsValue} year={YearValue} />   
             
         </Paper>
       </Grid>
