@@ -1,0 +1,59 @@
+.genplan{
+    padding-top: 72px;
+
+    &__bg{
+        width: 100%;
+    }
+    &__features{
+        background-color: #F6F6F6;
+        padding: 72px 0;
+    }
+    &__item{
+        cursor: pointer;
+        border: 2px solid $gray;
+        transition: .2s ease-in;
+        padding: 21px 0;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        justify-content: space-around;
+        padding-right: 20px;
+
+        img{
+            align-self: flex-end;
+        }
+        &__text{
+            text-align: right;
+            margin-top: 17px;
+            line-height: 14px;
+            color: $gray;
+        }
+        &:hover, &.active{
+            border-color: transparent;
+            background-color: $yellow;
+
+            .genplan__item__text{
+                color: $violet;
+            }
+        }
+    }
+}
+.genplan__features--box{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    .genplan__item{
+       width: 16%;
+    }
+}
+@media screen and (max-width: 992px){
+    .genplan__features--box .genplan__item{
+        width: 40%;
+    }
+}
+@media screen and (max-width: 580px){
+    .genplan__features--box .genplan__item{
+        width: 100%;
+    }
+}

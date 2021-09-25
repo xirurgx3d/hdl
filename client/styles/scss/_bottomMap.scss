@@ -1,0 +1,97 @@
+.bottom-map{
+    height: 600px;
+    width: 100%;
+    position: relative;
+
+    #bottom-map{
+        height: 100%;
+    }
+    &__contacts{
+        position: absolute;
+        z-index: 999;
+        top:24px;
+        bottom: 24px;
+        left: 71px;
+        background-color: $white;
+        padding:35px 40px;
+        width: 360px;
+        box-shadow: 0px 0px 48px rgba(0, 0, 0, 0.1), 0px 0px 15.2889px rgba(0, 0, 0, 0.0607407), 0px 0px 3.91111px rgba(0, 0, 0, 0.0392593);
+
+
+        .section-btn{
+            margin-top: 30px;
+            margin-bottom: 16px;
+            width: 100%;
+        }
+        .memo{
+            color: $gray;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .btn{
+            width: 100%;
+        }
+        .btn.yellow{
+            background-color: $yellow;
+            box-shadow: 0px 2px 6px rgba(227, 196, 22, 0.06), 0px 6px 12px rgba(227, 196, 22, 0.12), 0px 12px 20px rgba(227, 196, 22, 0.18);
+        }
+        .header{
+            margin-bottom: 25px;
+            color: $violet;
+            font-size: 24px;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+        .phone,
+        .address__city{
+            font-size: 16px;
+            font-weight: 500;
+            color: $violet;
+        }
+
+        .address{
+            color: $blackGray;
+            margin-bottom: 25px;
+            display: flex;
+            &:before{
+                content: '';
+                background-image: url("/assets/ico/placemark.svg");
+                min-width: 17px;
+                height: 20px;
+                display: inline-block;
+                margin-right: 16px;
+            }
+        }
+        .phone{
+            display: flex;
+
+            &:before{
+                content: '';
+                background-image: url("/assets/ico/violet-phone.svg");
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                margin-right: 16px;
+            }
+        }
+        .contacts__memo{
+            font-size: 12px;
+            color: rgba(68,68,68, .5);
+            font-weight: 500;
+            margin-top: 12px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    .bottom-map{
+        &__contacts{
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+    }
+}

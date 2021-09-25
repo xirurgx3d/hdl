@@ -1,0 +1,55 @@
+.characteristic{
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background-color: $yellow;
+    background-image: url("/assets/img/beam.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .section-header{
+        margin-bottom: 0;
+    }
+    &__slider{
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+
+        img{
+            width: 100%;
+        }
+        &__title{
+            font-weight: 500;
+            font-size: 24px;
+            margin-top: 8px;
+            color: $violet;
+        }
+    }
+    .arrow{
+        position: absolute;
+        background-image: url("/assets/ico/violet-arrow.svg");
+        background-color: transparent;
+        border: 2px solid $violet;
+
+        &.disabled{
+            opacity: .5;
+        }
+        &.left{
+            transform: rotate(180deg);
+            left: -60px;
+        }
+        &.right{
+            right:  -60px;
+            transform: rotate(0deg);
+
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .characteristic__slider{
+        overflow: hidden;
+    }
+    .characteristic .section-header{
+        margin-bottom: 25px;
+    }
+}

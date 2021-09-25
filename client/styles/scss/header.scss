@@ -1,0 +1,96 @@
+.head{
+    justify-content: space-between;
+    align-items: center;
+}
+header{
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    /* Note: backdrop-filter has minimal browser support */
+    .flats_box{
+        display: flex;
+    }
+    .flats_box a{
+        
+        font-size: 11px;
+        line-height: 13px;
+    }
+    .nav-menu{
+        margin-top: 26px;
+        &__link{
+            color: $violet;
+            text-transform: uppercase;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+
+            &.green_link{
+                color: $salad;
+                font-weight: 600;
+
+                img{
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+    .contacts{
+        color: $violet;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+
+        &__phone{
+            font-size: 16px;
+            font-weight: 500;
+        }
+        &__memo{
+            font-size:12px;
+            font-weight: 600;
+            text-align: right;
+        }
+    }
+    .contacts_call{
+        position: relative;
+        top: 15px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .head{
+        justify-content: space-around;
+        width: 100%;
+        margin: 20px 0;
+    }
+    .nav-menu{
+        width: 100%;
+    }
+    .flats_box a{
+        margin:10px;
+    }
+    .logo{
+        text-align: center;
+    }
+} 
+@media screen and (max-width: 600px){
+    .head{
+        justify-content: center;
+        flex-direction: column;
+    }
+    .head > *{
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .nav-menu{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .nav-menu > a{
+        width: 30%;
+        margin-bottom: 15px;
+    }
+}
