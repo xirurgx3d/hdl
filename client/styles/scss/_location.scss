@@ -1,0 +1,181 @@
+.location{
+    background-color: #F6F6F6;
+    padding-bottom: 48px;
+    padding-top: 60px;
+
+    
+    &__infrastructures{
+        position: relative;
+        display: flex;
+        align-items: center;
+        .arrow{
+            position: absolute;
+            background-image: url("/assets/ico/violet-arrow.svg");
+            background-color: $yellow;
+
+            &.left{
+                left: -50px;
+                transform: rotate(180deg);
+            }
+            &.right{
+                right: -50px;
+                transform: none;
+            }
+        }
+    }
+    &__infrastructure{
+
+        img{
+            width: 100%;
+        }
+        &__title{
+            color: $violet;
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 24px;
+            margin-bottom: 14px;
+        }
+
+        &__time{
+            color: $blackGray;
+
+            .foot{
+                margin-right: 40px;
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                color: #444444;
+                &:before{
+                    margin-right: 8px;
+                    content: '';
+                    background-image: url("/assets/ico/foot.svg");
+                    width: 8px;
+                    height: 12px;
+                }
+            }
+            .car{
+                color: #444444;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                &:before{
+                    margin-right: 8px;
+                    content: '';
+                    background-image: url("/assets/ico/car.svg");
+                    width: 12px;
+                    height: 10px;
+                }
+            }
+        }
+    }
+
+    &__description{
+        font-size: 18px;
+        font-weight: 300;
+        text-align: center;
+        line-height: 32px;
+        margin-bottom: 60px;
+
+        &-header{
+            font-size: 18px;
+            margin-top: 60px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: $violet;
+            text-align: center;
+        }   
+    }
+
+    #map{
+        height: 600px;
+        background: #000;
+        position: relative;
+
+        
+    }
+
+    &__select{
+
+        
+        &__memo{
+            color: $gray;
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: 9px;
+        }
+        &-window{
+            padding: 32px;
+            box-shadow: 0px 0px 48px rgba(0, 0, 0, 0.1), 0px 0px 15.2889px rgba(0, 0, 0, 0.0607407), 0px 0px 3.91111px rgba(0, 0, 0, 0.0392593);
+            top: 24px;
+            bottom: 24px;
+            z-index: 999;
+            width: 360px;
+            left: 71px;
+            background-color: $white;
+            position: absolute;
+
+            .checkbox{
+                margin-bottom: 20px;
+
+                    &__value{
+                        font-weight: 300;
+                        font-size: 12px;
+                        color: $blackGray;
+                        margin-left: 12px;
+                    }
+                
+                    &__count{
+                        font-size: 14px;
+                        width: 24px;
+                        font-weight: 400;
+                        height: 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: rgba(68,68,68, .5);
+                        background-color: #F6F6F6;
+                        margin-left: auto;
+                    }
+            }
+
+            .section-header{
+                font-size: 24px;
+            }
+            .btn{
+                margin-top: auto;
+                width: 100%;
+                background-color: $yellow;
+                box-shadow: 0px 2px 6px rgba(227, 196, 22, 0.06), 0px 6px 12px rgba(227, 196, 22, 0.12), 0px 12px 20px rgba(227, 196, 22, 0.18);
+            }
+        }
+    }
+}
+@media screen and (max-width: 992px){
+    .location{
+        .foot, .car{
+            font-size: 12px;
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    .location{
+
+        &__select-window{
+            top: initial;
+            bottom: 0;
+            width: 100%;
+            min-height: 300px;
+            left: 0;
+        
+            .checkbox{
+                &__count{
+                    display: none;
+                }
+            }
+        }
+        &__infrastructures{
+            overflow: hidden;
+        }
+       
+    }
+}

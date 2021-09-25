@@ -1,0 +1,85 @@
+.about{
+    padding: 72px 0;
+    .about__description{
+        background-image: url("/assets/ico/cloud.svg"), url("/assets/ico/cloud-1.svg");
+        background-repeat: no-repeat;
+        background-position: 20% 100%, 80% 100%;
+        padding-bottom: 100px;
+
+        .memo{
+            font-size: 11px;
+            color: $gray;
+            margin-bottom: 18px;
+            letter-spacing: 3px;
+        }
+        .description{
+            color: $blackGray;
+            font-size: 14px;
+            line-height: 19.6px;
+        }
+    }
+    &__header{
+        color: $violet;
+        font-size: 32px;
+        font-weight: 500;
+        margin-bottom: 36px;
+    }
+
+    &__features{
+        .col-6{
+            margin-bottom: 36px;
+        }
+
+        &__ico{
+            min-width: 48px;
+            height: 48px;
+            background-color: $yellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        &__header{
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 6px;
+            line-height: 14px;
+            color: $violet;
+        }
+        &__description{
+            color: $blackGray;
+            font-size: 12px;
+            line-height: 14.4px;
+        }
+    }
+
+    &__slider{
+        display: flex;
+        position: relative;
+        align-items: center;
+        
+        img{
+            width: 100%;
+        }
+        .arrow{
+            position: absolute;
+
+            &.left{
+                left: -50px;
+            }
+            &.right{
+                right: -50px;
+            }
+        }
+    }
+}  
+
+@media screen and (max-width: 768px){
+    .about{
+        &__description{
+            background-image: none !important;
+            padding-bottom: 48px;
+        }
+        
+    }
+}

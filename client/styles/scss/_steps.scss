@@ -1,0 +1,49 @@
+.steps{
+    padding-bottom: 72px;
+
+    &__slider{
+        align-items: center;
+        position: relative;
+
+
+        .step{
+            img{
+                width: 100%;
+            }
+
+            &__date{
+                font-size: 18px;
+                font-weight: 500;
+                color: $violet;
+                margin-top: 24px;
+                margin-bottom: 12px;
+            }
+            &__photo-count{
+                font-size: 12px;
+                font-weight: 300;
+                color: $blackGray;
+            }
+        }
+        .arrow{
+            position: absolute;
+            background-image: url("/assets/ico/violet-arrow.svg");
+            background-color: $yellow;
+
+
+            &.left{
+                left: -50px;
+                transform: rotate(180deg);
+            }
+            &.right{
+                right: -50px;
+                transform: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+        .steps__slider{
+            overflow: hidden
+        }
+}

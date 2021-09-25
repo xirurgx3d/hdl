@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
+
+
+@import "./bootstrap/bootstrap"; 
+@import "./bootstrap/bootstrap-grid.scss";
+@import "./bootstrap/bootstrap-reboot.scss";
+
+@import "./vars";
+@import "./header";
+@import "./slider";
+@import "./brief";
+@import "./about";
+@import "./location";
+@import "./characteristic";
+@import "./genplan";
+@import "./steps";
+@import "./news";
+@import "./bottomMap";
+@import "./footer";
+@import "./modal";
+
+body{
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    
+}
+a{
+    text-decoration: none;
+}
+
+.section-header{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 36px;
+    color: $violet;
+}
+.btn{
+    width: 263px;
+    text-align: center;
+    padding: 16px 0;
+    color: $violet;
+    font-weight: 600;
+    font-size: 16px;
+}
+input[type="checkbox"],
+input[type="radio"]{
+    display: none;
+}
+.checkbox{
+        display: flex;
+        align-items: center;
+        
+        input{
+            & + span{
+                display: inline-block;
+                min-width: 20px;
+                height: 20px;
+                border: 2px solid $gray;
+
+            }
+            &:checked + span{
+                background-color: $yellow;
+                border: none;
+                background-image: url("/assets/ico/galka.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+    }
+
+    
+}
+.arrow{
+    &.disabled{
+        pointer-events: none;
+        opacity: .5;
+    }
+}
+.slider__progress{
+    width: 100%;
+    height: 2px;
+    background-color: $violet;
+    margin-top: 40px;
+    overflow: hidden;
+    position: relative;
+
+    .line{
+        width: 16.5%;
+        position: absolute;
+        height: 100%;
+        background-color: $yellow;
+        left: 0;
+    }
+}
+
+.section-btn{
+    .btn{
+        border: 2px solid $violet;
+    }
+}
+
+.about__features--box > *{
+    margin-bottom: 25px;
+}
+
+.container{
+    padding: 0 119px;
+    //background-color: #000;
+}
+
+@media screen and (max-width: 1366px){
+    .container{
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .arrow{
+        display: none;
+    }
+    .section-header{
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+@media screen and (max-width: 992px){
+    .about,.location{
+        margin: 0 2%;
+        padding: 30px 0;
+    }
+    .prefooter,.footer{
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+}
+@media screen and (max-width: 768px){
+    .location__select-window{
+        flex-direction: column;
+    }
+}
