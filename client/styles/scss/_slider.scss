@@ -5,7 +5,8 @@
         width: 100%;
 
         &__image{
-            height: 800px;
+            height: auto;
+            max-height: 800px;
         }
         .slick-prev{
             content: "";
@@ -33,7 +34,7 @@
             background-position: center;
             background-color: rgba(0,0,0, .5);
             transform: rotate(180deg);
-            top: 45%;
+            top: 47%;
             &::before{
                 content: "";
             }
@@ -189,6 +190,9 @@
         .slide, &, .slide .row{
             height: 40vh;
         }
+    }
+    .top-slider .slide__image{
+        height: auto;
     }
 }
 @media screen and (max-width: 560px){
