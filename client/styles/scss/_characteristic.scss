@@ -44,6 +44,12 @@
         }
     }
 }
+.characteristic__slider__item{
+    text-align: center;
+    img{
+        display: inline-block !important;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .characteristic__slider{

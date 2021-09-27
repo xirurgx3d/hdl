@@ -5,7 +5,7 @@
         width: 100%;
 
         &__image{
-            height: 500px;
+            height: 800px;
         }
         .slick-prev{
             content: "";
@@ -33,6 +33,7 @@
             background-position: center;
             background-color: rgba(0,0,0, .5);
             transform: rotate(180deg);
+            top: 45%;
             &::before{
                 content: "";
             }
@@ -47,12 +48,13 @@
         background-repeat: no-repeat;
         background-position: center;
         background-color: rgba(0,0,0, .5);
+        top: 50%;
         &.right{
             transform: rotate(180deg);
         }
     }
     .slick-dots{
-        width: 150px !important;
+        width: 130px !important;
         margin: 0 auto !important;
         left: 0;
         right: 0;
@@ -61,8 +63,8 @@
     }
     
     .slick-dots li button{
-        max-width: 8px !important;
-        height: 8px !important;
+        max-width: 6px !important;
+        height: 6px !important;
         background-color: $white !important;
         padding:5px !important;
         margin: 0;
@@ -71,8 +73,8 @@
         background-color: transparent !important;
         background-image: url("/assets/ico/active-slide.svg") !important;
         background-repeat: no-repeat !important;
-        max-width: 16px !important;
-        height: 16px !important;
+        max-width: 14px !important;
+        height: 14px !important;
         background-position: center !important;
         margin: 0;
         padding: 10px !important;
@@ -104,10 +106,10 @@
 
 .coruselus{
     .slick-arrow{
-        width: 48px;
-        height: 48px;
+        width: 36px;
+        height: 36px;
         background-color: #F4D942;
-        top: 40%;
+        top: 30%;
         background-repeat: no-repeat;
         &::before{
             content: "";
