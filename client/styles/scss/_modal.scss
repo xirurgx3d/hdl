@@ -1,10 +1,27 @@
+.dasboarde{
+    
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 888;
+    background-color: rgba(0, 0, 0, 0.37);
+    top: 0;
+    left: 0;
+}
+
+
 .modal-window{
+    
     width: 100%;
     max-width: 600px;
     padding: 72px;
-    position: relative;
+    position: absolute;
     background-color: $white;
-
+    z-index: 9999;
+    margin: 0 auto;
+    top: 30px;
+    left: 0;
+    right: 0;
     .close{
         position: absolute;
         right: 28px;
@@ -110,7 +127,7 @@
     }
 
     .modal-checkbox{
-        margin-left: 45px;
+        margin-bottom: 30px;
 
         input{
             & + span{
@@ -137,6 +154,10 @@
             }
         }
     }
+}
+
+.modal-active{
+    display:block;
 }
 
 @media screen and (max-width: 768px){

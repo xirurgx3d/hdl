@@ -112,6 +112,24 @@ input[type="radio"]{
     position: absolute;
 }
 
+.step_select{
+    display: flex;
+    margin-bottom: 30px;
+    .select-box1{
+        width: 200px;
+        height: 50px;
+        margin-right: 25px;
+    }
+    .select-box2{
+        width: 80px;
+        height: 50px;
+    }
+    .select-item{
+        height: 50px;    
+    }
+    
+}
+
 @media screen and (max-width: 1366px){
     .container{
         padding: 0;

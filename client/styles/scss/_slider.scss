@@ -1,15 +1,15 @@
 .top-slider{
     position: relative;
-
+    width: 100%;
     .slide{
-        
+        width: 100%;
 
         &__image{
             height: 500px;
         }
         .slick-prev{
             content: "";
-            left: 25%;
+            
             z-index: 999;
             cursor: pointer;
             width: 48px;
@@ -24,7 +24,6 @@
         }
         .slick-next{
             content: "";
-            right: 25%;
             z-index: 999;
             cursor: pointer;
             width: 48px;
@@ -82,8 +81,25 @@
         display: none;
     }
     
-    
+    .headslide{
+        .slick-prev{
+            left: 22%;
+        }
+        .slick-next{
+            right: 22%;
+        }
+    }
+    .aboutslide{
+        .slick-prev{
+            left: 2%;
+        }
+        .slick-next{
+            right: 2%;
+        }
+    }
 }
+
+
 
 
 .coruselus{
@@ -92,6 +108,7 @@
         height: 48px;
         background-color: #F4D942;
         top: 40%;
+        background-repeat: no-repeat;
         &::before{
             content: "";
         }
@@ -101,29 +118,29 @@
     }
     .slick-prev{
         left: -70px !important;
-        background-image: url("/assets/ico/violet-arrow.svg");
-        background-repeat: no-repeat;
-        background-position: center;
+        background-image: url("/assets/ico/violet-arrow.svg") !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
         transform: rotate(180deg);
         opacity: 0.8;
         &:hover{
-            background-image: url("/assets/ico/violet-arrow.svg");
-            background-repeat: no-repeat;
-            background-position: center;
+            background-image: url("/assets/ico/violet-arrow.svg") !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
             opacity: 1;
         }
     }
     .slick-next{
         right: -60px !important;
-        background-image: url("/assets/ico/violet-arrow.svg");
-        background-repeat: no-repeat;
-        background-position: center;
+        background-image: url("/assets/ico/violet-arrow.svg") !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
         transform: none;
         opacity: 0.8;
         &:hover{
-            background-image: url("/assets/ico/violet-arrow.svg");
-            background-repeat: no-repeat;
-            background-position: center;
+            background-image: url("/assets/ico/violet-arrow.svg") !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
             opacity: 1;
         }
     }
@@ -151,6 +168,12 @@
     }
     .slick-dots li button::before{
         display: none;
+    }
+}
+.setingslide{
+    .slick-arrow{
+        border: 1px solid #443571;
+        background-color: transparent;
     }
 }
 

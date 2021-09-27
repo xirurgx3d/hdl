@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import styles from './Sliders.module.scss'
 import "slick-carousel/slick/slick-theme.css";
 
-const Sliders = (): JSX.Element => {
+const AboutSliders = (): JSX.Element => {
   const slider1 = useRef<any>();
   const [nav1, setNav1] = useState<any>();
   const [slid, setSlid] = useState<any>(0);
@@ -27,13 +27,12 @@ const Sliders = (): JSX.Element => {
   return (
     <>
       <section className="top-slider">
-        <Slider className="slide headslide" ref={slide => setNav1(slide)} {...settings}>
-          <img className="slide__image" src="/assets/img/slide.png" alt="slide-1" />
-          <img className="slide__image" src="/assets/img/slide.png" alt="slide-1" />
-        </Slider>
-      </section>  
-      
+      <Slider className="slide aboutslide" ref={slide => setNav1(slide)} {...settings}>
+          <img src="/assets/img/about-slider.png" alt="middle slider" /> 
+          <img src="/assets/img/about-slider.png" alt="middle slider" />
+        </Slider> 
+      </section>
     </>
   )
 }
-export default Sliders
+export default AboutSliders
