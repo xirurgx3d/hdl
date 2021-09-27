@@ -10,10 +10,10 @@ WORKDIR /usr/src/app
 # Installing dependencies
 COPY package*.json /usr/src/app/
 
-RUN npm install
+RUN yarn install
 
 # Copying source files
 COPY . /usr/src/app
 
 # Running the app
-CMD "npm" "run" "dev"
+CMD "npm" "run" "start"
