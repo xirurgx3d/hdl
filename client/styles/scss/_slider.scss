@@ -13,12 +13,12 @@
             
             z-index: 999;
             cursor: pointer;
-            width: 48px;
-            height: 48px;
-            background-image: url("/assets/ico/left-arrow.svg");
+            width: 64px;
+            height: 64px;
+            background-image: url("/assets/img/arrleft.png");
             background-repeat: no-repeat;
             background-position: center;
-            background-color: rgba(0,0,0, .5);
+            background-color: none;
             &::before{
                 content: "";
             } 
@@ -27,14 +27,13 @@
             content: "";
             z-index: 999;
             cursor: pointer;
-            width: 48px;
-            height: 48px;
-            background-image: url("/assets/ico/left-arrow.svg");
+            width: 64px;
+            height: 64px;
+            background-image: url("/assets/img/arrright.png");
             background-repeat: no-repeat;
             background-position: center;
-            background-color: rgba(0,0,0, .5);
-            transform: rotate(180deg);
-            top: 47%;
+            background-color: none;
+            
             &::before{
                 content: "";
             }
@@ -59,7 +58,7 @@
         margin: 0 auto !important;
         left: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+        
         bottom: 25px !important;
     }
     
@@ -69,13 +68,14 @@
         background-color: $white !important;
         padding:5px !important;
         margin: 0;
+        border-radius: 50%;
     }
     .slick-dots li.slick-active button{
         background-color: transparent !important;
-        background-image: url("/assets/ico/active-slide.svg") !important;
+        background-image: url("/assets/img/starslide.png") !important;
         background-repeat: no-repeat !important;
-        max-width: 14px !important;
-        height: 14px !important;
+        max-width: 24px !important;
+        height: 24px !important;
         background-position: center !important;
         margin: 0;
         padding: 10px !important;
@@ -102,16 +102,53 @@
     }
 }
 
-
-
+.aboutslide .slide .slick-next{
+    top: 46%;
+}
+.allstile .slide .slick-prev{
+    background-image: url("/assets/img/arrallleft.png") !important;
+}
+.allstile .slide .slick-next{
+    background-image: url("/assets/img/arrallright.png") !important;
+}
+.aboutslide .slide{
+    .slick-dots{
+        width: 130px !important;
+        margin: 0 auto !important;
+        left: 0;
+        right: 0;
+        
+        bottom: -35px !important;
+    }
+    
+    .slick-dots li button{
+        max-width: 6px !important;
+        height: 6px !important;
+        background-color:  #443571 !important;
+        padding:5px !important;
+        margin: 0;
+        border-radius: 50%;
+        
+    }
+    .slick-dots li.slick-active button{
+        background-color: #97B13A !important;
+        background-image: none !important;
+        background-repeat: no-repeat !important;
+        max-width: 8px !important;
+        height: 2px !important;
+        background-position: center !important;
+        margin: 0;
+        padding: 8px !important;
+    }
+}
 
 .coruselus{
     .slick-arrow{
-        width: 36px;
-        height: 36px;
-        background-color: #F4D942;
+        width: 64px;
+        height: 64px;
         top: 30%;
         background-repeat: no-repeat;
+        outline: none;
         &::before{
             content: "";
         }
@@ -121,13 +158,12 @@
     }
     .slick-prev{
         left: -70px !important;
-        background-image: url("/assets/ico/violet-arrow.svg") !important;
+        background-image: url("/assets/img/arrallleft.png") !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
-        transform: rotate(180deg);
         opacity: 0.8;
         &:hover{
-            background-image: url("/assets/ico/violet-arrow.svg") !important;
+            background-image: url("/assets/img/arrallleft.png") !important;
             background-repeat: no-repeat !important;
             background-position: center !important;
             opacity: 1;
@@ -135,13 +171,13 @@
     }
     .slick-next{
         right: -60px !important;
-        background-image: url("/assets/ico/violet-arrow.svg") !important;
+        background-image: url("/assets/img/arrallright.png") !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
         transform: none;
         opacity: 0.8;
         &:hover{
-            background-image: url("/assets/ico/violet-arrow.svg") !important;
+            background-image: url("/assets/img/arrallright.png") !important;
             background-repeat: no-repeat !important;
             background-position: center !important;
             opacity: 1;
@@ -173,12 +209,7 @@
         display: none;
     }
 }
-.setingslide{
-    .slick-arrow{
-        border: 1px solid #443571;
-        background-color: transparent;
-    }
-}
+
 
 
 

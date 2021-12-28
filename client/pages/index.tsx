@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import React, { Fragment, useRef, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import AboutSliders from '../components/AboutSlide/AboutSlide'
 import Courusels from '../components/Corusels/Courusels'
 import SetingSlide from '../components/SetingSlide/SetingSlide'
@@ -7,6 +7,7 @@ import Sliders from '../components/Sliders/Sliders'
 import StepBuild from '../components/StepBuild/StepBuild'
 import { FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core'
 import { DatePicker, DesktopDatePicker } from '@material-ui/lab'
+import Api from '../Api/Api'
 
 const Home: NextPage = () => {
     const [val1, setval1] = useState(10)
@@ -28,6 +29,8 @@ const Home: NextPage = () => {
         setValuedate(newValue);
     };
 
+
+
     // scroll
     const myRef1 = useRef<any>(null)
     const executeScroll1 = () => myRef1.current.scrollIntoView()
@@ -44,9 +47,107 @@ const Home: NextPage = () => {
     const myRef5 = useRef<any>(null)
     const executeScroll5 = () => myRef5.current.scrollIntoView()
 
+
+    
+
   return (
       <>
-         
+      <div className='seting_page'>
+        <div className="container"> 
+          <div className='seting_page-title'>
+            Характеристики
+            <span>солнечного комфорта</span>
+          </div>
+        </div>
+        <div className='seting_page-nav-box'>
+          <div className="container">
+            <div className='seting_page-nav'>
+              <div className='seting_page-nav-item active'>Архитектура и фасады</div>
+              <div className='seting_page-nav-item'>Технология строительства</div>
+              <div className='seting_page-nav-item'>Инфраструктура</div>
+              <div className='seting_page-nav-item'>Общественные пространства</div>
+              <div className='seting_page-nav-item'>Планировочные решения</div>
+              <div className='seting_page-nav-item'>Локация</div>
+            </div>
+          </div>
+        </div>
+        <div className="container">  
+          <div className='seting_page-about'>
+            <div className='seting_page-aboutleft'>
+              <div className='seting_page-about-title'>Архитектура и фасады</div>
+              <div className='seting_page-about-text'>
+              <p>Для создания яркого и эстетического облика  зданий  используется  декоративная фасадная штукатурка. Проектом предусмотрены изменения фасадных решений и применение вентилируемых  фасадов с архитектурной подсветкой. 
+                </p>
+                <p>
+При различных погодных условиях и за время эксплуатации  не теряют своих свойств.Такое решение позволяет фасаду оставаться  красивым и первозданным  долгие годы без дополнительного ремонта. 
+</p>
+              </div>
+            </div>
+            <div className='seting_page-aboutright'>
+              <img className='seting_page-about-img' src='/assets/img/seting/img1.png' />
+            </div>
+            
+          </div>
+          <img className='seting_page-big' src='/assets/img/seting/img2.png' />
+
+          <div className='seting_page-about'>
+            <div className='seting_page-aboutleft'>
+              <div className='seting_page-about-title'>Архитектура и фасады</div>
+              <img className='seting_page-about-img' src='/assets/img/seting/img4.png' />
+              
+            </div>
+            <div className='seting_page-aboutright'>
+              <div className='seting_page-about-text'>
+                <p>«Солнечный парк» – современный жилой комплекс комфорт-класса, спроектированный в техно-стиле: с точными и прямыми архитектурными линиями, теплыми и яркими фасадами.</p>
+                
+              
+<p>
+Жилой комплекс расположился  в экологически чистом районе, вблизи  объектов социальной значимости и развитой инфраструктурой города, но при этом недосягаем для городского шума и суеты. Оставаться на солнечной стороне, живя здесь - легко!
+</p><p>
+Передовые технологии строительства, которыми обладает строительная компания «Аркада Крым», позволяют возводить комфортабельное современное жилье с применением  монолитно-каркасной технологии строительства. Благодаря тому, что каркас здания имеет  целостные и непрерывные монолитные колонны от фундамента до крыши,  тем самым дома  в «Солнечном  парке» обладают высокой сейсмостойкостью, повышенной энергоэффективностью и шумоизоляцией, сохраняют свою конструкцию  и прочность на долгие годы!
+</p><p>
+В строительстве применяется экологически чистый бетон B25, для утепления – здания используется минеральная вата, которая создает эффект «термоса» и позволяет дому «дышать». Соответственно, в квартирах не образуется сырость, грибок  и  влага.
+</p><p>
+Для кладки перегородок используется газобетон – легкий и экологически чистый строительный материал, не вызывающий аллергических реакций. 
+Комплекс строится на суглинистых и каменистых грунтах, что важно для эффективного возведения многоэтажных домов.
+</p>
+              </div>
+            </div>
+            
+          </div>
+
+        <div className='check_hous'>
+          <div className='check_hous-nav'>
+              <div className='check_hous-item'>
+                <img src='/assets/img/dom.png' />
+                <span>Дом 1</span>
+              </div>
+              <div className='check_hous-item'>
+                <img src='/assets/img/dom.png' />
+                <span>Дом 1</span>
+              </div>
+              <div className='check_hous-item'>
+                <img src='/assets/img/dom.png' />
+                <span>Дом 1</span>
+              </div>
+          </div>
+        </div>
+        <div className='selet_hous_box'>
+          <div className='selet_hous'>
+            <div className='selet_hous-title'>
+              <span>Выберите</span>
+              <span className='tit'>свою Солнечную</span>
+              <span>Квартиру</span>
+            </div>
+              <div className='selet_hous-text'>Квартира с уникальным планировочным решением, неповторимыми видовыми характеристиками и собственной террасой - современное решение для комфортной жизни. 
+</div>
+              <div className='selet_hous-button'>Выбрать квратиру</div>
+          </div>
+          <div className='selet_hous-slide'></div>
+        </div>
+
+        </div>
+      </div>   
       <header>
         <div className="container">
             <div className="row head">
@@ -149,73 +250,105 @@ const Home: NextPage = () => {
                     <div className="d-flex flex-wrap about__features--box">
                         <div className="col-sm-12 col-md-6 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/ico/smart.svg" alt="smart"/>
+                                <img src="/assets/img/icon/prem3.png" alt="smart"/>
                             </div>
                             <div className="about__features__content">
-                                <div className="about__features__header">Умный жилой комплекс</div>
+                                <div className="about__features__header">Безопасность</div>
                                 <div className="about__features__description">
-                                    Адаптивное освещение, домофон
-                                    с видеонаблюдением и шлагбаум, управляемые с мобильного телефона
+                                    <ul>
+                                        <li>Охрана территории</li>
+                                        <li>Видеонаблюдение придомовой территории</li>
+                                        <li>Закрытая территория</li>
+                                    </ul>
+                                    
                                 </div>
                             </div>
                         </div>
                         <div className="col-sm-12 col-md-6 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/ico/smart.svg" alt="smart"/>
+                                <img src="/assets/img/icon/prem1.png" alt="smart"/>
                             </div>
                             <div className="about__features__content">
                                 <div className="about__features__header">Умный жилой комплекс</div>
                                 <div className="about__features__description">
-                                    Адаптивное освещение, домофон
-                                    с видеонаблюдением и шлагбаум, управляемые с мобильного телефона
+                                    <ul>
+                                        <li>Адаптивное освещение территории</li>
+                                        <li>Система «Умный дом»</li>
+                                        <li>Домофон с видеонаблюдением
+и управлением с мобильного
+телефона</li>
+                                        
+                                    </ul>
+                                    
                                 </div>
                             </div>
                         </div>
                         <div className="col-sm-12 col-md-6 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/ico/smart.svg" alt="smart"/>
+                                <img src="/assets/img/icon/prem2.png" alt="smart"/>
                             </div>
                             <div className="about__features__content">
-                                <div className="about__features__header">Умный жилой комплекс</div>
+                                <div className="about__features__header">Аллея здоровья и экопарк</div>
                                 <div className="about__features__description">
-                                    Адаптивное освещение, домофон
-                                    с видеонаблюдением и шлагбаум, управляемые с мобильного телефона
+                                <ul>
+                                        <li>Зеленая прогулочная зона вдоль комплекса</li>
+                                        <li>Зоны отдыха</li>
+                                        <li>Собственный парк</li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="col-sm-12 col-md-6 d-flex">
+                            <div className="about__features__ico">
+                                <img src="/assets/img/icon/prem4.png" alt="smart"/>
+                            </div>
+                            <div className="about__features__content">
+                                <div className="about__features__header">Образовательные учреждения в центре ЖК</div>
+                                <div className="about__features__description">
+                                <ul>
+                                        <li>проектом предусмотрено строительство</li>
+                                        <li>Современной школы на более
+чем 1000  мест</li>
+                                        <li>Двух детских садиков более чем
+на 380 мест</li>
+                                        
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <div className="col-sm-12 col-md-6 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/ico/smart.svg" alt="smart"/>
+                                <img src="/assets/img/icon/prem5.png" alt="smart"/>
                             </div>
                             <div className="about__features__content">
-                                <div className="about__features__header">Умный жилой комплекс</div>
+                                <div className="about__features__header">Собственная инфраструктура</div>
                                 <div className="about__features__description">
-                                    Адаптивное освещение, домофон
-                                    с видеонаблюдением и шлагбаум, управляемые с мобильного телефона
+                                <ul>
+                                        <li>Центр по занятию фитнесом</li>
+                                        <li>Торговые помещения для бизнеса
+(магазины фермерских продуктов,
+аптека, школа для развития деток) </li>
+                                        <li>Общественные пространства</li>
+                                        <li>Спортивные и детские площадки</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <div className="col-sm-12 col-md-6 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/ico/smart.svg" alt="smart"/>
+                                <img src="/assets/img/icon/prem7.png" alt="smart"/>
                             </div>
                             <div className="about__features__content">
-                                <div className="about__features__header">Умный жилой комплекс</div>
+                                <div className="about__features__header">Транспортная доступность</div>
                                 <div className="about__features__description">
-                                    Адаптивное освещение, домофон
-                                    с видеонаблюдением и шлагбаум, управляемые с мобильного телефона
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-sm-12 col-md-6 d-flex">
-                            <div className="about__features__ico">
-                                <img src="/assets/ico/smart.svg" alt="smart"/>
-                            </div>
-                            <div className="about__features__content">
-                                <div className="about__features__header">Умный жилой комплекс</div>
-                                <div className="about__features__description">
-                                    Адаптивное освещение, домофон
-                                    с видеонаблюдением и шлагбаум, управляемые с мобильного телефона
+                                <ul>
+                                        <li>10 минут до центра Симферополя</li>
+                                        <li>В шаговой доступности остановки общественного транспорта </li>
+                                        <li>Наземная и многоуровневая парковка</li>
+                                        
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +357,7 @@ const Home: NextPage = () => {
 
                 <div className="col-12 about__slider mt-4">
                     
-                    <AboutSliders />
+                    <AboutSliders cls="slide1" /> 
                 </div>
             </div>
         </div>
@@ -310,36 +443,57 @@ const Home: NextPage = () => {
                         </div>
 
                     </label>
-                    <label className="checkbox d-flex align-items-center">
+                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
                         <input type="checkbox" />
                         <span></span>
-                        <span className="checkbox__value">Все объекты</span>
+                        <span className="checkbox__value">Остановки</span>
 
                         <div className="checkbox__count">
-                            12
+                            5
                         </div>
 
                     </label>
                     <label className="checkbox col-md-12 col-6 d-flex align-items-center">
                         <input type="checkbox" />
                         <span></span>
-                        <span className="checkbox__value">Все объекты</span>
+                        <span className="checkbox__value">Спорт</span>
 
-                        <div className="checkbox__count">
-                            12
-                        </div>
+                        
 
                     </label>
                     <label className="checkbox col-md-12 col-6 d-flex align-items-center">
                         <input type="checkbox" />
                         <span></span>
-                        <span className="checkbox__value">Все объекты</span>
+                        <span className="checkbox__value">Здоровье</span>
 
-                        <div className="checkbox__count">
-                            12
-                        </div>
+                        
 
                     </label>
+                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
+                        <input type="checkbox" />
+                        <span></span>
+                        <span className="checkbox__value">Торговые центры</span>
+
+                       
+
+                    </label>
+                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
+                        <input type="checkbox" />
+                        <span></span>
+                        <span className="checkbox__value">Развлечения</span>
+
+                        
+
+                    </label>
+                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
+                        <input type="checkbox" />
+                        <span></span>
+                        <span className="checkbox__value">Образование</span>
+
+                        
+
+                    </label>
+                    
 
                     <button className="btn" onClick={()=> setmodal1(true)}>
                         Заявка на экскурсию
@@ -362,15 +516,7 @@ const Home: NextPage = () => {
             <SetingSlide />
         </div>
       </section>
-      <section className="genplan">
-        <div className="container">
-            <div className="section-header col-12">
-                Генплан
-            </div>
-        </div>
-
-        <img src="/assets/img/genplan.png" alt="genplan" className="genplan__bg"/>
-        </section>
+      
         <div className="genplan__features">
             <div className="container">
                 <div className="row gap-5 w-100 mx-auto genplan__features--box">
@@ -601,7 +747,9 @@ const Home: NextPage = () => {
                           +7 978 718 08 08
 
                           <div className="contacts__memo">
-                              Ежедневно 9:00-21:00
+                          Обращаем ваше внимание, что режим работы службы поддержки: 
+с ПН по ПТ — 9:30 - 18:00, 
+СБ — 10:00 - 14:00. ВС — выходной
                           </div>
                       </div>
                   </div>
@@ -628,6 +776,7 @@ const Home: NextPage = () => {
                       <button className="btn prefooter__btn">Обратится к застройщику</button>
 
                   </div>
+                  
               </div>
 
               <hr />

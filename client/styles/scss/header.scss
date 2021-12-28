@@ -6,6 +6,11 @@ header{
     font-size: 11px;
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    width: 100%;
     /* Note: backdrop-filter has minimal browser support */
     .flats_box{
         display: flex;
@@ -26,6 +31,7 @@ header{
             justify-content: center;
             align-items: center;
             white-space: nowrap;
+            font-weight: 400;
 
             &.green_link{
                 color: $salad;
@@ -42,10 +48,13 @@ header{
         white-space: nowrap;
         display: flex;
         align-items: center;
-
+        .contacts_box{
+            margin-top: 10px;
+        }
         &__phone{
             font-size: 16px;
             font-weight: 500;
+            line-height: 1;
         }
         &__memo{
             font-size:12px;
@@ -60,6 +69,9 @@ header{
 }
 
 @media screen and (max-width: 1200px){
+    header{
+        position: relative;
+    }
     .head{
         justify-content: space-around;
         width: 100%;

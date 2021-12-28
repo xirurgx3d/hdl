@@ -3,6 +3,7 @@
     padding-bottom: 48px;
     padding-top: 60px;
     position: relative;
+    border-top: 1px solid #0000000a;
     
     &__infrastructures{
         position: relative;
@@ -45,6 +46,7 @@
                 align-items: center;
                 font-size: 12px;
                 color: #444444;
+                font-weight: 300;
                 &:before{
                     margin-right: 8px;
                     content: '';
@@ -58,6 +60,7 @@
                 font-size: 12px;
                 display: flex;
                 align-items: center;
+                font-weight: 300;
                 &:before{
                     margin-right: 8px;
                     content: '';

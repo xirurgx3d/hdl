@@ -13,8 +13,8 @@ const SetingSlide = (): JSX.Element => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5
+    slidesToShow: 3,
+    slidesToScroll: 3
   };
 
   console.log(nav1);
@@ -29,68 +29,34 @@ const SetingSlide = (): JSX.Element => {
       
         <Slider className="coruselus setingslide" ref={slide => setNav1(slide)} {...settings}>
             <div className="characteristic__slider__item">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
+                    <img src="/assets/img/seting1.png" alt="1"/>
 
                     <div className="characteristic__slider__title">
-                        Фасад
+                    Архитектура и фасады
                     </div>
         </div>
         <div className="characteristic__slider__item ">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
+                    <img src="/assets/img/seting2.png" alt="1"/>
+
+                    <div className="characteristic__slider__title">
+                    Технология строительства
+                    </div>
+        </div>
+        <div className="characteristic__slider__item">
+                    <img src="/assets/img/seting3.png" alt="1"/>
+
+                    <div className="characteristic__slider__title">
+                    Инфраструктура
+                    </div>
+        </div>
+        <div className="characteristic__slider__item">
+                    <img src="/assets/img/seting1.png" alt="1"/>
 
                     <div className="characteristic__slider__title">
                         Фасад
                     </div>
         </div>
-        <div className="characteristic__slider__item">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
-
-                    <div className="characteristic__slider__title">
-                        Фасад
-                    </div>
-        </div>
-        <div className="characteristic__slider__item">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
-
-                    <div className="characteristic__slider__title">
-                        Фасад
-                    </div>
-        </div>
-        <div className="characteristic__slider__item">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
-
-                    <div className="characteristic__slider__title">
-                        Фасад
-                    </div>
-        </div>
-        <div className="characteristic__slider__item">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
-
-                    <div className="characteristic__slider__title">
-                        Фасад
-                    </div>
-        </div>
-        <div className="characteristic__slider__item">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
-
-                    <div className="characteristic__slider__title">
-                        Фасад
-                    </div>
-        </div>
-        <div className="characteristic__slider__item">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
-
-                    <div className="characteristic__slider__title">
-                        Фасад
-                    </div>
-        </div>
-        <div className="characteristic__slider__item">
-                    <img src="./assets/img/characteristic__slider.png" alt="1"/>
-
-                    <div className="characteristic__slider__title">
-                        Фасад
-                    </div>
-                </div>
+        
           </Slider>
       
     </>

@@ -1,0 +1,104 @@
+.seting_page{
+    background-color: #fff;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-top: 55px;
+}
+.seting_page-title{
+    color: #443571;
+    font-size: 32px;
+    font-weight: 500;
+    span{
+        color: #97B13A;
+        padding-left: 5px;
+    }
+}
+.seting_page-nav-box{
+    margin-top: 30px;
+    border-bottom: 1px solid #D5D5D5;
+}
+.seting_page-nav{
+    display: flex;
+    .seting_page-nav-item{
+        color: #443571;
+        font-size: 11px;
+        text-transform: uppercase;
+        margin-right: 30px;
+        padding-bottom: 10px;
+        &:last-child{
+            margin-right: none;
+        }
+    }
+    .active{
+        font-weight: bold;
+        border-bottom: 2px solid #97B13A;
+    }
+}
+.seting_page-about{
+    margin-top: 100px;
+    display: flex;
+    .seting_page-aboutleft{
+        width: 50%;
+    }
+    .seting_page-aboutright{
+        width: 50%;
+    }
+    .seting_page-about-title{
+        font-size: 32px;
+        color: #443571;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    .seting_page-about-text{
+        color: #444444;
+        font-weight: 300;
+        font-size: 14px;
+        p{
+            margin-top: 20px;
+        }
+    }
+}
+.check_hous{
+    margin-bottom: 20px;
+}
+.check_hous-nav{
+    display: flex;
+    .check_hous-item{
+        border:2px solid #97B13A;
+        padding: 5px 10px;
+        color: #443571;
+        font-weight: 500;
+        font-size: 12px;
+        margin-right:10px;
+        span{
+            padding-left:5px;
+        }
+    }
+}
+.selet_hous{
+    border: 1px solid #D5D5D5;
+    padding: 40px;
+    .selet_hous-title{
+        color: #443571;
+        font-weight: bold;
+        font-size: 26.1818px;
+        text-transform: uppercase;
+        margin-bottom:20px;
+        span{
+            display:block;
+        }
+        .tit{
+            padding:5px 10px;
+            background: #97B13A;
+            color:#fff
+        }
+    }
+    .selet_hous-text{
+        color: #444444;
+        font-weight: 300;
+        font-size: 12px;
+    }
+}
