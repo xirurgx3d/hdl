@@ -15,7 +15,5 @@ RUN npm install
 # Copying source files
 COPY . /usr/src/app
 
-RUN npm run build
+RUN npm run dev
 
-# Running the app
-CMD "npm" "run" "start"
