@@ -49,9 +49,7 @@
         background-position: center;
         background-color: rgba(0,0,0, .5);
         top: 50%;
-        &.right{
-            transform: rotate(180deg);
-        }
+        
     }
     .slick-dots{
         width: 130px !important;
@@ -94,17 +92,15 @@
     }
     .aboutslide{
         .slick-prev{
-            left: 2%;
+            left: -80px;
         }
         .slick-next{
-            right: 2%;
+            right: -80px;
         }
     }
 }
 
-.aboutslide .slide .slick-next{
-    top: 46%;
-}
+
 .allstile .slide .slick-prev{
     background-image: url("/assets/img/arrallleft.png") !important;
 }
@@ -146,28 +142,22 @@
     .slick-arrow{
         width: 64px;
         height: 64px;
-        top: 30%;
+        
         background-repeat: no-repeat;
         outline: none;
         &::before{
             content: "";
         }
-        &:hover{
-            background-color: #F4D942;
-        }
+        
     }
+    
     .slick-prev{
         left: -70px !important;
         background-image: url("/assets/img/arrallleft.png") !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
         opacity: 0.8;
-        &:hover{
-            background-image: url("/assets/img/arrallleft.png") !important;
-            background-repeat: no-repeat !important;
-            background-position: center !important;
-            opacity: 1;
-        }
+        top: 30%;
     }
     .slick-next{
         right: -60px !important;
@@ -176,12 +166,7 @@
         background-position: center !important;
         transform: none;
         opacity: 0.8;
-        &:hover{
-            background-image: url("/assets/img/arrallright.png") !important;
-            background-repeat: no-repeat !important;
-            background-position: center !important;
-            opacity: 1;
-        }
+        top: 23%;
     }
     .slick-dots{
         margin-top: 30px;

@@ -1,4 +1,5 @@
 .seting_page{
+    display: block;
     background-color: #fff;
     position: absolute;
     z-index: 999;
@@ -6,14 +7,23 @@
     top: 0;
     width: 100%;
     padding-top: 55px;
+    padding-bottom: 40px;
 }
 .seting_page-title{
+    width: 100%;
+    position: relative;
     color: #443571;
     font-size: 32px;
     font-weight: 500;
     span{
         color: #97B13A;
         padding-left: 5px;
+    }
+    .close{
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
     }
 }
 .seting_page-nav-box{
@@ -62,6 +72,7 @@
     }
 }
 .check_hous{
+    margin-top: 25px;
     margin-bottom: 20px;
 }
 .check_hous-nav{
@@ -78,7 +89,13 @@
         }
     }
 }
+.selet_hous_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .selet_hous{
+    width: 45%;
     border: 1px solid #D5D5D5;
     padding: 40px;
     .selet_hous-title{
@@ -100,5 +117,49 @@
         color: #444444;
         font-weight: 300;
         font-size: 12px;
+    }
+    .selet_hous-button{
+        cursor: pointer;
+        width: 260px;
+        margin-top: 30px;
+        padding: 15px 0;
+        text-align: center;
+        color: #443571;
+        font-size: 16px;
+        font-weight: 500;
+        background: #FECE42;
+    }
+}
+.selet_hous-slide{
+    width: 45%;
+}
+.streenbox{
+    display: flex;
+    margin: 30px 0;
+    .streenbox-item{
+        border: 1px solid #D5D5D5;
+        padding: 9px 12px;
+        display: flex;
+        color: #443571;
+        font-weight: 500;
+        font-size: 12px;
+        margin-right: 15px;
+        .car{
+            color: #444444;
+            font-size: 12px;
+            display: -moz-box;
+            display: flex;
+            -moz-box-align: center;
+            align-items: center;
+            font-weight: 300;
+            margin-left: 15px;
+        }
+        .car::before {
+            margin-right: 8px;
+            content: "";
+            background-image: url("/assets/ico/car.svg");
+            width: 12px;
+            height: 10px;
+        }
     }
 }

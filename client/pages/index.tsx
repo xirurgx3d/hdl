@@ -8,6 +8,7 @@ import StepBuild from '../components/StepBuild/StepBuild'
 import { FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core'
 import { DatePicker, DesktopDatePicker } from '@material-ui/lab'
 import Api from '../Api/Api'
+import SetingModal from './../components/SetingSlide/SetingModal';
 
 const Home: NextPage = () => {
     const [val1, setval1] = useState(10)
@@ -47,107 +48,17 @@ const Home: NextPage = () => {
     const myRef5 = useRef<any>(null)
     const executeScroll5 = () => myRef5.current.scrollIntoView()
 
-
+    const[seting,setseting] = useState(false)
     
 
   return (
-      <>
-      <div className='seting_page'>
-        <div className="container"> 
-          <div className='seting_page-title'>
-            Характеристики
-            <span>солнечного комфорта</span>
-          </div>
-        </div>
-        <div className='seting_page-nav-box'>
-          <div className="container">
-            <div className='seting_page-nav'>
-              <div className='seting_page-nav-item active'>Архитектура и фасады</div>
-              <div className='seting_page-nav-item'>Технология строительства</div>
-              <div className='seting_page-nav-item'>Инфраструктура</div>
-              <div className='seting_page-nav-item'>Общественные пространства</div>
-              <div className='seting_page-nav-item'>Планировочные решения</div>
-              <div className='seting_page-nav-item'>Локация</div>
-            </div>
-          </div>
-        </div>
-        <div className="container">  
-          <div className='seting_page-about'>
-            <div className='seting_page-aboutleft'>
-              <div className='seting_page-about-title'>Архитектура и фасады</div>
-              <div className='seting_page-about-text'>
-              <p>Для создания яркого и эстетического облика  зданий  используется  декоративная фасадная штукатурка. Проектом предусмотрены изменения фасадных решений и применение вентилируемых  фасадов с архитектурной подсветкой. 
-                </p>
-                <p>
-При различных погодных условиях и за время эксплуатации  не теряют своих свойств.Такое решение позволяет фасаду оставаться  красивым и первозданным  долгие годы без дополнительного ремонта. 
-</p>
-              </div>
-            </div>
-            <div className='seting_page-aboutright'>
-              <img className='seting_page-about-img' src='/assets/img/seting/img1.png' />
-            </div>
-            
-          </div>
-          <img className='seting_page-big' src='/assets/img/seting/img2.png' />
+    <>
+      
+      
 
-          <div className='seting_page-about'>
-            <div className='seting_page-aboutleft'>
-              <div className='seting_page-about-title'>Архитектура и фасады</div>
-              <img className='seting_page-about-img' src='/assets/img/seting/img4.png' />
-              
-            </div>
-            <div className='seting_page-aboutright'>
-              <div className='seting_page-about-text'>
-                <p>«Солнечный парк» – современный жилой комплекс комфорт-класса, спроектированный в техно-стиле: с точными и прямыми архитектурными линиями, теплыми и яркими фасадами.</p>
-                
-              
-<p>
-Жилой комплекс расположился  в экологически чистом районе, вблизи  объектов социальной значимости и развитой инфраструктурой города, но при этом недосягаем для городского шума и суеты. Оставаться на солнечной стороне, живя здесь - легко!
-</p><p>
-Передовые технологии строительства, которыми обладает строительная компания «Аркада Крым», позволяют возводить комфортабельное современное жилье с применением  монолитно-каркасной технологии строительства. Благодаря тому, что каркас здания имеет  целостные и непрерывные монолитные колонны от фундамента до крыши,  тем самым дома  в «Солнечном  парке» обладают высокой сейсмостойкостью, повышенной энергоэффективностью и шумоизоляцией, сохраняют свою конструкцию  и прочность на долгие годы!
-</p><p>
-В строительстве применяется экологически чистый бетон B25, для утепления – здания используется минеральная вата, которая создает эффект «термоса» и позволяет дому «дышать». Соответственно, в квартирах не образуется сырость, грибок  и  влага.
-</p><p>
-Для кладки перегородок используется газобетон – легкий и экологически чистый строительный материал, не вызывающий аллергических реакций. 
-Комплекс строится на суглинистых и каменистых грунтах, что важно для эффективного возведения многоэтажных домов.
-</p>
-              </div>
-            </div>
-            
-          </div>
 
-        <div className='check_hous'>
-          <div className='check_hous-nav'>
-              <div className='check_hous-item'>
-                <img src='/assets/img/dom.png' />
-                <span>Дом 1</span>
-              </div>
-              <div className='check_hous-item'>
-                <img src='/assets/img/dom.png' />
-                <span>Дом 1</span>
-              </div>
-              <div className='check_hous-item'>
-                <img src='/assets/img/dom.png' />
-                <span>Дом 1</span>
-              </div>
-          </div>
-        </div>
-        <div className='selet_hous_box'>
-          <div className='selet_hous'>
-            <div className='selet_hous-title'>
-              <span>Выберите</span>
-              <span className='tit'>свою Солнечную</span>
-              <span>Квартиру</span>
-            </div>
-              <div className='selet_hous-text'>Квартира с уникальным планировочным решением, неповторимыми видовыми характеристиками и собственной террасой - современное решение для комфортной жизни. 
-</div>
-              <div className='selet_hous-button'>Выбрать квратиру</div>
-          </div>
-          <div className='selet_hous-slide'></div>
-        </div>
 
-        </div>
-      </div>   
+
       <header>
         <div className="container">
             <div className="row head">
@@ -509,11 +420,15 @@ const Home: NextPage = () => {
                     Характеристики
                 </div>
                 <div className="col-md-6 col-12 section-btn d-flex justify-content-md-end align-self-center">
-                    <button className="btn">Подробнее</button>
+                    <button className="btn" onClick={()=> setseting(true)}>Подробнее</button>
                 </div>
             </div>
 
-            <SetingSlide />
+          <SetingSlide hndl={setseting} />
+          {
+            seting && <SetingModal hndl={setseting} />
+          }
+          
         </div>
       </section>
       
