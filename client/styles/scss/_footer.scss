@@ -12,16 +12,16 @@
     &__top{
         padding-bottom: 36px;
     }
-    .to-up{
+    .upe{
         font-size: 16px;
         font-weight: 500;
         color: $white;
         opacity: .5;
-        margin-right: auto;
+        margin-left: auto;
         cursor: pointer;
 
         img{
-            margin-right: 16px;
+            margin-left: 16px;
         }
     }
     &__contact{
@@ -33,6 +33,7 @@
             font-weight: 500;
             font-size: 24px;
             line-height: 30px;
+            color: #fff;
         }
     }
     &__btn.btn{

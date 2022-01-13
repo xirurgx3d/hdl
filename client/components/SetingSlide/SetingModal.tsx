@@ -1,9 +1,50 @@
-import { FC } from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import AboutSliders from "../AboutSlide/AboutSlide"
+import cn from "classnames"; 
 
-const SetingModal:FC<any> = ({hndl}) => {
+const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
+  const [gopage, sepage] = useState(page)
+
+  const myRef1 = useRef<any>(null)
+  const executeScroll1 = () => myRef1.current.scrollIntoView()
+
+  const myRef2 = useRef<any>(null)
+  const executeScroll2 = () => myRef2.current.scrollIntoView()
+
+  const myRef3 = useRef<any>(null)
+  const executeScroll3 = () => myRef3.current.scrollIntoView()
+
+  const myRef4 = useRef<any>(null)
+  const executeScroll4 = () => myRef4.current.scrollIntoView()
+
+  const myRef5 = useRef<any>(null)
+  const executeScroll5 = () => myRef5.current.scrollIntoView()
+
+  const myRef6 = useRef<any>(null)
+  const executeScroll6 = () => myRef6.current.scrollIntoView()
+  
+  const CN1 = cn("seting_page-nav-item", { active: gopage == 0 || gopage == 1})
+  const CN2 = cn("seting_page-nav-item", { active: gopage == 2 })
+  const CN3 = cn("seting_page-nav-item", { active: gopage == 3 })
+  const CN4 = cn("seting_page-nav-item", { active: gopage == 4 })
+  const CN5 = cn("seting_page-nav-item", { active: gopage == 5 })
+  const CN6 = cn("seting_page-nav-item", { active: gopage == 6})
+  
+
+  useEffect(() => {
+    gopage == 0 && executeScroll1()
+    gopage == 1 && executeScroll1()
+    gopage == 2 && executeScroll2()
+    gopage == 3 && executeScroll3()
+    gopage == 4 && executeScroll4()
+    gopage == 5 && executeScroll5()
+    gopage == 6 && executeScroll6()
+  }, [gopage])
+  console.log(gopage)
+
+
   return (
-    <div className='seting_page'>
+    <div className='seting_page' ref={myRef1}>
     <div className="container"> 
       <div className='seting_page-title'>
         Характеристики
@@ -14,12 +55,12 @@ const SetingModal:FC<any> = ({hndl}) => {
     <div className='seting_page-nav-box'>
       <div className="container">
         <div className='seting_page-nav'>
-          <div className='seting_page-nav-item active'>Архитектура и фасады</div>
-          <div className='seting_page-nav-item'>Технология строительства</div>
-          <div className='seting_page-nav-item'>Инфраструктура</div>
-          <div className='seting_page-nav-item'>Общественные пространства</div>
-          <div className='seting_page-nav-item'>Планировочные решения</div>
-          <div className='seting_page-nav-item'>Локация</div>
+          <div className={CN1} onClick={()=> sepage(1)}>Архитектура и фасады</div>
+          <div className={CN2} onClick={()=> sepage(2)}>Технология строительства</div>
+          <div className={CN3} onClick={()=> sepage(3)}>Инфраструктура</div>
+          <div className={CN4} onClick={()=> sepage(4)}>Общественные пространства</div>
+          <div className={CN5} onClick={()=> sepage(5)}>Планировочные решения</div>
+          <div className={CN6} onClick={()=> sepage(6)}>Локация</div>
         </div>
       </div>
     </div>
@@ -42,7 +83,7 @@ const SetingModal:FC<any> = ({hndl}) => {
       </div>
       <img className='seting_page-big' src='/assets/img/seting/img2.png' />
 
-      <div className='seting_page-about'>
+      <div className='seting_page-about' ref={myRef2}>
         <div className='seting_page-aboutleft'>
           <div className='seting_page-about-title'>Технология строительства</div>
           <img className='seting_page-about-img' src='/assets/img/seting/img4.png' />
@@ -69,7 +110,7 @@ const SetingModal:FC<any> = ({hndl}) => {
       </div>
 
               
-      <div className='seting_page-about'>
+      <div className='seting_page-about' ref={myRef3}>
         <div className='seting_page-aboutleft'>
           <div className='seting_page-about-title'>Инфраструктура</div>
           <div className='seting_page-about-text'>
@@ -92,7 +133,7 @@ const SetingModal:FC<any> = ({hndl}) => {
       </div>
       
               
-      <div className='seting_page-about'>
+      <div className='seting_page-about' ref={myRef4}>
         <div className='seting_page-aboutleft'>
           
           <img className='seting_page-about-img' src='/assets/img/seting/img4.png' />
@@ -116,7 +157,7 @@ const SetingModal:FC<any> = ({hndl}) => {
       </div>        
       <img className='seting_page-big' src='/assets/img/seting/img7.png' />
       
-      <div className='seting_page-about'>
+      <div className='seting_page-about' ref={myRef5}>
         <div className='seting_page-aboutleft'>
           <div className='seting_page-about-title'>Планировочные решения</div>
           
@@ -162,7 +203,7 @@ const SetingModal:FC<any> = ({hndl}) => {
               </div>
       <div className='seting_page-about'>
         <div className='seting_page-aboutleft'>
-          <div className='seting_page-about-title'>Планировочные решения</div>
+          <div className='seting_page-about-title' ref={myRef6}>Транспортная доступность</div>
           <div className='seting_page-about-text'>
          <p> Район отличается хорошей транспортной доступностью:
 в пешей доступности остановка общественного транспорта, где ходит транспорт в направлении центра города, автовокзала, ТРЦ «АШАН», Москольца, железнодорожного вокзала и больницы им. Семашко

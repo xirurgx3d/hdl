@@ -30,6 +30,15 @@ body{
 a{
     text-decoration: none;
 }
+.allcall{
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    z-index: 999;
+}
+.chess_active_btn{
+    display: none;
+}
 
 .section-header{
     font-size: 32px;

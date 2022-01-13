@@ -29,47 +29,65 @@ const Courusels = (): JSX.Element => {
       
         <Slider className="coruselus" ref={slide => setNav1(slide)} {...settings}>
               <div >
-                    <img src="/assets/img/infrastructure-shop.png" alt="infrastructure"/>
+                    <img src="/assets/img/corus1/img1.png" alt="infrastructure"/>
 
-                    <div className="location__infrastructure__title">Продукты</div>
+                    <div className="location__infrastructure__title">до Объездной дороги</div>
                     <div className="location__infrastructure__time d-flex">
-                        <div className="foot">5 минут</div>
+                        
                         <div className="car">7 минут</div>
                     </div>
             </div>
             <div>
-                <img src="/assets/img/infrastructure-shop.png" alt="infrastructure"/>
+                <img src="/assets/img/corus1/img2.png" alt="infrastructure"/>
 
-                <div className="location__infrastructure__title">Продукты</div>
+                <div className="location__infrastructure__title">до трассы «Таврида»</div>
                 <div className="location__infrastructure__time d-flex">
-                    <div className="foot">5 минут</div>
+                    
                     <div className="car">7 минут</div>
                 </div>
             </div>
             <div>
-              <img src="/assets/img/infrastructure-shop.png" alt="infrastructure"/>
+              <img src="/assets/img/corus1/img3.png" alt="infrastructure"/>
 
-              <div className="location__infrastructure__title">Продукты</div>
+              <div className="location__infrastructure__title">до Керченского моста</div>
               <div className="location__infrastructure__time d-flex">
-                  <div className="foot">5 минут</div>
+                  
                   <div className="car">7 минут</div>
               </div>
             </div>
             <div>
-              <img src="/assets/img/infrastructure-shop.png" alt="infrastructure"/>
+              <img src="/assets/img/corus1/img4.png" alt="infrastructure"/>
 
-              <div className="location__infrastructure__title">Продукты</div>
+              <div className="location__infrastructure__title">до Аэропорта «Симферополь»</div>
               <div className="location__infrastructure__time d-flex">
-                  <div className="foot">5 минут</div>
+                  
                   <div className="car">7 минут</div>
               </div>
             </div>
             <div>
-              <img src="/assets/img/infrastructure-shop.png" alt="infrastructure"/>
+              <img src="/assets/img/corus1/img5.png" alt="infrastructure"/>
 
-              <div className="location__infrastructure__title">Продукты</div>
+              <div className="location__infrastructure__title">ТРЦ «Южная Галерея»</div>
               <div className="location__infrastructure__time d-flex">
-                  <div className="foot">5 минут</div>
+                  
+                  <div className="car">7 минут</div>
+              </div>
+            </div>
+            <div>
+              <img src="/assets/img/corus1/img6.png" alt="infrastructure"/>
+
+              <div className="location__infrastructure__title">ТРК «Меганом»</div>
+              <div className="location__infrastructure__time d-flex">
+                  
+                  <div className="car">7 минут</div>
+              </div>
+            </div>
+            <div>
+              <img src="/assets/img/corus1/img7.png" alt="infrastructure"/>
+
+              <div className="location__infrastructure__title">парк «Аграрник»</div>
+              <div className="location__infrastructure__time d-flex">
+                  
                   <div className="car">7 минут</div>
               </div>
             </div>
