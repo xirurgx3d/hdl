@@ -3,8 +3,8 @@ import { YMaps, Map, SearchControl, Placemark, YMapsApi, withYMaps } from "react
 
 const placeMarkOption = {
   iconLayout: 'default#image',
-  
-  iconImageSize: [50, 60],
+  iconImageHref: '/assets/img/metka.svg',
+  iconImageSize: [50, 50],
   iconImageOffset: [-25, -60]
 }
 
