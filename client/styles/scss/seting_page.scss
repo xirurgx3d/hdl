@@ -133,6 +133,13 @@
 }
 .selet_hous-slide{
     width: 45%;
+    img{
+        width: 480px !important;
+        height: 340px !important;
+    }
+    .slide .slick-dots{
+        width: auto !important;
+    }
 }
 .streenbox{
     display: flex;
@@ -162,5 +169,30 @@
             width: 12px;
             height: 10px;
         }
+    }
+}
+@media screen and (max-width: 840px){
+    .seting_page-about{
+        flex-wrap: wrap;
+    }
+    .seting_page-about .seting_page-aboutleft,
+    .seting_page-big{
+        width: 100%;
+    }
+    .seting_page-about .seting_page-aboutright{
+        width: 100%;
+    }
+    .selet_hous_box,.streenbox,.seting_page-nav{
+        flex-wrap: wrap;
+    }
+    .selet_hous,.selet_hous-slide{
+        width: 100%;
+    }
+    .streenbox .streenbox-item{
+        margin-top: 10px;
+    }
+    .seting_page-nav .seting_page-nav-item{
+        margin-bottom: 30px;
+        padding-bottom: 3px;
     }
 }

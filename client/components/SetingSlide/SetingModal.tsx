@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react"
 import AboutSliders from "../AboutSlide/AboutSlide"
 import cn from "classnames"; 
+import Plan from "../Plan/Plan";
 
 const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
   const [gopage, sepage] = useState(page)
@@ -40,7 +41,7 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
     gopage == 5 && executeScroll5()
     gopage == 6 && executeScroll6()
   }, [gopage])
-  console.log(gopage)
+  
 
 
   return (
@@ -157,50 +158,11 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
       </div>        
       <img className='seting_page-big' src='/assets/img/seting/img7.png' />
       
-      <div className='seting_page-about' ref={myRef5}>
-        <div className='seting_page-aboutleft'>
-          <div className='seting_page-about-title'>Планировочные решения</div>
-          
+        <div ref={myRef5}>
+         <Plan /> 
         </div>
-        <div className='seting_page-aboutright'>
-            <div className='seting_page-about-text'>
-                <p>Немаловажное достоинство  комплекса – широкий ассортимент квартир и уникальных планировок. В проекте доступно множество эргономичных планировочных решений, и все имеют свои преимущества. Каждая планировка – от студий до четырехкомнатных двухуровневых квартир – грамотно продумана и разработана архитектурным бюро из Санкт-Петербурга. </p>
-            </div>
-        </div>
+      
         
-      </div>
-
-    <div className='check_hous'>
-      <div className='check_hous-nav'>
-          <div className='check_hous-item'>
-            <img src='/assets/img/dom.png' />
-            <span>Дом 1</span>
-          </div>
-          <div className='check_hous-item'>
-            <img src='/assets/img/dom.png' />
-            <span>Дом 1</span>
-          </div>
-          <div className='check_hous-item'>
-            <img src='/assets/img/dom.png' />
-            <span>Дом 1</span>
-          </div>
-      </div>
-    </div>
-    <div className='selet_hous_box'>
-      <div className='selet_hous'>
-        <div className='selet_hous-title'>
-          <span>Выберите</span>
-          <span className='tit'>свою Солнечную</span>
-          <span>Квартиру</span>
-        </div>
-          <div className='selet_hous-text'>Квартира с уникальным планировочным решением, неповторимыми видовыми характеристиками и собственной террасой - современное решение для комфортной жизни. 
-</div>
-          <div className='selet_hous-button'>Выбрать квратиру</div>
-      </div>
-      <div className='selet_hous-slide'>
-        <AboutSliders cls="slide1" /> 
-      </div>
-              </div>
       <div className='seting_page-about'>
         <div className='seting_page-aboutleft'>
           <div className='seting_page-about-title' ref={myRef6}>Транспортная доступность</div>

@@ -117,11 +117,14 @@
 }
 
 @media screen and (max-width: 992px){
+    .genplan__features--box{
+        justify-content: center;
+    }
     .genplan__features--box .genplan__item{
-        width: 40%;
+        width: 60%;
     }
 }
-@media screen and (max-width: 580px){
+@media screen and (max-width: 380px){
     .genplan__features--box .genplan__item{
         width: 100%;
     }
