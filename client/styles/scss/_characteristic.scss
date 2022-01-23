@@ -56,3 +56,11 @@
         margin-bottom: 25px;
     }
 }
+@media screen and (max-width: 480px) {
+    .characteristic_h1{
+        width: 100%;
+        text-align:center;
+        display: flex;
+        justify-content: center !important;
+    }
+}

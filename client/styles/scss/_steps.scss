@@ -46,4 +46,17 @@
         .steps__slider{
             overflow: hidden
         }
+        .step_select{
+            padding: 0 70px;
+        }
+}
+@media screen and (max-width: 480px) {
+    .step_select{
+        flex-direction: column;
+        padding:0;
+    }
+    .step_select .select-box1{
+        width: 100% !important;
+        margin-top: 24px;
+    }
 }

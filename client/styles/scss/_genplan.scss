@@ -121,11 +121,11 @@
         justify-content: center;
     }
     .genplan__features--box .genplan__item{
-        width: 60%;
+        width: 40%;
     }
 }
-@media screen and (max-width: 380px){
+@media screen and (max-width: 480px){
     .genplan__features--box .genplan__item{
-        width: 100%;
+        width: 70%;
     }
 }

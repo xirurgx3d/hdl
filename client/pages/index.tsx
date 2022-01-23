@@ -37,6 +37,8 @@ const Home: NextPage = () => {
         setval2(e.target.value);
     }
 
+    const[menu,setmenu] = useState(false)
+
     const [modal1, setmodal1] = useState(false)
     const[modal2,setmodal2] = useState(false)
 
@@ -108,7 +110,7 @@ const Home: NextPage = () => {
       <header>
         <div className="container">
             <div className="row head">
-                <div className="logo col-md-2 col-6">
+                <div className="logo col-md-2 col-3">
                     <a href='/'><img src="/assets/img/logo.png" alt="logotype" /></a>
                 </div>
                 <div className="nav-menu d-md-flex align-self-center align-items-end row px-0 col-6">
@@ -137,13 +139,36 @@ const Home: NextPage = () => {
                             +7 978 718 08 08
                         </div>
                         <div className="contacts__memo">
-                            бесплатно по России
+                            
                         </div> 
                     </div>
                     
                     <img src="/assets/img/call.png" className="contacts_call" alt="contacts"/>
                     
                 </a>
+                <section className="top-nav mobbuerger col-2">
+                    
+                    
+                    <label onClick={() => setmenu(true)} className='menu-button-container' htmlFor="menu-toggle">
+                    <div  className='menu-button'></div>
+                  </label>
+                    
+                </section>
+                {
+                    menu &&
+                    <div className='mobile_menu'>
+                        <img className='mobile_menu-close' onClick={() => setmenu(false)}  src='/assets/ico/close.svg' />
+                        <div className="nav-menu d-md-flex align-self-center align-items-end row px-0 col-6">
+                            <a onClick={executeScroll1} className="nav-menu__link col">О проекте</a>
+                            <a onClick={handlefratis} className="nav-menu__link col">ПОДБОР КВАРТИРЫ</a>
+                            <a onClick={executeScroll2} className="nav-menu__link col">РАСПОЛОЖЕНИЕ</a>
+                            <a onClick={executeScroll3}className="nav-menu__link col">ХАРАКТЕРИСТИКИ</a>
+                            <a onClick={executeScroll4} className="nav-menu__link col">Контакты</a>
+                            
+                        </div>
+                    </div>
+                }
+                
             </div>
         </div>
       </header>
@@ -151,19 +176,19 @@ const Home: NextPage = () => {
       <section className="brief">
         <div className="container">
             <div className="row">
-                <div className="col-md-5 col-12 d-md-block d-flex flex-column-reverse">
-                    <div className="brief__name">ЖК «Солнечный Парк»</div>
+                <div className="col-md-5 col-sm-3 d-sm-block d-flex flex-column-reverse">
+                    <div className="brief__name">Солнечный Парк</div>
 
                     <div className="brief__memo">Жилой квартал</div>
                 </div>
 
-                <div className="col-md-2 col-12 d-md-block d-flex flex-column-reverse">
+                <div className="col-sm-2 col-12 d-sm-block d-flex flex-column-reverse">
                     <div className="brief__name">от 3,07 млн ₽</div>
 
                     <div className="brief__memo">ЦЕНА квартиры</div>
                 </div>
 
-                <div className="col-md-2 col-12 d-md-block d-flex flex-column-reverse">
+                <div className="col-sm-2 col-12 d-sm-block d-flex flex-column-reverse">
                     <div className="brief__name">
                         1кв.
                         2024
@@ -173,7 +198,7 @@ const Home: NextPage = () => {
                     <div className="brief__memo">ПЕРВИЧНая СДАЧа</div>
                 </div>
 
-                <div className="col-md-3 col-12 d-md-block d-flex flex-column-reverse">
+                <div className="col-md-3 col-sm-5 col-12 d-sm-block d-flex flex-column-reverse">
                     <div className="brief__name row w-100 mx-auto gap-2">
                         <div onClick={handlefratis} className="col">Ст</div>
                         <div onClick={handlefratis} className="col">1к</div>
@@ -191,7 +216,7 @@ const Home: NextPage = () => {
       <section className="about" ref={myRef1}>
         <div className="container">
             <div className="row">
-                <div className="col-md-5 col-xl-6 col-12 about__description">
+                <div className="col-md-5 col-sm-12 col-xl-6 col-12 about__description">
                     <div className="memo">О ПРОЕКТЕ</div>
                     <div className="section-header">Живи на солнечной стороне!</div>
                     <div className="description">
@@ -203,9 +228,9 @@ const Home: NextPage = () => {
                         все это и многое другое означает Жить на солнечной стороне!
                     </div>
                 </div>
-                <div className="col-md-7 col-xl-6 col-12 about__features">
+                <div className="col-md-7 col-sm-12 col-xl-6 col-12 about__features">
                     <div className="d-flex flex-wrap about__features--box">
-                        <div className="col-sm-12 col-md-6 d-flex">
+                        <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
                                 <img src="/assets/img/icon/prem3.png" alt="smart"/>
                             </div>
@@ -221,7 +246,7 @@ const Home: NextPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-12 col-md-6 d-flex">
+                        <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
                                 <img src="/assets/img/icon/prem1.png" alt="smart"/>
                             </div>
@@ -240,7 +265,7 @@ const Home: NextPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-12 col-md-6 d-flex">
+                        <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
                                 <img src="/assets/img/icon/prem2.png" alt="smart"/>
                             </div>
@@ -257,7 +282,7 @@ const Home: NextPage = () => {
                             </div>
                         </div>
                         
-                        <div className="col-sm-12 col-md-6 d-flex">
+                        <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
                                 <img src="/assets/img/icon/prem4.png" alt="smart"/>
                             </div>
@@ -275,7 +300,7 @@ const Home: NextPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-12 col-md-6 d-flex">
+                        <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
                                 <img src="/assets/img/icon/prem5.png" alt="smart"/>
                             </div>
@@ -293,7 +318,7 @@ const Home: NextPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-12 col-md-6 d-flex">
+                        <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
                                 <img src="/assets/img/icon/prem7.png" alt="smart"/>
                             </div>
@@ -393,10 +418,10 @@ const Home: NextPage = () => {
       <section className="characteristic" ref={myRef3}>
         <div className="container">
             <div className="row align-items-center mb-5">
-                <div className="col-md-6 col-12 section-header">
+                <div className="col-6 characteristic_h1 section-header">
                     Характеристики
                 </div>
-                <div className="col-md-6 col-12 section-btn d-flex justify-content-md-end align-self-center">
+                <div className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
                     <button className="btn" onClick={()=> setseting(true)}>Подробнее</button>
                 </div>
             </div>
@@ -559,7 +584,7 @@ const Home: NextPage = () => {
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-6 section-header">Новости</div>
-                <div className="col-6 d-flex align-self-center justify-content-end section-btn">
+                <div className="col-6 d-flex allnews align-self-center justify-content-end section-btn">
                     <button className="btn">Смотреть все</button>
                 </div>
 
@@ -708,7 +733,7 @@ const Home: NextPage = () => {
                           с3, офис 232
       
                           <div className="contacts__memo">
-                              Ежедневно 9:00-21:00<br /><br />
+                              
       
       
                               Посещение офиса возможно
@@ -737,27 +762,29 @@ const Home: NextPage = () => {
       </section>
       <footer className="prefooter" ref={myRef5}>
         <div className="container">
-              <div className="prefooter__top row align-items-center">
+            <div className='prefooter_box'>
+              <div className="prefooter__top">
                   
-                  <div className="prefooter__contact col-md-3 ">
+                  <div className="prefooter__contact ">
                       <a className="phone" href='tel:+7 978 718 08 08'><div>+7 978 718 08 08</div></a>
-                      бесплатно по России
+                      
                   </div>
-                  <div className="col-md-3 mt-3 d-flex align-items-center to-up">
+                  <div className="zastr">
                       <button className="btn prefooter__btn" onClick={()=> setmodal2(true)}>Обратится к застройщику</button>
 
                   </div>
-                  <div className="upe col-2 d-flex justify-content-end">
+                  
+                  </div>
+                  <div className="upe">
                       Наверх
                       <img src="/assets/img/up.png" alt="to up" onClick={executeScroll1} />
                       
                   </div>
-              </div>
-
+            </div>
               <hr />
 
               <div className="row prefooter__middle">
-                  <div className="col-md-4 col-12 mb-md-0 mb-5">
+                  <div className="col-md-4 col-12 mb-md-0 mb-5 flatic_cvart">
                       <div onClick={handlefratis} className="builders flat">КВАРТИРЫ</div>
                       <div onClick={handlefratis} className="builders builder">Коммерческая недвижимость</div>
                   </div>

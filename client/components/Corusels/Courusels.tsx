@@ -27,7 +27,7 @@ const Courusels = (): JSX.Element => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -35,7 +35,7 @@ const Courusels = (): JSX.Element => {
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
@@ -55,7 +55,7 @@ const Courusels = (): JSX.Element => {
     <>
       
         <Slider className="coruselus" ref={slide => setNav1(slide)} {...settings}>
-              <div >
+              <div className="coruselus-itemes" >
                     <img src="/assets/img/corus1/img1.png" alt="infrastructure"/>
 
                     <div className="location__infrastructure__title">до Объездной дороги</div>
@@ -64,7 +64,7 @@ const Courusels = (): JSX.Element => {
                         <div className="car">7 минут</div>
                     </div>
             </div>
-            <div>
+            <div className="coruselus-itemes">
                 <img src="/assets/img/corus1/img2.png" alt="infrastructure"/>
 
                 <div className="location__infrastructure__title">до трассы «Таврида»</div>
@@ -73,7 +73,7 @@ const Courusels = (): JSX.Element => {
                     <div className="car">7 минут</div>
                 </div>
             </div>
-            <div>
+            <div className="coruselus-itemes">
               <img src="/assets/img/corus1/img3.png" alt="infrastructure"/>
 
               <div className="location__infrastructure__title">до Керченского моста</div>
@@ -82,7 +82,7 @@ const Courusels = (): JSX.Element => {
                   <div className="car">7 минут</div>
               </div>
             </div>
-            <div>
+            <div className="coruselus-itemes">
               <img src="/assets/img/corus1/img4.png" alt="infrastructure"/>
 
               <div className="location__infrastructure__title">до Аэропорта «Симферополь»</div>
@@ -91,7 +91,7 @@ const Courusels = (): JSX.Element => {
                   <div className="car">7 минут</div>
               </div>
             </div>
-            <div>
+            <div className="coruselus-itemes">
               <img src="/assets/img/corus1/img5.png" alt="infrastructure"/>
 
               <div className="location__infrastructure__title">ТРЦ «Южная Галерея»</div>
@@ -100,7 +100,7 @@ const Courusels = (): JSX.Element => {
                   <div className="car">7 минут</div>
               </div>
             </div>
-            <div>
+            <div className="coruselus-itemes">
               <img src="/assets/img/corus1/img6.png" alt="infrastructure"/>
 
               <div className="location__infrastructure__title">ТРК «Меганом»</div>
@@ -109,7 +109,7 @@ const Courusels = (): JSX.Element => {
                   <div className="car">7 минут</div>
               </div>
             </div>
-            <div>
+            <div className="coruselus-itemes">
               <img src="/assets/img/corus1/img7.png" alt="infrastructure"/>
 
               <div className="location__infrastructure__title">парк «Аграрник»</div>

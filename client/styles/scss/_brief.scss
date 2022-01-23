@@ -37,6 +37,14 @@
         text-transform: uppercase;
     }
 }
+@media screen and (max-width: 768px){
+    .brief__name{
+        font-size: 16px;
+    }
+    .brief__memo{
+        font-size: 9px;
+    }
+}
 @media screen and (max-width: 600px){
     .brief{
         margin: 0 5%;

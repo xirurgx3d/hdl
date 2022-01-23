@@ -26,7 +26,7 @@ const StepBuild = (): JSX.Element => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -34,7 +34,7 @@ const StepBuild = (): JSX.Element => {
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
@@ -54,31 +54,31 @@ const StepBuild = (): JSX.Element => {
     <>
       
         <Slider className="coruselus steps__slider" ref={slide => setNav1(slide)} {...settings}>
-              <div >
+              <div className="coruselus-itemes">
                     <img src="/assets/img/step1.png" alt="infrastructure"/>
 
                     <div className="step__date">Март 2021</div>
                     <div className="step__photo-count">5 фото</div>
             </div>
-            <div >
+            <div className="coruselus-itemes">
             <img src="/assets/img/step2.png" alt="infrastructure"/>
 
                     <div className="step__date">Март 2021</div>
                     <div className="step__photo-count">5 фото</div>
         </div>
-        <div >
+        <div className="coruselus-itemes">
         <img src="/assets/img/step3.png" alt="infrastructure"/>
 
                     <div className="step__date">Март 2021</div>
                     <div className="step__photo-count">5 фото</div>
         </div>
-        <div >
+        <div className="coruselus-itemes">
         <img src="/assets/img/step4.png" alt="infrastructure"/>
 
                     <div className="step__date">Март 2021</div>
                     <div className="step__photo-count">5 фото</div>
         </div>
-        <div >
+        <div className="coruselus-itemes">
         <img src="/assets/img/step1.png" alt="infrastructure"/>
 
                     <div className="step__date">Март 2021</div>

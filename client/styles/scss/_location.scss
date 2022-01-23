@@ -5,6 +5,7 @@
     position: relative;
     border-top: 1px solid #0000000a;
     
+    
     &__infrastructures{
         position: relative;
         display: flex;
@@ -164,7 +165,7 @@
 }
 @media screen and (max-width: 768px){
     .location{
-
+        margin-top: 35px !important; 
         &__select-window{
             top: initial;
             bottom: 0;
@@ -181,6 +182,43 @@
         &__infrastructures{
             overflow: hidden;
         }
-       
+        .slick-slider{
+            margin-left: 80px;
+            margin-right: 85px;
+        }
+        
+    }
+    .location__select-window{
+        width: 320px;
+        left: 10px;
+        top:30px;
+    }
+}
+@media screen and (max-width: 480px){
+    .location__map{
+        margin-top: 40px;
+        margin-bottom: 100px;
+    }
+    .location__description-header,.location__description{
+        text-align: left;
+    }
+    .location__select-window{
+        width: 100%;
+        height: 450px;
+        top: 300px;
+        left:0;
+        
+    }
+    #map .ymaps-2-1-79-map{
+        height: 300px !important;
+    }
+    #map{
+        &::after{
+            width: 100%;
+            height: 300px;
+            top: 0;
+            left: 0;
+            z-index: 88;
+        }
     }
 }

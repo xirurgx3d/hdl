@@ -90,7 +90,23 @@
 @media screen and (max-width: 768px){
     .bottom-map{
         &__contacts{
-            top: 0;
+            top: 20px;
+            bottom: 0;
+            left: 5px;
+            right: 0;
+            width: 320px;
+        }
+    }
+}
+@media screen and (max-width: 480px){
+    .bottom-map{
+        height: 550px;
+        margin-bottom: 300px;
+        .solarmap{
+            height: 300px;
+        }
+        &__contacts{
+            top: 300px;
             bottom: 0;
             left: 0;
             right: 0;

@@ -27,6 +27,7 @@ body{
     overflow-x: hidden;
     
 }
+
 a{
     text-decoration: none;
 }
@@ -169,5 +170,9 @@ input[type="radio"]{
 @media screen and (max-width: 768px){
     .location__select-window{
         flex-direction: column;
+    }
+    .container{
+        padding-left: 5px !important;
+        padding-right: 5px !important;
     }
 }
