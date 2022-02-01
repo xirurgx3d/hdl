@@ -33,8 +33,8 @@ const mapes = [
 		cord:[45.014326, 34.060658]
 	},
   {
-    title: 'Здоровье',
-    coutn:1,
+    title: 'Торговые центры',
+    coutn:3,
     name: 'gal',
     checed:true,
 		cord:[44.988045, 34.086582]

@@ -20,5 +20,6 @@ var router = _express["default"].Router();
 router.use('/auth', _auth["default"]);
 router.use('/catalog', _catalog["default"]);
 router.use('/components', _components["default"]);
+router.use('/mail', _components["default"]);
 var _default = router;
 exports["default"] = _default;
