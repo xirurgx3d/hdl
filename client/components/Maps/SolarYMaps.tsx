@@ -1,3 +1,4 @@
+import { fabClasses } from "@material-ui/core";
 import { useMemo, useState } from "react";
 import { YMaps, Map, SearchControl, Placemark, YMapsApi, withYMaps } from "react-yandex-maps";
 
@@ -9,44 +10,56 @@ const placeMarkOption = {
 }
 
 const mapes = [
-	{
-		name: 'all',
-		cord:[45.008543, 34.060798]
+	
+  {
+    title: 'Остановки',
+    coutn:2,
+    name: 'ost',
+    checed:false,
+		cord:[[45.008881, 34.056425],[45.008222, 34.056667]]
 	},
-	{
-		name: 'ost',
-		cord:[45.009526, 34.056458]
-	},
-	{
-		name: 'park',
+  {
+    title: 'Спорт',
+    coutn:1,
+    name: 'park',
+    checed:false,
 		cord:[45.014437, 34.053395]
 	},
-	{
-		name: 'sport',
+  {
+    title: 'Здоровье',
+    coutn:1,
+    name: 'sport',
+    checed:true,
 		cord:[45.014326, 34.060658]
 	},
-	{
-		name: 'gal',
+  {
+    title: 'Здоровье',
+    coutn:1,
+    name: 'gal',
+    checed:true,
 		cord:[44.988045, 34.086582]
 	},
-	{
-		name: 'fan',
+  {
+    title: 'Развлечения',
+    coutn:3,
+    name: 'fan',
+    checed:false,
 		cord:[44.986804, 34.077440]
 	},
-	{
-		name: 'scoll',
+  {
+    title: 'Образование',
+    coutn:2,
+    name: 'scoll',
+    checed:false,
 		cord:[45.015730, 34.058494]
 	}
 ]
 
 
 const SolarYMaps = ({mod}:any) => {
-	const [stateMap, setStateMap] = useState<any>([45.008543, 34.060798])
+  const [stateMap, setStateMap] = useState<any>([45.008543, 34.060798])
+  
 	const [mapval, setMapval] = useState<any>([
-		{
-			name: 'all',
-			cord:[45.008543, 34.060798]
-		},
 		{
 			name: 'sport',
 			cord:[45.014326, 34.060658]
@@ -55,7 +68,10 @@ const SolarYMaps = ({mod}:any) => {
 			name: 'gal',
 			cord:[44.988045, 34.086582]
 		}
-	])
+  ])
+  const [checkedState, setCheckedState] = useState(
+    [false,false,true,true,false,false]
+  );
   
 
   const mapstate = useMemo(() => {
@@ -65,25 +81,41 @@ const SolarYMaps = ({mod}:any) => {
   const onMapClick = () => {
     
   }
-	const handl = (e: any, val: any) => {
+  const handl = (e: any, val: any,position:any) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+    setCheckedState(updatedCheckedState);
+
 		if (e.target.checked) {
-			if (Array.isArray(val)) {
-				setMapval(val)
-			} else {
+			if (position === 'all') {
+        setMapval(val) //new Array(mapes.length).fill(false)
+        setCheckedState(new Array(mapes.length).fill(true));
+      } else {
+        
 				setMapval((prev: any) => [...prev, val])
 				setStateMap(val.cord)
 			}
 			
-		} else {
-			setMapval((prev: any) => {
-				return prev.filter((value:any) => value.name !== val.name)
-			})
+    } else {
+      if (position === 'all') {
+        setMapval([])
+        setCheckedState(new Array(mapes.length).fill(false));
+      } else {
+        setMapval((prev: any) => {
+				  return prev.filter((value:any) => value.name !== val.name)
+			  })
+      }
+			
 			
 		}
     
     
-	}
-	console.log(mapval);
+  }
+
+  console.log(mapval);
+  
+	
   
 
   return (
@@ -108,7 +140,7 @@ const SolarYMaps = ({mod}:any) => {
                     <div className="section-header">ЖК «Солнечный Парк»</div>
 
                     <label className="checkbox col-md-12 col-6 d-flex align-items-center">
-                        <input type="checkbox" onChange={(e) =>  handl(e,mapes)} />
+                        <input type="checkbox" onChange={(e) =>  handl(e,mapes,'all')} />
                         <span></span>
                         <span className="checkbox__value">Все объекты</span>
 
@@ -117,74 +149,27 @@ const SolarYMaps = ({mod}:any) => {
                         </div>
 
                     </label>
-                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
-                        <input type="checkbox" onChange={(e) =>  handl(e,{
-													name: 'ost',
-													cord:[45.009526, 34.056458]
-												})} />
+                    {mapes.map((val:any, index) => {
+                    return (
+                    <label key={index} className="checkbox col-md-12 col-6 d-flex align-items-center">
+                        <input type="checkbox"
+                          checked={checkedState[index]}
+                          defaultChecked={true}
+                          onChange={(e) => handl(e, {
+													name: val.name,
+													cord:val.cord
+												},index)} />
                         <span></span>
-                        <span className="checkbox__value">Остановки</span>
+                        <span className="checkbox__value">{val.title}</span>
 
                         <div className="checkbox__count">
-                            5
+                            {val.coutn}
                         </div>
 
                     </label>
-                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
-                        <input type="checkbox" onChange={(e) =>  handl(e,{
-													name: 'park',
-													cord:[45.014437, 34.053395]
-												})} />
-                        <span></span>
-                        <span className="checkbox__value">Спорт</span>
-
-                        
-
-                    </label>
-                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
-                        <input type="checkbox" onChange={(e) =>  handl(e,{
-													name: 'sport',
-													cord:[45.014326, 34.060658]
-												})} defaultChecked={true} />
-                        <span></span>
-                        <span className="checkbox__value">Здоровье</span>
-
-                        
-
-                    </label>
-                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
-                        <input type="checkbox" onChange={(e) =>  handl(e,{
-													name: 'gal',
-													cord:[44.988045, 34.086582]
-												})} defaultChecked={true}  />
-                        <span></span>
-                        <span className="checkbox__value">Торговые центры</span>
-
-                       
-
-                    </label>
-                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
-                        <input type="checkbox" onChange={(e) =>  handl(e,{
-													name: 'fan',
-													cord:[44.986804, 34.077440]
-												})}  />
-                        <span></span>
-                        <span className="checkbox__value">Развлечения</span>
-
-                        
-
-                    </label>
-                    <label className="checkbox col-md-12 col-6 d-flex align-items-center">
-                        <input type="checkbox" onChange={(e) =>  handl(e,{
-													name: 'scoll',
-													cord:[45.015730, 34.058494]
-												})}  />
-                        <span></span>
-                        <span className="checkbox__value">Образование</span>
-
-                        
-
-                    </label>
+                      );
+                    })}
+                    
                     
 
                     <button className="btn" onClick={()=> mod(true)} >
@@ -193,7 +178,8 @@ const SolarYMaps = ({mod}:any) => {
           </div>
           
           {
-                                mapval.map((address:any, index:number) => {
+            mapval.map((address: any, index: number) => {
+              
                                     return (
                                         <Placemark
                                             

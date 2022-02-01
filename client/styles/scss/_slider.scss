@@ -260,6 +260,16 @@
     }
 }
 @media screen and (max-width: 480px){
+	.top-slider .headslide .slick-prev{
+		width: 22px;
+		height: 22px;
+		background-size: cover;
+	}
+	.top-slider .headslide .slick-next{
+		width: 22px;
+		height: 22px;
+		background-size: cover;
+	}
     .top-slider .aboutslide .slick-prev{
         left: 5px;
         width: 34px;

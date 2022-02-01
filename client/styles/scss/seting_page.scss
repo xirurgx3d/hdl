@@ -20,10 +20,12 @@
         padding-left: 5px;
     }
     .close{
-        position: absolute;
-        right: 0;
-        top: 0;
+        position: fixed;
+        right: 5%;
+        top:55px;
         cursor: pointer;
+				background-color: #fff;
+				z-index: 999;
     }
 }
 .seting_page-nav-box{

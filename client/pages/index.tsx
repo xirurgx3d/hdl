@@ -111,7 +111,7 @@ const Home: NextPage = () => {
         <div className="container">
             <div className="row head">
                 <div className="logo col-md-2 col-3">
-                    <a href='/'><img src="/assets/img/logo.png" alt="logotype" /></a>
+                    <a href='/'><img src="/assets/img/logo3.svg" alt="logotype" /></a>
                 </div>
                 <div className="nav-menu d-md-flex align-self-center align-items-end row px-0 col-6">
                     <a onClick={executeScroll1} className="nav-menu__link col">О проекте</a>
@@ -287,7 +287,7 @@ const Home: NextPage = () => {
                                 <img src="/assets/img/icon/prem4.png" alt="smart"/>
                             </div>
                             <div className="about__features__content">
-                                <div className="about__features__header">Образовательные учреждения в центре ЖК</div>
+                                <div className="about__features__header">Проектом предусмотрено строительство</div>
                                 <div className="about__features__description">
                                 <ul>
                                         <li>проектом предусмотрено строительство</li>
@@ -580,7 +580,9 @@ const Home: NextPage = () => {
               
           </div>
       </section>
-      <section className="news">
+      {
+        false &&
+        <section className="news">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-6 section-header">Новости</div>
@@ -630,6 +632,9 @@ const Home: NextPage = () => {
 
           </div>
       </section>
+      }
+      
+
       <section className="bottom-map" ref={myRef4}>
               <div id="bottom-map">
               { modal2 &&
