@@ -4,24 +4,48 @@ import nodemailer from 'nodemailer'
 const router = express.Router()
 
 router.post('/send',async (req,res)=>{
-	let transporter = nodemailer.createTransport({
-    host: "solar@жксолнечныйпарк.рф",
-    port: 465,
-    secure: true, // true for 465, false for other ports
-    auth: {
-      user: solar, // generated ethereal user
-      pass: Rokkox3d, // generated ethereal password
-    },
-  });
+	try {
 
-	let info = await transporter.sendMail({
-		from: '"Fred Foo 👻" <foo@example.com>', // sender address
-		to: "g-unit@x3d.ukr.net", // list of receivers
-		subject: "Hello ✔", // Subject line
-		text: "Hello world?", // plain text body
-		html: "<b>Hello world?</b>", // html body
-		
-	});
+		/*
+		let transporter = nodemailer.createTransport({
+			host: 'smtp.beget.com',
+	    port: 25,
+			
+	    auth: {
+	        user: 'solar@arcadacrimea.ru',
+	        pass: 'Rokkox3d'
+	    }
+		});
+		*/
+		let testEmailAccount = await nodemailer.createTestAccount()
+
+		let transporter = nodemailer.createTransport({
+		  host: 'smtp.ethereal.email',
+		  port: 587,
+		  secure: false,
+		  auth: {
+		    user: testEmailAccount.user,
+		    pass: testEmailAccount.pass,
+		  },
+		})
+	
+		let info = await transporter.sendMail({
+			from: 'solar@arcadacrimea.ru', // sender address
+			to: "g-unitx3d@ukr.net", // list of receivers
+			subject: "Hello ✔", // Subject line
+			text: "Hello world?", // plain text body
+			html: "<b>Hello world?</b>", // html body
+			
+		});
+
+		console.log("Message sent: %s", info.messageId);
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+  // Preview only available when sending through an Ethereal account
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+	} catch (error) {
+		console.log(error);
+	}
 	res.status(200).send('ok')
 }) 
     

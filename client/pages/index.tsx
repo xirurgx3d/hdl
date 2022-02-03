@@ -24,6 +24,7 @@ import MatPage from '../components/MatPage/MatPage'
 
 import Head from 'next/head';
 import SolarYMaps from '../components/Maps/SolarYMaps'
+import { ContactUs } from '../components/Mailer/Mailer'
 
  
 const Home: NextPage = () => {
@@ -173,6 +174,7 @@ const Home: NextPage = () => {
         </div>
       </header>
       <Sliders />
+      <ContactUs />
       <section className="brief">
         <div className="container">
             <div className="row">

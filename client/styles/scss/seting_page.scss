@@ -97,9 +97,11 @@
     justify-content: space-between;
     align-items: center;
 }
+.selet_left{
+	width: 45%;
+}
 .selet_hous{
-    width: 45%;
-    border: 1px solid #D5D5D5;
+    width: 100%;
     padding: 40px;
     .selet_hous-title{
         color: #443571;
@@ -133,11 +135,15 @@
         background: #FECE42;
     }
 }
+.selet_hous-dot{
+	border: 1px solid #D5D5D5;
+}
 .selet_hous-slide{
     width: 45%;
+		height: 500px;
     img{
-        width: 480px ;
-        height: 340px;
+        width: 100% !important;
+        height: 100% !important;
     }
     .slide .slick-dots{
         width: auto !important;

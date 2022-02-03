@@ -23,35 +23,35 @@ const mapes = [
     coutn:1,
     name: 'park',
     checed:false,
-		cord:[45.014437, 34.053395]
+		cord:[[45.013709, 34.060769]]
 	},
   {
     title: 'Здоровье',
     coutn:1,
     name: 'sport',
     checed:true,
-		cord:[45.014326, 34.060658]
+		cord:[[45.030301, 34.050313]]
 	},
   {
     title: 'Торговые центры',
     coutn:3,
     name: 'gal',
     checed:true,
-		cord:[44.988045, 34.086582]
+		cord:[[44.986573, 34.086374],[44.985240, 34.086684],[44.970114, 34.076873]]
 	},
   {
     title: 'Развлечения',
     coutn:3,
     name: 'fan',
     checed:false,
-		cord:[44.986804, 34.077440]
+		cord:[[45.013760, 34.053381],[44.987727, 34.076397]]
 	},
   {
     title: 'Образование',
     coutn:2,
     name: 'scoll',
     checed:false,
-		cord:[45.015730, 34.058494]
+		cord:[[45.016802, 34.054376],[45.014904, 34.058490]]
 	}
 ]
 
@@ -59,15 +59,21 @@ const mapes = [
 const SolarYMaps = ({mod}:any) => {
   const [stateMap, setStateMap] = useState<any>([45.008543, 34.060798])
   
-	const [mapval, setMapval] = useState<any>([
-		{
-			name: 'sport',
-			cord:[45.014326, 34.060658]
-		},
-		{
-			name: 'gal',
-			cord:[44.988045, 34.086582]
-		}
+  const [mapval, setMapval] = useState<any>([
+    {
+      title: 'Здоровье',
+      coutn:1,
+      name: 'sport',
+      checed:true,
+      cord:[[45.030301, 34.050313]]
+    },
+    {
+      title: 'Торговые центры',
+      coutn:3,
+      name: 'gal',
+      checed:true,
+      cord:[[44.986573, 34.086374],[44.985240, 34.086684],[44.970114, 34.076873]]
+    },
   ])
   const [checkedState, setCheckedState] = useState(
     [false,false,true,true,false,false]
@@ -94,7 +100,7 @@ const SolarYMaps = ({mod}:any) => {
       } else {
         
 				setMapval((prev: any) => [...prev, val])
-				setStateMap(val.cord)
+				setStateMap(val.cord[0])
 			}
 			
     } else {
@@ -113,7 +119,7 @@ const SolarYMaps = ({mod}:any) => {
     
   }
 
-  console.log(mapval);
+
   
 	
   
@@ -126,7 +132,7 @@ const SolarYMaps = ({mod}:any) => {
       >
         <Map style={{position: "absolute", width:"100%", height: "100%"}} modules={['geocode']} onClick={onMapClick} state={mapstate} defaultState={
                     {
-                        center: mapval[0],
+                        center: [45.008164, 34.060774],
                         zoom: 17,
                         controls: [],
                         scrollZoom: false,
@@ -176,20 +182,30 @@ const SolarYMaps = ({mod}:any) => {
                         Заявка на экскурсию
                     </button>
           </div>
+          <Placemark
+                                          
+                  
+                  options={placeMarkOption}
+                  geometry={[45.008164, 34.060774]}
+              />
           
           {
             mapval.map((address: any, index: number) => {
               
-                                    return (
-                                        <Placemark
-                                            
-                                            key={index}
-                                            options={placeMarkOption}
-                                            geometry={[address.cord[0], address.cord[1]]}
-                                        />
-                                    );
-                                })
-                            }
+              return address.cord.map((val: any,i:number) => {
+                 console.log(val); 
+                return (<Placemark
+                                          
+                  key={i}
+                  options={placeMarkOption}
+                  geometry={[val[0], val[1]]}
+              />)
+              })
+              
+              
+            })
+          }
+          
                 
        </Map>
         

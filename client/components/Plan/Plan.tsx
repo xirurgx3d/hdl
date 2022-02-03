@@ -25,7 +25,10 @@ const Plan = () => {
         
       </div>
 
-    <div className='check_hous'>
+    
+      <div className='selet_hous_box'>
+        <div className="selet_left">
+        <div className='check_hous'>
       <div className='check_hous-nav'>
           <div className='check_hous-item' onClick={()=> setstate(1)}>
             <img src='/assets/img/dom.png' />
@@ -41,17 +44,17 @@ const Plan = () => {
           </div>
       </div>
     </div>
-    <div className='selet_hous_box'>
-      <div className='selet_hous'>
+      <div className='selet_hous selet_hous-dot'>
         <div className='selet_hous-title'>
           <span>Выберите</span>
           <span className='tit'>свою Солнечную</span>
           <span>Квартиру</span>
         </div>
           <div className='selet_hous-text'>Квартира с уникальным планировочным решением, неповторимыми видовыми характеристиками и собственной террасой - современное решение для комфортной жизни. 
-</div>
+          </div>
           <div className='selet_hous-button' onClick={()=> handlefratis()}>Выбрать квратиру</div>
-      </div>
+        </div>
+        </div>
         <div className='selet_hous-slide'>
           {
             state === 1 && <SlidePlan1 /> 
