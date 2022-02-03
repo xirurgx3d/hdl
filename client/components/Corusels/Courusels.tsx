@@ -61,7 +61,7 @@ const Courusels = (): JSX.Element => {
                     <div className="location__infrastructure__title">до Объездной дороги</div>
                     <div className="location__infrastructure__time d-flex">
                         
-                        <div className="car">7 минут</div>
+                        <div className="car">3 минуты</div>
                     </div>
             </div>
             <div className="coruselus-itemes">
@@ -79,7 +79,7 @@ const Courusels = (): JSX.Element => {
               <div className="location__infrastructure__title">до Керченского моста</div>
               <div className="location__infrastructure__time d-flex">
                   
-                  <div className="car">7 минут</div>
+                  <div className="car">2 ч. 15 мин.</div>
               </div>
             </div>
             <div className="coruselus-itemes">
@@ -88,7 +88,7 @@ const Courusels = (): JSX.Element => {
               <div className="location__infrastructure__title">до Аэропорта «Симферополь»</div>
               <div className="location__infrastructure__time d-flex">
                   
-                  <div className="car">7 минут</div>
+                  <div className="car">15 мин</div>
               </div>
             </div>
             <div className="coruselus-itemes">
@@ -96,8 +96,8 @@ const Courusels = (): JSX.Element => {
 
               <div className="location__infrastructure__title">ТРЦ «Южная Галерея»</div>
               <div className="location__infrastructure__time d-flex">
-                  
-                  <div className="car">7 минут</div>
+                  <div className="foot">20 мин.</div>
+                  <div className="car">5 мин.</div>
               </div>
             </div>
             <div className="coruselus-itemes">
@@ -114,8 +114,8 @@ const Courusels = (): JSX.Element => {
 
               <div className="location__infrastructure__title">парк «Аграрник»</div>
               <div className="location__infrastructure__time d-flex">
-                  
-                  <div className="car">7 минут</div>
+                  <div className="foot">15 мин.</div>
+                  <div className="car">2 мин.</div>
               </div>
             </div>
           </Slider>

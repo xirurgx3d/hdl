@@ -128,7 +128,7 @@ const SolarYMaps = ({mod}:any) => {
     <>
     <YMaps
                 enterprise
-                query={{ apikey: "f5bd494f-4a11-4375-be30-1d2d48d88e93" }}
+                query={{ apikey: "25ff2aee-f172-4ef8-9ba4-6e829954c5b5" }}
       >
         <Map style={{position: "absolute", width:"100%", height: "100%"}} modules={['geocode']} onClick={onMapClick} state={mapstate} defaultState={
                     {

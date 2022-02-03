@@ -101,7 +101,7 @@ const Home: NextPage = () => {
       
        <Head>
             <script async type="text/javascript" src="https://a315.flatris.com.ua/public/web.js?cid=vbz3A0aZjxV1ZeB&hl=ru"></script>
-            <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=f5bd494f-4a11-4375-be30-1d2d48d88e93"></script>
+            <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"></script>
         </Head>
 
 		
@@ -174,7 +174,7 @@ const Home: NextPage = () => {
         </div>
       </header>
       <Sliders />
-      <ContactUs />
+     
       <section className="brief">
         <div className="container">
             <div className="row">
@@ -292,7 +292,7 @@ const Home: NextPage = () => {
                                 <div className="about__features__header">Проектом предусмотрено строительство</div>
                                 <div className="about__features__description">
                                 <ul>
-                                        <li>проектом предусмотрено строительство</li>
+                                        
                                         <li>Современной школы на более
 чем 1000  мест</li>
                                         <li>Двух детских садиков более чем
@@ -361,7 +361,7 @@ const Home: NextPage = () => {
                     ЖК “Солнечный парк”расположен на границе с городом Симферополь, в 10 минутах от центра города.
                 </div>
                 <div className="location__description">
-                    Адрес: поселок Моложеное, Симферопольский район, республика Крым.<br />
+                    Адрес: поселок Моложеное, Симферопольский район, Республика Крым.<br />
                     Удачное транспортное расположение новостройки. Парки, скверы, магазины все расположено в пешей
                     доступности.
                 </div>
