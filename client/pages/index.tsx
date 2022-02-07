@@ -21,6 +21,7 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import Stack from '@mui/material/Stack';
 import TimePicker from '@mui/lab/TimePicker'
 import MatPage from '../components/MatPage/MatPage'
+import emailjs from '@emailjs/browser';
 
 import Head from 'next/head';
 import SolarYMaps from '../components/Maps/SolarYMaps'
@@ -95,6 +96,36 @@ const Home: NextPage = () => {
     // дата в попапе
     const [date_modal, setdate_modal] = React.useState<any>(false);
 
+
+    const formModal1 = useRef<any>();
+    const sendEmailModal1 = (e:any) => {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_5f2mjwo', 'template_li7mqnj', formModal1.current, 'user_87qhZ0qw52GqaalcwFFTt')
+        .then((result) => {
+          console.log(result.text);
+          setmodal1(false)
+        }, (error) => {
+          console.log(error.text);
+          setmodal1(false)
+        });
+    };
+
+    const formModal2 = useRef<any>();
+    const sendEmailModal2 = (e:any) => {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_5f2mjwo', 'template_nmpmxap', formModal2.current, 'user_87qhZ0qw52GqaalcwFFTt')
+        .then((result) => {
+          console.log(result.text);
+          setmodal2(false)
+        }, (error) => {
+          console.log(error.text);
+          setmodal2(false)
+        });
+    };
+    
+  
   return (
     <>
        
@@ -174,7 +205,6 @@ const Home: NextPage = () => {
         </div>
       </header>
       <Sliders />
-     
       <section className="brief">
         <div className="container">
             <div className="row">
@@ -377,9 +407,9 @@ const Home: NextPage = () => {
                         </div>
                         <div className="section-header text-center">Заявка на консультацию</div>
 
-                        <form action="">
-                            <input className='forme-input' type="text" placeholder="ФИО" />
-                            <input className='forme-input' type="text" placeholder="Телефон" />
+                        <form ref={formModal1} onSubmit={sendEmailModal1}>
+                            <input className='forme-input' type="text" name="fio" placeholder="ФИО" />
+                            <input className='forme-input' type="text" name="phone" placeholder="Телефон" />
                             
                             <div className="custom-select active">
                                 <div className="d-flex justify-content-between align-items-center" onClick={()=> setkvartirbol(true)}>
@@ -397,10 +427,10 @@ const Home: NextPage = () => {
                                 }
                                 
                             </div>
+                            <input type="text" hidden name="vopros" value={kvartir} />
+                            <textarea name="message" placeholder="Комментарии"></textarea>
+                            <input type="submit" className="btn" value="Отправить заявку" />
                             
-                            <textarea placeholder="Комментарии"></textarea>
-
-                            <button className="btn">Отправить заявку</button>
                         </form>
 
                         <div className="confirm__memo">
@@ -660,16 +690,16 @@ const Home: NextPage = () => {
                           </div>
                         </div>
 
-                        <form action="">
-                            <input className='forme-input' type="text" placeholder="Телефон" />
+                        <form ref={formModal2} onSubmit={sendEmailModal2}>
+                            <input className='forme-input' type="text" name='phone' placeholder="Телефон" />
 
-                            <input className='forme-input' type="text" placeholder="Ваше имя" />
-                            <input className='forme-input' type="text" placeholder="Email" />
+                            <input className='forme-input' type="text" name='username' placeholder="Ваше имя" />
+                            <input className='forme-input' type="email" name='mails' placeholder="Email" />
 
                             <div className="row align-items-center">
                                 <div className="modal-checkbox col-5">
                                     <label onClick={()=> setdate_modal(false)}>
-                                        <input type="radio" name="radio" value="now" checked/>
+                                        <input type="radio" name='radio' value="Сейчас" checked/>
                                         <span>
                                             <span className="checkbox"></span>
                                             <span className="text">Сейчас</span>
@@ -678,7 +708,7 @@ const Home: NextPage = () => {
                                 </div>
                                 <div className="modal-checkbox col-5">
                                     <label onClick={()=> setdate_modal(true)}>
-                                        <input type="radio" name="radio" value="select"/>
+                                        <input type="radio" name='radio' value={`на время: дата - ${datevalue}, время ${timevalue}`}/>
                                         <span>
                                             <span className="checkbox"></span>
                                             <span className="text">Выбрать время</span>
@@ -717,8 +747,8 @@ const Home: NextPage = () => {
                               }
                               
                              
-
-                            <button className="btn">Отправить заявку</button>
+                              <input type="submit" className="btn" value="Отправить заявку" />
+                           
                         </form>
 
                         <div className="confirm__memo">

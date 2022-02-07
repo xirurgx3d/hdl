@@ -7,7 +7,7 @@ export const ContactUs = () => {
   const sendEmail = (e:any) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_5f2mjwo', 'solarto', form.current, 'user_87qhZ0qw52GqaalcwFFTt')
+    emailjs.sendForm('service_uwzwwm1', 'solarto', form.current, 'user_87qhZ0qw52GqaalcwFFTt')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -21,6 +21,8 @@ export const ContactUs = () => {
       <input type="text" name="user_name" />
       <label>Email</label>
       <input type="email" name="user_email" />
+      <label>phone</label>
+      <input type="text" name="phone" />
       <label>Message</label>
       <textarea name="message" />
       <input type="submit" value="Send" />
