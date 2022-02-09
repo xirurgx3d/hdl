@@ -253,7 +253,7 @@ const Home: NextPage = () => {
                     <div className="section-header">Живи на солнечной стороне!</div>
                     <div className="description">
                         Современный жилой комплекс, расположенный у границы Симферополя,
-                        поселок Молодежное, республика Крым. Удобная транспортная доступность и
+                        поселок Молодежное, Республика Крым. Удобная транспортная доступность и
                         близость к центру города, является неоспоримым преимуществом. Квартиры с
                         удобными планировками и грамотной инсоляцией. Отсутствие точечной застройки,
                         продуманное расположение новостроек, своя территория, отсутствие проблем с парковой,
@@ -391,7 +391,7 @@ const Home: NextPage = () => {
                     ЖК “Солнечный парк”расположен на границе с городом Симферополь, в 10 минутах от центра города.
                 </div>
                 <div className="location__description">
-                    Адрес: поселок Моложеное, Симферопольский район, Республика Крым.<br />
+                    Адрес: Республика Крым, Симферопольский район, поселок Молодежное<br />
                     Удачное транспортное расположение новостройки. Парки, скверы, магазины все расположено в пешей
                     доступности.
                 </div>
@@ -588,8 +588,7 @@ const Home: NextPage = () => {
                         className="select-item"
                         >
                         <MenuItem value={10}>1-ая очередь </MenuItem>
-                        <MenuItem value={20}>2-ая очередь </MenuItem>
-                        <MenuItem value={30}>3-ая очередь </MenuItem>
+                        
                         </Select>
                       </FormControl>
                       <FormControl className="select-box1" fullWidth>
@@ -602,9 +601,8 @@ const Home: NextPage = () => {
                         onChange={handleChange2}
                         className="select-item"
                         >
-                        <MenuItem value={10}>2021</MenuItem>
-                        <MenuItem value={20}>2022</MenuItem>
-                        <MenuItem value={30}>2023</MenuItem>
+                        <MenuItem value={10}>2022</MenuItem>
+                        
                         </Select>
                     </FormControl>
             </div>

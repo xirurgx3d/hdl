@@ -55,34 +55,40 @@ const StepBuild = (): JSX.Element => {
       
         <Slider className="coruselus steps__slider" ref={slide => setNav1(slide)} {...settings}>
               <div className="coruselus-itemes">
-                    <img src="/assets/img/step1.png" alt="infrastructure"/>
+                    <img src="/assets/img/steps/step1.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Март 2021</div>
-                    <div className="step__photo-count">5 фото</div>
+                    <div className="step__date">Январь 2022</div>
+                    
             </div>
             <div className="coruselus-itemes">
-            <img src="/assets/img/step2.png" alt="infrastructure"/>
+            <img src="/assets/img/steps/step2.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Март 2021</div>
-                    <div className="step__photo-count">5 фото</div>
+                    <div className="step__date">Январь 2022</div>
+                    
         </div>
         <div className="coruselus-itemes">
-        <img src="/assets/img/step3.png" alt="infrastructure"/>
+        <img src="/assets/img/steps/step3.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Март 2021</div>
-                    <div className="step__photo-count">5 фото</div>
+                    <div className="step__date">Январь 2022</div>
+                    
         </div>
         <div className="coruselus-itemes">
-        <img src="/assets/img/step4.png" alt="infrastructure"/>
+        <img src="/assets/img/steps/step4.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Март 2021</div>
-                    <div className="step__photo-count">5 фото</div>
+                    <div className="step__date">Январь 2022</div>
+                    
         </div>
         <div className="coruselus-itemes">
-        <img src="/assets/img/step1.png" alt="infrastructure"/>
+        <img src="/assets/img/steps/step5.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Март 2021</div>
-                    <div className="step__photo-count">5 фото</div>
+                    <div className="step__date">Январь 2022</div>
+                    
+        </div>
+        <div className="coruselus-itemes">
+        <img src="/assets/img/steps/step6.jpg" alt="infrastructure"/>
+
+                    <div className="step__date">Январь 2022</div>
+                    
             </div>
           </Slider>
       
