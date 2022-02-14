@@ -11,7 +11,7 @@ import StepBuild from '../components/StepBuild/StepBuild'
 import { createTheme, FormControl, InputLabel, MenuItem, Select } from '@material-ui/core'
 import Api from '../Api/Api'
 import SetingModal from './../components/SetingSlide/SetingModal';
-
+import Link from 'next/link'
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -133,6 +133,9 @@ const Home: NextPage = () => {
        <Head>
             <script async type="text/javascript" src="https://a315.flatris.com.ua/public/web.js?cid=vbz3A0aZjxV1ZeB&hl=ru"></script>
             <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"></script>
+            <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async></script>
+
+
         </Head>
 
 		
@@ -143,7 +146,7 @@ const Home: NextPage = () => {
         <div className="container">
             <div className="row head">
                 <div className="logo col-md-2 col-3">
-                    <a href='/'><img src="/assets/img/logo3.svg" alt="logotype" /></a>
+                    <Link  href='/'><img src="/assets/img/logo3.svg" alt="logotype" /></Link >
                 </div>
                 <div className="nav-menu d-md-flex align-self-center align-items-end row px-0 col-6">
                     <a onClick={executeScroll1} className="nav-menu__link col">О проекте</a>
@@ -165,10 +168,10 @@ const Home: NextPage = () => {
                         Коммерческая<br />недвижимость
                     </a>
                 </div>
-                <a href="tel:+7 978 718 08 08" className="contacts col-md-2 col-6">
+                <div className="contacts col-md-2 col-6">
                     <div className="contacts_box">
                         <div className="contacts__phone">
-                            +7 978 718 08 08
+                           <Link href="tel:+7 9787180808"> +7 978 718 08 08</Link>
                         </div>
                         <div className="contacts__memo">
                             
@@ -177,7 +180,7 @@ const Home: NextPage = () => {
                     
                     <img src="/assets/img/call.png" className="contacts_call" alt="contacts"/>
                     
-                </a>
+                </div>
                 <section className="top-nav mobbuerger col-2">
                     
                     
@@ -215,7 +218,7 @@ const Home: NextPage = () => {
                 </div>
 
                 <div className="col-sm-2 col-12 d-sm-block d-flex flex-column-reverse">
-                    <div className="brief__name">от 3,07 млн ₽</div>
+                    <div className="brief__name">от 3,31 млн ₽</div>
 
                     <div className="brief__memo">ЦЕНА квартиры</div>
                 </div>
@@ -435,7 +438,7 @@ const Home: NextPage = () => {
 
                         <div className="confirm__memo">
                             Нажимая кнопку «Отправить заявку»,<br/>
-                            вы соглашаетесь с <a href="">условиями обработки личных данных</a>
+                            вы соглашаетесь с <Link href="">условиями обработки личных данных</Link>
                         </div>
                       </div>
                           </>
@@ -494,8 +497,8 @@ const Home: NextPage = () => {
                         <div className='genplan_modal_title'>Документы</div>
                         
                         <div className='genplan_modal_bank'>
-                            <img src='/assets/img/dom1.png' />
-                            <img src='/assets/img/dom2.png' />
+                            <link href='https://disk.yandex.ru/d/5MCvNtWhxRo0ew'><img src='/assets/img/dom1.png' /></link>
+                            <link href='https://disk.yandex.ru/d/89S31HqpRiSA9g'><img src='/assets/img/dom2.png' /></link>
                             
                         </div>
                     </div>
@@ -751,7 +754,7 @@ const Home: NextPage = () => {
 
                         <div className="confirm__memo">
                             Нажимая кнопку «Отправить заявку»,<br/>
-                            вы соглашаетесь с <a href="">условиями обработки личных данных</a>
+                            вы соглашаетесь с <Link href="">условиями обработки личных данных</Link>
                         </div>
                     </div>
                           </>
@@ -884,7 +887,7 @@ const Home: NextPage = () => {
                   <div className="col">
                       <div className="prefooter__link-header">Контакты</div>
                       <ul className="prefooter__list">
-                          <a href=""><li>Офис продаж</li></a>
+                          <Link href=""><li>Офис продаж</li></Link>
                           <a onClick={()=> setmat_modal(true)}><li>Условия приобритения</li></a>
                           <a onClick={()=> setdoc_modal(true)}><li>Документы</li></a>
                           <a onClick={executeScroll5}><li>Ход строительства</li></a>
@@ -899,18 +902,18 @@ const Home: NextPage = () => {
 
                   <div className="prefooter__social col-md-4 col-12 mt-4 d-flex justify-content-between align-items-center">
                       Мы в социальных сетях:
-                      <a href="">
+                      <Link href="">
                           <img src="/assets/ico/social/yt.svg" alt="youtube"/>
-                      </a>
-                      <a href="">
+                      </Link>
+                      <Link href="">
                           <img src="/assets/ico/social/vk.svg" alt="vkontakte"/>
-                      </a>
-                      <a href="">
+                      </Link>
+                      <Link href="">
                           <img src="/assets/ico/social/inst.svg" alt="instagram"/>
-                      </a>
-                      <a href="">
+                      </Link>
+                      <Link href="">
                           <img src="/assets/ico/social/fb.svg" alt="facebook"/>
-                      </a>
+                      </Link>
                   </div>
               </div>
           </div>

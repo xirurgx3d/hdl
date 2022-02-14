@@ -30,7 +30,7 @@ const Sliders = (): JSX.Element => {
         <Slider className="slide headslide" ref={slide => setNav1(slide)} {...settings}>
           <img className="slide__image" src="/assets/img/banner1/1.jpg" alt="slide-1" />
           <img className="slide__image" src="/assets/img/banner1/2.jpg" alt="slide-1" />
-          <img className="slide__image" src="/assets/img/banner1/3.jpg" alt="slide-1" />
+          
         </Slider>
       </section>  
       

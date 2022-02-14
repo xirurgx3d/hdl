@@ -55,6 +55,9 @@ header{
             font-size: 16px;
             font-weight: 500;
             line-height: 1;
+						a{
+							color: $violet;
+						}
         }
         &__memo{
             font-size:12px;

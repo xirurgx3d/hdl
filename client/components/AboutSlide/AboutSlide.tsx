@@ -28,10 +28,11 @@ const AboutSliders = ({cls}:any): JSX.Element => {
     <>
       <section className="top-slider allstile aboutslide">
       <Slider className="slide  aboutslide" ref={slide => setNav1(slide)} {...settings}>
-          <img src="/assets/img/slide2/img1.jpg" alt="middle slider" /> 
+          
           <img src="/assets/img/slide2/img2.jpg" alt="middle slider" />
           <img src="/assets/img/slide2/img3.jpg" alt="middle slider" />
           <img src="/assets/img/slide2/img4.jpg" alt="middle slider" />
+          <img src="/assets/img/slide2/img1.jpg" alt="middle slider" /> 
         </Slider> 
       </section>
     </>

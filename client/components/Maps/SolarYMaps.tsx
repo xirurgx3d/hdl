@@ -81,7 +81,7 @@ const SolarYMaps = ({mod}:any) => {
   
 
   const mapstate = useMemo(() => {
-    return ({ center: stateMap, zoom: 17 })
+    return ({ center: stateMap, zoom: 12 })
   }, [stateMap])
 
   const onMapClick = () => {
