@@ -497,8 +497,8 @@ const Home: NextPage = () => {
                         <div className='genplan_modal_title'>Документы</div>
                         
                         <div className='genplan_modal_bank'>
-                            <link href='https://disk.yandex.ru/d/5MCvNtWhxRo0ew'><img src='/assets/img/dom1.png' /></link>
-                            <link href='https://disk.yandex.ru/d/89S31HqpRiSA9g'><img src='/assets/img/dom2.png' /></link>
+                            <a href='https://disk.yandex.ru/d/5MCvNtWhxRo0ew'><img src='/assets/img/dom1.png' /></a>
+                            <a href='https://disk.yandex.ru/d/89S31HqpRiSA9g'><img src='/assets/img/dom2.png' /></a>
                             
                         </div>
                     </div>
