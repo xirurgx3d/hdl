@@ -851,8 +851,8 @@ const Home: NextPage = () => {
                   <div className="col">
                       <div className="prefooter__link-header">Расположение</div>
                       <ul className="prefooter__list">
-                          <a onClick={executeScroll3}><li>Инфраструктура</li></a>
-                          <a onClick={executeScroll3}><li>Транспорт</li></a>
+                          <a onClick={executeScroll2}><li>Инфраструктура</li></a>
+                          <a onClick={executeScroll2}><li>Транспорт</li></a>
                       </ul>
                   </div>
                   <div className="col">

@@ -96,6 +96,10 @@
             color: $white;
             font-weight: 300;
             margin-bottom: 12px;
+						cursor: pointer;
+						a{
+							cursor: pointer;
+						}
         }
     }
     &__link-header{
