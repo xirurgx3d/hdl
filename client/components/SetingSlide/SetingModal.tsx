@@ -2,6 +2,7 @@ import { FC, useEffect, useRef, useState } from "react"
 import AboutSliders from "../AboutSlide/AboutSlide"
 import cn from "classnames"; 
 import Plan from "../Plan/Plan";
+import { Link as Links, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
   const [gopage, sepage] = useState(page)
@@ -31,21 +32,36 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
   const CN5 = cn("seting_page-nav-item", { active: gopage == 5 })
   const CN6 = cn("seting_page-nav-item", { active: gopage == 6})
   
-
   useEffect(() => {
-    gopage == 0 && executeScroll1()
-    gopage == 1 && executeScroll1()
-    gopage == 2 && executeScroll2()
-    gopage == 3 && executeScroll3()
-    gopage == 4 && executeScroll4()
-    gopage == 5 && executeScroll5()
-    gopage == 6 && executeScroll6()
+    if (gopage == 0) {
+      executeScroll1()
+    } 
+    gopage == 1 && scroller.scrollTo('set1', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 2 && scroller.scrollTo('set2', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 3 && scroller.scrollTo('set3', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 4 && scroller.scrollTo('set4', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 5 && scroller.scrollTo('set5', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 6 && scroller.scrollTo('set6', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
   }, [gopage])
   
 
 
   return (
     <div className='seting_page' ref={myRef1}>
+      <div className="seting_page-over" onClick={() => hndl(false)}></div>  
+    <div className="seting_page-con">  
     <div className="container"> 
       <div className='seting_page-title'>
         Характеристики
@@ -68,7 +84,9 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
     <div className="container">  
       <div className='seting_page-about'>
         <div className='seting_page-aboutleft'>
+          <Element name="set1" className="element">
           <div className='seting_page-about-title'>Архитектура и фасады</div>
+          </Element>
           <div className='seting_page-about-text'>
           <p>Для создания яркого и эстетического облика  зданий  используется  декоративная фасадная штукатурка. Проектом предусмотрены изменения фасадных решений и применение вентилируемых  фасадов с архитектурной подсветкой. 
             </p>
@@ -84,9 +102,11 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
       </div>
       <img className='seting_page-big' src='/assets/img/seting/img2.png' />
 
-      <div className='seting_page-about' ref={myRef2}>
+      <div className='seting_page-about' >
         <div className='seting_page-aboutleft'>
+        <Element name="set2" className="element">
           <div className='seting_page-about-title'>Технология строительства</div>
+        </Element>  
           <img className='seting_page-about-img' src='/assets/img/seting/img4.png' />
           
         </div>
@@ -113,7 +133,9 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
               
       <div className='seting_page-about' ref={myRef3}>
         <div className='seting_page-aboutleft'>
+        <Element name="set3" className="element">
           <div className='seting_page-about-title'>Инфраструктура</div>
+        </Element>
           <div className='seting_page-about-text'>
           <p>
           ЖК «Солнечный парк» олицетворяет все то, что необходимо для комфортного круглогодичного проживания. 
@@ -136,7 +158,7 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
               
       <div className='seting_page-about' ref={myRef4}>
         <div className='seting_page-aboutleft'>
-          
+        <Element name="set4" className="element"></Element>
           <img className='seting_page-about-img' src='/assets/img/seting/img4.png' />
           
         </div>
@@ -157,7 +179,7 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
         
       </div>        
       <img className='seting_page-big' src='/assets/img/seting/img7.png' />
-      
+      <Element name="set5" className="element"></Element>
         <div ref={myRef5}>
          <Plan /> 
         </div>
@@ -165,6 +187,7 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
         
       <div className='seting_page-about'>
         <div className='seting_page-aboutleft'>
+        <Element name="set6" className="element"></Element>
           <div className='seting_page-about-title' ref={myRef6}>Транспортная доступность</div>
           <div className='seting_page-about-text'>
          <p> Район отличается хорошей транспортной доступностью:
@@ -215,7 +238,8 @@ const SetingModal: FC<any> = ({ hndl, page = 0 }) => {
       </div>
       <img className='seting_page-big' src='/assets/img/seting/img10.png' />
 
-    </div>
+        </div>
+        </div>
   </div>  
   )
 }

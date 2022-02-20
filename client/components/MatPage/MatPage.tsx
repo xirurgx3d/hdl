@@ -1,6 +1,8 @@
 import { FC, useEffect, useRef, useState } from "react"
 import AboutSliders from "../AboutSlide/AboutSlide"
 import cn from "classnames"; 
+import { Link as Links, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import Plan from "../Plan/Plan";
 
 const MatPage: FC<any> = ({ hndl, page = 0 }) => {
   const [gopage, sepage] = useState(page)
@@ -33,18 +35,32 @@ const MatPage: FC<any> = ({ hndl, page = 0 }) => {
 
   useEffect(() => {
     gopage == 0 && executeScroll1()
-    gopage == 1 && executeScroll1()
-    gopage == 2 && executeScroll2()
-    gopage == 3 && executeScroll3()
-    gopage == 4 && executeScroll4()
-    gopage == 5 && executeScroll5()
-    gopage == 6 && executeScroll6()
+    gopage == 1 && scroller.scrollTo('mat1', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 2 && scroller.scrollTo('mat2', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 3 && scroller.scrollTo('mat3', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 4 && scroller.scrollTo('mat4', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 5 && scroller.scrollTo('mat5', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
+    gopage == 6 && scroller.scrollTo('mat6', {
+      offset: -100, // Scrolls to element + 50 pixels down the page
+    })
   }, [gopage])
-  console.log(gopage)
+
 
 
   return (
     <div className='seting_page' ref={myRef1}>
+      <div className="seting_page-over" onClick={() => hndl(false)}></div> 
+      <div className="seting_page-con">
     <div className="container"> 
       <div className='seting_page-title'>
         Условия  
@@ -69,7 +85,8 @@ const MatPage: FC<any> = ({ hndl, page = 0 }) => {
         <div className='seting_page-aboutright'>
           <img className='seting_page-about-img' src='/assets/img/mat/img1.png' />
         </div>
-        <div className='seting_page-aboutleft'>
+          <div className='seting_page-aboutleft'>
+          <Element name="mat1" className="element"></Element>
           <div className='seting_page-about-title'>Материнский капитал</div>
           <div className='seting_page-about-text'>
           <p>Использовать материнский капитал можно, при покупке жилого помещения
@@ -80,7 +97,7 @@ const MatPage: FC<any> = ({ hndl, page = 0 }) => {
         
       </div>
       
-
+      <Element name="mat2" className="element"></Element>
       <div className='seting_page-about' ref={myRef2}>
         
         <div className='seting_page-aboutright'>
@@ -103,7 +120,8 @@ const MatPage: FC<any> = ({ hndl, page = 0 }) => {
         <div className='seting_page-aboutright'>
           <img className='seting_page-about-img' src='/assets/img/mat/img3.png' />
         </div>
-        <div className='seting_page-aboutleft'>
+          <div className='seting_page-aboutleft'>
+          <Element name="mat3" className="element"></Element>
           <div className='seting_page-about-title'>Военная ипотека</div>
           <div className='seting_page-about-text'>
           <p>Целевой кредит на покупку готового или строящегося жилья для военнослужащих, который субсидируется государством. 
@@ -119,7 +137,8 @@ const MatPage: FC<any> = ({ hndl, page = 0 }) => {
               
       <div className='seting_page-about' ref={myRef4}>
         
-        <div className='seting_page-aboutright'>
+          <div className='seting_page-aboutright'>
+          <Element name="mat4" className="element"></Element>
         <div className='seting_page-about-title'>Ипотека с господдержкой</div>
           <div className='seting_page-about-text'>
               <p>
@@ -142,7 +161,8 @@ const MatPage: FC<any> = ({ hndl, page = 0 }) => {
           <img className='seting_page-about-img' src='/assets/img/mat/img5.png' />
           
         </div>
-        <div className='seting_page-aboutright'>
+          <div className='seting_page-aboutright'>
+          <Element name="mat5" className="element"></Element>
         <div className='seting_page-about-title'>Семейная ипотека</div>
           <div className='seting_page-about-text'>
              <p> Государственная программа льготного жилищного кредитования семей, в которых начиная с 01.01.2018 родился первый ребенок или последующие дети, а также дети с ограниченными возможностями. 
@@ -153,53 +173,13 @@ const MatPage: FC<any> = ({ hndl, page = 0 }) => {
         
       </div>     
       
+      <Element name="mat6" className="element"></Element>
       
-      <div className='seting_page-about' ref={myRef6}>
-        <div className='seting_page-aboutleft'>
-          <div className='seting_page-about-title'>Планировочные решения</div>
-          
-        </div>
-        <div className='seting_page-aboutright'>
-            <div className='seting_page-about-text'>
-                <p>Немаловажное достоинство  комплекса – широкий ассортимент квартир и уникальных планировок. В проекте доступно множество эргономичных планировочных решений, и все имеют свои преимущества. Каждая планировка – от студий до четырехкомнатных двухуровневых квартир – грамотно продумана и разработана архитектурным бюро из Санкт-Петербурга. </p>
-            </div>
-        </div>
-        
-      </div>
 
-    <div className='check_hous'>
-      <div className='check_hous-nav'>
-          <div className='check_hous-item'>
-            <img src='/assets/img/dom.png' />
-            <span>Дом 1</span>
-          </div>
-          <div className='check_hous-item'>
-            <img src='/assets/img/dom.png' />
-            <span>Дом 1</span>
-          </div>
-          <div className='check_hous-item'>
-            <img src='/assets/img/dom.png' />
-            <span>Дом 1</span>
-          </div>
-      </div>
+    
+    <Plan /> 
+      
     </div>
-    <div className='selet_hous_box'>
-      <div className='selet_hous'>
-        <div className='selet_hous-title'>
-          <span>Выберите</span>
-          <span className='tit'>свою Солнечную</span>
-          <span>Квартиру</span>
-        </div>
-          <div className='selet_hous-text'>Квартира с уникальным планировочным решением, неповторимыми видовыми характеристиками и собственной террасой - современное решение для комфортной жизни. 
-</div>
-          <div className='selet_hous-button'>Выбрать квратиру</div>
-      </div>
-      <div className='selet_hous-slide'>
-        <AboutSliders cls="slide1" /> 
-      </div>
-              </div>
-      
-
     </div>
   </div>  
   )

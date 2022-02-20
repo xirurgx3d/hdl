@@ -28,14 +28,22 @@ body{
     
 }
 
+.steps__slider-nosa{
+	display: flex;
+}
+
 a{
     text-decoration: none;
+}
+.maaaar{
+	margin-top: 100px;
 }
 .allcall{
     position: fixed;
     bottom: 5%;
     right: 20px;
     z-index: 999;
+		cursor: pointer;
 }
 .chess_active_btn{
     display: none;

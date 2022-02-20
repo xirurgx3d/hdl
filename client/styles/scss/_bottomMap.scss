@@ -1,5 +1,5 @@
 .bottom-map{
-    height: 650px;
+    height: 640px;
     width: 100%;
     position: relative;
 
@@ -8,7 +8,7 @@
     }
     &__contacts{
         position: absolute;
-        z-index: 999;
+        z-index: 3;
         top:24px;
         bottom: 24px;
         left: 71px;

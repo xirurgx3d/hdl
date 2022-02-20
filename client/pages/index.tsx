@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable @next/next/no-sync-scripts */
@@ -26,7 +27,8 @@ import emailjs from '@emailjs/browser';
 import Head from 'next/head';
 import SolarYMaps from '../components/Maps/SolarYMaps'
 import { ContactUs } from '../components/Mailer/Mailer'
-
+import { Link as Links, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import ruLocale from 'date-fns/locale/ru';
  
 const Home: NextPage = () => {
     
@@ -142,6 +144,7 @@ const Home: NextPage = () => {
 		<div className='allcall' onClick={()=> setmodal2(true)}>
 			<img src='/assets/img/allcall.png' />
 		</div>
+    <Element name="test0" className="element"></Element>
       <header>
         <div className="container">
             <div className="row head">
@@ -149,11 +152,17 @@ const Home: NextPage = () => {
                     <Link  href='/'><img src="/assets/img/logo3.svg" alt="logotype" /></Link >
                 </div>
                 <div className="nav-menu d-md-flex align-self-center align-items-end row px-0 col-6">
-                    <a onClick={executeScroll1} className="nav-menu__link col">О проекте</a>
+                    
+                    <Links className="nav-menu__link col" activeClass="active" to="test1" spy={true} smooth={true} offset={-110} duration={100}>
+                      О проекте
+                    </Links>
                     <a onClick={handlefratis} className="nav-menu__link col">ПОДБОР КВАРТИРЫ</a>
-                    <a onClick={executeScroll2} className="nav-menu__link col">РАСПОЛОЖЕНИЕ</a>
-                    <a onClick={executeScroll3}className="nav-menu__link col">ХАРАКТЕРИСТИКИ</a>
-                    <a onClick={executeScroll4} className="nav-menu__link col">Контакты</a>
+              <Links className="nav-menu__link col" activeClass="active" to="test2" spy={true} smooth={true} offset={-110} duration={100}>
+                РАСПОЛОЖЕНИЕ</Links>
+              <Links className="nav-menu__link col" activeClass="active" to="test3" spy={true} smooth={true} offset={-110} duration={100}>
+                ХАРАКТЕРИСТИКИ</Links>
+              <Links className="nav-menu__link col" activeClass="active" to="test4" spy={true} smooth={true} offset={-110} duration={100}>
+                Контакты</Links>
                     
                 </div>
                 <div className="flats_box col-2 px-0">
@@ -194,11 +203,16 @@ const Home: NextPage = () => {
                     <div className='mobile_menu'>
                         <img className='mobile_menu-close' onClick={() => setmenu(false)}  src='/assets/ico/close.svg' />
                         <div className="nav-menu d-md-flex align-self-center align-items-end row px-0 col-6">
-                            <a onClick={executeScroll1} className="nav-menu__link col">О проекте</a>
-                            <a onClick={handlefratis} className="nav-menu__link col">ПОДБОР КВАРТИРЫ</a>
-                            <a onClick={executeScroll2} className="nav-menu__link col">РАСПОЛОЖЕНИЕ</a>
-                            <a onClick={executeScroll3}className="nav-menu__link col">ХАРАКТЕРИСТИКИ</a>
-                            <a onClick={executeScroll4} className="nav-menu__link col">Контакты</a>
+                        <Links className="nav-menu__link col" activeClass="active" to="test1" spy={true} smooth={true} offset={-110} duration={100}>
+                      О проекте
+                    </Links>
+                    <a onClick={handlefratis} className="nav-menu__link col">ПОДБОР КВАРТИРЫ</a>
+              <Links className="nav-menu__link col" activeClass="active" to="test2" spy={true} smooth={true} offset={-110} duration={100}>
+                РАСПОЛОЖЕНИЕ</Links>
+              <Links className="nav-menu__link col" activeClass="active" to="test3" spy={true} smooth={true} offset={-110} duration={100}>
+                ХАРАКТЕРИСТИКИ</Links>
+              <Links className="nav-menu__link col" activeClass="active" to="test4" spy={true} smooth={true} offset={-110} duration={100}>
+                Контакты</Links>
                             
                         </div>
                     </div>
@@ -248,6 +262,7 @@ const Home: NextPage = () => {
             </div>
         </div>
       </section>
+      <Element name="test1" className="element">
       <section className="about" ref={myRef1}>
         <div className="container">
             <div className="row">
@@ -378,16 +393,18 @@ const Home: NextPage = () => {
                 </div>
             </div>
         </div>
-      </section>
+        </section>
+        </Element>
           <section className="location">
               
-              
+          <Element name="test2" className="element">      
         <div className="container" ref={myRef2}>
             <div className="section-header">
                 Расположение и инфраструктура
           </div>
           <Courusels />
-        </div> 
+          </div> 
+          </Element>
         <div className="location__map">
             <div className="container">
                 <div className="location__description-header">
@@ -450,6 +467,7 @@ const Home: NextPage = () => {
             </div>
         </div>
       </section>  
+      <Element name="test3" className="element">
       <section className="characteristic" ref={myRef3}>
         <div className="container">
             <div className="row align-items-center mb-5">
@@ -457,7 +475,10 @@ const Home: NextPage = () => {
                     Характеристики
                 </div>
                 <div className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
-                    <button className="btn" onClick={()=> setseting(true)}>Подробнее</button>
+                <button className="btn" onClick={() => {
+                  setsetingpage(0)
+                  setseting(true)
+                }}>Подробнее</button>
                 </div>
             </div>
 
@@ -467,7 +488,8 @@ const Home: NextPage = () => {
           }
           
         </div>
-      </section>
+        </section>
+        </Element>
       {
                 mat_modal &&  <MatPage hndl={setmat_modal} />
             }
@@ -497,8 +519,8 @@ const Home: NextPage = () => {
                         <div className='genplan_modal_title'>Документы</div>
                         
                         <div className='genplan_modal_bank'>
-                            <a href='https://disk.yandex.ru/d/5MCvNtWhxRo0ew'><img src='/assets/img/dom1.png' /></a>
-                            <a href='https://disk.yandex.ru/d/89S31HqpRiSA9g'><img src='/assets/img/dom2.png' /></a>
+                            <a target="_blank" href='https://disk.yandex.ru/d/5MCvNtWhxRo0ew'><img src='/assets/img/dom1.png' /></a>
+                            <a target="_blank" href='https://disk.yandex.ru/d/89S31HqpRiSA9g'><img src='/assets/img/dom2.png' /></a>
                             
                         </div>
                     </div>
@@ -576,10 +598,18 @@ const Home: NextPage = () => {
       </div>
       <section className="steps">
         <div className="container">
-            <div className="section-header">
+        <div className="row align-items-center mb-5">
+                <div className="col-6 characteristic_h1 section-header">
                 Ход строительства
+                </div>
+                <div className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
+                <a href='/builds' className="btn">Смотреть всё</a>
+                </div>
             </div>
-                  <div className="step_select">
+            
+          {
+            false &&
+            <div className="step_select">
                   <FormControl className="select-box1" fullWidth>
                         
                         <Select
@@ -609,8 +639,17 @@ const Home: NextPage = () => {
                         </Select>
                     </FormControl>
             </div>
-                <StepBuild />
-              
+                  }
+          <StepBuild />
+          <div className='maaaar'></div>
+          <div className="col-6 characteristic_h1 section-header">
+          Видеоотчет январь 2022
+          </div>
+          <div className='characteristic_video'>
+
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/88HawK1Fzjc?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          </div>
+               
           </div>
       </section>
       {
@@ -667,7 +706,7 @@ const Home: NextPage = () => {
       </section>
       }
       
-
+      <Element name="test4" className="element">
       <section className="bottom-map" ref={myRef4}>
               <div id="bottom-map">
               { modal2 &&
@@ -719,7 +758,7 @@ const Home: NextPage = () => {
                               </div>
                               {
                                 date_modal &&
-                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
                                   <div className='datepiceres'>
                                     <div className='datepiceres_box'>
                                       
@@ -797,7 +836,9 @@ const Home: NextPage = () => {
                   <button className="btn yellow" onClick={()=> setmodal1(true)}>Записаться</button>
               </div>
           </div>
-      </section>
+        </section>
+      </Element>
+      <Element name="test5" className="element"></Element>
       <footer className="prefooter" ref={myRef5}>
         <div className="container">
             <div className='prefooter_box'>
@@ -814,8 +855,10 @@ const Home: NextPage = () => {
                   
                   </div>
                   <div className="upe">
-                      Наверх
-                      <img src="/assets/img/up.png" alt="to up" onClick={executeScroll1} />
+              Наверх
+              <Links className="nav-menu__link col" activeClass="active" to="test0" spy={true} smooth={true}  duration={100}>
+                <img src="/assets/img/up.png" alt="to up" onClick={executeScroll1} />
+                </Links>
                       
                   </div>
             </div>

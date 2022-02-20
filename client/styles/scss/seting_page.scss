@@ -6,8 +6,26 @@
     left: 0;
     top: 0;
     width: 100%;
-    padding-top: 55px;
-    padding-bottom: 40px;
+    
+		z-index: 9999;
+}
+.seting_page-over{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba($color: #000000, $alpha: 0.7);
+	z-index: 999;
+	top: 0;
+	left: 0;
+}
+.seting_page-con{
+	position: relative;
+	z-index: 9999;
+	background-color: #fff;
+	top: 0;
+	left: 0;
+	padding-top: 55px;
+  padding-bottom: 70px;
 }
 .seting_page-title{
     width: 100%;
@@ -80,6 +98,7 @@
 }
 .check_hous-nav{
     display: flex;
+		
     .check_hous-item{
         border:2px solid #97B13A;
         padding: 5px 10px;
@@ -94,6 +113,7 @@
 }
 .selet_hous_box{
     display: flex;
+		margin-top: 100px;
     justify-content: space-between;
     align-items: center;
 }

@@ -47,6 +47,11 @@
         display: inline-block !important;
     }
 }
+.characteristic_video{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 @media screen and (max-width: 768px) {
     .characteristic__slider{

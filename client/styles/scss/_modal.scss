@@ -28,11 +28,14 @@
         top: 28px;
         width: 16px;
         height: 16px;
-
+				cursor: pointer;
         img{
             width: 100%;
         }
     }
+		label{
+			cursor: pointer;
+		}
 
     form{
         display: flex;
@@ -128,7 +131,7 @@
 
     .modal-checkbox{
         margin-bottom: 30px;
-
+				cursor: pointer;
         input{
             & + span{
                 display: flex;

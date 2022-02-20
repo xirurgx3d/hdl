@@ -61,10 +61,14 @@
         display: flex;
         text-transform: uppercase;
         align-items: center;
-
+				cursor: pointer;
+				&:hover{
+				
+					text-decoration: underline;
+				}
         &.flat{
             margin-bottom: 51px;
-
+						
             &:before{
                 margin-right: 16px;
                 content: '';
@@ -74,8 +78,10 @@
                 background-size: cover;
                 background-image: url("/assets/ico/flat.svg");
             }
+						
         }
         &.builder{
+						cursor: pointer;
             &:before{
                 content: '';
                 margin-right: 16px;
@@ -99,6 +105,9 @@
 						cursor: pointer;
 						a{
 							cursor: pointer;
+						}
+						&:hover{
+							text-decoration: underline;
 						}
         }
     }

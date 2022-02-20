@@ -2,9 +2,12 @@
     justify-content: space-between;
     align-items: center;
 }
+.logo{
+	cursor: pointer;
+}
 header{
     font-size: 11px;
-    background: rgba(255, 255, 255, 0.9);
+    background: #fff;
     backdrop-filter: blur(20px);
     position: fixed;
     left: 0;
