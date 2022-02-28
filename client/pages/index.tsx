@@ -29,6 +29,8 @@ import SolarYMaps from '../components/Maps/SolarYMaps'
 import { ContactUs } from '../components/Mailer/Mailer'
 import { Link as Links, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import ruLocale from 'date-fns/locale/ru';
+import Image from 'next/image'
+import Script from 'next/script'
  
 const Home: NextPage = () => {
     
@@ -136,20 +138,38 @@ const Home: NextPage = () => {
             <script async type="text/javascript" src="https://a315.flatris.com.ua/public/web.js?cid=vbz3A0aZjxV1ZeB&hl=ru"></script>
             <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"></script>
             <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async></script>
-
-
-        </Head>
+       
+            
+        <Script
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html:`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+         
+            ym(70887214, "init", {
+                 clickmap:true,
+                 trackLinks:true,
+                 accurateTrackBounce:true,
+                 webvisor:true
+            });`
+          }}
+        />
+          <noscript><div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt="" /></div></noscript>
+        
+          
+      </Head>
 
 		
 		<div className='allcall' onClick={()=> setmodal2(true)}>
-			<img src='/assets/img/allcall.png' />
+			<img src='/assets/img/allcall.png'  />
 		</div>
     <Element name="test0" className="element"></Element>
       <header>
         <div className="container">
             <div className="row head">
                 <div className="logo col-md-2 col-3">
-                    <Link  href='/'><img src="/assets/img/logo3.svg" alt="logotype" /></Link >
+                    <img src="/assets/img/logo3.svg"  alt="logotype" />
                 </div>
                 <div className="nav-menu d-md-flex align-self-center align-items-end row px-0 col-6">
                     
@@ -167,12 +187,12 @@ const Home: NextPage = () => {
                 </div>
                 <div className="flats_box col-2 px-0">
                     <a onClick={handlefratis} className="nav-menu__link green_link col">
-                        <img src="/assets/ico/kvartiri.svg" alt="kvartiri" />
+                        <img src="/assets/ico/kvartiri.svg"  alt="kvartiri" />
 
                         КВАРТИРЫ
                     </a>
                     <a onClick={handlefratis} className="nav-menu__link green_link col">
-                        <img src="/assets/ico/estate.svg" alt="estate" />
+                        <img src="/assets/ico/estate.svg"  alt="estate" />
 
                         Коммерческая<br />недвижимость
                     </a>
@@ -187,7 +207,7 @@ const Home: NextPage = () => {
                         </div> 
                     </div>
                     
-                    <img src="/assets/img/call.png" className="contacts_call" alt="contacts"/>
+                    <img src="/assets/img/call.png"  className="contacts_call" alt="contacts"/>
                     
                 </div>
                 <section className="top-nav mobbuerger col-2">
@@ -201,7 +221,7 @@ const Home: NextPage = () => {
                 {
                     menu &&
                     <div className='mobile_menu'>
-                        <img className='mobile_menu-close' onClick={() => setmenu(false)}  src='/assets/ico/close.svg' />
+                        <img className='mobile_menu-close'  onClick={() => setmenu(false)}  src='/assets/ico/close.svg' />
                         <div className="nav-menu d-md-flex align-self-center align-items-end row px-0 col-6">
                         <Links className="nav-menu__link col" activeClass="active" to="test1" spy={true} smooth={true} offset={-110} duration={100}>
                       О проекте
@@ -241,7 +261,7 @@ const Home: NextPage = () => {
                     <div className="brief__name">
                         1кв.
                         2024
-                        <img src="/assets/ico/question.svg" alt="question" />
+                        <img src="/assets/ico/question.svg"  alt="question" />
                     </div>
 
                     <div className="brief__memo">ПЕРВИЧНая СДАЧа</div>
@@ -282,7 +302,7 @@ const Home: NextPage = () => {
                     <div className="d-flex flex-wrap about__features--box">
                         <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/img/icon/prem3.png" alt="smart"/>
+                                <img src="/assets/img/icon/prem3.png"  alt="smart"/>
                             </div>
                             <div className="about__features__content">
                                 <div className="about__features__header">Безопасность</div>
@@ -298,7 +318,7 @@ const Home: NextPage = () => {
                         </div>
                         <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/img/icon/prem1.png" alt="smart"/>
+                                <img src="/assets/img/icon/prem1.png"  alt="smart"/>
                             </div>
                             <div className="about__features__content">
                                 <div className="about__features__header">Умный жилой комплекс</div>
@@ -317,7 +337,7 @@ const Home: NextPage = () => {
                         </div>
                         <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/img/icon/prem2.png" alt="smart"/>
+                                <img src="/assets/img/icon/prem2.png"  alt="smart"/>
                             </div>
                             <div className="about__features__content">
                                 <div className="about__features__header">Аллея здоровья и экопарк</div>
@@ -334,7 +354,7 @@ const Home: NextPage = () => {
                         
                         <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/img/icon/prem4.png" alt="smart"/>
+                                <img src="/assets/img/icon/prem4.png"  alt="smart"/>
                             </div>
                             <div className="about__features__content">
                                 <div className="about__features__header">Проектом предусмотрено строительство</div>
@@ -352,7 +372,7 @@ const Home: NextPage = () => {
                         </div>
                         <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/img/icon/prem5.png" alt="smart"/>
+                                <img src="/assets/img/icon/prem5.png"  alt="smart"/>
                             </div>
                             <div className="about__features__content">
                                 <div className="about__features__header">Собственная инфраструктура</div>
@@ -370,7 +390,7 @@ const Home: NextPage = () => {
                         </div>
                         <div className="col-sm-6 col-md-6 col-12 d-flex">
                             <div className="about__features__ico">
-                                <img src="/assets/img/icon/prem7.png" alt="smart"/>
+                                <img src="/assets/img/icon/prem7.png"  alt="smart"/>
                             </div>
                             <div className="about__features__content">
                                 <div className="about__features__header">Транспортная доступность</div>
@@ -423,7 +443,7 @@ const Home: NextPage = () => {
                     <div className="dasboarde" onClick={()=> setmodal1(false)}></div>
                     <div className="modal-window">
                         <div className="close" onClick={()=> setmodal1(false)}>
-                            <img src="./assets/ico/close.svg" alt="close"/>
+                            <img src="./assets/ico/close.svg"  alt="close"/>
                         </div>
                         <div className="section-header text-center">Заявка на консультацию</div>
 
@@ -498,15 +518,15 @@ const Home: NextPage = () => {
                 genplan_modal &&
                 <div className='genplan_modal'>
                     <div className="close" onClick={()=> setgenplan_modal(false)}>
-                                <img src="/assets/ico/close.svg" alt="close"/>
+                                <img src="/assets/ico/close.svg"  alt="close"/>
                             </div>
                     <div className='genplan_modal_title'>Рассчитайте свою ипотеку</div>
                     <div className='genplan_modal_text'>Приобретая жилье в жилом комплексе «Солнечный Парк», вы можете воспользоваться ипотечными программами от наших банков-партнеров:</div>
                     <div className='genplan_modal_title smaltit'>Выберите банк:</div>
                     <div className='genplan_modal_bank'>
-                        <img src='/assets/img/bank1.png' />
-                        <img src='/assets/img/bank2.png' />
-                        <img src='/assets/img/bank3.png' />
+                        <img src='/assets/img/bank1.png'  />
+                        <img src='/assets/img/bank2.png'  />
+                        <img src='/assets/img/bank3.png'  />
                     </div>
                 </div>
               }
@@ -514,13 +534,13 @@ const Home: NextPage = () => {
                   doc_modal && 
                   <div className='genplan_modal genplan_modal_small'>
                         <div className="close" onClick={()=> setdoc_modal(false)}>
-                                    <img src="/assets/ico/close.svg" alt="close"/>
+                                    <img src="/assets/ico/close.svg"  alt="close"/>
                                 </div>
                         <div className='genplan_modal_title'>Документы</div>
                         
                         <div className='genplan_modal_bank'>
-                            <a target="_blank" href='https://disk.yandex.ru/d/5MCvNtWhxRo0ew'><img src='/assets/img/dom1.png' /></a>
-                            <a target="_blank" href='https://disk.yandex.ru/d/89S31HqpRiSA9g'><img src='/assets/img/dom2.png' /></a>
+                            <a target="_blank" href='https://disk.yandex.ru/d/5MCvNtWhxRo0ew'><img src='/assets/img/dom1.png'  /></a>
+                            <a target="_blank" href='https://disk.yandex.ru/d/89S31HqpRiSA9g'><img src='/assets/img/dom2.png'  /></a>
                             
                         </div>
                     </div>
@@ -603,9 +623,10 @@ const Home: NextPage = () => {
                 Ход строительства
                 </div>
                 <div className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
-                <a href='/builds' className="btn">Смотреть всё</a>
+                 <a className="btn"><Link href="/builds"> Смотреть всё</Link></a>
                 </div>
-            </div>
+          </div>
+          
             
           {
             false &&
@@ -714,7 +735,7 @@ const Home: NextPage = () => {
                     <div className="dasboarde" onClick={()=> setmodal2(false)}></div>
                     <div className="modal-window">
                         <div className="close" onClick={()=> setmodal2(false)}>
-                            <img src="/assets/ico/close.svg" alt="close"/>
+                            <img src="/assets/ico/close.svg"  alt="close"/>
                         </div>
                         <div className="modal_header">
                           <div className="modal_header-box">
@@ -726,7 +747,7 @@ const Home: NextPage = () => {
 <div className='modal_header-gren'>ВС — выходной</div></p>
                             </div>
                             </section>
-                            <img src="/assets/img/baba.png" alt="close"/>
+                            <img src="/assets/img/baba.png"  alt="close"/>
                           </div>
                         </div>
 
@@ -857,7 +878,7 @@ const Home: NextPage = () => {
                   <div className="upe">
               Наверх
               <Links className="nav-menu__link col" activeClass="active" to="test0" spy={true} smooth={true}  duration={100}>
-                <img src="/assets/img/up.png" alt="to up" onClick={executeScroll1} />
+                <img src="/assets/img/up.png"  alt="to up" onClick={executeScroll1} />
                 </Links>
                       
                   </div>
@@ -946,16 +967,16 @@ const Home: NextPage = () => {
                   <div className="prefooter__social col-md-4 col-12 mt-4 d-flex justify-content-between align-items-center">
                       Мы в социальных сетях:
                       <Link href="">
-                          <img src="/assets/ico/social/yt.svg" alt="youtube"/>
+                          <img src="/assets/ico/social/yt.svg"  alt="youtube"/>
                       </Link>
                       <Link href="">
-                          <img src="/assets/ico/social/vk.svg" alt="vkontakte"/>
+                          <img src="/assets/ico/social/vk.svg"  alt="vkontakte"/>
                       </Link>
                       <Link href="">
-                          <img src="/assets/ico/social/inst.svg" alt="instagram"/>
+                          <img src="/assets/ico/social/inst.svg"  alt="instagram"/>
                       </Link>
                       <Link href="">
-                          <img src="/assets/ico/social/fb.svg" alt="facebook"/>
+                          <img src="/assets/ico/social/fb.svg"  alt="facebook"/>
                       </Link>
                   </div>
               </div>
@@ -970,7 +991,7 @@ const Home: NextPage = () => {
                   <div className="middle-text col-md-4 col-12 my-md-0 my-4">Любая информация, представленная на данном сайте, носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями статьи 437 Гражданского кодекса РФ. Группа компаний «Аркада Крым» принимает на себя гражданско-правовые обязательства исключительно в результате отдельно и специально совершенных сделок.</div>
                   <div className="who-create d-flex col-md-4 col-12 justify-content-end">
                       Сайт создан — <b>студией Studio282</b>
-                      <img src="/assets/img/studio-logo.png" alt="studio logo"/>
+                      
                   </div>
               </div>
           </div>
