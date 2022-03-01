@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unknown-property */
@@ -31,6 +32,7 @@ import { Link as Links, Button, Element, Events, animateScroll as scroll, scroll
 import ruLocale from 'date-fns/locale/ru';
 import Image from 'next/image'
 import Script from 'next/script'
+import { YMInitializer } from 'react-yandex-metrika';
  
 const Home: NextPage = () => {
     
@@ -138,25 +140,11 @@ const Home: NextPage = () => {
             <script async type="text/javascript" src="https://a315.flatris.com.ua/public/web.js?cid=vbz3A0aZjxV1ZeB&hl=ru"></script>
             <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"></script>
             <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async></script>
-       
-            
-        <Script
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html:`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-         
-            ym(70887214, "init", {
-                 clickmap:true,
-                 trackLinks:true,
-                 accurateTrackBounce:true,
-                 webvisor:true
-            });`
-          }}
-        />
+            <YMInitializer accounts={[70887214]} options={{webvisor: true}} />
+         //Yandex.Metrika counter   
+        <script src='/met.js'></script>
           <noscript><div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt="" /></div></noscript>
-        
+        ///Yandex.Metrika counter
           
       </Head>
 
