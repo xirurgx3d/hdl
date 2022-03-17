@@ -512,9 +512,9 @@ const Home: NextPage = () => {
                     <div className='genplan_modal_text'>Приобретая жилье в жилом комплексе «Солнечный Парк», вы можете воспользоваться ипотечными программами от наших банков-партнеров:</div>
                     <div className='genplan_modal_title smaltit'>Выберите банк:</div>
                     <div className='genplan_modal_bank'>
-                        <img src='/assets/img/bank1.png'  />
-                        <img src='/assets/img/bank2.png'  />
-                        <img src='/assets/img/bank3.png'  />
+                        <a href='https://www.rncb.ru/'><img src='/assets/img/bank1.png'  /></a>
+                        <a href='https://www.genbank.ru/'><img src='/assets/img/bank2.png'  /></a>
+                        <a href='https://abr.ru/'><img src='/assets/img/bank3.png'  /></a>
                     </div>
                 </div>
               }
