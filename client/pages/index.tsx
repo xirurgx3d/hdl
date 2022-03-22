@@ -662,7 +662,7 @@ const Home: NextPage = () => {
           
           <div className='characteristic_video'>
 
-             <iframe width="560" height="315" src="https://www.youtube.com/embed/88HawK1Fzjc?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+             <iframe width="560" height="315" src="https://www.youtube.com/watch?v=SZ1RjjawqeU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
                
           </div>
@@ -966,12 +966,7 @@ const Home: NextPage = () => {
                       <Link href="">
                           <img src="/assets/ico/social/vk.svg"  alt="vkontakte"/>
                       </Link>
-                      <Link href="">
-                          <img src="/assets/ico/social/inst.svg"  alt="instagram"/>
-                      </Link>
-                      <Link href="">
-                          <img src="/assets/ico/social/fb.svg"  alt="facebook"/>
-                      </Link>
+                      
                   </div>
               </div>
           </div>
