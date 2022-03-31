@@ -11,8 +11,7 @@ services:
         volumes:
             - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
         networks:
-            - front
-            - back
+            - mynetwork
     admin:
         image: docker/frontend
         build: ./frontend
@@ -24,7 +23,7 @@ services:
         links:
             - api    
         networks:
-            - back   
+            - mynetwork   
     api:
         image: docker/backend
         build: ./backend
@@ -32,7 +31,7 @@ services:
         environment: 
             - PORT=4000
         networks:
-            - back      
+            - mynetwork      
     web-public:
         image: docker/client
         build: ./client
@@ -42,10 +41,9 @@ services:
         ports:
             - 3000:3000
         networks:
-            - back    
+            - mynetwork    
                               
 networks:
-  front:  
-    driver: bridge  
-  back:
-    driver: bridge  
+  mynetwork:
+    external:
+      name: myglobalnetwork

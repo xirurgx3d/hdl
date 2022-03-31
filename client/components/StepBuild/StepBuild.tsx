@@ -55,39 +55,63 @@ const StepBuild = (): JSX.Element => {
       
         <Slider className="coruselus steps__slider" ref={slide => setNav1(slide)} {...settings}>
               <div className="coruselus-itemes">
-                    <img src="/assets/img/steps/step1.jpg" alt="infrastructure"/>
+                    <img src="/assets/step/2022/февраль/DJI_0024.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Январь 2022</div>
+                    <div className="step__date">Февраль 2022</div>
                     
             </div>
             <div className="coruselus-itemes">
-            <img src="/assets/img/steps/step2.jpg" alt="infrastructure"/>
+            <img src="/assets/step/2022/февраль/DJI_0027.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Январь 2022</div>
+                    <div className="step__date">Февраль 2022</div>
                     
         </div>
         <div className="coruselus-itemes">
-        <img src="/assets/img/steps/step3.jpg" alt="infrastructure"/>
+        <img src="/assets/step/2022/февраль/DJI_0029.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Январь 2022</div>
+                    <div className="step__date">Февраль 2022</div>
                     
         </div>
         <div className="coruselus-itemes">
-        <img src="/assets/img/steps/step4.jpg" alt="infrastructure"/>
+        <img src="/assets/step/2022/февраль/DJI_0033.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Январь 2022</div>
+                    <div className="step__date">Февраль 2022</div>
                     
         </div>
         <div className="coruselus-itemes">
-        <img src="/assets/img/steps/step5.jpg" alt="infrastructure"/>
+        <img src="/assets/step/2022/февраль/DJI_0034.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Январь 2022</div>
+                    <div className="step__date">Февраль 2022</div>
                     
         </div>
         <div className="coruselus-itemes">
-        <img src="/assets/img/steps/step6.jpg" alt="infrastructure"/>
+        <img src="/assets/step/2022/февраль/DJI_0038.jpg" alt="infrastructure"/>
 
-                    <div className="step__date">Январь 2022</div>
+                    <div className="step__date">Февраль 2022</div>
+                    
+        </div>
+        <div className="coruselus-itemes">
+        <img src="/assets/step/2022/февраль/DJI_0039.jpg" alt="infrastructure"/>
+
+                    <div className="step__date">Февраль 2022</div>
+                    
+        </div>
+        <div className="coruselus-itemes">
+        <img src="/assets/step/2022/февраль/DJI_0042.jpg" alt="infrastructure"/>
+
+                    <div className="step__date">Февраль 2022</div>
+                    
+        </div>
+        <div className="coruselus-itemes">
+        <img src="/assets/step/2022/февраль/DJI_0043.jpg" alt="infrastructure"/>
+
+                    <div className="step__date">Февраль 2022</div>
+                    
+        </div>
+        <div className="coruselus-itemes">
+        <img src="/assets/step/2022/февраль/DJI_0047.jpg" alt="infrastructure"/>
+
+                    <div className="step__date">Февраль 2022</div>
                     
             </div>
           </Slider>
