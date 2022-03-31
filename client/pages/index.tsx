@@ -143,11 +143,14 @@ const Home: NextPage = () => {
             <YMInitializer accounts={[70887214]} options={{webvisor: true}} />
          //Yandex.Metrika counter   
         <script src='/met.js'></script>
+        <script src='/flat.js'></script>
           <noscript><div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt="" /></div></noscript>
         ///Yandex.Metrika counter
+        
           
       </Head>
-
+      <div className="mcrm-inline-form" data-type="catalog"></div>
+      
 		
 		<div className='allcall' onClick={()=> setmodal2(true)}>
 			<img src='/assets/img/allcall.png'  />
@@ -662,7 +665,7 @@ const Home: NextPage = () => {
           
           <div className='characteristic_video'>
 
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/SZ1RjjawqeU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/SZ1RjjawqeU" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
           </div>
                
           </div>
