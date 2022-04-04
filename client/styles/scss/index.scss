@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
 
 
-@import "./bootstrap/bootstrap"; 
+@import "./bootstrap/bootstrap";
 @import "./bootstrap/bootstrap-grid.scss";
 @import "./bootstrap/bootstrap-reboot.scss";
 
@@ -25,7 +25,7 @@ body{
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     overflow-x: hidden;
-    
+
 }
 .metka{
 	position:absolute; left:-9999px;
@@ -42,10 +42,10 @@ a{
 }
 .allcall{
     position: fixed;
-    bottom: 5%;
+    bottom: 2%;
     right: 20px;
     z-index: 999;
-		cursor: pointer;
+    cursor: pointer;
 }
 .chess_active_btn{
     display: none;
@@ -72,7 +72,7 @@ input[type="radio"]{
 .checkbox{
         display: flex;
         align-items: center;
-        
+
         input{
             & + span{
                 display: inline-block;
@@ -90,7 +90,7 @@ input[type="radio"]{
             }
     }
 
-    
+
 }
 .arrow{
     &.disabled{
@@ -146,9 +146,9 @@ input[type="radio"]{
         height: 50px;
     }
     .select-item{
-        height: 50px;    
+        height: 50px;
     }
-    
+
 }
 
 @media screen and (max-width: 1366px){
