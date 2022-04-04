@@ -137,13 +137,14 @@ const Home: NextPage = () => {
        
       
        <Head>
-            <script async type="text/javascript" src="https://a315.flatris.com.ua/public/web.js?cid=vbz3A0aZjxV1ZeB&hl=ru"></script>
+          
             <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"></script>
             <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async></script>
             <YMInitializer accounts={[70887214]} options={{webvisor: true}} />
          //Yandex.Metrika counter   
         <script src='/met.js'></script>
         <script src='/flat.js'></script>
+        <script src='/vidj.js'></script>
           <noscript><div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt="" /></div></noscript>
         ///Yandex.Metrika counter
         
