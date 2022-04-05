@@ -1,0 +1,1 @@
+!function(e,t){var i=e.getElementsByTagName("script")[0];n=e.createElement("script"),n.src="https://pb6861.profitbase.ru/assets/js/sw.js",n.async=!0,n.onload=function(){t.pb_front_widget.init("https://pb6861.profitbase.ru/api/v2/json/sitewidget/widget",{ pb_api_key:"4290bd16c6b3a51dc1711274353fcf98"})},i.parentNode.insertBefore(n,i)}(document,window);
