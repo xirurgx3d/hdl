@@ -388,9 +388,9 @@ const Home: NextPage = () => {
                     </div>
 
                     <div className='characteristic_video'>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/SZ1RjjawqeU"
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/wlOWFUMQn7k"
                                 title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"/>
                     </div>
                 </div>
             </section>
