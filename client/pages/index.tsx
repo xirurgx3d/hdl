@@ -6,7 +6,7 @@
 import type {NextPage} from 'next'
 import React, {useRef, useState} from 'react'
 import SetingSlide from '../components/SetingSlide/SetingSlide'
-import Sliders from '../components/Sliders/Sliders'
+import MainSlider from '../components/Sliders/Sliders'
 import StepBuild from '../components/StepBuild/StepBuild'
 import {FormControl, MenuItem, Select} from '@material-ui/core'
 import SetingModal from './../components/SetingSlide/SetingModal';
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
             </div>
             <Element name="test0" className="element" style={{backgroundColor: 'red'}}/>
             <Header handlefratis={handlefratis}/>
-            <Sliders/>
+            <MainSlider/>
             <BriefSection handlefratis={handlefratis}/>
             <Element name="test1" className="element">
                 <AboutSection reference={myRef1}/>
@@ -728,11 +728,11 @@ const Home: NextPage = () => {
                         <div
                             className="prefooter__social col-md-4 col-12 mt-4 d-flex justify-content-between align-items-center">
                             Мы в социальных сетях:
-                            <Link href="">
-                                <img src="/assets/ico/social/yt.svg" alt="youtube"/>
+                            <Link href="https://www.youtube.com/channel/UCfwmRlxxlBg-Ich06wVevVw">
+                                <a><img src="/assets/ico/social/yt.svg" alt="youtube"/></a>
                             </Link>
-                            <Link href="">
-                                <img src="/assets/ico/social/vk.svg" alt="vkontakte"/>
+                            <Link href="https://vk.com/jksunnypark">
+                                <a><img src="/assets/ico/social/vk.svg" alt="vkontakte"/></a>
                             </Link>
                         </div>
                     </div>

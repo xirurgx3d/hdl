@@ -10,7 +10,7 @@
         }
         .slick-prev{
             content: "";
-            
+
             z-index: 999;
             cursor: pointer;
             width: 64px;
@@ -21,7 +21,7 @@
             background-color: none;
             &::before{
                 content: "";
-            } 
+            }
         }
         .slick-next{
             content: "";
@@ -33,7 +33,7 @@
             background-repeat: no-repeat;
             background-position: center;
             background-color: none;
-            
+
             &::before{
                 content: "";
             }
@@ -48,17 +48,15 @@
         background-repeat: no-repeat;
         background-position: center;
         background-color: rgba(0,0,0, .5);
-        
+
     }
     .slick-dots{
-        width: 130px !important;
         margin: 0 auto !important;
         left: 0;
         right: 0;
-        
         bottom: 25px !important;
     }
-    
+
     .slick-dots li button{
         max-width: 6px !important;
         height: 6px !important;
@@ -80,7 +78,7 @@
     .slick-dots li button::before{
         display: none;
     }
-    
+
     .headslide{
         .slick-prev{
             left: 5%;
@@ -108,14 +106,12 @@
 }
 .aboutslide .slide{
     .slick-dots{
-        width: 130px !important;
         margin: 0 auto !important;
         left: 0;
         right: 0;
-        
         bottom: -35px !important;
     }
-    
+
     .slick-dots li button{
         max-width: 6px !important;
         height: 6px !important;
@@ -123,7 +119,6 @@
         padding:5px !important;
         margin: 0;
         border-radius: 50%;
-        
     }
     .slick-dots li.slick-active button{
         background-color: #97B13A !important;
@@ -147,15 +142,14 @@
     .slick-arrow{
         width: 64px;
         height: 64px;
-        
+
         background-repeat: no-repeat;
         outline: none;
         &::before{
             content: "";
         }
-        
     }
-    
+
     .slick-prev{
         left: -70px !important;
         background-image: url("/assets/img/arrallleft.png") !important;
@@ -219,7 +213,7 @@
 }
 
 @media screen and (max-width: 768px){
-    
+
     .top-slider .slide__image{
         height: auto;
     }
@@ -295,12 +289,11 @@
         height: 34px;
         background-size: cover;
         top: 110%;
-        
     }
     .top-slider .aboutslide .slick-list{
         margin: 0;
     }
-    
+
     .location .slick-slider .slick-prev{
         left: 5px;
         width: 34px;
