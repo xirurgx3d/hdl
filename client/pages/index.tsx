@@ -5,7 +5,6 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import type {NextPage} from 'next'
 import React, {useRef, useState} from 'react'
-import Courusels from '../components/Corusels/Courusels'
 import SetingSlide from '../components/SetingSlide/SetingSlide'
 import Sliders from '../components/Sliders/Sliders'
 import StepBuild from '../components/StepBuild/StepBuild'
@@ -21,12 +20,12 @@ import MatPage from '../components/MatPage/MatPage'
 import emailjs from '@emailjs/browser';
 
 import Head from 'next/head';
-import SolarYMaps from '../components/Maps/SolarYMaps'
-import {Link as Links, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll'
+import {Link as Links, Element} from 'react-scroll'
 import ruLocale from 'date-fns/locale/ru';
 import Header from "../components/MainPageComponents/Header/Header";
 import BriefSection from '../components/MainPageComponents/BriefSection/BriefSection'
 import AboutSection from "../components/MainPageComponents/AboutSection";
+import LocationSection from '../components/MainPageComponents/LocationSection'
 // import { YMInitializer } from 'react-yandex-metrika';
 
 const Home: NextPage = () => {
@@ -40,7 +39,7 @@ const Home: NextPage = () => {
         setval2(e.target.value);
     }
 
-    const [modal1, setmodal1] = useState(false)
+    const [isExcursionModalOpen, setIsExcursionModalOpen] = useState(false)
     const [modal2, setmodal2] = useState(false)
 
 
@@ -50,12 +49,16 @@ const Home: NextPage = () => {
         setValuedate(newValue);
     };
 
+    const toggleExcursionModal = (bool: boolean) => {
+        setIsExcursionModalOpen(bool);
+    }
+
     // scroll
     const myRef1 = useRef<any>(null)
     const executeScroll1 = () => myRef1.current.scrollIntoView()
 
-    const myRef2 = useRef<any>(null)
-    const executeScroll2 = () => myRef2.current.scrollIntoView()
+    const locationRef = useRef<any>(null)
+    const locationScroll = () => locationRef.current.scrollIntoView()
 
     const myRef3 = useRef<any>(null)
     const executeScroll3 = () => myRef3.current.scrollIntoView()
@@ -74,8 +77,15 @@ const Home: NextPage = () => {
     const [datevalue, setdateValue] = React.useState<Date | null>(new Date());
     const [timevalue, settimeValue] = React.useState<any>();
 
-    const [kvartir, setkvartir] = React.useState<any>('Вопрос по покупке квартиры');
-    const [kvartirbol, setkvartirbol] = React.useState<any>(false);
+    const [reason, setReason] = React.useState<string>('Вопрос по покупке квартиры');
+    const [isReasonModalOpen, setIsReasonModalOpen] = React.useState<boolean>(false);
+    const handleReasonModal = (bool: boolean) => {
+        setIsReasonModalOpen(bool);
+    }
+
+    const handleSetKvartir = (str: string) => {
+        setReason(str);
+    }
 
     //genplan_modal
     const [genplan_modal, setgenplan_modal] = React.useState<any>(false);
@@ -91,18 +101,17 @@ const Home: NextPage = () => {
     // дата в попапе
     const [date_modal, setdate_modal] = React.useState<any>(false);
 
-
-    const formModal1 = useRef<any>();
-    const sendEmailModal1 = (e: any) => {
+    const formModalRef = useRef<any>();
+    const onSubmitFormConsult = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_5f2mjwo', 'template_li7mqnj', formModal1.current, 'user_87qhZ0qw52GqaalcwFFTt')
+        emailjs.sendForm('service_5f2mjwo', 'template_li7mqnj', formModalRef.current, 'user_87qhZ0qw52GqaalcwFFTt')
             .then((result) => {
                 console.log(result.text);
-                setmodal1(false)
+                setIsExcursionModalOpen(false)
             }, (error) => {
                 console.log(error.text);
-                setmodal1(false)
+                setIsExcursionModalOpen(false)
             });
     };
 
@@ -123,7 +132,6 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-
                 <script async
                         src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"></script>
                 <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async></script>
@@ -146,87 +154,17 @@ const Home: NextPage = () => {
             <Element name="test1" className="element">
                 <AboutSection reference={myRef1}/>
             </Element>
-            <section className="location">
-                <Element name="test2" className="element">
-                    <div className="container" ref={myRef2}>
-                        <div className="section-header">
-                            Расположение и инфраструктура
-                        </div>
-                        <Courusels/>
-                    </div>
-                </Element>
-                <div className="location__map">
-                    <div className="container">
-                        <div className="location__description-header">
-                            ЖК “Солнечный парк”расположен на границе с городом Симферополь, в 10 минутах от центра
-                            города.
-                        </div>
-                        <div className="location__description">
-                            Адрес: Республика Крым, Симферопольский район, поселок Молодежное<br/>
-                            Удачное транспортное расположение новостройки. Парки, скверы, магазины все расположено в
-                            пешей
-                            доступности.
-                        </div>
-                    </div>
-                    <div id="map">
-
-                        {modal1 &&
-                            <>
-                                <div className="dasboarde" onClick={() => setmodal1(false)}></div>
-                                <div className="modal-window">
-                                    <div className="close" onClick={() => setmodal1(false)}>
-                                        <img src="./assets/ico/close.svg" alt="close"/>
-                                    </div>
-                                    <div className="section-header text-center">Заявка на консультацию</div>
-
-                                    <form ref={formModal1} onSubmit={sendEmailModal1}>
-                                        <input className='forme-input' type="text" name="fio" placeholder="ФИО"/>
-                                        <input className='forme-input' type="text" name="phone" placeholder="Телефон"/>
-
-                                        <div className="custom-select active">
-                                            <div className="d-flex justify-content-between align-items-center"
-                                                 onClick={() => setkvartirbol(true)}>
-                                                <div className="custom-select__placeholder">Тема обращения</div>
-                                                <div className="custom-select__value">{kvartir}</div>
-                                            </div>
-
-                                            {
-                                                kvartirbol &&
-                                                <div className="custom-select__list"
-                                                     onClick={() => setkvartirbol(false)}>
-                                                    <div className="custom-select__option"
-                                                         onClick={() => setkvartir('Вопрос по покупке квартиры')}>Вопрос
-                                                        по покупке квартиры
-                                                    </div>
-                                                    <div className="custom-select__option"
-                                                         onClick={() => setkvartir('Запись на экскурсию')}>Запись на
-                                                        экскурсию
-                                                    </div>
-
-                                                </div>
-                                            }
-
-                                        </div>
-                                        <input type="text" hidden name="vopros" value={kvartir}/>
-                                        <textarea name="message" placeholder="Комментарии"></textarea>
-                                        <input type="submit" className="btn" value="Отправить заявку"/>
-
-                                    </form>
-
-                                    <div className="confirm__memo">
-                                        Нажимая кнопку «Отправить заявку»,<br/>
-                                        вы соглашаетесь с <Link href="">условиями обработки личных данных</Link>
-                                    </div>
-                                </div>
-                            </>
-                        }
-
-
-                        <SolarYMaps mod={setmodal1}/>
-
-                    </div>
-                </div>
-            </section>
+            <LocationSection
+                locationRef={locationRef}
+                isExcursionModalOpen={isExcursionModalOpen}
+                toggleExcursionModal={toggleExcursionModal}
+                formModalRef={formModalRef}
+                onSubmitFormConsult={onSubmitFormConsult}
+                handleReasonModal={handleReasonModal}
+                isReasonModalOpen={isReasonModalOpen}
+                handleSetKvartir={handleSetKvartir}
+                reason={reason}
+            />
             <Element name="test3" className="element">
                 <section className="characteristic" ref={myRef3}>
                     <div className="container">
@@ -317,7 +255,7 @@ const Home: NextPage = () => {
                                 приобретения
                             </div>
                         </div>
-                        <div className="genplan__item col-md col-12" onClick={() => setmodal1(true)}>
+                        <div className="genplan__item col-md col-12" onClick={() => setIsExcursionModalOpen(true)}>
                             <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -598,7 +536,6 @@ const Home: NextPage = () => {
                                         <input type="submit" className="btn" value="Отправить заявку"/>
 
                                     </form>
-
                                     <div className="confirm__memo">
                                         Нажимая кнопку «Отправить заявку»,<br/>
                                         вы соглашаетесь с <Link href="">условиями обработки личных данных</Link>
@@ -637,7 +574,7 @@ const Home: NextPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <button className="btn yellow" onClick={() => setmodal1(true)}>Записаться</button>
+                            <button className="btn yellow" onClick={() => setIsExcursionModalOpen(true)}>Записаться</button>
                         </div>
                     </div>
                 </section>
@@ -718,10 +655,10 @@ const Home: NextPage = () => {
                         <div className="col">
                             <div className="prefooter__link-header">Расположение</div>
                             <ul className="prefooter__list">
-                                <a onClick={executeScroll2}>
+                                <a onClick={locationScroll}>
                                     <li>Инфраструктура</li>
                                 </a>
-                                <a onClick={executeScroll2}>
+                                <a onClick={locationScroll}>
                                     <li>Транспорт</li>
                                 </a>
                             </ul>

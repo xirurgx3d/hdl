@@ -1,127 +1,115 @@
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import { useRef, useState } from 'react';
-import styles from './Sliders.module.scss'
-import "slick-carousel/slick/slick-theme.css"; 
+import "slick-carousel/slick/slick.css";
+import {useState} from 'react';
+import "slick-carousel/slick/slick-theme.css";
 
 const Courusels = (): JSX.Element => {
-  const slider1 = useRef<any>();
-  const [nav1, setNav1] = useState<any>();
-  const [slid, setSlid] = useState<any>(0);
+    const [nav1, setNav1] = useState<any>();
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+
+    type carouselItem = {
+        imageUrl: string,
+        title: string,
+        timeDistanceCar: string,
+        timeDistanceFoot: string | null,
+    }
+
+    const carouselArray: carouselItem[] = [
+        {
+            imageUrl: "/assets/img/corus1/img1.png",
+            title: "до Объездной дороги",
+            timeDistanceCar: '3 минуты',
+            timeDistanceFoot: null
+        },
+        {
+            imageUrl: "/assets/img/corus1/img2.png",
+            title: "до трассы «Таврида»",
+            timeDistanceCar: "7 минут",
+            timeDistanceFoot: null
+        },
+        {
+            imageUrl: "/assets/img/corus1/img3.png",
+            title: "до Керченского моста",
+            timeDistanceCar: "2 ч. 15 мин.",
+            timeDistanceFoot: null
+        },
+        {
+            imageUrl: "/assets/img/corus1/img4.png",
+            title: "до Аэропорта «Симферополь»",
+            timeDistanceCar: "15 мин",
+            timeDistanceFoot: null
+        },
+        {
+            imageUrl: "/assets/img/corus1/img5.png",
+            title: "ТРЦ «Южная Галерея»",
+            timeDistanceCar: "5 мин.",
+            timeDistanceFoot: "20 мин."
+        },
+        {
+            imageUrl: "/assets/img/corus1/img6.png",
+            title: "ТРК «Меганом»",
+            timeDistanceCar: "7 минут",
+            timeDistanceFoot: null
+        },
+        {
+            imageUrl: "/assets/img/corus1/img7.png",
+            title: "парк «Аграрник»",
+            timeDistanceCar: "2 мин.",
+            timeDistanceFoot: "15 мин."
+        },
     ]
-  };
 
-  console.log(nav1);
-
-  const goTo = (e: any) => {
-    setSlid(e)
-    nav1.slickGoTo(e)
-  }
-
-  return (
-    <>
-      
-        <Slider className="coruselus" ref={slide => setNav1(slide)} {...settings}>
-              <div className="coruselus-itemes" >
-                    <img src="/assets/img/corus1/img1.png" alt="infrastructure"/>
-
-                    <div className="location__infrastructure__title">до Объездной дороги</div>
-                    <div className="location__infrastructure__time d-flex">
-                        
-                        <div className="car">3 минуты</div>
+    return (
+        <>
+            <Slider className="coruselus" ref={slide => setNav1(slide)} {...settings}>
+                {carouselArray.map((el: carouselItem, idx) => {
+                    return <div className="coruselus-itemes" key={idx.toString()}>
+                        <img src={el.imageUrl} alt="infrastructure"/>
+                        <div className="location__infrastructure__title">{el.title}</div>
+                        <div className="location__infrastructure__time d-flex">
+                            {el.timeDistanceFoot && <div className="foot">{el.timeDistanceFoot}</div>}
+                            <div className="car">{el.timeDistanceCar}</div>
+                        </div>
                     </div>
-            </div>
-            <div className="coruselus-itemes">
-                <img src="/assets/img/corus1/img2.png" alt="infrastructure"/>
-
-                <div className="location__infrastructure__title">до трассы «Таврида»</div>
-                <div className="location__infrastructure__time d-flex">
-                    
-                    <div className="car">7 минут</div>
-                </div>
-            </div>
-            <div className="coruselus-itemes">
-              <img src="/assets/img/corus1/img3.png" alt="infrastructure"/>
-
-              <div className="location__infrastructure__title">до Керченского моста</div>
-              <div className="location__infrastructure__time d-flex">
-                  
-                  <div className="car">2 ч. 15 мин.</div>
-              </div>
-            </div>
-            <div className="coruselus-itemes">
-              <img src="/assets/img/corus1/img4.png" alt="infrastructure"/>
-
-              <div className="location__infrastructure__title">до Аэропорта «Симферополь»</div>
-              <div className="location__infrastructure__time d-flex">
-                  
-                  <div className="car">15 мин</div>
-              </div>
-            </div>
-            <div className="coruselus-itemes">
-              <img src="/assets/img/corus1/img5.png" alt="infrastructure"/>
-
-              <div className="location__infrastructure__title">ТРЦ «Южная Галерея»</div>
-              <div className="location__infrastructure__time d-flex">
-                  <div className="foot">20 мин.</div>
-                  <div className="car">5 мин.</div>
-              </div>
-            </div>
-            <div className="coruselus-itemes">
-              <img src="/assets/img/corus1/img6.png" alt="infrastructure"/>
-
-              <div className="location__infrastructure__title">ТРК «Меганом»</div>
-              <div className="location__infrastructure__time d-flex">
-                  
-                  <div className="car">7 минут</div>
-              </div>
-            </div>
-            <div className="coruselus-itemes">
-              <img src="/assets/img/corus1/img7.png" alt="infrastructure"/>
-
-              <div className="location__infrastructure__title">парк «Аграрник»</div>
-              <div className="location__infrastructure__time d-flex">
-                  <div className="foot">15 мин.</div>
-                  <div className="car">2 мин.</div>
-              </div>
-            </div>
-          </Slider>
-      
-    </>
-  )
+                })
+                }
+            </Slider>
+        </>
+    )
 }
 
-export default Courusels
+export default Courusels;
