@@ -14,7 +14,6 @@ const Builds: NextPage = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
     slidesToScroll: 4,
     responsive: [
       {
@@ -169,8 +168,6 @@ const Builds: NextPage = () => {
       <section className="steps">
         <div className="container">
           {sliderBuildingPerMonth.map((buildingEl:BuildingPerMonth, idx: number) => {
-            if (buildingEl.imgUrls.length < 4) {settings.slidesToShow = buildingEl.imgUrls.length}
-            else {settings.slidesToShow = 4};
            return <div key={idx.toString()} >
               <div className="maaaar"/>
               <div className="col-6 characteristic_h1 section-header">{buildingEl.building}</div>
@@ -178,6 +175,7 @@ const Builds: NextPage = () => {
                   className="coruselus steps__slider"
                   ref={(slide) => setNav1(slide)}
                   {...settings}
+                  slidesToShow={buildingEl.imgUrls.length < 4 ? buildingEl.imgUrls.length : 4}
               >
                 {buildingEl.imgUrls.map((imageUrl: string, i: number) => {
                   return <div key={i.toString()} className="coruselus-itemes">
