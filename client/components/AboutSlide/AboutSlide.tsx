@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import {SetStateAction, useState} from 'react';
 import "slick-carousel/slick/slick-theme.css";
 
-const AboutSliders = (): JSX.Element => {
+const AboutSlider = (): JSX.Element => {
   const [nav, setNav] = useState<SetStateAction<any>>();
 
   const settings = {
@@ -33,4 +33,4 @@ const AboutSliders = (): JSX.Element => {
   )
 }
 
-export default AboutSliders
+export default AboutSlider;

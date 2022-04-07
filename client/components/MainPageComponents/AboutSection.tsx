@@ -1,5 +1,5 @@
 import React, {MutableRefObject} from "react";
-import AboutSliders from "../AboutSlide/AboutSlide";
+import AboutSlider from "../AboutSlide/AboutSlide";
 
 type Props = {
     reference: MutableRefObject<any>
@@ -130,7 +130,7 @@ const AboutSection = ({reference}: Props) => {
                         </div>
                     </div>
                     <div className="col-12 about__slider mt-4">
-                        <AboutSliders />
+                        <AboutSlider />
                     </div>
                 </div>
             </div>

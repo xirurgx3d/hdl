@@ -1,15 +1,9 @@
 import { NextPage } from "next";
-import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import { useRef, useState } from "react";
-import styles from "./Sliders.module.scss";
+import React, { useRef, useState } from "react";
 import "slick-carousel/slick/slick-theme.css";
-
-const flartis = global.window as any;
-const handlefratis = () => {
-  flartis.create_chess() as any;
-};
+import BuildsHeader from "./builds/BuildsHeader";
 
 const Builds: NextPage = () => {
   const slider1 = useRef<any>();
@@ -50,528 +44,156 @@ const Builds: NextPage = () => {
     ],
   };
 
-  console.log(nav1);
-
   const goTo = (e: any) => {
     setSlid(e);
     nav1.slickGoTo(e);
   };
 
+  type BuildingPerMonth = {
+    building: string;
+    monthAndYear: string;
+    imgUrls: string[]
+  }
+
+  const sliderBuildingPerMonth: BuildingPerMonth[] = [
+    {
+      building: 'Дом 1, 2 и 3',
+      monthAndYear: 'Март 2022',
+      imgUrls: [
+        "/assets/step/2022/март/DJI_0024.jpg",
+        "/assets/step/2022/март/DJI_0033.jpg",
+        "/assets/step/2022/март/DJI_0034.jpg",
+        "/assets/step/2022/март/DJI_0058.jpg",
+        "/assets/step/2022/март/DJI_0063.jpg",
+        "/assets/step/2022/март/DJI_0072.jpg",
+        "/assets/step/2022/март/DJI_0076.jpg",
+        "/assets/step/2022/март/DJI_0091.jpg",
+        "/assets/step/2022/март/DJI_0093.jpg",
+      ]
+    },
+    {
+      building: 'Дом 1, 2',
+      monthAndYear: 'Январь 2022',
+      imgUrls: [
+        "/assets/step/2022/январь_1_2/8epfzbnGAKM.jpg",
+        "/assets/step/2022/январь_1_2/GbGTj3FiSf0.jpg",
+        "/assets/step/2022/январь_1_2/mJKYaHUejXY.jpg",
+        "/assets/step/2022/январь_1_2/nr73FZ0XmfE.jpg",
+        "/assets/step/2022/январь_1_2/wvvvZfS1ToU.jpg",
+      ]
+    },
+    {
+      building: 'Дом 3',
+      monthAndYear: 'Январь 2022',
+      imgUrls: [
+        "/assets/step/2022/январь_3/mcYI45lp06k.jpg",
+        "/assets/step/2022/январь_3/z_PJdXC2ddc.jpg",
+      ]
+    },
+    {
+      building: 'Дом 2',
+      monthAndYear: 'Декабрь 2021',
+      imgUrls: [
+        "/assets/step/2021/15_Декабрь 2021_ДОМ 2/3NV7q4_2MJ0.jpg",
+        "/assets/step/2021/15_Декабрь 2021_ДОМ 2/l5G77VL1tAs.jpg",
+        "/assets/step/2021/15_Декабрь 2021_ДОМ 2/LMQml-oy5q0.jpg",
+        "/assets/step/2021/15_Декабрь 2021_ДОМ 2/OUzGGsfI8Yg.jpg",
+        "/assets/step/2021/15_Декабрь 2021_ДОМ 2/-VmWI8uJDQk.jpg",
+        "/assets/step/2021/15_Декабрь 2021_ДОМ 2/z-4vJ2k0lhM.jpg",
+        "/assets/step/2021/15_Декабрь 2021_ДОМ 2/ZAZ_bI4ombI.jpg",
+      ]
+    },
+    {
+      building: 'Дом 3',
+      monthAndYear: 'Ноябрь 2021',
+      imgUrls: [
+        "/assets/step/2021/14_Ноябрь 2021_ДОМ 3/pw960hhyaD8.jpg",
+        "/assets/step/2021/14_Ноябрь 2021_ДОМ 3/sFoiQrwWwKQ.jpg",
+        "/assets/step/2021/14_Ноябрь 2021_ДОМ 3/UNYyTpXxf64.jpg",
+        "/assets/step/2021/14_Ноябрь 2021_ДОМ 3/yymJT1ZTbW0.jpg",
+      ]
+    },
+    {
+      building: 'Дом 2',
+      monthAndYear: 'Ноябрь 2021',
+      imgUrls: [
+        "/assets/step/2021/13_Ноябрь 2021_ДОМ 2/9ao_v4xpeg8.jpg",
+        "/assets/step/2021/13_Ноябрь 2021_ДОМ 2/cEiTq9LUC4U.jpg",
+        "/assets/step/2021/13_Ноябрь 2021_ДОМ 2/hknvdRwakho.jpg",
+        "/assets/step/2021/13_Ноябрь 2021_ДОМ 2/o7evEumzrFU.jpg",
+      ]
+    },
+    {
+      building: 'Дом 1, 2',
+      monthAndYear: 'Октябрь 2021',
+      imgUrls: [
+        "/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/gU0UjmT0LpQ.jpg",
+        "/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/jtm7kEp3zBo.jpg",
+        "/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/McgwtSNzyfk.jpg",
+        "/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/oIcDSMO2Jsc.jpg",
+        "/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/rP8dyOuZ8PY.jpg",
+      ]
+    },
+    {
+      building: 'Дом 1, 2',
+      monthAndYear: 'Сентябрь 2021',
+      imgUrls: [
+        "/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/1nv2HmJz5-w.jpg",
+        "/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/cD0BreGtJCc.jpg",
+        "/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/cF8d_-td7pM.jpg",
+        "/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/ka8--hH2Dog.jpg",
+        "/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/O-rzsuNF0g0.jpg",
+        "/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/RDuzCS5_RO0.jpg",
+        "/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/SfIbx-rJHP8.jpg",
+        "/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/ZQWF-t-mj9M.jpg",
+      ]
+    },
+    {
+      building: 'Дом 2',
+      monthAndYear: 'Август 2021',
+      imgUrls: [
+        "/assets/step/2021/10_Август 2021_ДОМ 2/0jNXULzJQDo.jpg",
+        "/assets/step/2021/10_Август 2021_ДОМ 2/94ws3PDjcHo.jpg",
+        "/assets/step/2021/10_Август 2021_ДОМ 2/jTpnQCLmoM8.jpg",
+        "/assets/step/2021/10_Август 2021_ДОМ 2/mC06PCdUXOU.jpg",
+        "/assets/step/2021/10_Август 2021_ДОМ 2/RWPuU_VsdtA.jpg",
+        "/assets/step/2021/10_Август 2021_ДОМ 2/vDPwliBAtbc.jpg",
+        "/assets/step/2021/10_Август 2021_ДОМ 2/zFGOemHN3Ws.jpg",
+      ]
+    },
+  ]
+
   return (
     <>
-      <header>
-        <div className="container">
-          <div className="row head">
-            <div className="logo col-md-2 col-3">
-              <Link href="/">
-                <img src="/assets/img/logo3.svg" alt="logotype" />
-              </Link>
-            </div>
-
-            <div className="flats_box col-2 px-0">
-              <a
-                onClick={handlefratis}
-                className="nav-menu__link green_link col"
-              >
-                <img src="/assets/ico/kvartiri.svg" alt="kvartiri" />
-                КВАРТИРЫ
-              </a>
-              <a
-                onClick={handlefratis}
-                className="nav-menu__link green_link col"
-              >
-                <img src="/assets/ico/estate.svg" alt="estate" />
-                Коммерческая
-                <br />
-                недвижимость
-              </a>
-            </div>
-            <div className="contacts col-md-2 col-6">
-              <div className="contacts_box">
-                <div className="contacts__phone">
-                  <Link href="tel:+7 9787180808"> +7 978 718 08 08</Link>
-                </div>
-                <div className="contacts__memo"></div>
-              </div>
-
-              <img
-                src="/assets/img/call.png"
-                className="contacts_call"
-                alt="contacts"
-              />
-            </div>
-          </div>
-        </div>
-      </header>
-      <div className="maaaar"></div>
+      <BuildsHeader />
       <section className="steps">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-6 characteristic_h1 section-header">Дом 1 2</div>
-          </div>
-          <Slider
-            className="coruselus steps__slider"
-            ref={(slide) => setNav1(slide)}
-            {...settings}
-          >
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2022/1_Январь_ДОМ 1 и ДОМ 2/8epfzbnGAKM.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Январь 2022</div>
+          {sliderBuildingPerMonth.map((buildingEl:BuildingPerMonth, idx: number) => {
+            if (buildingEl.imgUrls.length < 4) {settings.slidesToShow = buildingEl.imgUrls.length}
+            else {settings.slidesToShow = 4};
+           return <div key={idx.toString()} >
+              <div className="maaaar"/>
+              <div className="col-6 characteristic_h1 section-header">{buildingEl.building}</div>
+              <Slider
+                  className="coruselus steps__slider"
+                  ref={(slide) => setNav1(slide)}
+                  {...settings}
+              >
+                {buildingEl.imgUrls.map((imageUrl: string, i: number) => {
+                  return <div key={i.toString()} className="coruselus-itemes">
+                    <img src={imageUrl} alt="infrastructure"/>
+                    <div className="step__date">{buildingEl.monthAndYear}</div>
+                  </div>
+                })
+                }
+              </Slider>
             </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2022/1_Январь_ДОМ 1 и ДОМ 2/GbGTj3FiSf0.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Январь 2022</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2022/1_Январь_ДОМ 1 и ДОМ 2/mJKYaHUejXY.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Январь 2022</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2022/1_Январь_ДОМ 1 и ДОМ 2/nr73FZ0XmfE.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Январь 2022</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2022/1_Январь_ДОМ 1 и ДОМ 2/wvvvZfS1ToU.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Январь 2022</div>
-            </div>
-          </Slider>
-          <div className="maaaar"></div>
-          <div className="col-6 characteristic_h1 section-header">Дом 3</div>
-
-          <div
-            className="coruselus steps__slider steps__slider-nosa"
-            ref={(slide) => setNav1(slide)}
-            {...settings}
-          >
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2022/2_Январь_ДОМ 3/mcYI45lp06k.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Январь 2022</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2022/2_Январь_ДОМ 3/z_PJdXC2ddc.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Январь 2022</div>
-            </div>
-          </div>
-
-          <div className="maaaar"></div>
-          <div className="row align-items-center">
-            <div className="col-6 characteristic_h1 section-header">Декабрь 2021 ДОМ 2</div>
-          </div>
-          <Slider
-            className="coruselus steps__slider"
-            ref={(slide) => setNav1(slide)}
-            {...settings}
-          >
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/15_Декабрь 2021_ДОМ 2/3NV7q4_2MJ0.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Декабрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/15_Декабрь 2021_ДОМ 2/l5G77VL1tAs.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Декабрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/15_Декабрь 2021_ДОМ 2/LMQml-oy5q0.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Декабрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/15_Декабрь 2021_ДОМ 2/OUzGGsfI8Yg.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Декабрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/15_Декабрь 2021_ДОМ 2/-VmWI8uJDQk.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Декабрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/15_Декабрь 2021_ДОМ 2/z-4vJ2k0lhM.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Декабрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/15_Декабрь 2021_ДОМ 2/ZAZ_bI4ombI.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Декабрь 2021</div>
-            </div>
-
-            
-          </Slider>
-
-
-          <div className="maaaar"></div>
-          <div className="row align-items-center">
-            <div className="col-6 characteristic_h1 section-header">Ноябрь 2021 ДОМ 3</div>
-          </div>
-          <Slider
-            className="coruselus steps__slider"
-            ref={(slide) => setNav1(slide)}
-            {...settings}
-          >
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/14_Ноябрь 2021_ДОМ 3/pw960hhyaD8.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Ноябрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/14_Ноябрь 2021_ДОМ 3/sFoiQrwWwKQ.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Ноябрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/14_Ноябрь 2021_ДОМ 3/UNYyTpXxf64.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Ноябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/14_Ноябрь 2021_ДОМ 3/yymJT1ZTbW0.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Ноябрь 2021</div>
-            </div>
-       
-            
-          </Slider>
-
-
-          <div className="maaaar"></div>
-          <div className="row align-items-center">
-            <div className="col-6 characteristic_h1 section-header">Ноябрь 2021 ДОМ 2</div>
-          </div>
-          <Slider
-            className="coruselus steps__slider"
-            ref={(slide) => setNav1(slide)}
-            {...settings}
-          >
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/13_Ноябрь 2021_ДОМ 2/9ao_v4xpeg8.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Ноябрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/13_Ноябрь 2021_ДОМ 2/cEiTq9LUC4U.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Ноябрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/13_Ноябрь 2021_ДОМ 2/hknvdRwakho.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Ноябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/13_Ноябрь 2021_ДОМ 2/o7evEumzrFU.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Ноябрь 2021</div>
-            </div>
-       
-            
-          </Slider>
-
-
-          <div className="maaaar"></div>
-          <div className="row align-items-center">
-            <div className="col-6 characteristic_h1 section-header">Октябрь 2021 ДОМ 1 и ДОМ 2</div>
-          </div>
-          <Slider
-            className="coruselus steps__slider"
-            ref={(slide) => setNav1(slide)}
-            {...settings}
-          >
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/gU0UjmT0LpQ.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Октябрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/jtm7kEp3zBo.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Октябрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/McgwtSNzyfk.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Октябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/oIcDSMO2Jsc.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Октябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/12_Октябрь 2021_ДОМ 1 и ДОМ 2/rP8dyOuZ8PY.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Октябрь 2021</div>
-            </div>
-
-            
-       
-            
-          </Slider>
-
-
-
-          <div className="maaaar"></div>
-          <div className="row align-items-center">
-            <div className="col-6 characteristic_h1 section-header">Сентябрь 2021 ДОМ 1 и ДОМ 2</div>
-          </div>
-          <Slider
-            className="coruselus steps__slider"
-            ref={(slide) => setNav1(slide)}
-            {...settings}
-          >
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/1nv2HmJz5-w.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Сентябрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/cD0BreGtJCc.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Сентябрь 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/cF8d_-td7pM.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Сентябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/ka8--hH2Dog.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Сентябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/O-rzsuNF0g0.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Сентябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/RDuzCS5_RO0.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Сентябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/SfIbx-rJHP8.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Сентябрь 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/11_Сентябрь 2021_ДОМ 1 и ДОМ 2/ZQWF-t-mj9M.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Сентябрь 2021</div>
-            </div>
-
-            
-       
-            
-          </Slider>
-
-
-          <div className="maaaar"></div>
-          <div className="row align-items-center">
-            <div className="col-6 characteristic_h1 section-header">Август 2021 ДОМ 2</div>
-          </div>
-          <Slider
-            className="coruselus steps__slider"
-            ref={(slide) => setNav1(slide)}
-            {...settings}
-          >
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/10_Август 2021_ДОМ 2/0jNXULzJQDo.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Август 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/10_Август 2021_ДОМ 2/94ws3PDjcHo.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Август 2021</div>
-            </div>
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/10_Август 2021_ДОМ 2/jTpnQCLmoM8.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Август 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/10_Август 2021_ДОМ 2/mC06PCdUXOU.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Август 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/10_Август 2021_ДОМ 2/RWPuU_VsdtA.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Август 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/10_Август 2021_ДОМ 2/vDPwliBAtbc.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Август 2021</div>
-            </div>
-
-            <div className="coruselus-itemes">
-              <img
-                src="/assets/step/2021/10_Август 2021_ДОМ 2/zFGOemHN3Ws.jpg"
-                alt="infrastructure"
-              />
-
-              <div className="step__date">Август 2021</div>
-            </div>
-
-            
-
-            
-       
-            
-          </Slider>
-
-          
+          })
+          }
         </div>
       </section>
     </>
   );
 };
+
 export default Builds;
