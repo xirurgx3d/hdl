@@ -40,7 +40,7 @@ const Home: NextPage = () => {
     }
 
     const [isExcursionModalOpen, setIsExcursionModalOpen] = useState(false)
-    const [modal2, setmodal2] = useState(false)
+    const [isSellsOfficeModalOpen, setSellsOfficeModalOpen] = useState(false)
 
 
     const [valuedate, setValuedate] = useState(new Date('2014-08-18T21:11:54'));
@@ -122,29 +122,29 @@ const Home: NextPage = () => {
         emailjs.sendForm('service_5f2mjwo', 'template_nmpmxap', formModal2.current, 'user_87qhZ0qw52GqaalcwFFTt')
             .then((result) => {
                 console.log(result.text);
-                setmodal2(false)
+                setSellsOfficeModalOpen(false)
             }, (error) => {
                 console.log(error.text);
-                setmodal2(false)
+                setSellsOfficeModalOpen(false)
             });
     };
 
     return (
         <>
             <Head>
-                <script async
-                        src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"></script>
-                <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async></script>
+                <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"/>
+                <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async/>
                 {/*<YMInitializer accounts={[70887214]} options={{webvisor: true}} />*/}
                 //Yandex.Metrika counter
-                <script src='/met.js'></script>
-                <script src='/flat.js'></script><script src='/vidj.js'></script>
+                <script src='/met.js'/>
+                <script src='/flat.js'/>
+                <script src='/vidj.js'/>
                 <noscript>
                     <div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt=""/></div>
                 </noscript>
                 ///Yandex.Metrika counter
             </Head>
-            <div className='allcall' onClick={() => setmodal2(true)}>
+            <div className='allcall' onClick={() => setSellsOfficeModalOpen(true)}>
                 <img src='/assets/img/allcall.png'/>
             </div>
             <Element name="test0" className="element" style={{backgroundColor: 'red'}}/>
@@ -375,10 +375,10 @@ const Home: NextPage = () => {
                         </div>
                     }
                     <StepBuild/>
-                    <div className='maaaar'></div>
+                    <div className='maaaar'/>
                     <div className="row align-items-center mb-5">
                         <div className="col-6 characteristic_h1 section-header">
-                            Видеоотчет январь 2022
+                            Видеоотчет март 2022
                         </div>
                         <div
                             className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
@@ -451,11 +451,11 @@ const Home: NextPage = () => {
             <Element name="test4" className="element">
                 <section className="bottom-map" ref={myRef4}>
                     <div id="bottom-map">
-                        {modal2 &&
+                        {isSellsOfficeModalOpen &&
                             <>
-                                <div className="dasboarde" onClick={() => setmodal2(false)}></div>
+                                <div className="dasboarde" onClick={() => setSellsOfficeModalOpen(false)}/>
                                 <div className="modal-window">
-                                    <div className="close" onClick={() => setmodal2(false)}>
+                                    <div className="close" onClick={() => setSellsOfficeModalOpen(false)}>
                                         <img src="/assets/ico/close.svg" alt="close"/>
                                     </div>
                                     <div className="modal_header">
@@ -543,27 +543,24 @@ const Home: NextPage = () => {
                                 </div>
                             </>
                         }
+                        {/* Карта с блоком для офиса */}
                         <iframe className="solarmap"
                                 src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad7101d71b5e48403f7070e693c9bbdd9ef70cc6b284ae637d9e1edb34bd0613e&amp;source=constructor"
-                                width="100%" height="640"></iframe>
+                                width="100%" height="640"/>
                         <div className="bottom-map__contacts">
                             <div className="memo">Контакты</div>
                             <div className="header">Офис продаж</div>
-
                             <div className="address">
                                 <div className="bottom-map__wrap">
                                     <div className="address__city">г. Симферополь</div>
                                     ул. Набережная 75В<br/>
                                     с3, офис 232
-
                                     <div className="contacts__memo">
-                                        Посещение офиса возможно
-                                        только по предварительной записи.
+                                        <div><span className="contacts__memo__email">sale@arcadacrimea.ru</span> - Отдел продаж</div>
+                                        <div><span className="contacts__memo__email">info@arcadacrimea.ru</span> - Для предложений</div>
                                     </div>
                                 </div>
-
                             </div>
-
                             <div className="phone">
                                 <div className="bottom-map__wrap">
                                     +7 978 718 08 08
@@ -590,7 +587,7 @@ const Home: NextPage = () => {
                                 </a>
                             </div>
                             <div className="zastr">
-                                <button className="btn prefooter__btn" onClick={() => setmodal2(true)}>Обратится к
+                                <button className="btn prefooter__btn" onClick={() => setSellsOfficeModalOpen(true)}>Обратится к
                                     застройщику
                                 </button>
                             </div>
