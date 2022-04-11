@@ -26,6 +26,7 @@ import Header from "../components/MainPageComponents/Header/Header";
 import BriefSection from '../components/MainPageComponents/BriefSection/BriefSection'
 import AboutSection from "../components/MainPageComponents/AboutSection";
 import LocationSection from '../components/MainPageComponents/LocationSection'
+import SimpleReactLightbox from 'simple-react-lightbox'
 // import { YMInitializer } from 'react-yandex-metrika';
 
 const Home: NextPage = () => {
@@ -91,7 +92,7 @@ const Home: NextPage = () => {
     const [genplan_modal, setgenplan_modal] = React.useState<any>(false);
     //
     const [doc_modal, setdoc_modal] = React.useState<any>(false);
-    // Условия приобретения 
+    // Условия приобретения
     const [mat_modal, setmat_modal] = React.useState<any>(false);
 
     const handlefratis = () => {
@@ -587,7 +588,7 @@ const Home: NextPage = () => {
                                 </a>
                             </div>
                             <div className="zastr">
-                                <button className="btn prefooter__btn" onClick={() => setSellsOfficeModalOpen(true)}>Обратится к
+                                <button className="btn prefooter__btn" onClick={() => setSellsOfficeModalOpen(true)}>Обратиться к
                                     застройщику
                                 </button>
                             </div>

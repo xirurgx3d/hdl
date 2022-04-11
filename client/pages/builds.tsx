@@ -5,7 +5,6 @@ import React, {useState} from "react";
 import "slick-carousel/slick/slick-theme.css";
 import BuildsHeader from "./builds/BuildsHeader";
 import {SRLWrapper} from "simple-react-lightbox";
-import SimpleReactLightbox from "simple-react-lightbox";
 
 const Builds: NextPage = () => {
     const [nav1, setNav1] = useState<any>();
@@ -166,8 +165,8 @@ const Builds: NextPage = () => {
       showCloseButton: true,
       showDownloadButton: false,
       showFullscreenButton: true,
-      showNextButton: false,
-      showPrevButton: false,
+      showNextButton: true,
+      showPrevButton: true,
       size: '40px'
     },
     caption: {
@@ -183,41 +182,40 @@ const Builds: NextPage = () => {
     }
   };
 
-  return (
-      <>
-        <BuildsHeader/>
-        <SimpleReactLightbox>
-          <section className="steps">
-            <h4>Second Slider</h4>
-            <div className="container">
-              {sliderBuildingPerMonth.map((buildingEl: BuildingPerMonth, idx: number) => {
-                return <div key={idx.toString()}>
-                  <div className="maaaar"/>
-                  <div className="col-6 characteristic_h1 section-header">{buildingEl.building}</div>
-                  <SRLWrapper options={wrapperOptions}>
-                    <Slider
-                        className="coruselus steps__slider"
-                        ref={(slide) => setNav1(slide)}
-                        {...sliderSettings}
-                        slidesToShow={buildingEl.imgUrls.length < 4 ? buildingEl.imgUrls.length : 4}
-                    >
-                      {buildingEl.imgUrls.map((imageUrl: string, i: number) => {
-                        return <div key={i.toString()} className="coruselus-itemes">
-                                                <img src={imageUrl} alt={buildingEl.monthAndYear} style={{cursor: 'pointer'}}/>
-                                                <div className="step__date">{buildingEl.monthAndYear}</div>
-                                            </div>
-                      })
-                      }
-                    </Slider>
-                  </SRLWrapper>
+    return (
+        <>
+            <BuildsHeader/>
+            <section className="steps">
+                <h4>Second Slider</h4>
+                <div className="container">
+                    <SRLWrapper options={wrapperOptions}>
+                        {sliderBuildingPerMonth.map((buildingEl: BuildingPerMonth, idx: number) => {
+                            return <div key={idx.toString()}>
+                                <div className="maaaar"/>
+                                <div className="col-6 characteristic_h1 section-header">{buildingEl.building}</div>
+
+                                <Slider
+                                    className="coruselus steps__slider"
+                                    ref={(slide) => setNav1(slide)}
+                                    {...sliderSettings}
+                                    slidesToShow={buildingEl.imgUrls.length < 4 ? buildingEl.imgUrls.length : 4}
+                                >
+                                    {buildingEl.imgUrls.map((url: string) => {
+                                        return <div key={url} className="coruselus-itemes">
+                                            <img src={url} alt={buildingEl.monthAndYear} style={{cursor: 'pointer'}}/>
+                                            <div className="step__date">{buildingEl.monthAndYear}</div>
+                                        </div>
+                                    })
+                                    }
+                                </Slider>
+                            </div>
+                        })
+                        }
+                    </SRLWrapper>
                 </div>
-              })
-              }
-            </div>
-          </section>
-        </SimpleReactLightbox>
-      </>
-  );
+            </section>
+        </>
+    );
 };
 
 export default Builds;
