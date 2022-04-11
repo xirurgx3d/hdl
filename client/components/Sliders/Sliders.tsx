@@ -18,9 +18,9 @@ const MainSlider = (): JSX.Element => {
     <>
       <section className="top-slider main-slider">
         <Slider className="slide headslide" ref={slide => setNav1(slide)} {...settings}>
+          <img className="slide__image" src="/assets/img/main-banner/3.png" alt="slide-1" />
           <img className="slide__image" src="/assets/img/main-banner/1.jpg" alt="slide-1" />
           <img className="slide__image" src="/assets/img/main-banner/2.jpg" alt="slide-1" />
-          <img className="slide__image" src="/assets/img/main-banner/3.png" alt="slide-1" />
           <img className="slide__image" src="/assets/img/main-banner/4.png" alt="slide-1" />
           <img className="slide__image" src="/assets/img/main-banner/5.jpg" alt="slide-1" />
         </Slider>
