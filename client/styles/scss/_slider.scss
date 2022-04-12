@@ -1,12 +1,14 @@
 .top-slider{
     position: relative;
     width: 100%;
+    max-width: 1900px;
     .slide{
         width: 100%;
 
         &__image{
             height: auto;
             max-height: 800px;
+            max-width: 1900px;
         }
         .slick-prev{
             content: "";
@@ -79,6 +81,8 @@
     }
 
     .headslide{
+        display: flex !important;
+        justify-content: center !important;
         .slick-prev{
             left: 5%;
         }
@@ -96,10 +100,9 @@
     }
 
     &.main-slider {
-        margin-top: 96px;
+        margin: 96px auto 96px auto;
     }
 }
-
 
 .allstile .slide .slick-prev{
     background-image: url("/assets/img/arrallleft.png") !important;
@@ -219,6 +222,7 @@
 
     .top-slider .slide__image{
         height: auto;
+        margin: 0 auto;
     }
     .top-slider .slick-dots{
         display: none !important;
