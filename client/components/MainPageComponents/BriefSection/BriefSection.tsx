@@ -13,7 +13,7 @@ const BriefSection = ({handlefratis}: Props) => {
                     <div className="brief__memo">Жилой квартал</div>
                 </div>
                 <div className="col-sm-2 col-12 d-sm-block d-flex flex-column-reverse">
-                    <div className="brief__name">от 3,31 млн ₽</div>
+                    <div className="brief__name">от 3,6 млн ₽</div>
                     <div className="brief__memo">ЦЕНА квартиры</div>
                 </div>
                 <div className="col-sm-2 col-12 d-sm-block d-flex flex-column-reverse">
