@@ -10,7 +10,6 @@
         }
         .slick-prev{
             content: "";
-
             z-index: 999;
             cursor: pointer;
             width: 64px;
@@ -199,7 +198,7 @@
 }
 
 //qqqqq
-.top-slider .headslide .slick-prev{
+.top-slider .slide .slick-prev{
 	top: 55%;
 }
 .top-slider .slide .slick-next{
