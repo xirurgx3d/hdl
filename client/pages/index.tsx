@@ -26,7 +26,7 @@ import Header from "../components/MainPageComponents/Header/Header";
 import BriefSection from '../components/MainPageComponents/BriefSection/BriefSection'
 import AboutSection from "../components/MainPageComponents/AboutSection";
 import LocationSection from '../components/MainPageComponents/LocationSection'
-import SimpleReactLightbox from 'simple-react-lightbox'
+import Footer from '../components/MainPageComponents/Footer'
 // import { YMInitializer } from 'react-yandex-metrika';
 
 const Home: NextPage = () => {
@@ -40,9 +40,9 @@ const Home: NextPage = () => {
         setval2(e.target.value);
     }
 
-    const [isExcursionModalOpen, setIsExcursionModalOpen] = useState(false)
-    const [isSellsOfficeModalOpen, setSellsOfficeModalOpen] = useState(false)
-
+    const [isExcursionModalOpen, setIsExcursionModalOpen] = useState(false);
+    const [isSellsOfficeModalOpen, setSellsOfficeModalOpen] = useState(false);
+    const handleSellsOfficeModal = (bool: boolean) => setSellsOfficeModalOpen(bool);
 
     const [valuedate, setValuedate] = useState(new Date('2014-08-18T21:11:54'));
 
@@ -55,8 +55,8 @@ const Home: NextPage = () => {
     }
 
     // scroll
-    const myRef1 = useRef<any>(null)
-    const executeScroll1 = () => myRef1.current.scrollIntoView()
+    const aboutSectionRef = useRef<any>(null)
+    const aboutSectionScroll = () => aboutSectionRef.current.scrollIntoView()
 
     const locationRef = useRef<any>(null)
     const locationScroll = () => locationRef.current.scrollIntoView()
@@ -67,12 +67,15 @@ const Home: NextPage = () => {
     const myRef4 = useRef<any>(null)
     const executeScroll4 = () => myRef4.current.scrollIntoView()
 
-    const myRef5 = useRef<any>(null)
-    const executeScroll5 = () => myRef5.current.scrollIntoView()
+    const footerRef = useRef<any>(null)
+    const footerScroll = () => footerRef.current.scrollIntoView()
 
     // характеристики
-    const [seting, setseting] = useState(false)
-    const [setingpage, setsetingpage] = useState<any>()
+    const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
+    const handleIsSettingModalOpen = (bool: boolean) => setIsSettingModalOpen(bool);
+
+    const [setingpage, setSettingPage] = useState<any>();
+    const handleSettingPage = (pageNum: number) => setSettingPage(pageNum);
 
     // попап
     const [datevalue, setdateValue] = React.useState<Date | null>(new Date());
@@ -91,13 +94,14 @@ const Home: NextPage = () => {
     //genplan_modal
     const [genplan_modal, setgenplan_modal] = React.useState<any>(false);
     //
-    const [doc_modal, setdoc_modal] = React.useState<any>(false);
-    // Условия приобретения
-    const [mat_modal, setmat_modal] = React.useState<any>(false);
+    const [isDocModalOpen, setIsDocModalOpen] = React.useState<any>(false);
+    const handleIsDocModalOpen = (bool: boolean) => setIsDocModalOpen(bool);
 
-    const handlefratis = () => {
-        console.log('flartis.create_chess()')
-    }
+    // Условия приобретения
+    const [isMaterialModalOpen, setIsMaterialModalOpen] = React.useState<any>(false);
+    const handleIsMaterialModalOpen = (bool: boolean) => setIsMaterialModalOpen(bool);
+
+    const handlefratis = () => console.log('flartis.create_chess()');
 
     // дата в попапе
     const [date_modal, setdate_modal] = React.useState<any>(false);
@@ -153,7 +157,7 @@ const Home: NextPage = () => {
             <MainSlider/>
             <BriefSection handlefratis={handlefratis}/>
             <Element name="test1" className="element">
-                <AboutSection reference={myRef1}/>
+                <AboutSection reference={aboutSectionRef}/>
             </Element>
             <LocationSection
                 locationRef={locationRef}
@@ -176,21 +180,21 @@ const Home: NextPage = () => {
                             <div
                                 className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
                                 <button className="btn" onClick={() => {
-                                    setsetingpage(0)
-                                    setseting(true)
+                                    setSettingPage(0)
+                                    setIsSettingModalOpen(true)
                                 }}>Подробнее
                                 </button>
                             </div>
                         </div>
-                        <SetingSlide page={setsetingpage} hndl={setseting}/>
+                        <SetingSlide page={setSettingPage} hndl={setIsSettingModalOpen}/>
                         {
-                            seting && <SetingModal page={setingpage} hndl={setseting}/>
+                            isSettingModalOpen && <SetingModal page={setingpage} hndl={setIsSettingModalOpen}/>
                         }
                     </div>
                 </section>
             </Element>
             {
-                mat_modal && <MatPage hndl={setmat_modal}/>
+                isMaterialModalOpen && <MatPage hndl={setIsMaterialModalOpen}/>
             }
             <div className="genplan__features">
                 {
@@ -212,9 +216,9 @@ const Home: NextPage = () => {
                     </div>
                 }
                 {
-                    doc_modal &&
+                    isDocModalOpen &&
                     <div className='genplan_modal genplan_modal_small'>
-                        <div className="close" onClick={() => setdoc_modal(false)}>
+                        <div className="close" onClick={() => setIsDocModalOpen(false)}>
                             <img src="/assets/ico/close.svg" alt="close"/>
                         </div>
                         <div className='genplan_modal_title'>Документы</div>
@@ -243,7 +247,7 @@ const Home: NextPage = () => {
                                 <b>от 4,5%</b>
                             </div>
                         </div>
-                        <div className="genplan__item col-md col-12" onClick={() => setmat_modal(true)}>
+                        <div className="genplan__item col-md col-12" onClick={() => setIsMaterialModalOpen(true)}>
                             <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -316,7 +320,7 @@ const Home: NextPage = () => {
                                 квартиру
                             </div>
                         </div>
-                        <div className="genplan__item col-md col-12" onClick={() => setdoc_modal(true)}>
+                        <div className="genplan__item col-md col-12" onClick={() => setIsDocModalOpen(true)}>
                             <svg width="20" height="22" viewBox="0 0 20 22" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -577,183 +581,18 @@ const Home: NextPage = () => {
                     </div>
                 </section>
             </Element>
-            <Element name="test5" className="element"></Element>
-            <footer className="prefooter" ref={myRef5}>
-                <div className="container">
-                    <div className='prefooter_box'>
-                        <div className="prefooter__top">
-                            <div className="prefooter__contact ">
-                                <a className="phone" href='tel:+7 978 718 08 08'>
-                                    <div>+7 978 718 08 08</div>
-                                </a>
-                            </div>
-                            <div className="zastr">
-                                <button className="btn prefooter__btn" onClick={() => setSellsOfficeModalOpen(true)}>Обратиться к
-                                    застройщику
-                                </button>
-                            </div>
-                        </div>
-                        <div className="upe">
-                            Наверх
-                            <Links className="nav-menu__link col" activeClass="active" to="test0" spy={true}
-                                   smooth={true} duration={100}>
-                                <img src="/assets/img/up.png" alt="to up" onClick={executeScroll1}/>
-                            </Links>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div className="row prefooter__middle">
-                        <div className="col-md-4 col-12 mb-md-0 mb-5 flatic_cvart">
-                            <div onClick={handlefratis} className="builders flat">КВАРТИРЫ</div>
-                            <div onClick={handlefratis} className="builders builder">Коммерческая недвижимость</div>
-                        </div>
-                        <div className="col">
-                            <div className="prefooter__link-header">О проекте</div>
-                            <ul className="prefooter__list">
-                                <a onClick={executeScroll1}>
-                                    <li>Безопасность</li>
-                                </a>
-                                <a onClick={executeScroll1}>
-                                    <li>Умный жилой комплекс</li>
-                                </a>
-                                <a onClick={executeScroll1}>
-                                    <li>Транспорт</li>
-                                </a>
-                                <a onClick={executeScroll1}>
-                                    <li>Собственная инфраструктура</li>
-                                </a>
-                                <a onClick={executeScroll1}>
-                                    <li>Аллея здоровья и экопарк</li>
-                                </a>
-                                <a onClick={executeScroll1}>
-                                    <li>Все для детей</li>
-                                </a>
-                            </ul>
-                        </div>
-                        <div className="col">
-                            <div className="prefooter__link-header">Подбор квартиры</div>
-                            <ul className="prefooter__list">
-                                <a onClick={handlefratis}>
-                                    <li>Однокомнатные</li>
-                                </a>
-                                <a onClick={handlefratis}>
-                                    <li>Двухкомнатные</li>
-                                </a>
-                                <a onClick={handlefratis}>
-                                    <li>Трехкомнатные</li>
-                                </a>
-                                <a onClick={handlefratis}>
-                                    <li>Четырехкомнатные</li>
-                                </a>
-                                <a onClick={handlefratis}>
-                                    <li>Двухуровневые</li>
-                                </a>
-                            </ul>
-                        </div>
-                        <div className="col">
-                            <div className="prefooter__link-header">Расположение</div>
-                            <ul className="prefooter__list">
-                                <a onClick={locationScroll}>
-                                    <li>Инфраструктура</li>
-                                </a>
-                                <a onClick={locationScroll}>
-                                    <li>Транспорт</li>
-                                </a>
-                            </ul>
-                        </div>
-                        <div className="col">
-                            <div className="prefooter__link-header">Преимущество</div>
-                            <ul className="prefooter__list">
-                                <a onClick={() => {
-                                    setsetingpage(1)
-                                    setseting(true)
-                                }}>
-                                    <li>Архитектура и фасады</li>
-                                </a>
-                                <a onClick={() => {
-                                    setsetingpage(2)
-                                    setseting(true)
-                                }}>
-                                    <li>Технология строительства</li>
-                                </a>
-                                <a onClick={() => {
-                                    setsetingpage(3)
-                                    setseting(true)
-                                }}>
-                                    <li>Инфраструктура</li>
-                                </a>
-                                <a onClick={() => {
-                                    setsetingpage(4)
-                                    setseting(true)
-                                }}>
-                                    <li>Общественные пространства</li>
-                                </a>
-                                <a onClick={() => {
-                                    setsetingpage(5)
-                                    setseting(true)
-                                }}>
-                                    <li>Планировочные решения</li>
-                                </a>
-                                <a onClick={() => {
-                                    setsetingpage(6)
-                                    setseting(true)
-                                }}>
-                                    <li>Локация</li>
-                                </a>
-                            </ul>
-                        </div>
-                        <div className="col">
-                            <div className="prefooter__link-header">Контакты</div>
-                            <ul className="prefooter__list">
-                                <Link href="">
-                                    <li>Офис продаж</li>
-                                </Link>
-                                <a onClick={() => setmat_modal(true)}>
-                                    <li>Условия приобритения</li>
-                                </a>
-                                <a onClick={() => setdoc_modal(true)}>
-                                    <li>Документы</li>
-                                </a>
-                                <a onClick={executeScroll5}>
-                                    <li>Ход строительства</li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="prefooter__bottom row justify-content-between">
-                        <div className="search col-md-3 col-12"></div>
-                        <div
-                            className="prefooter__social col-md-4 col-12 mt-4 d-flex justify-content-between align-items-center">
-                            Мы в социальных сетях:
-                            <Link href="https://www.youtube.com/channel/UCfwmRlxxlBg-Ich06wVevVw">
-                                <a><img src="/assets/ico/social/yt.svg" alt="youtube"/></a>
-                            </Link>
-                            <Link href="https://vk.com/jksunnypark">
-                                <a><img src="/assets/ico/social/vk.svg" alt="vkontakte"/></a>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <footer className="footer">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="copyright col-md-4 col-12">
-                            &copy; Все права защищены. ЖК «Солнечный парк» — ГК «Аркада Крым».
-                        </div>
-                        <div className="middle-text col-md-4 col-12 my-md-0 my-4">Любая информация, представленная на
-                            данном сайте, носит исключительно информационный характер и ни при каких условиях не
-                            является публичной офертой, определяемой положениями статьи 437 Гражданского кодекса РФ.
-                            Группа компаний «Аркада Крым» принимает на себя гражданско-правовые обязательства
-                            исключительно в результате отдельно и специально совершенных сделок.
-                        </div>
-                        <div className="who-create d-flex col-md-4 col-12 justify-content-end">
-                            Сайт создан — <b>студией Studio282</b>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer
+                footerRef={footerRef}
+                footerScroll={footerScroll}
+                aboutSectionScroll={aboutSectionScroll}
+                handleSellsOfficeModal={handleSellsOfficeModal}
+                handlefratis={handlefratis}
+                locationScroll={locationScroll}
+                handleSettingPage={handleSettingPage}
+                handleIsSettingModalOpen={handleIsSettingModalOpen}
+                handleIsMaterialModalOpen={handleIsMaterialModalOpen}
+                handleIsDocModalOpen={handleIsDocModalOpen}
+            />
         </>
     )
 }

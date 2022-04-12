@@ -96,7 +96,7 @@
 }
 .check_hous-nav{
     display: flex;
-		
+
     .check_hous-item{
         border:2px solid #97B13A;
         padding: 5px 10px;
@@ -197,6 +197,10 @@
         }
     }
 }
+
+.seting_page-big {
+    width: 100%;
+}
 @media screen and (max-width: 840px){
     .seting_page-about{
         flex-wrap: wrap;
@@ -211,7 +215,7 @@
     .selet_hous_box,.streenbox,.seting_page-nav{
         flex-wrap: wrap;
     }
-    
+
     .selet_hous{
         width: 100%;
     }
