@@ -92,10 +92,10 @@
     }
     .aboutslide{
         .slick-prev{
-            left: -80px;
+            left: -90px;
         }
         .slick-next{
-            right: -80px;
+            right: -90px;
         }
     }
 
@@ -157,14 +157,14 @@
     }
 
     .slick-prev{
-        left: -70px !important;
+        left: -84.5px;
         background-image: url("/assets/img/arrallleft.png") !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
         top: 100px;
     }
     .slick-next{
-        right: -60px !important;
+        right: -84.5px;
         background-image: url("/assets/img/arrallright.png") !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
@@ -216,6 +216,17 @@
 	cursor: pointer;
 }
 
+@media screen and (max-width: 1000px){
+    .coruselus{
+        .slick-prev{
+            left: -75px;
+        }
+        .slick-next{
+            right: -75px;
+        }
+    }
+}
+
 @media screen and (max-width: 768px){
 
     .top-slider .slide__image{
@@ -226,10 +237,10 @@
         display: none !important;
     }
     .top-slider .aboutslide .slick-prev{
-        left: 5px;
+        left: -5px;
     }
     .top-slider .aboutslide .slick-next{
-        right: 5px;
+        right: -5px;
     }
     .top-slider .aboutslide .slick-list{
         margin: 0 70px;
