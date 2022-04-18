@@ -110,18 +110,34 @@ const Home: NextPage = () => {
     // дата в попапе
     const [date_modal, setdate_modal] = React.useState<any>(false);
 
-    const formModalRef = useRef<any>();
+    const consultFormModalRef = useRef<any>();
     const onSubmitFormConsult = (e: React.SyntheticEvent) => {
         e.preventDefault();
+        const uniqueID = Math.floor(1000000 + Math.random() * 900000);
 
-        emailjs.sendForm('service_5f2mjwo', 'template_li7mqnj', formModalRef.current, 'user_87qhZ0qw52GqaalcwFFTt')
-            .then((result) => {
-                console.log(result.text);
-                setIsExcursionModalOpen(false)
-            }, (error) => {
-                console.log(error.text);
-                setIsExcursionModalOpen(false)
-            });
+        function onSuccess(){console.log('Data Sent')}
+        function onError(){console.log('Submit Error')}
+
+        const params = {
+            name: consultFormModalRef.current[0].value,
+            phone: consultFormModalRef.current[1].value,
+            action: 'question',
+            message: consultFormModalRef.current[3].value,
+            channel_medium: consultFormModalRef.current[2].value,
+            id: uniqueID
+        }
+        console.log('params', params)
+
+        // @ts-ignore
+        window.macrocrm.send_request(params,onSuccess,onError)
+        // emailjs.sendForm('service_5f2mjwo', 'template_li7mqnj', consultFormModalRef.current, 'user_87qhZ0qw52GqaalcwFFTt')
+        //     .then((result) => {
+        //         console.log(result.text);
+        //         setIsExcursionModalOpen(false)
+        //     }, (error) => {
+        //         console.log(error.text);
+        //         setIsExcursionModalOpen(false)
+        //     });
     };
 
     const formModal2 = useRef<any>();
@@ -167,7 +183,7 @@ const Home: NextPage = () => {
                 locationRef={locationRef}
                 isExcursionModalOpen={isExcursionModalOpen}
                 toggleExcursionModal={toggleExcursionModal}
-                formModalRef={formModalRef}
+                consultFormModalRef={consultFormModalRef}
                 onSubmitFormConsult={onSubmitFormConsult}
                 handleReasonModal={handleReasonModal}
                 isReasonModalOpen={isReasonModalOpen}

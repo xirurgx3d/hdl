@@ -3,13 +3,12 @@ import {Element} from "react-scroll";
 import Courusels from "../Corusels/Courusels";
 import Link from "next/link";
 import SolarYMaps from "../Maps/SolarYMaps";
-import { sendLead } from '../../api-methods/macro-crm';
 
 type Props = {
     locationRef: any;
     isExcursionModalOpen: boolean;
     toggleExcursionModal: (bool: boolean) => void;
-    formModalRef: any;
+    consultFormModalRef: any;
     onSubmitFormConsult: (evt: React.SyntheticEvent) => void;
     handleReasonModal: any;
     isReasonModalOpen: boolean;
@@ -17,27 +16,9 @@ type Props = {
     reason: string;
 }
 
-const sendRequestHandler = () => {
-    const params = {
-        name:'Иван',
-        phone: '+79001234567',
-        email: 'ivan@somedomain.com',
-        action: 'question',
-        message: 'Сколько будет стоить эта квартира с отделкой?',
-        channel_medium: 'Форма в карточке квартиры',
-        id: 1234567
-    };
-
-
-
-
-    window.macrocrm.send_request(params,onSuccess,onError)
-}
-
 const LocationSection = (props: Props) => {
     const {locationRef, isExcursionModalOpen, toggleExcursionModal, handleSetKvartir} = props;
-    const {formModalRef, onSubmitFormConsult, reason, handleReasonModal, isReasonModalOpen } = props;
-    // const []
+    const {consultFormModalRef, onSubmitFormConsult, reason, handleReasonModal, isReasonModalOpen } = props;
 
     return (
         <section className="location">
@@ -71,7 +52,7 @@ const LocationSection = (props: Props) => {
                                     <img src="./assets/ico/close.svg" alt="close"/>
                                 </div>
                                 <div className="section-header text-center">Заявка на консультацию</div>
-                                <form ref={formModalRef} onSubmit={onSubmitFormConsult}>
+                                <form ref={consultFormModalRef} onSubmit={onSubmitFormConsult}>
                                     <input className='forme-input' type="text" name="fio" placeholder="ФИО"/>
                                     <input className='forme-input' type="text" name="phone" placeholder="Телефон"/>
 
