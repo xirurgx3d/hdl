@@ -115,8 +115,10 @@ const Home: NextPage = () => {
         e.preventDefault();
         const uniqueID = Math.floor(1000000 + Math.random() * 900000);
 
-        function onSuccess(){console.log('Data Sent')}
-        function onError(){console.log('Submit Error')}
+        function onSuccess(response: any){
+            if (response.success){console.log('Data Sent')}
+        }
+        function onError(response: any){console.error('response', response)}
 
         const params = {
             name: consultFormModalRef.current[0].value,
@@ -126,7 +128,6 @@ const Home: NextPage = () => {
             channel_medium: consultFormModalRef.current[2].value,
             id: uniqueID
         }
-        console.log('params', params)
 
         // @ts-ignore
         window.macrocrm.send_request(params,onSuccess,onError)
