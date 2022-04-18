@@ -1,10 +1,10 @@
 import React from "react";
 
 type Props = {
-    handlefratis: () => void;
+    handleChessMacro: () => void;
 }
 
-const BriefSection = ({handlefratis}: Props) => {
+const BriefSection = ({handleChessMacro}: Props) => {
     return <section className="brief">
         <div className="container">
             <div className="row">
@@ -26,10 +26,10 @@ const BriefSection = ({handlefratis}: Props) => {
                 </div>
                 <div className="col-md-3 col-sm-5 col-12 d-sm-block d-flex flex-column-reverse">
                     <div className="brief__name row w-100 mx-auto gap-2">
-                        <div onClick={handlefratis} className="col">Ст</div>
-                        <div onClick={handlefratis} className="col">1к</div>
-                        <div onClick={handlefratis} className="col">2к</div>
-                        <div onClick={handlefratis} className="col">
+                        <div onClick={handleChessMacro} className="col">Ст</div>
+                        <div onClick={handleChessMacro} className="col">1к</div>
+                        <div onClick={handleChessMacro} className="col">2к</div>
+                        <div onClick={handleChessMacro} className="col">
                             Коммерческая недвижимость
                         </div>
                     </div>

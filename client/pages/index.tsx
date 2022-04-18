@@ -27,6 +27,7 @@ import BriefSection from '../components/MainPageComponents/BriefSection/BriefSec
 import AboutSection from "../components/MainPageComponents/AboutSection";
 import LocationSection from '../components/MainPageComponents/LocationSection'
 import Footer from '../components/MainPageComponents/Footer'
+import Script from "next/script";
 // import { YMInitializer } from 'react-yandex-metrika';
 
 const Home: NextPage = () => {
@@ -101,7 +102,10 @@ const Home: NextPage = () => {
     const [isMaterialModalOpen, setIsMaterialModalOpen] = React.useState<any>(false);
     const handleIsMaterialModalOpen = (bool: boolean) => setIsMaterialModalOpen(bool);
 
-    const handlefratis = () => console.log('flartis.create_chess()');
+    const handleChessMacro = () => {
+        // @ts-ignore
+        window.macrocrm.initCatalogAndShow({})
+    }
 
     // дата в попапе
     const [date_modal, setdate_modal] = React.useState<any>(false);
@@ -153,9 +157,9 @@ const Home: NextPage = () => {
                 <img src='/assets/img/allcall.png'/>
             </div>
             <Element name="test0" className="element" style={{backgroundColor: 'red'}}/>
-            <Header handlefratis={handlefratis}/>
+            <Header handleChessMacro={handleChessMacro}/>
             <MainSlider/>
-            <BriefSection handlefratis={handlefratis}/>
+            <BriefSection handleChessMacro={handleChessMacro}/>
             <Element name="test1" className="element">
                 <AboutSection reference={aboutSectionRef}/>
             </Element>
@@ -288,7 +292,7 @@ const Home: NextPage = () => {
                                 на покупку квартиры
                             </div>
                         </div>
-                        <div className="genplan__item col-md col-12" onClick={() => handlefratis()}>
+                        <div className="genplan__item col-md col-12" onClick={() => handleChessMacro()}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -586,12 +590,22 @@ const Home: NextPage = () => {
                 footerScroll={footerScroll}
                 aboutSectionScroll={aboutSectionScroll}
                 handleSellsOfficeModal={handleSellsOfficeModal}
-                handlefratis={handlefratis}
+                handleChessMacro={handleChessMacro}
                 locationScroll={locationScroll}
                 handleSettingPage={handleSettingPage}
                 handleIsSettingModalOpen={handleIsSettingModalOpen}
                 handleIsMaterialModalOpen={handleIsMaterialModalOpen}
                 handleIsDocModalOpen={handleIsDocModalOpen}
+            />
+            <div className="mcrm-inline-form" data-type="catalog"></div>
+            <Script dangerouslySetInnerHTML={{
+                __html: `
+                (function (d, w) {var n = d.getElementsByTagName("script")[0], s = d.createElement("script"); 
+                s.type = "text/javascript"; s.async = true; 
+                s.src = "https://api.macroserver.ru/estate/embedjs/?domain=жксолнечныйпарк.рф"; 
+                n.parentNode.insertBefore(s, n)})(document, window)
+              `,
+            }}
             />
         </>
     )

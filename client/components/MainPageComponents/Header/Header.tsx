@@ -3,10 +3,10 @@ import Link from "next/link";
 import React from "react";
 
 type Props = {
-    handlefratis: () => void;
+    handleChessMacro: () => void;
 }
 
-const Header = ({handlefratis}: Props) => {
+const Header = ({handleChessMacro}: Props) => {
     return (
         <header>
             <div className="container">
@@ -19,7 +19,7 @@ const Header = ({handlefratis}: Props) => {
                                smooth={true} offset={-110} duration={100}>
                             О проекте
                         </Links>
-                        <a onClick={handlefratis} className="nav-menu__link col">ПОДБОР КВАРТИРЫ</a>
+                        <a onClick={handleChessMacro} className="nav-menu__link col">ПОДБОР КВАРТИРЫ</a>
                         <Links className="nav-menu__link col" activeClass="active" to="test2" spy={true}
                                smooth={true} offset={-110} duration={100}>
                             РАСПОЛОЖЕНИЕ</Links>
@@ -31,11 +31,11 @@ const Header = ({handlefratis}: Props) => {
                             Контакты</Links>
                     </div>
                     <div className="flats_box col-2 px-0">
-                        <a onClick={handlefratis} className="nav-menu__link green_link col">
+                        <a onClick={handleChessMacro} className="nav-menu__link green_link col">
                             <img src="/assets/ico/kvartiri.svg" alt="kvartiri"/>
                             КВАРТИРЫ
                         </a>
-                        <a onClick={handlefratis} className="nav-menu__link green_link col">
+                        <a onClick={handleChessMacro} className="nav-menu__link green_link col">
                             <img src="/assets/ico/estate.svg" alt="estate"/>
                             Коммерческая<br/>недвижимость
                         </a>

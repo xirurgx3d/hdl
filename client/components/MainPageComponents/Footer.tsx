@@ -7,7 +7,7 @@ type Props = {
     footerScroll: any;
     aboutSectionScroll: any;
     handleSellsOfficeModal: (bool: boolean) => void;
-    handlefratis: () => void;
+    handleChessMacro: () => void;
     locationScroll: any;
     handleSettingPage: (pageNum: number) => void;
     handleIsSettingModalOpen: (bool: boolean) => void;
@@ -16,7 +16,7 @@ type Props = {
 }
 
 const Footer = (props: Props) => {
-    const { footerRef, footerScroll, handleSellsOfficeModal, aboutSectionScroll, handlefratis, locationScroll } = props;
+    const { footerRef, footerScroll, handleSellsOfficeModal, aboutSectionScroll, handleChessMacro, locationScroll } = props;
     const { handleSettingPage, handleIsSettingModalOpen, handleIsMaterialModalOpen, handleIsDocModalOpen } = props;
 
     return (
@@ -48,8 +48,8 @@ const Footer = (props: Props) => {
                     <hr/>
                     <div className="row prefooter__middle">
                         <div className="col-md-4 col-12 mb-md-0 mb-5 flatic_cvart">
-                            <div onClick={handlefratis} className="builders flat">КВАРТИРЫ</div>
-                            <div onClick={handlefratis} className="builders builder">Коммерческая недвижимость</div>
+                            <div onClick={handleChessMacro} className="builders flat">КВАРТИРЫ</div>
+                            <div onClick={handleChessMacro} className="builders builder">Коммерческая недвижимость</div>
                         </div>
                         <div className="col">
                             <div className="prefooter__link-header">О проекте</div>
@@ -77,19 +77,19 @@ const Footer = (props: Props) => {
                         <div className="col">
                             <div className="prefooter__link-header">Подбор квартиры</div>
                             <ul className="prefooter__list">
-                                <a onClick={handlefratis}>
+                                <a onClick={handleChessMacro}>
                                     <li>Однокомнатные</li>
                                 </a>
-                                <a onClick={handlefratis}>
+                                <a onClick={handleChessMacro}>
                                     <li>Двухкомнатные</li>
                                 </a>
-                                <a onClick={handlefratis}>
+                                <a onClick={handleChessMacro}>
                                     <li>Трехкомнатные</li>
                                 </a>
-                                <a onClick={handlefratis}>
+                                <a onClick={handleChessMacro}>
                                     <li>Четырехкомнатные</li>
                                 </a>
-                                <a onClick={handlefratis}>
+                                <a onClick={handleChessMacro}>
                                     <li>Двухуровневые</li>
                                 </a>
                             </ul>

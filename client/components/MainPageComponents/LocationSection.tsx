@@ -3,6 +3,7 @@ import {Element} from "react-scroll";
 import Courusels from "../Corusels/Courusels";
 import Link from "next/link";
 import SolarYMaps from "../Maps/SolarYMaps";
+import { sendLead } from '../../api-methods/macro-crm';
 
 type Props = {
     locationRef: any;
@@ -16,9 +17,27 @@ type Props = {
     reason: string;
 }
 
+const sendRequestHandler = () => {
+    const params = {
+        name:'Иван',
+        phone: '+79001234567',
+        email: 'ivan@somedomain.com',
+        action: 'question',
+        message: 'Сколько будет стоить эта квартира с отделкой?',
+        channel_medium: 'Форма в карточке квартиры',
+        id: 1234567
+    };
+
+
+
+
+    window.macrocrm.send_request(params,onSuccess,onError)
+}
+
 const LocationSection = (props: Props) => {
     const {locationRef, isExcursionModalOpen, toggleExcursionModal, handleSetKvartir} = props;
     const {formModalRef, onSubmitFormConsult, reason, handleReasonModal, isReasonModalOpen } = props;
+    // const []
 
     return (
         <section className="location">

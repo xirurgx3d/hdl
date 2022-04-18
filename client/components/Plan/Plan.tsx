@@ -5,27 +5,28 @@ import SlidePlan3 from "./SlidePlan3";
 
 const Plan = () => {
   const [state, setstate] = useState(1)
-  const flartis = global.window as any
-    const handlefratis = () => {
-        flartis.create_chess() as any
+
+    const handleChessMacro = () => {
+        // @ts-ignore
+        window.macrocrm.initCatalogAndShow({})
     }
   return (
     <>
-      
+
       <div className='seting_page-about'>
         <div className='seting_page-aboutleft'>
           <div className='seting_page-about-title'>Планировочные решения</div>
-          
+
         </div>
         <div className='seting_page-aboutright'>
             <div className='seting_page-about-text'>
                 <p>Немаловажное достоинство  комплекса – широкий ассортимент квартир и уникальных планировок. В проекте доступно множество эргономичных планировочных решений, и все имеют свои преимущества. Каждая планировка – от студий до четырехкомнатных двухуровневых квартир – грамотно продумана и разработана архитектурным бюро из Санкт-Петербурга. </p>
             </div>
         </div>
-        
+
       </div>
 
-    
+
       <div className='selet_hous_box'>
         <div className="selet_left">
         <div className='check_hous'>
@@ -50,26 +51,26 @@ const Plan = () => {
           <span className='tit'>свою Солнечную</span>
           <span>Квартиру</span>
         </div>
-          <div className='selet_hous-text'>Квартира с уникальным планировочным решением, неповторимыми видовыми характеристиками и собственной террасой - современное решение для комфортной жизни. 
+          <div className='selet_hous-text'>Квартира с уникальным планировочным решением, неповторимыми видовыми характеристиками и собственной террасой - современное решение для комфортной жизни.
           </div>
-          <div className='selet_hous-button' onClick={()=> handlefratis()}>Выбрать квратиру</div>
+          <div className='selet_hous-button' onClick={()=> handleChessMacro()}>Выбрать квратиру</div>
         </div>
         </div>
         <div className='selet_hous-slide'>
           {
-            state === 1 && <SlidePlan1 /> 
-            
+            state === 1 && <SlidePlan1 />
+
           }
           {
-            state === 2 && <SlidePlan2 /> 
+            state === 2 && <SlidePlan2 />
           }
           {
-            state === 3 && <SlidePlan3 /> 
+            state === 3 && <SlidePlan3 />
           }
-        
+
       </div>
         </div>
-    
+
     </>
   )
 }
