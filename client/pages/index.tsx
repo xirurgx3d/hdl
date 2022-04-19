@@ -113,7 +113,6 @@ const Home: NextPage = () => {
     const consultFormModalRef = useRef<any>();
     const onSubmitFormConsult = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        const uniqueID = Math.floor(1000000 + Math.random() * 900000);
 
         function onSuccess(response: any){
             if (response.success){console.log('Data Sent')}
@@ -126,19 +125,10 @@ const Home: NextPage = () => {
             action: 'question',
             message: consultFormModalRef.current[3].value,
             channel_medium: consultFormModalRef.current[2].value,
-            id: uniqueID
         }
 
         // @ts-ignore
         window.macrocrm.send_request(params,onSuccess,onError)
-        // emailjs.sendForm('service_5f2mjwo', 'template_li7mqnj', consultFormModalRef.current, 'user_87qhZ0qw52GqaalcwFFTt')
-        //     .then((result) => {
-        //         console.log(result.text);
-        //         setIsExcursionModalOpen(false)
-        //     }, (error) => {
-        //         console.log(error.text);
-        //         setIsExcursionModalOpen(false)
-        //     });
     };
 
     const formModal2 = useRef<any>();
