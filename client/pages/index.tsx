@@ -18,6 +18,8 @@ import DatePicker from '@mui/lab/DatePicker';
 import TimePicker from '@mui/lab/TimePicker'
 import MatPage from '../components/MatPage/MatPage'
 import emailjs from '@emailjs/browser';
+import moment from 'moment';
+import 'moment/locale/ru'
 
 import Head from 'next/head';
 import {Link as Links, Element} from 'react-scroll'
@@ -108,16 +110,16 @@ const Home: NextPage = () => {
     }
 
     // дата в попапе
-    const [date_modal, setdate_modal] = React.useState<any>(false);
+    const [isDateModalOpen, setIsDateModalOpen] = React.useState<any>(false);
 
     const consultFormModalRef = useRef<any>();
     const onSubmitFormConsult = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        function onSuccess(response: any){
-            if (response.success){console.log('Data Sent')}
+        function onSuccess(response: any) {
+            if (response.success) {console.log('response', response)}
         }
-        function onError(response: any){console.error('response', response)}
+        function onError(response: any){ console.error('response', response)}
 
         const params = {
             name: consultFormModalRef.current[0].value,
@@ -128,21 +130,46 @@ const Home: NextPage = () => {
         }
 
         // @ts-ignore
-        window.macrocrm.send_request(params,onSuccess,onError)
+        window.macrocrm.send_request(params,onSuccess,onError);
+        setIsExcursionModalOpen(false);
     };
 
-    const formModal2 = useRef<any>();
-    const sendEmailModal2 = (e: any) => {
+    const infrastructureFormModalRef = useRef<any>();
+    const onSubmitFormInfrastructureFormModal = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_5f2mjwo', 'template_nmpmxap', formModal2.current, 'user_87qhZ0qw52GqaalcwFFTt')
-            .then((result) => {
-                console.log(result.text);
-                setSellsOfficeModalOpen(false)
-            }, (error) => {
-                console.log(error.text);
-                setSellsOfficeModalOpen(false)
-            });
+        const messageFormatted = (datevalue && timevalue)
+            ? `Позвоните мне ${moment(datevalue).locale('ru').format('LL')} в ${moment(timevalue).format('HH:mm')}`
+            :  'Перезвоните мне сейчас'
+
+        const sendObj = {
+            name:  infrastructureFormModalRef.current.querySelector('[name="username"]').value,
+            phone: infrastructureFormModalRef.current.querySelector('[name="phone"]').value,
+            action: 'question',
+            email: infrastructureFormModalRef.current.querySelector('[name="email"]').value,
+            message: messageFormatted,
+            channel_medium: infrastructureFormModalRef.current.querySelector('[name="email"]').value
+                ? 'Заказ обратного звонка'
+                : infrastructureFormModalRef.current[2].value,
+        }
+
+        function onSuccess(response: any) {
+            if (response.success) {console.log('response', response)}
+        }
+        function onError(response: any){console.error('response', response)}
+
+        const params = {
+            name:  sendObj.name,
+            phone: sendObj.phone,
+            action: 'question',
+            email: sendObj.email || null,
+            message: sendObj.message,
+            channel_medium: sendObj.channel_medium,
+        }
+
+        // @ts-ignore
+        window.macrocrm.send_request(params,onSuccess,onError);
+        setSellsOfficeModalOpen(false);
     };
 
     return (
@@ -490,16 +517,15 @@ const Home: NextPage = () => {
                                         </div>
                                     </div>
 
-                                    <form ref={formModal2} onSubmit={sendEmailModal2}>
-                                        <input className='forme-input' type="text" name='phone' placeholder="Телефон"/>
-
+                                    <form ref={infrastructureFormModalRef} onSubmit={onSubmitFormInfrastructureFormModal}>
                                         <input className='forme-input' type="text" name='username'
                                                placeholder="Ваше имя"/>
-                                        <input className='forme-input' type="email" name='mails' placeholder="Email"/>
+                                        <input className='forme-input' type="text" name='phone' placeholder="Телефон"/>
+                                        <input className='forme-input' type="email" name='email' placeholder="Email"/>
 
                                         <div className="row align-items-center">
                                             <div className="modal-checkbox col-5">
-                                                <label onClick={() => setdate_modal(false)}>
+                                                <label onClick={() => setIsDateModalOpen(false)}>
                                                     <input type="radio" name='radio' value="Сейчас" checked/>
                                                     <span>
                                             <span className="checkbox"></span>
@@ -508,7 +534,7 @@ const Home: NextPage = () => {
                                                 </label>
                                             </div>
                                             <div className="modal-checkbox col-5">
-                                                <label onClick={() => setdate_modal(true)}>
+                                                <label onClick={() => setIsDateModalOpen(true)}>
                                                     <input type="radio" name='radio'
                                                            value={`на время: дата - ${datevalue}, время ${timevalue}`}/>
                                                     <span>
@@ -519,7 +545,7 @@ const Home: NextPage = () => {
                                             </div>
                                         </div>
                                         {
-                                            date_modal &&
+                                            isDateModalOpen &&
                                             <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
                                                 <div className='datepiceres'>
                                                     <div className='datepiceres_box'>
@@ -547,8 +573,6 @@ const Home: NextPage = () => {
                                                 </div>
                                             </LocalizationProvider>
                                         }
-
-
                                         <input type="submit" className="btn" value="Отправить заявку"/>
 
                                     </form>

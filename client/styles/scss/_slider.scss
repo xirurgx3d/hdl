@@ -3,7 +3,7 @@
     width: 100%;
     max-width: 1900px;
     .slide{
-        width: 100%;
+        width: 100% !important;
 
         &__image{
             height: auto;
@@ -108,6 +108,10 @@
     .slick-slide{
         overflow:hidden;
     }
+}
+
+section.top-slider.main-slider > div > div > div > div.slick-slide.slick-active.slick-current > div > img {
+    width: 100% !important;
 }
 
 .allstile .slide .slick-prev{
