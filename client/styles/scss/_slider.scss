@@ -103,6 +103,12 @@
         margin: 96px auto 96px auto;
     }
 }
+//https://github.com/akiran/react-slick/issues/861
+.slick-track{
+    .slick-slide{
+        overflow:hidden;
+    }
+}
 
 .allstile .slide .slick-prev{
     background-image: url("/assets/img/arrallleft.png") !important;
