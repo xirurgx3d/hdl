@@ -34,6 +34,7 @@ import Script from "next/script";
 
 const Home: NextPage = () => {
 
+    let [errorTextColor, setErrorTextColor] = useState('dimgrey');
     const [val1, setval1] = useState(10)
     const [val2, setval2] = useState(10)
     const handleChange1 = (e: any) => {
@@ -117,21 +118,27 @@ const Home: NextPage = () => {
         e.preventDefault();
 
         function onSuccess(response: any) {
-            if (response.success) {console.log('response', response)}
+            if (response.success) {
+                console.log('response', response)
+                setErrorTextColor('dimgrey');
+                setIsExcursionModalOpen(false);
+            }
         }
-        function onError(response: any){ console.error('response', response)}
+        function onError(response: any){
+            console.error('response', response);
+            setErrorTextColor('#fe3231');
+        }
 
         const params = {
-            name: consultFormModalRef.current[0].value,
-            phone: consultFormModalRef.current[1].value,
+            name: consultFormModalRef.current.querySelector('[name="username"]').value,
+            phone: consultFormModalRef.current.querySelector('[name="phone"]').value,
             action: 'question',
-            message: consultFormModalRef.current[3].value,
-            channel_medium: consultFormModalRef.current[2].value,
+            message: consultFormModalRef.current.querySelector('[name="message"]').value,
+            channel_medium: consultFormModalRef.current.querySelector('[name="vopros"]').value,
         }
 
         // @ts-ignore
         window.macrocrm.send_request(params,onSuccess,onError);
-        setIsExcursionModalOpen(false);
     };
 
     const infrastructureFormModalRef = useRef<any>();
@@ -155,8 +162,13 @@ const Home: NextPage = () => {
 
         function onSuccess(response: any) {
             if (response.success) {console.log('response', response)}
+            setErrorTextColor('dimgrey');
+            setSellsOfficeModalOpen(false);
         }
-        function onError(response: any){console.error('response', response)}
+        function onError(response: any){
+            setErrorTextColor('#fe3231');
+            console.error('response', response);
+        }
 
         const params = {
             name:  sendObj.name,
@@ -169,7 +181,6 @@ const Home: NextPage = () => {
 
         // @ts-ignore
         window.macrocrm.send_request(params,onSuccess,onError);
-        setSellsOfficeModalOpen(false);
     };
 
     return (
@@ -207,6 +218,7 @@ const Home: NextPage = () => {
                 isReasonModalOpen={isReasonModalOpen}
                 handleSetKvartir={handleSetKvartir}
                 reason={reason}
+                errorTextColor={errorTextColor}
             />
             <Element name="test3" className="element">
                 <section className="characteristic" ref={myRef3}>
@@ -518,12 +530,15 @@ const Home: NextPage = () => {
                                     </div>
 
                                     <form ref={infrastructureFormModalRef} onSubmit={onSubmitFormInfrastructureFormModal}>
-                                        <input className='forme-input' type="text" name='username'
-                                               placeholder="Ваше имя"/>
+                                        <input className='forme-input' type="text" name='username' placeholder="Ваше имя"/>
+                                        <span style={{color: errorTextColor}}>*обязательное поле</span>
+
                                         <input className='forme-input' type="text" name='phone' placeholder="Телефон"/>
+                                        <span style={{color: errorTextColor}}>*обязательное поле</span>
+
                                         <input className='forme-input' type="email" name='email' placeholder="Email"/>
 
-                                        <div className="row align-items-center">
+                                        <div className="row align-items-center form-checkboxes">
                                             <div className="modal-checkbox col-5">
                                                 <label onClick={() => setIsDateModalOpen(false)}>
                                                     <input type="radio" name='radio' value="Сейчас" checked/>
@@ -573,7 +588,7 @@ const Home: NextPage = () => {
                                                 </div>
                                             </LocalizationProvider>
                                         }
-                                        <input type="submit" className="btn" value="Отправить заявку"/>
+                                        <input type="submit" className="btn submit-btn" value="Отправить заявку"/>
 
                                     </form>
                                     <div className="confirm__memo">

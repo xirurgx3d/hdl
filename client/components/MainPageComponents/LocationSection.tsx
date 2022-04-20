@@ -14,10 +14,11 @@ type Props = {
     isReasonModalOpen: boolean;
     handleSetKvartir: (str: string) => void;
     reason: string;
+    errorTextColor: string;
 }
 
 const LocationSection = (props: Props) => {
-    const {locationRef, isExcursionModalOpen, toggleExcursionModal, handleSetKvartir} = props;
+    const {locationRef, isExcursionModalOpen, toggleExcursionModal, handleSetKvartir, errorTextColor} = props;
     const {consultFormModalRef, onSubmitFormConsult, reason, handleReasonModal, isReasonModalOpen } = props;
 
     return (
@@ -53,8 +54,10 @@ const LocationSection = (props: Props) => {
                                 </div>
                                 <div className="section-header text-center">Заявка на консультацию</div>
                                 <form ref={consultFormModalRef} onSubmit={onSubmitFormConsult}>
-                                    <input className='forme-input' type="text" name="fio" placeholder="ФИО"/>
+                                    <input className='forme-input' type="text" name="username" placeholder="ФИО"/>
+                                    <span style={{color: errorTextColor}}>*обязательное поле</span>
                                     <input className='forme-input' type="text" name="phone" placeholder="Телефон"/>
+                                    <span style={{color: errorTextColor}}>*обязательное поле</span>
 
                                     <div className="custom-select active">
                                         <div className="d-flex justify-content-between align-items-center"
@@ -78,7 +81,7 @@ const LocationSection = (props: Props) => {
                                     </div>
                                     <input type="text" hidden name="vopros" value={reason}/>
                                     <textarea name="message" placeholder="Комментарии"/>
-                                    <input type="submit" className="btn" value="Отправить заявку"/>
+                                    <input type="submit" className="btn submit-btn" value="Отправить заявку"/>
                                 </form>
 
                                 <div className="confirm__memo">
