@@ -65,6 +65,22 @@ const Builds: NextPage = () => {
             ]
         },
         {
+            building: 'Дом 1, 2 и 3',
+            monthAndYear: 'Феравль 2022',
+            imgUrls: [
+                "/assets/step/2022/февраль/DJI_0024.jpg",
+                "/assets/step/2022/февраль/DJI_0027.jpg",
+                "/assets/step/2022/февраль/DJI_0029.jpg",
+                "/assets/step/2022/февраль/DJI_0033.jpg",
+                "/assets/step/2022/февраль/DJI_0034.jpg",
+                "/assets/step/2022/февраль/DJI_0038.jpg",
+                "/assets/step/2022/февраль/DJI_0039.jpg",
+                "/assets/step/2022/февраль/DJI_0042.jpg",
+                "/assets/step/2022/февраль/DJI_0043.jpg",
+                "/assets/step/2022/февраль/DJI_0047.jpg",
+            ]
+        },
+        {
             building: 'Дом 1, 2',
             monthAndYear: 'Январь 2022',
             imgUrls: [
@@ -193,7 +209,6 @@ const Builds: NextPage = () => {
                             return <div key={idx.toString()}>
                                 <div className="maaaar"/>
                                 <div className="col-6 characteristic_h1 section-header">{buildingEl.building}</div>
-
                                 <Slider
                                     className="coruselus steps__slider"
                                     ref={(slide) => setNav1(slide)}
