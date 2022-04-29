@@ -18,6 +18,8 @@ const MainSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
     onInit : () => {
       window.addEventListener('resize', updateSize);
       updateSize();
@@ -26,6 +28,8 @@ const MainSlider = () => {
   };
 
   const slidesUrls = [
+      "/assets/img/main-banner/6.png",
+    "/assets/img/main-banner/7.png",
     "/assets/img/main-banner/3.png",
     "/assets/img/main-banner/1.jpg",
     "/assets/img/main-banner/2.jpg",
