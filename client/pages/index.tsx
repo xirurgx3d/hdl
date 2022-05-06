@@ -106,7 +106,8 @@ const Home: NextPage = () => {
 
     const handleChessMacro = () => {
         // @ts-ignore
-        window.macrocrm.initCatalogAndShow({})
+        // window.macrocrm.initCatalogAndShow({})
+        window.location.href = 'https://жксолнечныйпарк.рф/#data-domoplan-open'
     }
 
     // дата в попапе
@@ -643,12 +644,13 @@ const Home: NextPage = () => {
                 handleIsDocModalOpen={handleIsDocModalOpen}
             />
             <div className="mcrm-inline-form" data-type="catalog"></div>
+             {/*Domoplaner widget code */}
             <Script dangerouslySetInnerHTML={{
                 __html: `
-                (function (d, w) {var n = d.getElementsByTagName("script")[0], s = d.createElement("script"); 
-                s.type = "text/javascript"; s.async = true; 
-                s.src = "https://api.macroserver.ru/estate/embedjs/?domain=жксолнечныйпарк.рф"; 
-                n.parentNode.insertBefore(s, n)})(document, window)
+                (function(d,o,m,p,l,a,n){d[l]=d[l]||function(){(d[l].n=d[l].n||[]).push(arguments)};
+                d[l].l=1*new Date();
+                a=o.createElement(m),n=o.getElementsByTagName(m)[0],a.async=1,a.src=p,n.parentNode.insertBefore(a,n)})(window, document, "script", "https://domoplaner.ru/catalog/sw.js", "dplanloader");
+                dplanloader("set","243/FB2zEF");
               `,
             }}
             />
