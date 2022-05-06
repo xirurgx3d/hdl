@@ -29,6 +29,7 @@ import AboutSection from "../components/MainPageComponents/AboutSection";
 import LocationSection from '../components/MainPageComponents/LocationSection'
 import Footer from '../components/MainPageComponents/Footer'
 import Script from "next/script";
+import {sendInfoToCRM} from "../api-methods/crm";
 // import { YMInitializer } from 'react-yandex-metrika';
 
 const Home: NextPage = () => {
@@ -122,6 +123,8 @@ const Home: NextPage = () => {
             if (response.success) {
                 console.log('response', response)
                 setErrorTextColor('dimgrey');
+                setdateValue(null);
+                settimeValue(null);
                 setIsExcursionModalOpen(false);
             }
         }
@@ -133,13 +136,15 @@ const Home: NextPage = () => {
         const params = {
             name: consultFormModalRef.current.querySelector('[name="username"]').value,
             phone: consultFormModalRef.current.querySelector('[name="phone"]').value,
-            action: 'question',
-            message: consultFormModalRef.current.querySelector('[name="message"]').value,
-            channel_medium: consultFormModalRef.current.querySelector('[name="vopros"]').value,
+            comment: consultFormModalRef.current.querySelector('[name="vopros"]').value+ ': ' + consultFormModalRef.current.querySelector('[name="message"]').value
         }
 
+        sendInfoToCRM(params)
+            .then(resp=> onSuccess(resp))
+            .catch(err=> onError(err))
+
         // @ts-ignore
-        window.macrocrm.send_request(params,onSuccess,onError);
+        // window.macrocrm.send_request(params,onSuccess,onError);
     };
 
     const infrastructureFormModalRef = useRef<any>();
@@ -164,6 +169,8 @@ const Home: NextPage = () => {
         function onSuccess(response: any) {
             if (response.success) {console.log('response', response)}
             setErrorTextColor('dimgrey');
+            setdateValue(null);
+            settimeValue(null);
             setSellsOfficeModalOpen(false);
         }
         function onError(response: any){
@@ -174,14 +181,16 @@ const Home: NextPage = () => {
         const params = {
             name:  sendObj.name,
             phone: sendObj.phone,
-            action: 'question',
             email: sendObj.email || null,
-            message: sendObj.message,
-            channel_medium: sendObj.channel_medium,
+            comment: sendObj.channel_medium + ': ' + sendObj.message,
         }
 
+        sendInfoToCRM(params)
+            .then(resp=> onSuccess(resp))
+            .catch(err=> onError(err))
+
         // @ts-ignore
-        window.macrocrm.send_request(params,onSuccess,onError);
+        // window.macrocrm.send_request(params,onSuccess,onError);
     };
 
     return (
