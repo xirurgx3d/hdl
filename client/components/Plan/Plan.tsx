@@ -6,6 +6,7 @@ import SlidePlan3 from "./SlidePlan3";
 const Plan = () => {
   const [state, setstate] = useState(1)
 
+    //macrocrm
     const handleChessMacro = () => {
         // @ts-ignore
         window.macrocrm.initCatalogAndShow({})

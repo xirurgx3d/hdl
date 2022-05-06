@@ -104,6 +104,7 @@ const Home: NextPage = () => {
     const [isMaterialModalOpen, setIsMaterialModalOpen] = React.useState<any>(false);
     const handleIsMaterialModalOpen = (bool: boolean) => setIsMaterialModalOpen(bool);
 
+    //macro
     const handleChessMacro = () => {
         // @ts-ignore
         // window.macrocrm.initCatalogAndShow({})
@@ -643,6 +644,7 @@ const Home: NextPage = () => {
                 handleIsMaterialModalOpen={handleIsMaterialModalOpen}
                 handleIsDocModalOpen={handleIsDocModalOpen}
             />
+            {/*macrocrm*/}
             <div className="mcrm-inline-form" data-type="catalog"></div>
              {/*Domoplaner widget code */}
             <Script dangerouslySetInnerHTML={{

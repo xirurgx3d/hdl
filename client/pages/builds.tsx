@@ -51,6 +51,19 @@ const Builds: NextPage = () => {
     const sliderBuildingPerMonth: BuildingPerMonth[] = [
         {
             building: 'Дом 1, 2 и 3',
+            monthAndYear: 'Апрель 2022',
+            imgUrls: [
+                "/assets/step/2022/апрель/DJI_0359.jpg",
+                "/assets/step/2022/апрель/DJI_0360.jpg",
+                "/assets/step/2022/апрель/DJI_0362.jpg",
+                "/assets/step/2022/апрель/DJI_0364.jpg",
+                "/assets/step/2022/апрель/DJI_0366.jpg",
+                "/assets/step/2022/апрель/DJI_0368.jpg",
+                "/assets/step/2022/апрель/DJI_0379.jpg",
+            ]
+        },
+        {
+            building: 'Дом 1, 2 и 3',
             monthAndYear: 'Март 2022',
             imgUrls: [
                 "/assets/step/2022/март/DJI_0024.jpg",
@@ -202,7 +215,6 @@ const Builds: NextPage = () => {
         <>
             <BuildsHeader/>
             <section className="steps">
-                <h4>Second Slider</h4>
                 <div className="container">
                     <SRLWrapper options={wrapperOptions}>
                         {sliderBuildingPerMonth.map((buildingEl: BuildingPerMonth, idx: number) => {
