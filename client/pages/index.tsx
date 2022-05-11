@@ -654,7 +654,7 @@ const Home: NextPage = () => {
                 handleIsDocModalOpen={handleIsDocModalOpen}
             />
             {/*macrocrm*/}
-            <div className="mcrm-inline-form" data-type="catalog"></div>
+            {/*<div className="mcrm-inline-form" data-type="catalog"></div>*/}
              {/*Domoplaner widget code */}
             <Script dangerouslySetInnerHTML={{
                 __html: `
