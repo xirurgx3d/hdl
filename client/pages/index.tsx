@@ -453,7 +453,7 @@ const Home: NextPage = () => {
                     </div>
 
                     <div className='characteristic_video'>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/wlOWFUMQn7k"
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/q4Ny9JKwIVQ"
                                 title="YouTube video player"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"/>
                     </div>
