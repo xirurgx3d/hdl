@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(xn--80aqu.xn--80apgfh0ct5a.xn--p1ai,xn--90avg.xn--80aqu.xn--80apgfh0ct5a.xn--p1ai)
+domains=(xn--80ajcndddqbgqne2gxc.xn--p1ai,www.xn--80ajcndddqbgqne2gxc.xn--p1ai)
 rsa_key_size=4096
 data_path="./certbot"
 email="" # Adding a valid address is strongly recommended
@@ -66,7 +66,7 @@ esac
 # Enable staging mode if needed
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
 
-docker-compose -f docker-compose.dev.yml run --rm --entrypoint "\
+docker-compose -f run --rm --entrypoint "\
   certbot certonly --webroot -w /var/www/certbot \
     $staging_arg \
     $email_arg \
@@ -74,7 +74,8 @@ docker-compose -f docker-compose.dev.yml run --rm --entrypoint "\
     -v \
     --rsa-key-size $rsa_key_size \
     --agree-tos \
-    --force-renewal" certbot
+    --force-renewal \
+		--dry-run" certbot
 echo
 
 echo "### Reloading nginx ..."
