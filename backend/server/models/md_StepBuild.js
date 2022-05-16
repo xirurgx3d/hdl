@@ -26,7 +26,7 @@ const StepBuildBildShema = new mongoose.Schema({
         ref:'stepbuild-steps'
     },
     img: {
-        type:String,
+        type:Array,
         
     }
     

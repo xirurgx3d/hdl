@@ -46,13 +46,24 @@ export class ControllerBridge{
     }
     async add(req,res){
         const body = req.body
-        console.log(body)
         if(req.files){
             const {img} = req.files
+
+						if(Array.isArray(img)){
+							
+								const imagesMass = img.reduce((acc,images) => {
+										images.mv(path.join(req.pathurl, 'img',images.name), err => console.log(err))
+										acc.push(images.name)
+										return acc
+								},[]);
+								await this.Shema.create({...body,img:imagesMass})
+						}else{
+							let filename = img.name
+	            img.mv(path.join(req.pathurl, 'img',filename), err => console.log(err))
+	            await this.Shema.create({...body,img:filename})
+						}
             
-            let filename = img.name
-            img.mv(path.join(req.pathurl, 'img',filename), err => console.log(err))
-            await this.Shema.create({...body,img:filename})
+            
         }else{
             await this.Shema.create({...body})
         }
@@ -60,13 +71,31 @@ export class ControllerBridge{
     }  
     async edit(req,res){
         const prodbody = req.body
-        const {id} = req.params
+        const {id} = req.params 
 
+				
         if(req.files){
+					const {img} = req.files
+
+					if(Array.isArray(img)){ 
+						const imagesMass = img.reduce((acc,images) => {
+								images.mv(path.join(req.pathurl, 'img',images.name), err => console.log(err))
+								acc.push(images.name)
+								return acc
+						},[]);
+						await this.Shema.findByIdAndUpdate(id,{...prodbody,img:imagesMass}) 
+					}else{
+						const {img} = req.files
+            let filename = img.name
+            img.mv(path.join(req.pathurl, 'img',filename), err => console.log(err))
+            await this.Shema.findByIdAndUpdate(id,{...prodbody,img:filename})
+					}
+						/*
             const {img} = req.files
             let filename = img.name
             img.mv(path.join(req.pathurl, 'img',filename), err => console.log(err))
             await this.Shema.findByIdAndUpdate(id,{...prodbody,img:filename})
+						*/
         }else{
             await this.Shema.findByIdAndUpdate(id,{...prodbody})
         }

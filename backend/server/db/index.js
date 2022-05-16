@@ -23,8 +23,8 @@ const mongooseOptions2 = {
 };
 
 // mongodb://username:password@localhost:27017/users  //127.0.0.1:27017
-//const connection = mongoose.connect(`mongodb://${DB_URL}/${DB_NAME}`, mongooseOptions);
-const connection = mongoose.connect(alias, mongooseOptions2);
+const connection = mongoose.connect(`mongodb://${DB_URL}/${DB_NAME}`, mongooseOptions);
+//const connection = mongoose.connect(alias, mongooseOptions2);
 
 
 

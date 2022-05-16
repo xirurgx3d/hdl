@@ -8,7 +8,6 @@ const StepBuildDashboard: React.FC = (): JSX.Element => {
   
   return (
     <>
-      <Steps />
       <Build />
       
     </>
