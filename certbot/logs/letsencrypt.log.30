@@ -1,0 +1,29 @@
+2022-03-23 13:04:37,528:DEBUG:certbot._internal.main:certbot version: 1.22.0
+2022-03-23 13:04:37,529:DEBUG:certbot._internal.main:Location of certbot entry point: /usr/local/bin/certbot
+2022-03-23 13:04:37,529:DEBUG:certbot._internal.main:Arguments: []
+2022-03-23 13:04:37,529:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
+2022-03-23 13:04:37,568:DEBUG:certbot._internal.log:Root logging level set at 30
+2022-03-23 13:04:37,570:DEBUG:certbot._internal.display.obj:Notifying user: Processing
+/etc/letsencrypt/renewal/xn--e1aybc.xn--80apgfh0ct5a.xn--p1ai-0001.conf
+2022-03-23 13:04:37,607:DEBUG:certbot._internal.plugins.selection:Requested authenticator <certbot._internal.cli.cli_utils._Default object at 0x7f2380ff5070> and installer <certbot._internal.cli.cli_utils._Default object at 0x7f2380ff5070>
+2022-03-23 13:04:37,685:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): r3.o.lencr.org:80
+2022-03-23 13:04:38,258:DEBUG:urllib3.connectionpool:http://r3.o.lencr.org:80 "POST / HTTP/1.1" 200 503
+2022-03-23 13:04:38,260:DEBUG:certbot.ocsp:OCSP response for certificate /etc/letsencrypt/archive/xn--e1aybc.xn--80apgfh0ct5a.xn--p1ai-0001/cert1.pem is signed by the certificate's issuer.
+2022-03-23 13:04:38,261:DEBUG:certbot.ocsp:OCSP certificate status for /etc/letsencrypt/archive/xn--e1aybc.xn--80apgfh0ct5a.xn--p1ai-0001/cert1.pem is: OCSPCertStatus.GOOD
+2022-03-23 13:04:38,266:DEBUG:certbot._internal.display.obj:Notifying user: Certificate not yet due for renewal
+2022-03-23 13:04:38,267:DEBUG:certbot._internal.plugins.selection:Requested authenticator webroot and installer None
+2022-03-23 13:04:38,267:DEBUG:certbot._internal.display.obj:Notifying user: Processing /etc/letsencrypt/renewal/xn--e1aybc.xn--80apgfh0ct5a.xn--p1ai.conf
+2022-03-23 13:04:38,333:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): r3.o.lencr.org:80
+2022-03-23 13:04:38,517:DEBUG:urllib3.connectionpool:http://r3.o.lencr.org:80 "POST / HTTP/1.1" 200 503
+2022-03-23 13:04:38,519:DEBUG:certbot.ocsp:OCSP response for certificate /etc/letsencrypt/archive/xn--e1aybc.xn--80apgfh0ct5a.xn--p1ai/cert3.pem is signed by the certificate's issuer.
+2022-03-23 13:04:38,519:DEBUG:certbot.ocsp:OCSP certificate status for /etc/letsencrypt/archive/xn--e1aybc.xn--80apgfh0ct5a.xn--p1ai/cert3.pem is: OCSPCertStatus.GOOD
+2022-03-23 13:04:38,521:DEBUG:certbot._internal.display.obj:Notifying user: Certificate not yet due for renewal
+2022-03-23 13:04:38,521:DEBUG:certbot._internal.plugins.selection:Requested authenticator webroot and installer None
+2022-03-23 13:04:38,522:DEBUG:certbot._internal.display.obj:Notifying user: 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+2022-03-23 13:04:38,522:DEBUG:certbot._internal.display.obj:Notifying user: The following certificates are not due for renewal yet:
+2022-03-23 13:04:38,522:DEBUG:certbot._internal.display.obj:Notifying user:   /etc/letsencrypt/live/xn--e1aybc.xn--80apgfh0ct5a.xn--p1ai-0001/fullchain.pem expires on 2022-05-30 (skipped)
+  /etc/letsencrypt/live/xn--e1aybc.xn--80apgfh0ct5a.xn--p1ai/fullchain.pem expires on 2022-05-29 (skipped)
+2022-03-23 13:04:38,522:DEBUG:certbot._internal.display.obj:Notifying user: No renewals were attempted.
+2022-03-23 13:04:38,522:DEBUG:certbot._internal.display.obj:Notifying user: - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+2022-03-23 13:04:38,522:DEBUG:certbot._internal.renewal:no renewal failures
