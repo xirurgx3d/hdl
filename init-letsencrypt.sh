@@ -79,4 +79,4 @@ docker-compose -f docker-compose.dev.yml run --rm --entrypoint "\
 echo
 
 echo "### Reloading nginx ..."
-docker-compose exec proxy nginx -s reload
+docker-compose -f docker-compose.dev.yml exec proxy nginx -s reload
