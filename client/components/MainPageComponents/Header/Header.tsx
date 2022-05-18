@@ -1,12 +1,15 @@
 import {Link as Links} from "react-scroll/modules";
 import Link from "next/link";
-import React from "react";
+import React, {useState} from "react";
+import MenuModal from "../../modals/MenuModal";
 
 type Props = {
     handleChessMacro: () => void;
+    isMenuModalHandler: (bool: boolean) => void
 }
 
-const Header = ({handleChessMacro}: Props) => {
+const Header = ({handleChessMacro, isMenuModalHandler}: Props) => {
+
     return (
         <header>
             <div className="container">
@@ -50,6 +53,7 @@ const Header = ({handleChessMacro}: Props) => {
                         </div>
                         <img src="/assets/img/call.png" className="contacts_call" alt="contacts"/>
                     </div>
+                    <div className='mob-burger' onClick={() => isMenuModalHandler(true)}></div>
                 </div>
             </div>
         </header>

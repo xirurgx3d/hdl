@@ -30,9 +30,13 @@ import LocationSection from '../components/MainPageComponents/LocationSection'
 import Footer from '../components/MainPageComponents/Footer'
 import Script from "next/script";
 import {sendInfoToCRM} from "../api-methods/crm";
+import MenuModal from "../components/modals/MenuModal";
 // import { YMInitializer } from 'react-yandex-metrika';
 
 const Home: NextPage = () => {
+
+    const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
+    const isMenuModalHandler = (bool: boolean) => setIsMenuModalOpen(bool);
 
     let [errorTextColor, setErrorTextColor] = useState('dimgrey');
     const [val1, setval1] = useState(10)
@@ -212,7 +216,8 @@ const Home: NextPage = () => {
                 <img src='/assets/img/allcall.png'/>
             </div>
             <Element name="test0" className="element" style={{backgroundColor: 'red'}}/>
-            <Header handleChessMacro={handleChessMacro}/>
+            <Header handleChessMacro={handleChessMacro} isMenuModalHandler={isMenuModalHandler}/>
+            {isMenuModalOpen && <MenuModal isMenuModalHandler={isMenuModalHandler} handleChessMacro={handleChessMacro}/> }
             <MainSlider/>
             <BriefSection handleChessMacro={handleChessMacro}/>
             <Element name="test1" className="element">

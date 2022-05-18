@@ -1,0 +1,118 @@
+.menu-modal {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+  .menu-modal-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    top: 0;
+    left: 0;
+  }
+
+  .menu-modal-content {
+    position: relative;
+    z-index: 9999;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    padding-top: 22px;
+    padding-bottom: 39px;
+    width: 105%;
+
+    .menu-title {
+      display: flex;
+      justify-content: space-between;
+
+      .menu-title-star {
+        margin-left: 15px;
+        position: relative;
+      }
+
+      .title {
+        color: #443571;
+        font-family: "Jost", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        position: absolute;
+        left: 14px;
+        bottom: 17px;
+      }
+    }
+
+    .close {
+      width: 16px;
+      height: 16px;
+      margin-right: 25px;
+      align-self: center;
+    }
+
+    .menu-modal-links {
+      margin-top: 28px;
+
+      li {
+        list-style-type: none;
+        margin-bottom: 19px;
+
+        .menu-modal__link {
+          color: #443571;
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+
+      .contact-info {
+        margin-left: 2rem;
+
+        .contact-phone {
+          font-family: "Jost", sans-serif;
+          font-weight: 400;
+          font-size: 14px;
+        }
+
+        .emails {
+          margin-top: 20px;
+        }
+
+        .contact-email {
+          color: #444444;
+          font-family: Jost, sans-serif;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+
+      .address {
+        margin-left: 2rem;
+        margin-top: 20px;
+
+        .address__city {
+          margin-top: 16px;
+        }
+      }
+    }
+
+    .social-network {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 46px;
+      margin-left: 2rem;
+      margin-right: 2rem;
+
+      a {
+        color: #444444;
+      }
+    }
+  }
+}
+
+
+
+
