@@ -36,16 +36,18 @@ const BuildForm: React.FC = (): JSX.Element => {
   const fomrdata = (formData:any,data:Inputs) => {
       formData.append('title', String(data.title))
       
-      formData.append('url', String(data.url))
-      if (YearValue) {
-         formData.append('year', String(YearValue)) 
-      }
+      //formData.append('url', String(data.url))
+    formData.append('year', String(data.year)) 
+      
       if (StepsValue) {
         formData.append('steps', String(StepsValue)) 
       }
-      if (filee || slideState?.img) {
-        formData.append('img', filee || slideState?.img)
-    }
+      if (filee) {
+        for (let i = 0; i < filee.length; i++) {
+          formData.append('img', filee[i])
+        }
+          
+      }
   }
   
 
@@ -88,7 +90,12 @@ const BuildForm: React.FC = (): JSX.Element => {
         dispatch({type:'deletUrl',payload:id})
     }, [state.urlVideo])
   */
-  
+    const imagesArr = useCallback((mass:string[]) => {
+      return mass.map((val:string) => {
+        return process.env.REACT_APP_API_URL + '/api/static/img/' + val
+        //[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]
+      })
+    },[id])
 
   
   
@@ -102,9 +109,11 @@ const BuildForm: React.FC = (): JSX.Element => {
             <input type="text" name="title" ref={register} defaultValue={slideState ? String(slideState.title) : ''} className="form-control" />
         </div>
         <div className="popBox_item"> 
-            <label className="form-label">Заголовок</label>
-            <input type="text" name="url" ref={register} defaultValue={slideState ? String(slideState.url) : ''} className="form-control" />
+            <label className="form-label">год меяц</label>
+            <input type="text" name="year" ref={register} defaultValue={slideState ? String(slideState.year) : ''} className="form-control" />
         </div>
+        
+        {/*
         <FormControl className={classes.formControl}>
                 <InputLabel id="year">Год</InputLabel>
                   <Select
@@ -141,12 +150,12 @@ const BuildForm: React.FC = (): JSX.Element => {
         <br />
         <label className="form-label">Превью видео</label>
         <br />
-        
+                  */ }
         {
-          !slideState && <DropzoneArea onChange={e => setfile(e[0])} />
+          !slideState && <DropzoneArea onChange={e => setfile(e)} />
         }
         {
-          id && slideState && <DropzoneArea onChange={e => setfile(e[0])}  initialFiles={[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]} />
+          id && slideState && <DropzoneArea onChange={e => setfile(e)} initialFiles={imagesArr(slideState?.img)} />
         }
       </div>
           

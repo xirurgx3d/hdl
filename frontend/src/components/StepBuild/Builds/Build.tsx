@@ -58,7 +58,7 @@ const Build: React.FC = (): JSX.Element => {
             <Link to={RouteEnv.STEP_BUILD_BUILD} >Добавить Слайдер</Link>
           </Button>
           <Grid container >
-            { steps &&
+            { /* steps &&
               <Grid item>
                 <FormControl className={classes.formControl}>
                   <InputLabel id="demo-simple-select-label">Очереди</InputLabel>
@@ -79,8 +79,11 @@ const Build: React.FC = (): JSX.Element => {
                   </Select>
                 </FormControl>
               </Grid>
-            }
-            <Grid item >  
+                  */ }
+            {
+              /**
+               * 
+               * <Grid item >  
               <FormControl className={classes.formControl}>
                 <InputLabel id="demo-simple-select-label">Год</InputLabel>
                   <Select
@@ -95,6 +98,9 @@ const Build: React.FC = (): JSX.Element => {
                   </Select>
                 </FormControl>
             </Grid>
+               */
+            }
+            
           </Grid>
           <BuildList steps={stepsValue} year={YearValue} />   
             
