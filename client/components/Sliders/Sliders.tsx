@@ -20,6 +20,7 @@ const MainSlider = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    pauseOnHover: false,
     onInit : () => {
       window.addEventListener('resize', updateSize);
       updateSize();

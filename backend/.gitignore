@@ -26,3 +26,4 @@ coverage
 
 # Benchmarking
 benchmarks/graphs
+/dist-server/

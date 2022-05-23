@@ -207,6 +207,7 @@ const Home: NextPage = () => {
                 <script src='/met.js'/>
                 <script src='/flat.js'/>
                 <script src='/vidj.js'/>
+                <script src='/domo.js'/>
                 <noscript>
                     <div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt=""/></div>
                 </noscript>
@@ -657,18 +658,6 @@ const Home: NextPage = () => {
                 handleIsSettingModalOpen={handleIsSettingModalOpen}
                 handleIsMaterialModalOpen={handleIsMaterialModalOpen}
                 handleIsDocModalOpen={handleIsDocModalOpen}
-            />
-            {/*macrocrm*/}
-            {/*<div className="mcrm-inline-form" data-type="catalog"></div>*/}
-             {/*Domoplaner widget code */}
-            <Script dangerouslySetInnerHTML={{
-                __html: `
-                (function(d,o,m,p,l,a,n){d[l]=d[l]||function(){(d[l].n=d[l].n||[]).push(arguments)};
-                d[l].l=1*new Date();
-                a=o.createElement(m),n=o.getElementsByTagName(m)[0],a.async=1,a.src=p,n.parentNode.insertBefore(a,n)})(window, document, "script", "https://domoplaner.ru/catalog/sw.js", "dplanloader");
-                dplanloader("set","243/FB2zEF");
-              `,
-            }}
             />
         </>
     )
