@@ -3,8 +3,8 @@ import "slick-carousel/slick/slick.css";
 import {SetStateAction, useState} from 'react';
 import "slick-carousel/slick/slick-theme.css";
 
-const AboutSlider = (): JSX.Element => {
-  const [nav, setNav] = useState<SetStateAction<any>>();
+const AboutSlider = () => {
+  const [nav, setNav] = useState<any>();
 
   const settings = {
     dots: true,
