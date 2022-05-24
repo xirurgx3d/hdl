@@ -1,4 +1,4 @@
-FROM node:14-alpine3.12
+FROM node:alpine
 # node:16 have problem sass
 
 
@@ -9,13 +9,14 @@ WORKDIR /usr/src/app
 
 # Installing dependencies
 COPY package*.json /usr/src/app/
+COPY yarn.lock /usr/src/app/
 
-RUN npm install
+RUN yarn install --production
 
 # Copying source files
 COPY . /usr/src/app
 
-# RUN npm run dev
+RUN yarn build
 
-# Running the app
-CMD "npm" "run" "dev"
+
+CMD [ "yarn", "start" ]
