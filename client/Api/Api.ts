@@ -26,7 +26,14 @@ function getApi({ api }: any) {
         method: 'get',
         url: `/components/galleryslide/list`,
        })
-    }
+    },
+		crm(data:any){
+			return request({
+        method: 'post',
+        url: `/send-form/send`,
+				data
+       })
+		}
   }
 }
  

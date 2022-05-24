@@ -19,6 +19,8 @@ import TimePicker from '@mui/lab/TimePicker'
 import MatPage from '../components/MatPage/MatPage'
 import moment from 'moment';
 import 'moment/locale/ru'
+import emailjs from '@emailjs/browser';
+
 
 import Head from 'next/head';
 import {Link as Links, Element} from 'react-scroll'
@@ -31,6 +33,7 @@ import Footer from '../components/MainPageComponents/Footer'
 import Script from "next/script";
 import {sendInfoToCRM} from "../api-methods/crm";
 import MenuModal from "../components/modals/MenuModal";
+import Api from '../Api/Api'
 // import { YMInitializer } from 'react-yandex-metrika';
 
 const Home: NextPage = () => {
@@ -120,20 +123,16 @@ const Home: NextPage = () => {
     const [isDateModalOpen, setIsDateModalOpen] = React.useState<any>(false);
 
     const consultFormModalRef = useRef<any>();
-    const onSubmitFormConsult = (e: React.SyntheticEvent) => {
+    const onSubmitFormConsult = async (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        function onSuccess(response: any) {
-            if (response.success) {
-                console.log('response', response)
-                setErrorTextColor('dimgrey');
-                setdateValue(null);
-                settimeValue(null);
-                setIsExcursionModalOpen(false);
-            }
+        function onSuccess() {
+					setErrorTextColor('dimgrey');
+					setdateValue(null);
+					settimeValue(null);
+					setIsExcursionModalOpen(false);
         }
-        function onError(response: any){
-            console.error('response', response);
+        function onError(){
             setErrorTextColor('#fe3231');
         }
 
@@ -143,10 +142,30 @@ const Home: NextPage = () => {
             comment: consultFormModalRef.current.querySelector('[name="vopros"]').value+ ': ' + consultFormModalRef.current.querySelector('[name="message"]').value
         }
 
+				emailjs.sendForm('service_5f2mjwo', 'template_li7mqnj', consultFormModalRef.current, 'user_87qhZ0qw52GqaalcwFFTt')
+				.then((result) => {
+						console.log(result.text);
+						setIsExcursionModalOpen(false)
+				}, (error) => {
+						console.log(error.text);
+						setIsExcursionModalOpen(false)
+				});
+
+
+				try {
+					const response = await Api.crm(params)
+					response.status === 200 && onSuccess()
+					
+				} catch (error) {
+					onError()
+					console.log(error);
+				}
+				
+				/*
         sendInfoToCRM(params)
             .then(resp=> onSuccess(resp))
             .catch(err=> onError(err))
-
+				*/
         // @ts-ignore
         // window.macrocrm.send_request(params,onSuccess,onError);
     };

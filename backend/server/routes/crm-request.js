@@ -1,11 +1,14 @@
-const request = require('request');
-const express = require("express");
+import request from 'request'
+import express from 'express'
+
+
+const router = express.Router()
 const API_KEY = '243_repfjrqAkdXjFjRSRDHRCxNpVtWrxDc6NYxcMJaGhcvnQaMY';
 
-var app = express();
-
 // for domoplaner
-app.post('/send-form/',  function(req, res) {
+router.post('/send',  function(req, res) {
+	/**/
+		console.log(req.body);
     request.post({
         url: 'https://domoplaner.ru/dc-api/api/leads/',
         qs: {
@@ -18,9 +21,10 @@ app.post('/send-form/',  function(req, res) {
             comment: req.body.comment
         }
     }, function(err, data, resp) {
-        let response = {err, data, resp}
-        return res.json(333);
+				!err ? res.status(200).json('ok') : res.status(500).json('no')
     });
+		
+		
 });
-
+export default router
 
