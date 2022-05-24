@@ -17,7 +17,7 @@ RUN yarn add @babel/core
 # Copying source files
 COPY . /usr/src/app
 
-RUN yarn build
+# RUN yarn build
 
 
 CMD [ "yarn", "dev" ]
