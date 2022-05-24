@@ -12,6 +12,7 @@ COPY package*.json /usr/src/app/
 COPY yarn.lock /usr/src/app/
 
 RUN yarn install --production
+RUN yarn add @babel/core
 
 # Copying source files
 COPY . /usr/src/app
