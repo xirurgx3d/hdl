@@ -31,7 +31,6 @@ import AboutSection from "../components/MainPageComponents/AboutSection";
 import LocationSection from '../components/MainPageComponents/LocationSection'
 import Footer from '../components/MainPageComponents/Footer'
 import Script from "next/script";
-import {sendInfoToCRM} from "../api-methods/crm";
 import MenuModal from "../components/modals/MenuModal";
 import Api from '../Api/Api'
 // import { YMInitializer } from 'react-yandex-metrika';
@@ -208,9 +207,8 @@ const Home: NextPage = () => {
             comment: sendObj.channel_medium + ': ' + sendObj.message,
         }
 
-        sendInfoToCRM(params)
-            .then(resp=> onSuccess(resp))
-            .catch(err=> onError(err))
+
+    
 
         // @ts-ignore
         // window.macrocrm.send_request(params,onSuccess,onError);
