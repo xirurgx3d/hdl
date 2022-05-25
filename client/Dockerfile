@@ -10,6 +10,7 @@ COPY yarn.lock /etc/app/cx
 
 RUN yarn install --production
 RUN yarn add @babel/core
+RUN npm i
 
 COPY . /etc/app/cx
 
