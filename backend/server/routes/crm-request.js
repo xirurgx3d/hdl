@@ -1,6 +1,6 @@
 import request from 'request'
 import express from 'express'
-
+import nodemailer from 'nodemailer'
 
 const router = express.Router()
 const API_KEY = '243_repfjrqAkdXjFjRSRDHRCxNpVtWrxDc6NYxcMJaGhcvnQaMY';
