@@ -19,7 +19,17 @@ services:
         command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"    
         networks:
             - mynetwork
-      
+    admin:
+        image: docker/frontend
+        build: ./frontend
+        container_name: admin
+        ports:
+          - "88:88"
+        command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+        links:
+            - api    
+        networks:
+            - mynetwork    
     api:
         image: docker/backend
         build: ./backend
