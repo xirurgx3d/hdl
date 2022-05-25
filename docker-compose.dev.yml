@@ -32,8 +32,6 @@ services:
         image: docker/client
         build: ./client
         container_name: web-public
-        volumes:
-            - ./client:/usr/src/app
         ports:
             - 3000:3000
         networks:
