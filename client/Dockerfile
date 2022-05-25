@@ -18,8 +18,8 @@ RUN yarn install
 # Copying source files
 COPY . /usr/src/app
 
-RUN npm run build
-# RUN yarn build
+
+RUN yarn build
 
 
-CMD [ "npm","run" ,"start" ]
+CMD [ "yarn","start" ]
