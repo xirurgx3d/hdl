@@ -170,7 +170,7 @@ const Home: NextPage = () => {
     };
 
     const infrastructureFormModalRef = useRef<any>();
-    const onSubmitFormInfrastructureFormModal = (e: React.SyntheticEvent) => {
+    const onSubmitFormInfrastructureFormModal = async (e: React.SyntheticEvent) => {
         e.preventDefault();
 
         const messageFormatted = (datevalue && timevalue)
@@ -188,16 +188,15 @@ const Home: NextPage = () => {
                 : infrastructureFormModalRef.current[2].value,
         }
 
-        function onSuccess(response: any) {
-            if (response.success) {console.log('response', response)}
+        function onSuccess() {
+            
             setErrorTextColor('dimgrey');
             setdateValue(null);
             settimeValue(null);
             setSellsOfficeModalOpen(false);
         }
-        function onError(response: any){
+        function onError(){
             setErrorTextColor('#fe3231');
-            console.error('response', response);
         }
 
         const params = {
@@ -208,7 +207,14 @@ const Home: NextPage = () => {
         }
 
 
-    
+				try {
+					const response = await Api.crm(params)
+					response.status === 200 && onSuccess()
+					
+				} catch (error) {
+					onError()
+					console.log(error);
+				}
 
         // @ts-ignore
         // window.macrocrm.send_request(params,onSuccess,onError);
@@ -221,10 +227,13 @@ const Home: NextPage = () => {
                 <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async/>
                 {/*<YMInitializer accounts={[70887214]} options={{webvisor: true}} />*/}
                 //Yandex.Metrika counter
-                <script src='/met.js'/>
-                <script src='/flat.js'/>
-                <script src='/vidj.js'/>
-                <script src='/domo.js'/>
+                
+                {
+									//<script src='/met.js'/>
+									//<script src='/flat.js'/>
+									//<script src='/vidj.js'/>
+									//<script src='/domo.js'/>
+								} 
                 <noscript>
                     <div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt=""/></div>
                 </noscript>
