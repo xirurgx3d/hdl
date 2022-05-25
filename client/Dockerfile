@@ -17,4 +17,4 @@ COPY . /etc/app/cx
 RUN yarn build
 
 
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "dev" ]
