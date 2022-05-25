@@ -15,6 +15,7 @@ WORKDIR /opt/app
 COPY . .
 COPY --from=deps /opt/app/node_modules ./node_modules
 RUN yarn build
+RUN npm i
 
 # Production image, copy all the files and run next
 FROM node:lts-alpine AS runner
