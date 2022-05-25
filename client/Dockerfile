@@ -13,8 +13,7 @@ RUN yarn add @babel/core
 RUN npm i
 
 COPY . /etc/app/cx
-
-RUN yarn build
+# RUN yarn build
 
 
 CMD [ "yarn", "dev" ]
