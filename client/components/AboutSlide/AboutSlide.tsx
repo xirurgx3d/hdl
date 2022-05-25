@@ -17,16 +17,7 @@ const AboutSlider = () => {
 
   return (
       <section className="top-slider allstile aboutslide">
-      <Slider className="slide  aboutslide" ref={slide => setNav(slide)} {...settings}>
-          <img src="/assets/img/about-slider/img1.jpg" alt="middle slider" />
-          <img src="/assets/img/about-slider/img2.jpg" alt="middle slider" />
-          <img src="/assets/img/about-slider/img3.jpg" alt="middle slider" />
-          <img src="/assets/img/about-slider/img4.jpg" alt="middle slider" />
-          <img src="/assets/img/about-slider/img5.jpg" alt="middle slider" />
-          <img src="/assets/img/about-slider/img6.jpg" alt="middle slider" />
-          <img src="/assets/img/about-slider/img7.jpg" alt="middle slider" />
-          <img src="/assets/img/about-slider/img8.jpg" alt="middle slider" />
-        </Slider>
+      
       </section>
   )
 }
