@@ -32,13 +32,13 @@ router.post('/send', async  function(req, res) {
 				port: 25,
 				secure: false,
 				auth: {
-					user: "test@khinkalich.ru",
-					pass: "rjqg4G&t"
+					user: "test@xn--80ajcndddqbgqne2gxc.xn--p1ai",
+					pass: "6m&8DQ5V"
 				}
 		});
 		
 			let info = await transporter.sendMail({
-				from: "test@khinkalich.ru",
+				from: "test@xn--80ajcndddqbgqne2gxc.xn--p1ai",
 				to: "sale@arcadacrimea.ru",
 				subject: "жксолнечныйпарк.рф",
 				text: req.body.comment,

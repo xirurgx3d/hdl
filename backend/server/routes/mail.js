@@ -16,6 +16,11 @@ router.post('/send',async (req,res)=>{
 	        pass: 'BdA*0SOh' //7mEcdON& //test 7EC*3Ufs
 	    }
 		});
+
+		auth: {
+        user: "test@khinkalich.ru",
+        pass: "rjqg4G&t"
+    	}
 		
 		let testEmailAccount = await nodemailer.createTestAccount()
 
@@ -34,14 +39,14 @@ router.post('/send',async (req,res)=>{
 			port: 25,
 			secure: false,
 			auth: {
-        user: "test@khinkalich.ru",
-        pass: "rjqg4G&t"
+        user: "test@xn--80ajcndddqbgqne2gxc.xn--p1ai",
+        pass: "6m&8DQ5V"
     	}
 	});
 	
 		let info = await transporter.sendMail({
-			from: "test@khinkalich.ru",
-			to: "sale@arcadacrimea.ru",
+			from: "test@xn--80ajcndddqbgqne2gxc.xn--p1ai",
+			to: "bambinix3dx@yandex.ru",
 			subject: "Подписка на рассылку с хинкалыч.рф",
 			text: "Подписка",
 			html: `mail `
