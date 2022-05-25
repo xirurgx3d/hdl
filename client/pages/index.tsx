@@ -228,13 +228,15 @@ const Home: NextPage = () => {
                 {/*<YMInitializer accounts={[70887214]} options={{webvisor: true}} />*/}
                 //Yandex.Metrika counter
                 
-                {
+								{
 									//<script src='/met.js'/>
 									//<script src='/flat.js'/>
-									//<script src='/vidj.js'/>
-									//<script src='/domo.js'/>
-								} 
-                <noscript>
+								}
+                
+								<script src='/vidj.js'/>
+								<script src='/domo.js'/>
+                
+								<noscript>
                     <div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt=""/></div>
                 </noscript>
                 ///Yandex.Metrika counter
