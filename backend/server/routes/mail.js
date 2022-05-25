@@ -6,17 +6,17 @@ const router = express.Router()
 router.post('/send',async (req,res)=>{
 	try {
 
-		/*
+		
 		let transporter = nodemailer.createTransport({
 			host: 'smtp.beget.com',
-	    port: 25,
-			
+	    port: 465,
+			secure: true,
 	    auth: {
 	        user: 'solar@arcadacrimea.ru',
-	        pass: 'Rokkox3d'
+	        pass: '*Dbln4rk'
 	    }
 		});
-		*/
+		/*
 		let testEmailAccount = await nodemailer.createTestAccount()
 
 		let transporter = nodemailer.createTransport({
@@ -27,11 +27,11 @@ router.post('/send',async (req,res)=>{
 		    user: testEmailAccount.user,
 		    pass: testEmailAccount.pass,
 		  },
-		})
+		})*/
 	
 		let info = await transporter.sendMail({
 			from: 'solar@arcadacrimea.ru', // sender address
-			to: "g-unitx3d@ukr.net", // list of receivers
+			to: "bambinix3dx@yandex.ru", // list of receivers
 			subject: "Hello ✔", // Subject line
 			text: "Hello world?", // plain text body
 			html: "<b>Hello world?</b>", // html body
