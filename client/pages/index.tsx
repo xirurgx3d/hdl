@@ -227,12 +227,8 @@ const Home: NextPage = () => {
                 <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async/>
                 {/*<YMInitializer accounts={[70887214]} options={{webvisor: true}} />*/}
                 //Yandex.Metrika counter
-                
-								{
-									//<script src='/met.js'/>
-									//<script src='/flat.js'/>
-								}
-                
+								<script src='/met.js'/>
+								<script src='/flat.js'/>
 								<script src='/vidj.js'/>
 								<script src='/domo.js'/>
                 

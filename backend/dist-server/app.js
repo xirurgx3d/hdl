@@ -50,7 +50,9 @@ app.use('/users', usersRouter);
 */
 
 app.use((0, _helmet["default"])());
-app.use((0, _cors["default"])());
+app.use((0, _cors["default"])({
+  origin: '*'
+}));
 app.use(_express["default"].json());
 app.use((0, _expressSession["default"])({
   secret: process.env.SECRET_KEY,
