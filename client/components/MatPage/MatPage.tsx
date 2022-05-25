@@ -1,5 +1,4 @@
 import { FC, useEffect, useRef, useState } from "react"
-import AboutSliders from "../AboutSlide/AboutSlide"
 import cn from "classnames"; 
 import { Link as Links, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import Plan from "../Plan/Plan";

@@ -130,7 +130,7 @@ const AboutSection = ({reference}: Props) => {
                         </div>
                     </div>
                     <div className="col-12 about__slider mt-4">
-                        <AboutSlider />
+                        
                     </div>
                 </div>
             </div>
