@@ -1,26 +1,19 @@
-FROM node:14
-# node:16 have problem sass
+FROM node:alpine
 
+RUN mkdir -p /etc/app/cx
+ENV PORT 3000
 
+WORKDIR /etc/app/cx
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+COPY package.json /etc/app/cx
+COPY yarn.lock /etc/app/cx
 
-# Installing dependencies
-COPY package*.json /usr/src/app/
-#COPY yarn.lock /usr/src/app/
+RUN yarn install --production
+RUN yarn add @babel/core
 
-RUN yarn install
-RUN npm i
-# RUN yarn install --production
-# RUN yarn add @babel/core
-
-# Copying source files
-COPY . /usr/src/app
-
+COPY . /etc/app/cx
 
 RUN yarn build
 
 
-CMD [ "yarn","start" ]
+CMD [ "yarn", "start" ]
