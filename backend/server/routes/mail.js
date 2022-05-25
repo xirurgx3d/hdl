@@ -6,17 +6,17 @@ const router = express.Router()
 router.post('/send',async (req,res)=>{
 	try {
 
-		
+		/*
 		let transporter = nodemailer.createTransport({
 			host: 'smtp.beget.com',
-	    port: 465,
-			secure: true,
+			port: 25,
+			secure: false,
 	    auth: {
-	        user: 'solar@arcadacrimea.ru',
-	        pass: '*Dbln4rk'
+	        user: 'test@жксолнечныйпарк.рф',
+	        pass: 'BdA*0SOh' //7mEcdON& //test 7EC*3Ufs
 	    }
 		});
-		/*
+		
 		let testEmailAccount = await nodemailer.createTestAccount()
 
 		let transporter = nodemailer.createTransport({
@@ -28,15 +28,24 @@ router.post('/send',async (req,res)=>{
 		    pass: testEmailAccount.pass,
 		  },
 		})*/
+
+		let transporter = nodemailer.createTransport({
+			host: "smtp.beget.com",
+			port: 25,
+			secure: false,
+			auth: {
+        user: "test@khinkalich.ru",
+        pass: "rjqg4G&t"
+    	}
+	});
 	
 		let info = await transporter.sendMail({
-			from: 'solar@arcadacrimea.ru', // sender address
-			to: "bambinix3dx@yandex.ru", // list of receivers
-			subject: "Hello ✔", // Subject line
-			text: "Hello world?", // plain text body
-			html: "<b>Hello world?</b>", // html body
-			
-		});
+			from: "test@khinkalich.ru",
+			to: "sale@arcadacrimea.ru",
+			subject: "Подписка на рассылку с хинкалыч.рф",
+			text: "Подписка",
+			html: `mail `
+ 	});
 
 		console.log("Message sent: %s", info.messageId);
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>

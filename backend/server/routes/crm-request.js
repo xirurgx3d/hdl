@@ -26,37 +26,24 @@ router.post('/send', async  function(req, res) {
 		
 		try {
 
-		
+			
 			let transporter = nodemailer.createTransport({
-				host: 'smtp.beget.com',
-				port: 465,
-				secure: true,
-				auth: {
-						user: 'solar@arcadacrimea.ru',
-						pass: '*Dbln4rk'
-				}
-			});
-			/*
-			let testEmailAccount = await nodemailer.createTestAccount()
-	
-			let transporter = nodemailer.createTransport({
-				host: 'smtp.ethereal.email',
-				port: 587,
+				host: "smtp.beget.com",
+				port: 25,
 				secure: false,
 				auth: {
-					user: testEmailAccount.user,
-					pass: testEmailAccount.pass,
-				},
-			})*/
+					user: "test@khinkalich.ru",
+					pass: "rjqg4G&t"
+				}
+		});
 		
 			let info = await transporter.sendMail({
-				from: 'solar@arcadacrimea.ru', // sender address
-				to: "bambinix3dx@yandex.ru", // list of receivers
-				subject: "Hello ✔", // Subject line
-				text: "Hello world?", // plain text body
-				html: "<b>Hello world?</b>", // html body
-				
-			});
+				from: "test@khinkalich.ru",
+				to: "sale@arcadacrimea.ru",
+				subject: "жксолнечныйпарк.рф",
+				text: req.body.comment,
+				html: ` имя - ${req.body.name}, телефон - ${req.body.phone}, сообщение - ${req.body.comment} `
+		 });
 	
 			console.log("Message sent: %s", info.messageId);
 		// Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
