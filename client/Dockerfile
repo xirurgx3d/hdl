@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:14
 # node:16 have problem sass
 
 
