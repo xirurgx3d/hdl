@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const alias = `mongodb+srv://pipin:540193@cluster0.la9be.mongodb.net/hdl`
 //const { DB_URL } = process.env;
 const DB_NAME = 'hdl'
-const DB_URL = 'mongodb://45.147.176.140:27017' // 127.0.0.1:27017 //localhost:27017 // 192.168.99.100
+const DB_URL = 'mongodb://45.147.176.140:27017/hdl' // 127.0.0.1:27017 //localhost:27017 // 192.168.99.100
 
 const mongooseOptions = {
     promiseLibrary:     global.Promise,
@@ -23,7 +23,7 @@ const mongooseOptions2 = {
 };
 
 // mongodb://username:password@localhost:27017/users  //127.0.0.1:27017
-const connection = mongoose.connect(`mongodb://${DB_URL}/${DB_NAME}`, mongooseOptions);
+const connection = mongoose.connect(DB_URL, mongooseOptions);
 //const connection = mongoose.connect(alias, mongooseOptions2);
 
 
