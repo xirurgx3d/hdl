@@ -27,6 +27,8 @@ const App: React.FC = () => {
     const history = useHistory();
     const classes = useStyles()
 
+		console.log('uppp');
+
     useEffect(() => {
         checkUser()
             .then(e => {
