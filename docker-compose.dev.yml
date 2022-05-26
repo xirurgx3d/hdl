@@ -34,10 +34,21 @@ services:
         image: docker/backend
         build: ./backend
         container_name: api 
+        depends_on:
+            - mongodb
         environment: 
             - PORT=4000
         networks:
-            - mynetwork      
+            - mynetwork    
+    mongodb:
+        container_name: development_mongodb
+        image: mongo
+        volumes:
+            - ./mongo/data:/data/db   
+        ports:
+            - "27017:27017"    
+        networks:
+            - mynetwork          
     web-public:
         image: docker/client
         build: ./client
