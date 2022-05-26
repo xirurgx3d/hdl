@@ -29,6 +29,7 @@ const App: React.FC = () => {
 
 		console.log('uppp');
 
+		/*
     useEffect(() => {
         checkUser()
             .then(e => {
@@ -42,7 +43,7 @@ const App: React.FC = () => {
             })
             .finally(() => setLoading(false))
     }, [UserStore._isAuth])
-    
+    */
     
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -50,12 +51,8 @@ const App: React.FC = () => {
         <>
             <div className={classes.root}>
             <CssBaseline />
-            { 
-                loading
-                  ? <Loader />
-                  : <Router />
-                    
-            }
+           
+						<Router />
             </div>
           
             
