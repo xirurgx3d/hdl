@@ -4,7 +4,8 @@ import { Button, Container, Grid, Paper, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { useStyles } from '../../../styled/material_styles';
 import { RouteEnv } from '../../../constants/constRouter';
-import GalleryHeadList from './GalleryHeadList';
+import SliderHeadList from './SliderHeadList';
+
 
 
 const SliderHead: React.FC = (): JSX.Element => {
@@ -22,7 +23,7 @@ const SliderHead: React.FC = (): JSX.Element => {
             <Link to={RouteEnv.SLIDERS_GALLERYHEAD} >Добавить Слайдер</Link>
           </Button>
 
-            <GalleryHeadList />
+            <SliderHeadList />
         </Paper>
       </Grid>
       

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SliderHead from './galleryHead/SliderHead';
+import SliderHead from './GalleryHead/SliderHead';
 import GallerySlide from './gallerySlide/GallerySlide';
 import HeadSlide from './headSlide/HeadSlide';
 //import GalleryHead from './galleryHead/GalleryHead';

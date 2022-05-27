@@ -14,7 +14,7 @@ type Inputs = {
   sliders:[]
 }
 
-const GalleryHeadForm: React.FC = (): JSX.Element => {
+const SliderHeadForm: React.FC = (): JSX.Element => {
   //const [slideState, setSlide] = useState<null | ISliders>(null)
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
   const [filee, setfile] = useState<any>(false)
@@ -65,4 +65,4 @@ const GalleryHeadForm: React.FC = (): JSX.Element => {
   )
 }
 
-export default GalleryHeadForm
+export default SliderHeadForm

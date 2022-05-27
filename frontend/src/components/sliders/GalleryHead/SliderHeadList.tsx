@@ -7,7 +7,7 @@ import Api, { API } from '../../../api/Api';
 import { slidersRoute } from '../../../constants/constFetch';
 import { popRouteEnv, RouteEnv } from '../../../constants/constRouter';
 import usePrepareLink from '../../../hooks/usePrepareLink';
-import Loader from './../../loader';
+import Loader from '../../loader';
 import styles from '../style.module.css'
 
 import Card from '@material-ui/core/Card';
