@@ -14,5 +14,8 @@ export const RouteEnv = {
   SLIDERS_SPECIFIC: '/sliders/specific',
   STEP_BUILD: '/step_build',
   STEP_BUILD_BUILD: '/step_build/build',
-  STEP_BUILD_STEPS:'/step_build/steps'
+  STEP_BUILD_STEPS:'/step_build/steps',
+	SETINGS_PAGE: '/setings',
+	SETINGS_ADRESS: '/setings/adress',
+	SETINGS_PHONE: '/setings/phone'
 }

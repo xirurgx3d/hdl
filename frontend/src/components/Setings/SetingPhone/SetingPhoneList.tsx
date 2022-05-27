@@ -4,11 +4,11 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { ICarousel } from '../../../@types/Interface';
 import Api, { API } from '../../../api/Api';
-import { slidersRoute, stepBuildRoute } from '../../../constants/constFetch';
+import { setingBuildRoute, slidersRoute } from '../../../constants/constFetch';
 import { popRouteEnv, RouteEnv } from '../../../constants/constRouter';
 import usePrepareLink from '../../../hooks/usePrepareLink';
-import Loader from '../../loader';
-import styles from '../style.module.css'
+import Loader from './../../loader';
+import styles from '../../sliders/style.module.css'
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -30,18 +30,13 @@ const useStyles = makeStyles({
   },
 });
 
-type Iprops = {
-  year: string
-  steps: string
-}
-
-const BuildList: React.FC<Iprops> = ({year,steps}): JSX.Element => {
+const SetingPhoneList: React.FC = (): JSX.Element => {
   const [state, setstate] = useState<null | Array<ICarousel>>(null)
   const classes = useStyles();
   
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(stepBuildRoute.build)
+      const {data} = await API.Sliders.slidelist(setingBuildRoute.phone)
       setstate(data)
     } catch (error) {
       setstate(null)
@@ -54,7 +49,7 @@ const BuildList: React.FC<Iprops> = ({year,steps}): JSX.Element => {
 
   const deletHadle = useCallback(async (id: string) => {
     try {
-      await API.Sliders.slideDelet(stepBuildRoute.build, id)
+      await API.Sliders.slideDelet(setingBuildRoute.phone, id)
       await fetchHeadSlideList()
     } catch (error) {
       console.log(error);
@@ -73,16 +68,13 @@ const BuildList: React.FC<Iprops> = ({year,steps}): JSX.Element => {
           state.map((val: any, index) => {
             return ( 
               
-              <SliderListTpl key={index} images={val.img[0]} route={RouteEnv.STEP_BUILD_BUILD + '/' + val._id} delet={()=> deletHadle(val._id)} >
-									<Typography gutterBottom variant="h4" component="h2">
-                      <Link className="badge bg-secondary" to={RouteEnv.SLIDERS_СAROUSEL + '/' + val._id}><ListItemText primary={val.title} /></Link>
-                    </Typography>
-                  <CardActions>
-                  <Typography gutterBottom variant="caption">дата: {val.year}</Typography>
-                  </CardActions>
-							
-							</SliderListTpl>
-             
+              
+							<ListItem key={index} button>
+									<Link className="badge bg-secondary" to={RouteEnv.SETINGS_PHONE + '/' + val._id}><ListItemText primary={val.title} /></Link>
+									<ListItemIcon>
+										<DeleteIcon onClick={()=> deletHadle(val._id)} />
+								</ListItemIcon>
+							</ListItem> 
                
            
             )
@@ -94,4 +86,4 @@ const BuildList: React.FC<Iprops> = ({year,steps}): JSX.Element => {
   )
 }
 
-export default memo(BuildList)
+export default memo(SetingPhoneList)

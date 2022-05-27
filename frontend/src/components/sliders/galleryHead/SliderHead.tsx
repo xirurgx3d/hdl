@@ -4,9 +4,10 @@ import { Button, Container, Grid, Paper, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { useStyles } from '../../../styled/material_styles';
 import { RouteEnv } from '../../../constants/constRouter';
-import GallerySlideList from './GallerySlideList';
+import GalleryHeadList from './GalleryHeadList';
 
-const GallerySlide: React.FC = (): JSX.Element => {
+
+const SliderHead: React.FC = (): JSX.Element => {
   const classes = useStyles()
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -15,13 +16,13 @@ const GallerySlide: React.FC = (): JSX.Element => {
          <Grid item xs={12}>
            <Paper className={fixedHeightPaper}>
               <Typography component="h2" variant="h6" color="primary" gutterBottom>
-            Слайдер в шапке
+            Слайдер в Живи на солнечной стороне!
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
-            <Link to={RouteEnv.SLIDERS_GALLERY} >Добавить Слайдер</Link>
+            <Link to={RouteEnv.SLIDERS_GALLERYHEAD} >Добавить Слайдер</Link>
           </Button>
-          <GallerySlideList />  
-            
+
+            <GalleryHeadList />
         </Paper>
       </Grid>
       
@@ -31,4 +32,4 @@ const GallerySlide: React.FC = (): JSX.Element => {
   )
 }
 
-export default GallerySlide
+export default SliderHead

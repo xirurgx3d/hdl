@@ -4,31 +4,29 @@ import { Button, Container, Grid, Paper, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { useStyles } from '../../../styled/material_styles';
 import { RouteEnv } from '../../../constants/constRouter';
+import SetingAdressList from './SetingAdressList';
 
-
-const GalleryHead: React.FC = (): JSX.Element => {
-  const classes = useStyles()
+const SetingAdress = () =>{
+	const classes = useStyles()
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  return (
-    <Grid container spacing={3}>
+	return (
+		<Grid container spacing={3}>
          <Grid item xs={12}>
            <Paper className={fixedHeightPaper}>
               <Typography component="h2" variant="h6" color="primary" gutterBottom>
-            Слайдер в шапке
+            Адресс
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
-            <Link to={RouteEnv.SLIDERS_GALLERYHEAD} >Добавить Слайдер</Link>
+            <Link to={RouteEnv.SETINGS_ADRESS} >Добавить Адресс</Link>
           </Button>
+					<SetingAdressList />
 
-            
         </Paper>
       </Grid>
       
       
        </Grid>
-    
-  )
+	)
 }
-
-export default GalleryHead
+export default SetingAdress

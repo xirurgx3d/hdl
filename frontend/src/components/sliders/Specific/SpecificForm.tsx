@@ -56,7 +56,7 @@ const SpecificForm: React.FC = (): JSX.Element => {
               !slideState && <DropzoneArea onChange={e => setfile(e[0])} />
             }
             {
-              id && slideState && <DropzoneArea onChange={e => setfile(e[0])} initialFiles={[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]} />
+              id && slideState && <DropzoneArea onChange={e => setfile(e[0])} initialFiles={[process.env.REACT_APP_API_URL + '/static/img/' + String(slideState?.img)]} />
             }
         </div>
         <div className="popBox_item"> 

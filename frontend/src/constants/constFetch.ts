@@ -9,3 +9,8 @@ export const stepBuildRoute = {
   step: 'stepbuild/step',
   build:'stepbuild/build'
 }
+
+export const setingBuildRoute = {
+  adress: 'setingsadress',
+	phone:'setingphone'
+}

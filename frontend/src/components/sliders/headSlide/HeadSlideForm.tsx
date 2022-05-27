@@ -48,12 +48,12 @@ const HeadSlideForm: React.FC = (): JSX.Element => {
           !slideState && <DropzoneArea onChange={e => setfile(e[0])} filesLimit={1} />
         }
         {
-          id && slideState && <DropzoneArea onChange={e => setfile(e[0])} filesLimit={1} initialFiles={[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]} />
+          id && slideState && <DropzoneArea onChange={e => setfile(e[0])} filesLimit={1} initialFiles={[process.env.REACT_APP_API_URL + '/static/img/' + String(slideState?.img)]} />
         }
           
         
         <br />
-        {process.env.REACT_APP_API_URL + '/api/static/img/' + slideState?.img}
+        {process.env.REACT_APP_API_URL + '/static/img/' + slideState?.img}
         <div className="popBox_item"> 
             <label className="form-label">Заголовок</label>
             <input type="text" name="title" ref={register} defaultValue={slideState ? String(slideState.title) : ''} className="form-control" />

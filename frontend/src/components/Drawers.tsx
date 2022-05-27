@@ -42,15 +42,8 @@ const Drawers: React.FC = () => {
             <ListItemText primary="Ход строительства" />
           </ListItem>
         </Link>
-        <Link  to={RouteEnv.CATALOG_CATAGORY}>
-          <ListItem button>
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Новости" />
-          </ListItem>
-        </Link>
-        <Link  to={RouteEnv.CATALOG_CATAGORY}>
+        
+        <Link  to={RouteEnv.SETINGS_PAGE}>
           <ListItem button>
             <ListItemIcon>
                 <DashboardIcon />

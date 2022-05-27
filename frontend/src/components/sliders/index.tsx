@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SliderHead from './galleryHead/SliderHead';
 import GallerySlide from './gallerySlide/GallerySlide';
 //import GalleryHead from './galleryHead/GalleryHead';
 //import HeadSlide from './headSlide/HeadSlide';
@@ -12,9 +13,9 @@ const SlidersDashboard: React.FC = (): JSX.Element => {
   return (
     <>
       <GallerySlide />
-      
+      <SliderHead />
       <Сarousel />
-      <Specific />
+      
     </>
     
   )

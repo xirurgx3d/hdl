@@ -78,7 +78,7 @@ interface Iback {
   producDelet: <T>(id?:T) => AxiosPromise,
 }
 
- function getApi({api}:any):Iback{
+ export function getApi({api}:any):Iback{
     const request: AxiosInstance = api
     const cat = new CatalogFabr(request)
     
@@ -143,8 +143,7 @@ interface Iback {
           method: 'delete',
           url: '/catalog/product/delet/' + id,
         })
-      },
-      
+      }
 
 
     }

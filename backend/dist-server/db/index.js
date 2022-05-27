@@ -6,9 +6,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var alias = "mongodb+srv://pipin:540193@cluster0.la9be.mongodb.net/hdl"; //const { DB_URL } = process.env;
 
-var DB_NAME = 'hdl';
-var DB_URL = 'localhost:27017'; // 127.0.0.1:27017 //localhost:27017 // 192.168.99.100
+var DB_NAME = 'hdl'; //const DB_URL = 'mongodb://mongodb:27017/hdl' // 127.0.0.1:27017 //localhost:27017 // 192.168.99.100
 
+var DB_URL = 'mongodb://localhost:27017/hdl';
 var mongooseOptions = {
   promiseLibrary: global.Promise,
   poolSize: 10,
@@ -25,7 +25,7 @@ var mongooseOptions2 = {
   useUnifiedTopology: true
 }; // mongodb://username:password@localhost:27017/users  //127.0.0.1:27017
 
-var connection = _mongoose["default"].connect("mongodb://".concat(DB_URL, "/").concat(DB_NAME), mongooseOptions); //const connection = mongoose.connect(alias, mongooseOptions2);
+var connection = _mongoose["default"].connect(DB_URL, mongooseOptions); //const connection = mongoose.connect(alias, mongooseOptions2);
 
 
 setTimeout(function () {

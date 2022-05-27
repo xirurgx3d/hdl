@@ -44,7 +44,7 @@ const SliderListTpl: React.FC<IProps> = ({images,delet,route, children }) => {
         <Link className="badge bg-secondary" to={route}>
         <CardMedia
           className={classes.media}
-          image={process.env.REACT_APP_API_URL + '/api/static/img/' + String(images)}
+          image={process.env.REACT_APP_API_URL + '/static/img/' + String(images)}
           title="Contemplative Reptile"
         />
         </Link>

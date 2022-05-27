@@ -49,7 +49,7 @@ const СarouselForm: React.FC = (): JSX.Element => {
           !slideState && <DropzoneArea onChange={e => setfile(e[0])} filesLimit={1} />
         }
         {
-          id && slideState && <DropzoneArea onChange={e => setfile(e[0])} filesLimit={1} initialFiles={[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]} />
+          id && slideState && <DropzoneArea onChange={e => setfile(e[0])} filesLimit={1} initialFiles={[process.env.REACT_APP_API_URL + '/static/img/' + String(slideState?.img)]} />
         }
           
         

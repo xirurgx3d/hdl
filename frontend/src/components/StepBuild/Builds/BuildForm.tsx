@@ -92,8 +92,8 @@ const BuildForm: React.FC = (): JSX.Element => {
   */
     const imagesArr = useCallback((mass:string[]) => {
       return mass.map((val:string) => {
-        return process.env.REACT_APP_API_URL + '/api/static/img/' + val
-        //[process.env.REACT_APP_API_URL + '/api/static/img/' + String(slideState?.img)]
+        return process.env.REACT_APP_API_URL + '/static/img/' + val
+        //[process.env.REACT_APP_API_URL + '/static/img/' + String(slideState?.img)]
       })
     },[id])
 
@@ -152,10 +152,10 @@ const BuildForm: React.FC = (): JSX.Element => {
         <br />
                   */ }
         {
-          !slideState && <DropzoneArea onChange={e => setfile(e)} />
+          !slideState && <DropzoneArea filesLimit={20} onChange={e => setfile(e)} />
         }
         {
-          id && slideState && <DropzoneArea onChange={e => setfile(e)} initialFiles={imagesArr(slideState?.img)} />
+          id && slideState && <DropzoneArea onChange={e => setfile(e)} filesLimit={20} initialFiles={imagesArr(slideState?.img)} />
         }
       </div>
           

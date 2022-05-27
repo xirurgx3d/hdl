@@ -36,7 +36,7 @@ const App: React.FC = () => {
                     history.push(RouteEnv.SLIDERS_PAGE)
                 } else {
                     UserStore.setIsAuth(e)
-                    //history.push("/auth/login")
+                    history.push("/auth/login")
                 }
             })
             .finally(() => setLoading(false))
