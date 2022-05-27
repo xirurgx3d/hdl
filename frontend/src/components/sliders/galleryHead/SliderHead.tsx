@@ -16,7 +16,7 @@ const SliderHead: React.FC = (): JSX.Element => {
          <Grid item xs={12}>
            <Paper className={fixedHeightPaper}>
               <Typography component="h2" variant="h6" color="primary" gutterBottom>
-            Слайдер в Живи на солнечной стороне!
+            Слайдер в шапке
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
             <Link to={RouteEnv.SLIDERS_GALLERYHEAD} >Добавить Слайдер</Link>

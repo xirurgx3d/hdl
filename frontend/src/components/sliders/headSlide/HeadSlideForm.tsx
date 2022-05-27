@@ -45,10 +45,10 @@ const HeadSlideForm: React.FC = (): JSX.Element => {
     <form className="popBox" onSubmit={handleSubmit(onSubmit)}>
       <div className="popBox_item">
         {
-          !slideState && <DropzoneArea onChange={e => setfile(e[0])} filesLimit={1} />
+          !slideState && <DropzoneArea onChange={e => setfile(e)} filesLimit={20} />
         }
         {
-          id && slideState && <DropzoneArea onChange={e => setfile(e[0])} filesLimit={1} initialFiles={[process.env.REACT_APP_API_URL + '/static/img/' + String(slideState?.img)]} />
+          id && slideState && <DropzoneArea onChange={e => setfile(e)} filesLimit={20} initialFiles={[process.env.REACT_APP_API_URL + '/static/img/' + String(slideState?.img)]} />
         }
           
         

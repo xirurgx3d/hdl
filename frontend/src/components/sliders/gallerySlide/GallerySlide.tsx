@@ -15,7 +15,7 @@ const GallerySlide: React.FC = (): JSX.Element => {
          <Grid item xs={12}>
            <Paper className={fixedHeightPaper}>
               <Typography component="h2" variant="h6" color="primary" gutterBottom>
-            Слайдер в шапке
+            Слайдер в Живи на солнечной стороне
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
             <Link to={RouteEnv.SLIDERS_GALLERY} >Добавить Слайдер</Link>

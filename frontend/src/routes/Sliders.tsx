@@ -4,7 +4,6 @@ import SlidersDashboard from '../components/sliders';
 import GalleryHeadForm from '../components/sliders/galleryHead/GalleryHeadForm';
 import SliderHead from '../components/sliders/galleryHead/SliderHead';
 import GallerySlideForm from '../components/sliders/gallerySlide/GallerySlideForm';
-//import GalleryHeadForm from '../components/sliders/galleryHead/GalleryHeadForm';
 import HeadSlideForm from '../components/sliders/headSlide/HeadSlideForm';
 import SpecificForm from '../components/sliders/Specific/SpecificForm';
 import СarouselForm from '../components/sliders/Сarousel/СarouselForm';
@@ -29,7 +28,7 @@ const Sliders: React.FC = () => {
 
             <Route exact path={RouteEnv.SLIDERS_GALLERYHEAD}>
                 <SliderDashbordTpl>
-                   <SliderHead /> 
+									<GalleryHeadForm />
                 </SliderDashbordTpl>
             </Route>
             <Route path={RouteEnv.SLIDERS_GALLERYHEAD + '/:id'}>
