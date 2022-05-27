@@ -1,11 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import SliderHead from './GalleryHead/SliderHead';
 import GallerySlide from './gallerySlide/GallerySlide';
-import HeadSlide from './headSlide/HeadSlide';
-//import GalleryHead from './galleryHead/GalleryHead';
-//import HeadSlide from './headSlide/HeadSlide';
-import Specific from './Specific/Specific';
+import SliderHead from './topSlide/SliderHead';
+
 import Сarousel from './Сarousel/Сarousel';
 
 

@@ -1,12 +1,10 @@
 import React from 'react';
 import { Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
 import SlidersDashboard from '../components/sliders';
-
-import SliderHead from '../components/sliders/GalleryHead/SliderHead';
-import SliderHeadForm from '../components/sliders/GalleryHead/SliderHeadForm';
 import GallerySlideForm from '../components/sliders/gallerySlide/GallerySlideForm';
 import HeadSlideForm from '../components/sliders/headSlide/HeadSlideForm';
 import SpecificForm from '../components/sliders/Specific/SpecificForm';
+import SliderHeadForm from '../components/sliders/topSlide/SliderHeadForm';
 import СarouselForm from '../components/sliders/Сarousel/СarouselForm';
 
 import { RouteEnv } from '../constants/constRouter';
