@@ -11,6 +11,7 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee?:Tfile) => {
   const { id } = useParams<{ id: string }>()
   const history:any = useHistory<RouteComponentProps>()
   
+	console.log('clickkk');
   
   useEffect(() => {
     id && (async function() {
