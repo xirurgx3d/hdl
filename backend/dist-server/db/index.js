@@ -6,9 +6,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var alias = "mongodb+srv://pipin:540193@cluster0.la9be.mongodb.net/hdl"; //const { DB_URL } = process.env;
 
-var DB_NAME = 'hdl'; //const DB_URL = 'mongodb://mongodb:27017/hdl' // 127.0.0.1:27017 //localhost:27017 // 192.168.99.100
+var DB_NAME = 'hdl';
+var DB_URL = 'mongodb://mongodb:27017/hdl'; // 127.0.0.1:27017 //localhost:27017 // 192.168.99.100
+//const DB_URL = 'mongodb://localhost:27017/hdl'
 
-var DB_URL = 'mongodb://localhost:27017/hdl';
 var mongooseOptions = {
   promiseLibrary: global.Promise,
   poolSize: 10,
