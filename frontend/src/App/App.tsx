@@ -15,7 +15,8 @@ import { useStyles } from '../styled/material_styles';
 import { Copyright } from '@material-ui/icons';
 import Router from '../routes/Router';
 import { RouteEnv } from '../constants/constRouter';
-import Api from '../api/Api';
+import Api, { API } from '../api/Api';
+import { slidersRoute } from '../constants/constFetch';
 
 
 
@@ -28,7 +29,12 @@ const App: React.FC = () => {
     const classes = useStyles()
 
 
+		const q = async () =>{
+			const {data} = await API.Sliders.slidelist(slidersRoute.galleryslide)
+			console.log(data);
+		}
     useEffect(() => {
+				q()
         checkUser()
             .then(e => {
                 if (e) {
