@@ -40,7 +40,7 @@ services:
             - PORT=4000
         restart: unless-stopped 
         volumes:
-            - ./static:/backend/public
+            - ./static:/usr/src/app/public/img
         ports:
             - "4000:4000"    
         networks:
