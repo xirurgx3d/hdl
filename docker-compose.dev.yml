@@ -39,6 +39,8 @@ services:
         environment: 
             - PORT=4000
         restart: unless-stopped 
+        volumes:
+            - ./static:/backend/public
         ports:
             - "4000:4000"    
         networks:
