@@ -4,7 +4,7 @@ const alias = `mongodb+srv://pipin:540193@cluster0.la9be.mongodb.net/hdl`
 //const { DB_URL } = process.env;
 const DB_NAME = 'hdl'
 const DB_URL = 'mongodb://mongodb:27017/hdl' // 127.0.0.1:27017 //localhost:27017 // 192.168.99.100
-//const DB_URL = 'mongodb://localhost:27017/hdl'
+//const DB_URL = 'mongodb://localhost:27017/hdl' 
 
 const mongooseOptions = {
     promiseLibrary:     global.Promise,
