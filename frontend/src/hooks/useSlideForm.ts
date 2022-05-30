@@ -11,7 +11,7 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee?:Tfile) => {
   const { id } = useParams<{ id: string }>()
   const history:any = useHistory<RouteComponentProps>()
   
-	console.log('clickkk');
+	
   
   useEffect(() => {
     id && (async function() {
@@ -31,7 +31,9 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee?:Tfile) => {
       const formData = new FormData()
       fomrdata(formData,data)
       
-      await API.Sliders.slideHandle(rout, formData, id)
+			
+      const q = await API.Sliders.slideHandle(rout, formData, id)
+			console.log('clickkk',formData,q,API.Sliders);
       history.goBack()
     } catch (error) {
       return
