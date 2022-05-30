@@ -47,8 +47,7 @@ services:
         image: mongo
         volumes:
             - ./mongo/data:/data/db   
-        ports:
-            - "27017:27017"    
+        
         networks:
             - mynetwork          
     web-public:
