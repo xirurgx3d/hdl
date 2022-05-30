@@ -10,6 +10,7 @@ import { API } from '../../../api/Api';
 import { stepBuildRoute } from '../../../constants/constFetch';
 import { initialStateBuild, reducerBuild } from '../../../reducers/reducerBuild';
 import BuildList from './BuildList';
+import { SlidersRequest } from '../../../api/requests/ReqSliders';
 
 
 
@@ -28,7 +29,7 @@ const Build: React.FC = (): JSX.Element => {
   useEffect(() => {
     (async function() {
       try {
-        const { data } =  await API.Sliders.slidelist(stepBuildRoute.step)
+        const { data } =  await SlidersRequest.slidelist(stepBuildRoute.step)
         setStetps(data)
       } catch (error) {
         setStetps(null)

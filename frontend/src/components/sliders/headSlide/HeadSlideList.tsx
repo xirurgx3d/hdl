@@ -11,6 +11,7 @@ import Loader from './../../loader';
 import styles from '../style.module.css'
 import Typography from '@material-ui/core/Typography';
 import SliderListTpl from '../../../views/sliders/SiderListTpl';
+import { SlidersRequest } from '../../../api/requests/ReqSliders';
 
 const useStyles = makeStyles({
   root: {
@@ -34,7 +35,7 @@ const HeadSlideList: React.FC = (): JSX.Element => {
 
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(slidersRoute.headeslide)
+      const {data} = await SlidersRequest.slidelist(slidersRoute.headeslide)
       setstate(data)
     } catch (error) {
       setstate(null)
@@ -47,7 +48,7 @@ const HeadSlideList: React.FC = (): JSX.Element => {
 
   const deletHadle = useCallback(async (id: string) => {
     try {
-      await API.Sliders.slideDelet(slidersRoute.headeslide, id)
+      await SlidersRequest.slideDelet(slidersRoute.headeslide, id)
       await fetchHeadSlideList()
     } catch (error) {
       console.log(error);

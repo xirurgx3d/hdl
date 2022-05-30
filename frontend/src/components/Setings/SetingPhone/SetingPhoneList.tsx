@@ -16,6 +16,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import SliderListTpl from '../../../views/sliders/SiderListTpl';
+import { SlidersRequest } from '../../../api/requests/ReqSliders';
 
 
 const useStyles = makeStyles({
@@ -36,7 +37,7 @@ const SetingPhoneList: React.FC = (): JSX.Element => {
   
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(setingBuildRoute.phone)
+      const {data} = await SlidersRequest.slidelist(setingBuildRoute.phone)
       setstate(data)
     } catch (error) {
       setstate(null)
@@ -49,7 +50,7 @@ const SetingPhoneList: React.FC = (): JSX.Element => {
 
   const deletHadle = useCallback(async (id: string) => {
     try {
-      await API.Sliders.slideDelet(setingBuildRoute.phone, id)
+      await SlidersRequest.slideDelet(setingBuildRoute.phone, id)
       await fetchHeadSlideList()
     } catch (error) {
       console.log(error);

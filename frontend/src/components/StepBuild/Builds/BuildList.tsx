@@ -16,6 +16,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import SliderListTpl from '../../../views/sliders/SiderListTpl';
+import { SlidersRequest } from '../../../api/requests/ReqSliders';
 
 
 const useStyles = makeStyles({
@@ -41,7 +42,7 @@ const BuildList: React.FC<Iprops> = ({year,steps}): JSX.Element => {
   
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(stepBuildRoute.build)
+      const {data} = await SlidersRequest.slidelist(stepBuildRoute.build)
       setstate(data)
     } catch (error) {
       setstate(null)
@@ -54,7 +55,7 @@ const BuildList: React.FC<Iprops> = ({year,steps}): JSX.Element => {
 
   const deletHadle = useCallback(async (id: string) => {
     try {
-      await API.Sliders.slideDelet(stepBuildRoute.build, id)
+      await SlidersRequest.slideDelet(stepBuildRoute.build, id)
       await fetchHeadSlideList()
     } catch (error) {
       console.log(error);

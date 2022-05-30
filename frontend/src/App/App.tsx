@@ -17,6 +17,8 @@ import Router from '../routes/Router';
 import { RouteEnv } from '../constants/constRouter';
 import Api, { API } from '../api/Api';
 import { slidersRoute } from '../constants/constFetch';
+import { SlidersRequest } from '../api/requests/ReqSliders';
+
 
 
 
@@ -29,12 +31,7 @@ const App: React.FC = () => {
     const classes = useStyles()
 
 
-		const q = async () =>{
-			const {data} = await API.Sliders.slidelist(slidersRoute.galleryslide)
-			console.log(data);
-		}
     useEffect(() => {
-				q()
         checkUser()
             .then(e => {
                 if (e) {

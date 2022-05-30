@@ -4,6 +4,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { ISteps } from '../../../@types/Interface';
 import Api, { API } from '../../../api/Api';
+import { SlidersRequest } from '../../../api/requests/ReqSliders';
 import { slidersRoute, stepBuildRoute } from '../../../constants/constFetch';
 import { RouteEnv } from '../../../constants/constRouter';
 import Loader from '../../loader';
@@ -17,7 +18,7 @@ const StepsList: React.FC = (): JSX.Element => {
   
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(stepBuildRoute.step)
+      const {data} = await SlidersRequest.slidelist(stepBuildRoute.step)
       setstate(data)
     } catch (error) {
       setstate(null)
@@ -30,7 +31,7 @@ const StepsList: React.FC = (): JSX.Element => {
 
   const deletHadle = useCallback(async (id: string) => {
     try {
-      await API.Sliders.slideDelet(stepBuildRoute.step, id)
+      await SlidersRequest.slideDelet(stepBuildRoute.step, id)
       await fetchHeadSlideList()
     } catch (error) {
       console.log(error);

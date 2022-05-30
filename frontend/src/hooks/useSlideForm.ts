@@ -3,6 +3,7 @@ import { useParams, useHistory, RouteComponentProps } from 'react-router-dom';
 
 import { API } from '../api/Api';
 import { Tfile,I } from '../@types/Interface';
+import { SlidersRequest } from '../api/requests/ReqSliders';
 
 type Tfomrdata = (fomrdata:any,data:any) => void
 
@@ -16,7 +17,7 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee?:Tfile) => {
   useEffect(() => {
     id && (async function() {
       try {
-        const { data } =  await API.Sliders.slidelist(rout, id)
+        const { data } =  await SlidersRequest.slidelist(rout, id)
         setSlide(data)
       } catch (error) {
         setSlide(null)
@@ -32,8 +33,7 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee?:Tfile) => {
       fomrdata(formData,data)
       
 			
-      const q = await API.Sliders.slideHandle(rout, formData, id)
-			console.log('clickkk',formData,q,API.Sliders);
+      const q = await SlidersRequest.slideHandle(rout, formData, id)
       history.goBack()
     } catch (error) {
       return

@@ -16,6 +16,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import SliderListTpl from '../../../views/sliders/SiderListTpl';
+import { SlidersRequest } from '../../../api/requests/ReqSliders';
 
 
 const useStyles = makeStyles({
@@ -36,7 +37,7 @@ const СarouselList: React.FC = (): JSX.Element => {
   
   const fetchHeadSlideList = async () => {
     try {
-      const {data} = await API.Sliders.slidelist(slidersRoute.carousel)
+      const {data} = await SlidersRequest.slidelist(slidersRoute.carousel)
       setstate(data)
     } catch (error) {
       setstate(null)
@@ -49,7 +50,7 @@ const СarouselList: React.FC = (): JSX.Element => {
 
   const deletHadle = useCallback(async (id: string) => {
     try {
-      await API.Sliders.slideDelet(slidersRoute.headeslide, id)
+      await SlidersRequest.slideDelet(slidersRoute.carousel, id)
       await fetchHeadSlideList()
     } catch (error) {
       console.log(error);

@@ -10,6 +10,7 @@ import { useStyles } from '../../../styled/material_styles';
 import { Fab, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import { initialStateBuild, reducerBuild } from '../../../reducers/reducerBuild';
+import { SlidersRequest } from '../../../api/requests/ReqSliders';
 
 
 
@@ -54,7 +55,7 @@ const BuildForm: React.FC = (): JSX.Element => {
   useEffect(() => {
    (async() => {
     try {
-      const {data} = await API.Sliders.slidelist(stepBuildRoutes.step)
+      const {data} = await SlidersRequest.slidelist(stepBuildRoutes.step)
       setSteps(data)
     } catch (error) {
       setSteps(null)
