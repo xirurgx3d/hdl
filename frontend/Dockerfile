@@ -3,8 +3,6 @@ WORKDIR '/app'
 COPY package.json .
 RUN npm install --force
 COPY . .
-RUN npm run build
+RUN npm run start
+EXPOSE 5000
 
-FROM nginx
-COPY --from=builder /app/build /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf

@@ -24,7 +24,7 @@ services:
         build: ./frontend
         container_name: admin
         ports:
-          - "88:88"
+          - "5000:5000"
         command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
         links:
             - api    
