@@ -2,3 +2,6 @@ a{
     color: inherit;
     text-decoration: none;
 }
+.MuiDrawer-paper{
+	position: relative !important;
+}
