@@ -154,12 +154,12 @@ const Home: NextPage = () => {
 				try {
 					const response = await Api.crm(params)
 					response.status === 200 && onSuccess()
-					
+
 				} catch (error) {
 					onError()
 					console.log(error);
 				}
-				
+
 				/*
         sendInfoToCRM(params)
             .then(resp=> onSuccess(resp))
@@ -189,7 +189,7 @@ const Home: NextPage = () => {
         }
 
         function onSuccess() {
-            
+
             setErrorTextColor('dimgrey');
             setdateValue(null);
             settimeValue(null);
@@ -210,7 +210,7 @@ const Home: NextPage = () => {
 				try {
 					const response = await Api.crm(params)
 					response.status === 200 && onSuccess()
-					
+
 				} catch (error) {
 					onError()
 					console.log(error);
@@ -231,7 +231,7 @@ const Home: NextPage = () => {
 								<script src='/flat.js'/>
 								<script src='/vidj.js'/>
 								<script src='/domo.js'/>
-                
+
 								<noscript>
                     <div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt=""/></div>
                 </noscript>
@@ -437,7 +437,7 @@ const Home: NextPage = () => {
                         </div>
                         <div
                             className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
-                            <a className="btn"><Link href="/builds"> Смотреть всё</Link></a>
+                            <Link href="/builds"><a className="btn" target="_blank"> Смотреть всё</a></Link>
                         </div>
                     </div>
                     {
@@ -477,8 +477,10 @@ const Home: NextPage = () => {
                         </div>
                         <div
                             className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
-                            <a className="btn"><Link
-                                href="https://www.youtube.com/channel/UCfwmRlxxlBg-Ich06wVevVw"> Смотреть всё</Link></a>
+                            <Link
+                                href="https://www.youtube.com/channel/UCfwmRlxxlBg-Ich06wVevVw">
+                                <a className="btn" target="_blank"> Смотреть всё</a>
+                            </Link>
                         </div>
                     </div>
 
