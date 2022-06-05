@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{ useEffect,useState } from 'react';
 import jwt_decode from "jwt-decode";
-import { useHistory } from 'react-router-dom';
+import { useHistory,useLocation } from 'react-router-dom';
 import UserStore from './../store/UserStore';
 //
 import { AppBar, Avatar, Badge, Box, Container, CssBaseline, Divider, Drawer, Grid, IconButton, Link, List, ListItem, ListItemIcon, ListItemText, Paper, Toolbar, Typography } from '@material-ui/core';
@@ -17,7 +17,9 @@ type Iuser = {
 const Header: React.FC = () => {
   const [user, setUser] = useState<string>('')
   const history = useHistory();
+	const location = useLocation()
   const classes = useStyles()
+	
 
   useEffect(() => {
     if (UserStore._isAuth) {
@@ -39,7 +41,9 @@ const Header: React.FC = () => {
 
   return (
     <AppBar position="absolute" className={clsx(classes.appBar, classes.appBarShift)}>
+				
         <Toolbar className={classes.toolbar}>
+					<div onClick={() => history.back()}>
           <IconButton
             edge="start"
             color="inherit"
@@ -49,6 +53,7 @@ const Header: React.FC = () => {
           >
             
           </IconButton>
+					</div>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>

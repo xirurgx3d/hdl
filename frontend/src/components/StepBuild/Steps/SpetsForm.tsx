@@ -12,6 +12,7 @@ import useSlideForm from '../../../hooks/useSlideForm';
 
 type Inputs = {
   title: string
+	url:string
 }
 
 const StepsForm: React.FC = (): JSX.Element => {
@@ -19,7 +20,7 @@ const StepsForm: React.FC = (): JSX.Element => {
   
   const fomrdata = (formData:any,data:Inputs) => {
       formData.append('title', String(data.title))
-      
+      formData.append('url', String(data.url))
   }
 
   const { slideState, onSubmit } = useSlideForm<Inputs, Inputs>(
@@ -37,9 +38,13 @@ const StepsForm: React.FC = (): JSX.Element => {
     <form className="popBox" onSubmit={handleSubmit(onSubmit)}>
       <div className="popBox_item">
         
-        <div className="popBox_item"> 
+			<div className="popBox_item"> 
             <label className="form-label">Заголовок</label>
             <input type="text" name="title" ref={register} defaultValue={slideState ? String(slideState.title) : ''} className="form-control" />
+        </div>
+        <div className="popBox_item"> 
+            <label className="form-label">Ссылка</label>
+            <input type="text" name="url" ref={register} defaultValue={slideState ? String(slideState.url) : ''} className="form-control" />
         </div>
         
             

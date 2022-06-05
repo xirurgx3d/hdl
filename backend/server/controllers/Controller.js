@@ -46,6 +46,9 @@ export class ControllerBridge{
     }
     async add(req,res){
         const body = req.body
+				console.log('w',req.body);
+				console.log('q',req.files);
+
         if(req.files){
             const {img} = req.files
 

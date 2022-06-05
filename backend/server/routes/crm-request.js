@@ -7,8 +7,6 @@ const API_KEY = '243_repfjrqAkdXjFjRSRDHRCxNpVtWrxDc6NYxcMJaGhcvnQaMY';
 
 // for domoplaner
 router.post('/send', async  function(req, res) {
-	/**/
-		console.log(req.body);
     request.post({
         url: 'https://domoplaner.ru/dc-api/api/leads/',
         qs: {
@@ -21,7 +19,7 @@ router.post('/send', async  function(req, res) {
             comment: req.body.comment
         }
     }, function(err, data, resp) {
-				!err ? res.status(200).json('ok') : res.status(500).json('no')
+				!err ? res.status(200).json({error:true}) : res.status(500).json({error:true})
     });
 		
 		try {

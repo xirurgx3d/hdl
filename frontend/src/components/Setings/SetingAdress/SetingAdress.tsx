@@ -15,10 +15,10 @@ const SetingAdress = () =>{
          <Grid item xs={12}>
            <Paper className={fixedHeightPaper}>
               <Typography component="h2" variant="h6" color="primary" gutterBottom>
-            Адресс
+            Адрес
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
-            <Link to={RouteEnv.SETINGS_ADRESS} >Добавить Адресс</Link>
+            <Link to={RouteEnv.SETINGS_ADRESS} >Добавить Адрес</Link>
           </Button>
 					<SetingAdressList />
 

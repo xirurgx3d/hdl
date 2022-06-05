@@ -106,11 +106,11 @@ const BuildForm: React.FC = (): JSX.Element => {
       <div className="popBox_item">
         
         <div className="popBox_item"> 
-            <label className="form-label">Заголовок</label>
+            <label className="form-label">Заголовок (ДОМ 1, 2, 3)</label>
             <input type="text" name="title" ref={register} defaultValue={slideState ? String(slideState.title) : ''} className="form-control" />
         </div>
         <div className="popBox_item"> 
-            <label className="form-label">год меяц</label>
+            <label className="form-label">год месяц</label>
             <input type="text" name="year" ref={register} defaultValue={slideState ? String(slideState.year) : ''} className="form-control" />
         </div>
         

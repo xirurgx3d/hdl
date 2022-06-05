@@ -32,7 +32,7 @@ export default <T,I>(fomrdata:Tfomrdata,rout:string,filee?:Tfile) => {
       const formData = new FormData()
       fomrdata(formData,data)
       
-			
+			console.log(formData);
       const q = await SlidersRequest.slideHandle(rout, formData, id)
       history.goBack()
     } catch (error) {

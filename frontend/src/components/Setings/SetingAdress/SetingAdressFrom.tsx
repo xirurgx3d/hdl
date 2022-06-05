@@ -48,7 +48,7 @@ const SetingAdressFrom = () => {
             <input type="text" name="title" ref={register} defaultValue={slideState ? String(slideState.title) : ''} className="form-control" />
         </div>
 				<div className="popBox_item">
-            <label className="form-label">Адресс</label>
+            <label className="form-label">Адрес</label>
             <textarea name="descript" ref={register} defaultValue={slideState ? String(slideState.descript) : ''}  className="form-control"></textarea>
         </div>
         <div className="popBox_item">
