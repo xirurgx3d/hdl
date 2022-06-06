@@ -6,10 +6,12 @@ const CarouselSlidehema = new mongoose.Schema({
         require:true
     },
     run:{
-        type:Number,
+        type:String,
+				default: ''
     },
     car:{
-        type:Number
+        type:String,
+				default: ''
     },
     img:{
         type:String,

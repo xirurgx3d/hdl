@@ -43,17 +43,7 @@ const Header: React.FC = () => {
     <AppBar position="absolute" className={clsx(classes.appBar, classes.appBarShift)}>
 				
         <Toolbar className={classes.toolbar}>
-					<div onClick={() => history.back()}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            
-            className={clsx(classes.menuButton, classes.menuButtonHidden)}
-          >
-            
-          </IconButton>
-					</div>
+					
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>

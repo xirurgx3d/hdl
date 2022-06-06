@@ -231,6 +231,7 @@ const Home: NextPage = () => {
 								<script src='/flat.js'/>
 								<script src='/vidj.js'/>
 								<script src='/domo.js'/>
+								<script src='/maps.js'/>
 
 								<noscript>
                     <div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt=""/></div>

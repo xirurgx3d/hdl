@@ -60,11 +60,11 @@ const СarouselForm: React.FC = (): JSX.Element => {
             <input type="text" name="title" ref={register} defaultValue={slideState ? String(slideState.title) : ''} className="form-control" />
         </div>
         <div className="popBox_item">
-            <label className="form-label">Пешком (только цифры)</label>
+            <label className="form-label">Пешком</label>
             <input type="text" name="run" ref={register} defaultValue={slideState ? String(slideState.run) : ''} className="form-control" />
         </div>
         <div className="popBox_item">
-            <label className="form-label">Транспорт (только цифры)</label>
+            <label className="form-label">Транспорт</label>
             <input type="text" name="car" ref={register} defaultValue={slideState ? String(slideState.car) : ''} className="form-control" />
         </div>
             

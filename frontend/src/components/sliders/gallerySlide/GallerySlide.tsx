@@ -18,7 +18,7 @@ const GallerySlide: React.FC = (): JSX.Element => {
             Слайдер в Живи на солнечной стороне
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
-            <Link to={RouteEnv.SLIDERS_GALLERY} >Добавить Слайдер</Link>
+            <Link to={RouteEnv.SLIDERS_GALLERY} >Редактировать слайдер</Link>
           </Button>
           <GallerySlideList />  
             

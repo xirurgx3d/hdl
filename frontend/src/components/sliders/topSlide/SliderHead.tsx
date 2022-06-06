@@ -20,7 +20,7 @@ const SliderHead: React.FC = (): JSX.Element => {
             Слайдер в шапке
           </Typography>
           <Button className={classes.add_buttons} variant="contained" color="primary">
-            <Link to={RouteEnv.SLIDERS_GALLERYHEAD} >Добавить Слайдер</Link>
+            <Link to={RouteEnv.SLIDERS_GALLERYHEAD} >Редактировать слайдер</Link>
           </Button>
 
             <SliderHeadList />

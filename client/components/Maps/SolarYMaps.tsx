@@ -1,5 +1,6 @@
 import React, {useMemo, useState} from "react";
 import {YMaps, Map, Placemark} from "react-yandex-maps";
+import cn from "classnames";
 
 const placeMarkOption = {
   iconLayout: 'default#image',
@@ -67,6 +68,9 @@ type Props = {
 
 const SolarYMaps = ({setIsModalOpen}: Props) => {
     const [stateMap, setStateMap] = useState<any>([45.008543, 34.060798])
+		const [dis, setdis] = useState<any>(true)
+
+		const CN = cn("wrapMap", { wrapMapactive: !dis})
 
     const [mapval, setMapval] = useState<any>([
         {
@@ -122,10 +126,12 @@ const SolarYMaps = ({setIsModalOpen}: Props) => {
 
     return (
         <>
+				
             <YMaps
                 enterprise
                 query={{apikey: "25ff2aee-f172-4ef8-9ba4-6e829954c5b5"}}
             >
+							
                 <Map style={{position: "absolute", width: "100%", height: "100%"}} modules={['geocode']}
                      state={mapstate} defaultState={
                     {
@@ -136,6 +142,7 @@ const SolarYMaps = ({setIsModalOpen}: Props) => {
                     }
                 }
                 >
+									<div id="wrapMap" className={CN}  onClick={() => setdis(false)}></div>	
                     <div className="location__select-window d-flex flex-wrap">
                         <div className="location__select__memo d-md-block d-none">инфраструктура</div>
                         <div className="section-header">ЖК «Солнечный Парк»</div>
@@ -184,8 +191,11 @@ const SolarYMaps = ({setIsModalOpen}: Props) => {
                             })
                         })
                     }
+									
                 </Map>
+								
             </YMaps>
+						
         </>
     )
 }
