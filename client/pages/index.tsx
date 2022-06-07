@@ -33,6 +33,7 @@ import Footer from '../components/MainPageComponents/Footer'
 import Script from "next/script";
 import MenuModal from "../components/modals/MenuModal";
 import Api from '../Api/Api'
+import BottomMap from '../components/Maps/BottomMap'
 // import { YMInitializer } from 'react-yandex-metrika';
 
 const Home: NextPage = () => {
@@ -642,9 +643,7 @@ const Home: NextPage = () => {
                             </>
                         }
                         {/* Карта с блоком для офиса */}
-                        <iframe className="solarmap"
-                                src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad7101d71b5e48403f7070e693c9bbdd9ef70cc6b284ae637d9e1edb34bd0613e&amp;source=constructor"
-                                width="100%" height="640"/>
+                        <BottomMap/>
                         <div className="bottom-map__contacts">
                             <div className="memo">Контакты</div>
                             <div className="header">Офис продаж</div>
