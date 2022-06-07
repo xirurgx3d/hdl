@@ -63,12 +63,12 @@
         align-items: center;
 				cursor: pointer;
 				&:hover{
-				
+
 					text-decoration: underline;
 				}
         &.flat{
             margin-bottom: 51px;
-						
+
             &:before{
                 margin-right: 16px;
                 content: '';
@@ -78,7 +78,7 @@
                 background-size: cover;
                 background-image: url("/assets/ico/flat.svg");
             }
-						
+
         }
         &.builder{
 						cursor: pointer;
@@ -175,6 +175,11 @@
         color: rgba(255,255,255,.5);
         font-size: 12px;
 
+        a {
+            color: rgba(255,255,255,.5);
+            font-size: 12px;
+        }
+
         img{
             margin-left: 24px;
         }
@@ -185,7 +190,7 @@
     .flatic_cvart{
         display: flex;
         justify-content: space-between;
-        
+
     }
     .prefooter .builders.flat{
         margin-bottom: 0;
