@@ -193,7 +193,7 @@ const Footer = (props: Props) => {
                             исключительно в результате отдельно и специально совершенных сделок.
                         </div>
                         <div className="who-create d-flex col-md-4 col-12 justify-content-end">
-                            Сайт создан — &nbsp;<a href="https://nvlshk.ru/" target="_blank"><b>студией Неваляшка</b></a>
+                            Сайт создан — &nbsp;<a href="https://nvlshk.ru/" target="_blank" rel="noreferrer"><b>студией Неваляшка</b></a>
                         </div>
                     </div>
                 </div>
