@@ -475,12 +475,12 @@ const Home: NextPage = () => {
                     <div className='maaaar'/>
                     <div className="row align-items-center mb-5">
                         <div className="col-6 characteristic_h1 section-header">
-                            Видеоотчет апрель 2022
+                            Видеоотчет май 2022
                         </div>
                         <div
                             className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
                             <Link
-                                href="https://www.youtube.com/channel/UCfwmRlxxlBg-Ich06wVevVw">
+                                href="https://www.youtube.com/channel/IhZ80AXpsk8">
                                 <a className="btn" target="_blank"> Смотреть всё</a>
                             </Link>
                         </div>
