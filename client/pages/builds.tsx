@@ -51,6 +51,20 @@ const Builds: NextPage = () => {
     const sliderBuildingPerMonth: BuildingPerMonth[] = [
         {
             building: 'Дом 1, 2 и 3',
+            monthAndYear: 'Май 2022',
+            imgUrls: [
+                "/assets/step/2022/май/0ZiZdZdpW5E.jpg",
+                "/assets/step/2022/май/2_psGRHWa-M.jpg",
+                "/assets/step/2022/май/8pJfiwh-0Mo.jpg",
+                "/assets/step/2022/май/G3HIDIPHoVA.jpg",
+                "/assets/step/2022/май/vpPMjrIjfec.jpg",
+                "/assets/step/2022/май/wBWPfDwXaJg.jpg",
+                "/assets/step/2022/май/XN-UlJEnAYo.jpg",
+                "/assets/step/2022/май/zkbVFqgtTq8.jpg",
+            ]
+        },
+        {
+            building: 'Дом 1, 2 и 3',
             monthAndYear: 'Апрель 2022',
             imgUrls: [
                 "/assets/step/2022/апрель/DJI_0359.jpg",

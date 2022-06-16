@@ -47,15 +47,16 @@ const StepBuild = (): JSX.Element => {
     }
 
     const buildingPicturePerMonth: BuildingPerMonth = {
-        monthAndYear: 'Апрель 2022',
+        monthAndYear: ' Май 2022',
         imgUrls: [
-            "/assets/step/2022/апрель/DJI_0359.jpg",
-            "/assets/step/2022/апрель/DJI_0360.jpg",
-            "/assets/step/2022/апрель/DJI_0362.jpg",
-            "/assets/step/2022/апрель/DJI_0364.jpg",
-            "/assets/step/2022/апрель/DJI_0366.jpg",
-            "/assets/step/2022/апрель/DJI_0368.jpg",
-            "/assets/step/2022/апрель/DJI_0379.jpg",
+            "/assets/step/2022/май/0ZiZdZdpW5E.jpg",
+            "/assets/step/2022/май/2_psGRHWa-M.jpg",
+            "/assets/step/2022/май/8pJfiwh-0Mo.jpg",
+            "/assets/step/2022/май/G3HIDIPHoVA.jpg",
+            "/assets/step/2022/май/vpPMjrIjfec.jpg",
+            "/assets/step/2022/май/wBWPfDwXaJg.jpg",
+            "/assets/step/2022/май/XN-UlJEnAYo.jpg",
+            "/assets/step/2022/май/zkbVFqgtTq8.jpg",
         ]
     }
 
