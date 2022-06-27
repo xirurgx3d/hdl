@@ -118,7 +118,6 @@ const Courusels = (): JSX.Element => {
 								{
 									slide && slide.map((el: any, idx:number) => {
                     return <div className="coruselus-itemes" key={idx.toString()}>
-                        <img src={el.imageUrl} alt="infrastructure"/>
 												<img className="slide__image" src={process.env.NEXT_PUBLIC_API_URL + '/static/img/' + String(el.img)} />
                         <div className="location__infrastructure__title">{el.title}</div>
                         <div className="location__infrastructure__time d-flex">
