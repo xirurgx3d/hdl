@@ -157,9 +157,8 @@ const StepBuild = (): JSX.Element => {
                         <iframe width="560" height="315" src={video && video.url}
                                 title="YouTube video player"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"/>
-																<iframe width="560" height="315" src="https://www.youtube.com/embed/q4Ny9JKwIVQ?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-																{video && video.url}
-									  </div>
+																
+                    </div>
 				</>
     )
 }
