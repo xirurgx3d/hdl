@@ -1,10 +1,11 @@
 import {NextPage} from "next";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "slick-carousel/slick/slick-theme.css";
 import BuildsHeader from "./builds/BuildsHeader";
 import {SRLWrapper} from "simple-react-lightbox";
+import Api from "../Api/Api";
 
 const Builds: NextPage = () => {
     const [nav1, setNav1] = useState<any>();
@@ -47,6 +48,21 @@ const Builds: NextPage = () => {
         monthAndYear: string;
         imgUrls: string[]
     }
+
+		const [slide, setSlide] = useState<any>(null);
+		const getSlide = async () =>{
+			const {data}:any = await Api.stepslidelist()
+			console.log(data);
+			if(data){
+				setSlide(data)
+			}else{
+				setSlide(null)
+			}
+		}
+		
+			useEffect(()=>{
+				getSlide()
+			},[])
 
     const sliderBuildingPerMonth: BuildingPerMonth[] = [
         {
@@ -231,27 +247,32 @@ const Builds: NextPage = () => {
             <section className="steps">
                 <div className="container">
                     <SRLWrapper options={wrapperOptions}>
-                        {sliderBuildingPerMonth.map((buildingEl: BuildingPerMonth, idx: number) => {
-                            return <div key={idx.toString()}>
-                                <div className="maaaar"/>
-                                <div className="col-6 characteristic_h1 section-header">{buildingEl.building}</div>
-                                <Slider
+                        
+												{
+													slide && slide.map((val:any)=>{
+															return (
+																<div key={val}>
+																 <div className="maaaar"/>
+                                <div className="col-6 characteristic_h1 section-header">{val.title}</div>
+																<Slider
                                     className="coruselus steps__slider"
                                     ref={(slide) => setNav1(slide)}
                                     {...sliderSettings}
-                                    slidesToShow={buildingEl.imgUrls.length < 4 ? buildingEl.imgUrls.length : 4}
+                                    slidesToShow={val.img.length < 4 ? val.img.length : 4}
                                 >
-                                    {buildingEl.imgUrls.map((url: string) => {
+                                    {val.img.map((url: string) => {
                                         return <div key={url} className="coruselus-itemes">
-                                            <img src={url} alt={buildingEl.monthAndYear} style={{cursor: 'pointer'}}/>
-                                            <div className="step__date">{buildingEl.monthAndYear}</div>
+                                            <img src={process.env.NEXT_PUBLIC_API_URL + '/static/img/' + String(url)}/>
+                                            <div className="step__date">{val.year}</div>
                                         </div>
                                     })
                                     }
                                 </Slider>
-                            </div>
-                        })
-                        }
+																</div>
+															)
+														})
+													
+												}
                     </SRLWrapper>
                 </div>
             </section>

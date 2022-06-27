@@ -21,10 +21,46 @@ class Api{
 function getApi({ api }: any) {
   const request: AxiosInstance = api
   return {
-    slidelist() {
+    aboutslidelist() {
       return request({
         method: 'get',
         url: `/components/galleryslide/list`,
+       })
+    },
+		headslidelist() {
+      return request({
+        method: 'get',
+        url: `/components/galleryhead/list`,
+       })
+    },
+		corusslidelist() {
+      return request({
+        method: 'get',
+        url: `/components/carousel/list`,
+       })
+    },
+		stepslidelist() {
+      return request({
+        method: 'get',
+        url: `/components/stepbuild/build/list`,
+       })
+    },
+		videolidelist() {
+      return request({
+        method: 'get',
+        url: `/components/stepbuild/step/list`,
+       })
+    },
+		contactlidelist() {
+      return request({
+        method: 'get',
+        url: `/components/setingsadress/list`,
+       })
+    },
+		tellidelist() {
+      return request({
+        method: 'get',
+        url: `/components/setingphone/list`,
        })
     },
 		crm(data:any){

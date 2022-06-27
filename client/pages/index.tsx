@@ -4,7 +4,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable @next/next/no-sync-scripts */
 import type {NextPage} from 'next'
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import SetingSlide from '../components/SetingSlide/SetingSlide'
 import MainSlider from '../components/Sliders/Sliders'
 import StepBuild from '../components/StepBuild/StepBuild'
@@ -220,6 +220,32 @@ const Home: NextPage = () => {
         // @ts-ignore
         // window.macrocrm.send_request(params,onSuccess,onError);
     };
+
+
+		const [cont, setcont] = useState<any>(null);
+		const getSlide = async () =>{
+			const {data}:any = await Api.contactlidelist()
+			
+			if(data){
+				setcont(data[0])
+			}else{
+				setcont(null)
+			}
+		}
+		const [phone, setphone] = useState<any>(null);
+		const getPhone = async () =>{
+			const {data}:any = await Api.tellidelist()
+			if(data){
+				setphone(data[0])
+			}else{
+				setphone(null)
+			}
+		}
+		
+			useEffect(()=>{
+				getSlide()
+				getPhone()
+			},[])
 
     return (
         <>
@@ -472,25 +498,9 @@ const Home: NextPage = () => {
                         </div>
                     }
                     <StepBuild/>
-                    <div className='maaaar'/>
-                    <div className="row align-items-center mb-5">
-                        <div className="col-6 characteristic_h1 section-header">
-                            Видеоотчет май 2022
-                        </div>
-                        <div
-                            className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
-                            <Link
-                                href="https://www.youtube.com/channel/IhZ80AXpsk8">
-                                <a className="btn" target="_blank"> Смотреть всё</a>
-                            </Link>
-                        </div>
-                    </div>
+                    
 
-                    <div className='characteristic_video'>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/q4Ny9JKwIVQ"
-                                title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"/>
-                    </div>
+                    
                 </div>
             </section>
             {
@@ -649,22 +659,22 @@ const Home: NextPage = () => {
                             <div className="header">Офис продаж</div>
                             <div className="address">
                                 <div className="bottom-map__wrap">
-                                    <div className="address__city">г. Симферополь</div>
-                                    ул. Набережная 75В<br/>
-                                    с3, офис 232
+                                    <div className="address__city">{cont && cont.title}</div>
+                                    
+																		{
+																			cont && cont.descript
+																		}
                                     <div className="contacts__memo">
-                                        <div><span className="contacts__memo__email">sale@arcadacrimea.ru</span> - Отдел продаж</div>
-                                        <div><span className="contacts__memo__email">info@arcadacrimea.ru</span> - Для предложений</div>
+                                        <div><span className="contacts__memo__email">{cont && cont.mailsale}</span> - Отдел продаж</div>
+                                        <div><span className="contacts__memo__email">{cont && cont.mailinfo}</span> - Для предложений</div>
                                     </div>
                                 </div>
                             </div>
                             <div className="phone">
                                 <div className="bottom-map__wrap">
-                                    +7 978 718 08 08
+                                    {phone && phone.title}
                                     <div className="contacts__memo">
-                                        Обращаем ваше внимание, что режим работы службы поддержки:
-                                        с ПН по ПТ — 9:30 - 18:00,
-                                        СБ — 10:00 - 14:00. ВС — выходной
+																		{phone && phone.descript}
                                     </div>
                                 </div>
                             </div>

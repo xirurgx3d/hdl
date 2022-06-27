@@ -1,10 +1,12 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import "slick-carousel/slick/slick-theme.css";
+import Api from "../../Api/Api";
 
 const Courusels = (): JSX.Element => {
     const [nav1, setNav1] = useState<any>();
+		const [slide, setSlide] = useState<any>(null);
 
     const settings = {
         dots: true,
@@ -40,6 +42,22 @@ const Courusels = (): JSX.Element => {
             }
         ]
     };
+
+
+		const getSlide = async () =>{
+			const {data}:any = await Api.corusslidelist()
+			if(data){
+				setSlide(data)
+			}else{
+				setSlide(null)
+			}
+		}
+		
+			useEffect(()=>{
+				getSlide()
+			},[])
+
+
 
     type carouselItem = {
         imageUrl: string,
@@ -96,17 +114,20 @@ const Courusels = (): JSX.Element => {
     return (
         <>
             <Slider className="coruselus" ref={slide => setNav1(slide)} {...settings}>
-                {carouselArray.map((el: carouselItem, idx) => {
+               
+								{
+									slide && slide.map((el: any, idx:number) => {
                     return <div className="coruselus-itemes" key={idx.toString()}>
                         <img src={el.imageUrl} alt="infrastructure"/>
+												<img className="slide__image" src={process.env.NEXT_PUBLIC_API_URL + '/static/img/' + String(el.img)} />
                         <div className="location__infrastructure__title">{el.title}</div>
                         <div className="location__infrastructure__time d-flex">
-                            {el.timeDistanceFoot && <div className="foot">{el.timeDistanceFoot}</div>}
-                            <div className="car">{el.timeDistanceCar}</div>
+                            {el.run && <div className="foot">{el.run}</div>}
+                            {el.car && <div className="car">{el.car}</div>}
                         </div>
                     </div>
-                })
-                }
+                	})
+								}
             </Slider>
         </>
     )

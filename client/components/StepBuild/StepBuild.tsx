@@ -1,8 +1,10 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {SRLWrapper} from "simple-react-lightbox";
 import "slick-carousel/slick/slick-theme.css";
+import Api from "../../Api/Api";
+import Link from "next/link";
 
 const StepBuild = (): JSX.Element => {
   const [nav1, setNav1] = useState<any>();
@@ -65,6 +67,32 @@ const StepBuild = (): JSX.Element => {
     nav1.slickGoTo(e)
   }
 
+	const [slide, setSlide] = useState<any>(null);
+	const getSlide = async () =>{
+		const {data}:any = await Api.stepslidelist()
+		//console.log(data[data.lenght -1]);
+		if(data){
+			setSlide(data[0])
+		}else{
+			setSlide(null)
+		}
+	}
+
+	const [video, setVideo] = useState<any>(null);
+	const getvideo = async () =>{
+		const {data}:any = await Api.videolidelist()
+		if(data){
+			setVideo(data[0])
+		}else{
+			setVideo(null)
+		}
+	}
+	
+		useEffect(()=>{
+			getSlide()
+			getvideo()
+		},[])
+
     const wrapperOptions = {
         buttons: {
             backgroundColor: 'rgba(30,30,36,0.8)',
@@ -92,17 +120,45 @@ const StepBuild = (): JSX.Element => {
     };
 
     return (
+				<>
         <SRLWrapper options={wrapperOptions}>
             <Slider className="coruselus steps__slider" ref={slide => setNav1(slide)} {...settings}>
-                {buildingPicturePerMonth.imgUrls.map((imgUrl: string, idx: number) => {
-                    return <div key={idx.toString()} className="coruselus-itemes">
-                        <img src={imgUrl} alt={buildingPicturePerMonth.monthAndYear}/>
-                        <div className="step__date">{buildingPicturePerMonth.monthAndYear}</div>
-                    </div>
-                })
-                }
+                
+
+								{
+									slide && slide.img.map((val:any)=>{
+											return (
+												<div key={val} className="coruselus-itemes">
+												<img src={process.env.NEXT_PUBLIC_API_URL + '/static/img/' + String(val)} />
+												<div className="step__date">{slide.year}</div>
+												</div>
+											)
+										})
+									
+								}
+								
             </Slider>
         </SRLWrapper>
+				<div className='maaaar'/>
+                    <div className="row align-items-center mb-5">
+                        <div className="col-6 characteristic_h1 section-header">
+                            {video && video.title}
+                        </div>
+                        <div
+                            className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
+                            <Link
+                                href="https://www.youtube.com/channel/IhZ80AXpsk8">
+                                <a className="btn" target="_blank"> Смотреть всё</a>
+                            </Link>
+                        </div>
+                    </div>
+
+										<div className='characteristic_video'>
+                        <iframe width="560" height="315" src={video && video.url}
+                                title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"/>
+                    </div>
+				</>
     )
 }
 

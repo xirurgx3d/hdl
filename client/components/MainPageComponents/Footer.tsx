@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link as Links} from "react-scroll/modules";
 import Link from "next/link";
+import Api from '../../Api/Api';
 
 type Props = {
     footerRef: any;
@@ -19,6 +20,20 @@ const Footer = (props: Props) => {
     const { footerRef, footerScroll, handleSellsOfficeModal, aboutSectionScroll, handleChessMacro, locationScroll } = props;
     const { handleSettingPage, handleIsSettingModalOpen, handleIsMaterialModalOpen, handleIsDocModalOpen } = props;
 
+		const [slide, setSlide] = useState<any>(null);
+		const getSlide = async () =>{
+			const {data}:any = await Api.tellidelist()
+			if(data){
+				setSlide(data[0])
+			}else{
+				setSlide(null)
+			}
+		}
+		
+			useEffect(()=>{
+				getSlide()
+			},[])
+
     return (
         <>
             <footer className="prefooter" ref={footerRef}>
@@ -27,7 +42,7 @@ const Footer = (props: Props) => {
                         <div className="prefooter__top">
                             <div className="prefooter__contact ">
                                 <a className="phone" href='tel:+7 978 718 08 08'>
-                                    <div>+7 978 718 08 08</div>
+                                    <div>{slide && slide.title}</div>
                                 </a>
                             </div>
                             <div className="zastr">
