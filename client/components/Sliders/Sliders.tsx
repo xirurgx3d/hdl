@@ -14,6 +14,7 @@ const MainSlider = () => {
   }
 
   //onInit: window.resize https://github.com/kenwheeler/slick/issues/235
+	/*
   const settings = {
     dots: true,
     infinite: true,
@@ -28,6 +29,15 @@ const MainSlider = () => {
       updateSize();
       return () => window.removeEventListener('resize', updateSize);
     }
+  };
+	*/
+	const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+      useCSS: true
   };
 
 
