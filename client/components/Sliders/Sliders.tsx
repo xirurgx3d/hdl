@@ -14,7 +14,7 @@ const MainSlider = () => {
   }
 
   //onInit: window.resize https://github.com/kenwheeler/slick/issues/235
-	/*
+	
   const settings = {
     dots: true,
     infinite: true,
@@ -30,7 +30,7 @@ const MainSlider = () => {
       return () => window.removeEventListener('resize', updateSize);
     }
   };
-	*/
+	/*
 	const settings = {
     dots: true,
     infinite: true,
@@ -39,7 +39,7 @@ const MainSlider = () => {
     slidesToScroll: 1,
       useCSS: true
   };
-
+*/
 
 	const getSlide = async () =>{
 		const {data}:any = await Api.headslidelist()
