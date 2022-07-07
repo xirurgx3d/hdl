@@ -147,7 +147,7 @@ const StepBuild = (): JSX.Element => {
                         <div
                             className="col-6 characteristic_h1  section-btn d-flex justify-content-md-end align-self-center">
                             <Link
-                                href="https://www.youtube.com/channel/IhZ80AXpsk8">
+                                href="https://www.youtube.com/channel/UCfwmRlxxlBg-Ich06wVevVw">
                                 <a className="btn" target="_blank"> Смотреть всё</a>
                             </Link>
                         </div>
