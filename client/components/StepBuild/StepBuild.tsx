@@ -72,7 +72,7 @@ const StepBuild = (): JSX.Element => {
 		const {data}:any = await Api.stepslidelist()
 		//console.log(data[data.lenght -1]);
 		if(data){
-			setSlide(data[0])
+			setSlide(data[data.lenght -1])
 		}else{
 			setSlide(null)
 		}
