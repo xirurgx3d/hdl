@@ -70,9 +70,9 @@ const StepBuild = (): JSX.Element => {
 	const [slide, setSlide] = useState<any>(null);
 	const getSlide = async () =>{
 		const {data}:any = await Api.stepslidelist()
-		//console.log(data[data.lenght -1]);
+
 		if(data){
-			setSlide(data[data.lenght -1])
+			setSlide(data[data.length -1])
 		}else{
 			setSlide(null)
 		}
