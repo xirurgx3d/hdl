@@ -252,6 +252,11 @@ const Home: NextPage = () => {
             <Head>
                 <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=25ff2aee-f172-4ef8-9ba4-6e829954c5b5"/>
                 <script src="//code-ya.jivosite.com/widget/xhQVlWMolS" async/>
+
+				        <meta name="keywords" content="МЕТА ТЕГИ" />
+								<meta name="description" content="МЕТА ТЕГИ" />
+				        <meta name="author" content="Syamlal CM" />
+				        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 {/*<YMInitializer accounts={[70887214]} options={{webvisor: true}} />*/}
                 //Yandex.Metrika counter
 								<script src='/met.js'/>
@@ -259,6 +264,7 @@ const Home: NextPage = () => {
 								<script src='/vidj.js'/>
 								<script src='/domo.js'/>
 								<script src='/maps.js'/>
+								<script src='/pixel.js'/>
 
 								<noscript>
                     <div><img src="https://mc.yandex.ru/watch/70887214" className='metka' alt=""/></div>
