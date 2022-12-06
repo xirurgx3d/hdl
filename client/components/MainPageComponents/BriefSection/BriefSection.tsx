@@ -13,13 +13,13 @@ const BriefSection = ({handleChessMacro}: Props) => {
                     <div className="brief__memo">Жилой квартал</div>
                 </div>
                 <div className="col-sm-2 col-12 d-sm-block d-flex flex-column-reverse">
-                    <div className="brief__name">от 3,6 млн ₽</div>
+                    <div className="brief__name">от 3,0 млн ₽</div>
                     <div className="brief__memo">ЦЕНА квартиры</div>
                 </div>
                 <div className="col-sm-2 col-12 d-sm-block d-flex flex-column-reverse">
                     <div className="brief__name">
-                        4кв.
-                        2022
+												1-2кв.
+                        2023
                         <img src="/assets/ico/question.svg" alt="question"/>
                     </div>
                     <div className="brief__memo">ПЕРВИЧНая СДАЧа</div>
