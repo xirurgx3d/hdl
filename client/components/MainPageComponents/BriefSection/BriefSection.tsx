@@ -18,7 +18,7 @@ const BriefSection = ({handleChessMacro}: Props) => {
                 </div>
                 <div className="col-sm-2 col-12 d-sm-block d-flex flex-column-reverse">
                     <div className="brief__name">
-												1-2кв.
+												I-II кв.
                         2023
                         <img src="/assets/ico/question.svg" alt="question"/>
                     </div>
